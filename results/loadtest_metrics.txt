@@ -1,0 +1,57 @@
+# --- miss: before ---
+riskclf_requests_total{label="legit",source="llm"} 1.0
+riskclf_request_seconds_count{source="llm"} 1.0
+riskclf_llm_call_seconds_count 1.0
+riskclf_cache_total{result="miss"} 1.0
+riskclf_llm_tokens_total{type="prompt"} 360.0
+riskclf_llm_tokens_total{type="completion"} 30.0
+# --- miss: after ---
+riskclf_requests_total{label="legit",source="llm"} 77.0
+riskclf_requests_total{label="scam",source="llm"} 24.0
+riskclf_request_seconds_count{source="llm"} 101.0
+riskclf_llm_call_seconds_count 101.0
+riskclf_cache_total{result="miss"} 101.0
+riskclf_llm_tokens_total{type="prompt"} 38032.0
+riskclf_llm_tokens_total{type="completion"} 2791.0
+# --- hit: before ---
+riskclf_requests_total{label="legit",source="llm"} 77.0
+riskclf_requests_total{label="scam",source="llm"} 24.0
+riskclf_request_seconds_count{source="llm"} 101.0
+riskclf_llm_call_seconds_count 101.0
+riskclf_cache_total{result="miss"} 101.0
+riskclf_llm_tokens_total{type="prompt"} 38032.0
+riskclf_llm_tokens_total{type="completion"} 2791.0
+# --- hit: after ---
+riskclf_requests_total{label="legit",source="llm"} 77.0
+riskclf_requests_total{label="scam",source="llm"} 24.0
+riskclf_requests_total{label="legit",source="cache"} 76.0
+riskclf_requests_total{label="scam",source="cache"} 24.0
+riskclf_request_seconds_count{source="llm"} 101.0
+riskclf_request_seconds_count{source="cache"} 100.0
+riskclf_llm_call_seconds_count 101.0
+riskclf_cache_total{result="miss"} 101.0
+riskclf_cache_total{result="hit"} 100.0
+riskclf_llm_tokens_total{type="prompt"} 38032.0
+riskclf_llm_tokens_total{type="completion"} 2791.0
+# --- timeout: before ---
+riskclf_llm_call_seconds_count 0.0
+# --- timeout: after ---
+riskclf_requests_total{label="legit",source="rules"} 94.0
+riskclf_requests_total{label="scam",source="rules"} 6.0
+riskclf_request_seconds_count{source="rules"} 100.0
+riskclf_llm_call_seconds_count 0.0
+riskclf_llm_errors_total{kind="timeout"} 100.0
+riskclf_cache_total{result="miss"} 100.0
+# --- hybrid: before ---
+riskclf_llm_call_seconds_count 0.0
+# --- hybrid: after ---
+riskclf_requests_total{label="legit",source="tfidf"} 75.0
+riskclf_requests_total{label="scam",source="tfidf"} 11.0
+riskclf_requests_total{label="legit",source="llm"} 10.0
+riskclf_requests_total{label="scam",source="llm"} 4.0
+riskclf_request_seconds_count{source="tfidf"} 86.0
+riskclf_request_seconds_count{source="llm"} 14.0
+riskclf_llm_call_seconds_count 14.0
+riskclf_cache_total{result="miss"} 14.0
+riskclf_llm_tokens_total{type="prompt"} 5335.0
+riskclf_llm_tokens_total{type="completion"} 387.0

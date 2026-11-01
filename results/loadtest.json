@@ -1,0 +1,124 @@
+{
+  "llm_model": "qwen2.5-1.5b-instruct-q4_k_m",
+  "n_per_phase": 100,
+  "concurrency": 1,
+  "normalized_text_order_sha256": "2810d80d24097afa5b8ada72a44c2ab7f6ff2fbc0ee06b07f54c4864749d8369",
+  "quantiles": "numpy percentile, linear interpolation",
+  "metrics_scope": "per-phase counter deltas, excluding one service warm-up",
+  "llm_cache_miss": {
+    "n": 100,
+    "p50_ms": 97.0037,
+    "p95_ms": 121.5538,
+    "p99_ms": 125.552,
+    "mean_ms": 100.5658,
+    "elapsed_seconds_per_1k": 100.5658,
+    "sources": {
+      "llm": 100
+    },
+    "prometheus_delta": {
+      "requests_by_source": {
+        "llm": 100.0
+      },
+      "latency_observations_by_source": {
+        "llm": 100.0
+      },
+      "cache_by_result": {
+        "miss": 100.0
+      },
+      "llm_errors_by_kind": {},
+      "reported_tokens": {
+        "prompt": 37672.0,
+        "completion": 2761.0
+      },
+      "successful_llm_calls": 100.0
+    },
+    "metrics_reconciled": true
+  },
+  "llm_cache_hit": {
+    "n": 100,
+    "p50_ms": 0.7321,
+    "p95_ms": 0.8778,
+    "p99_ms": 1.0335,
+    "mean_ms": 0.759,
+    "elapsed_seconds_per_1k": 0.759,
+    "sources": {
+      "cache": 100
+    },
+    "prometheus_delta": {
+      "requests_by_source": {
+        "cache": 100.0
+      },
+      "latency_observations_by_source": {
+        "cache": 100.0
+      },
+      "cache_by_result": {
+        "hit": 100.0
+      },
+      "llm_errors_by_kind": {},
+      "reported_tokens": {},
+      "successful_llm_calls": 0
+    },
+    "metrics_reconciled": true
+  },
+  "llm_timeout_fallback": {
+    "n": 100,
+    "p50_ms": 6.7206,
+    "p95_ms": 7.1633,
+    "p99_ms": 9.1258,
+    "mean_ms": 6.8095,
+    "elapsed_seconds_per_1k": 6.8095,
+    "sources": {
+      "rules": 100
+    },
+    "prometheus_delta": {
+      "requests_by_source": {
+        "rules": 100.0
+      },
+      "latency_observations_by_source": {
+        "rules": 100.0
+      },
+      "cache_by_result": {
+        "miss": 100.0
+      },
+      "llm_errors_by_kind": {
+        "timeout": 100.0
+      },
+      "reported_tokens": {},
+      "successful_llm_calls": 0
+    },
+    "metrics_reconciled": true,
+    "timeout_s": 0.005
+  },
+  "hybrid": {
+    "n": 100,
+    "p50_ms": 2.0268,
+    "p95_ms": 102.4554,
+    "p99_ms": 116.6515,
+    "mean_ms": 16.2709,
+    "elapsed_seconds_per_1k": 16.2709,
+    "sources": {
+      "tfidf": 86,
+      "llm": 14
+    },
+    "prometheus_delta": {
+      "requests_by_source": {
+        "tfidf": 86.0,
+        "llm": 14.0
+      },
+      "latency_observations_by_source": {
+        "tfidf": 86.0,
+        "llm": 14.0
+      },
+      "cache_by_result": {
+        "miss": 14.0
+      },
+      "llm_errors_by_kind": {},
+      "reported_tokens": {
+        "prompt": 5335.0,
+        "completion": 387.0
+      },
+      "successful_llm_calls": 14.0
+    },
+    "metrics_reconciled": true
+  }
+}

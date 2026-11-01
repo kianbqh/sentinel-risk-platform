@@ -1,0 +1,97 @@
+{
+  "dataset": {
+    "name": "UCI SMS Spam Collection (CC BY 4.0), exact-duplicate texts removed",
+    "train": 4136,
+    "test": 1035,
+    "test_scam": 131
+  },
+  "machine": {
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "processor": "x86_64"
+  },
+  "full_test": {
+    "tfidf_lr": {
+      "n": 1035,
+      "accuracy": 0.9894,
+      "precision": 0.9688,
+      "recall": 0.9466,
+      "f1": 0.9575,
+      "pr_auc": 0.9891
+    },
+    "rules": {
+      "n": 1035,
+      "accuracy": 0.9536,
+      "precision": 0.9882,
+      "recall": 0.6412,
+      "f1": 0.7778,
+      "latency_ms_mean": 0.0194
+    },
+    "hybrid_llm_call_fraction": 0.0918
+  },
+  "subsample": {
+    "n": 400,
+    "scam": 51,
+    "text_order_sha256": "f696905539cca1148e5a6091bbabf3e8c21e65366623f332f63427b78da1925d",
+    "tfidf_lr": {
+      "n": 400,
+      "accuracy": 0.985,
+      "precision": 0.9787,
+      "recall": 0.902,
+      "f1": 0.9388,
+      "latency_ms_p50": 0.9011,
+      "latency_ms_p95": 1.0895,
+      "latency_ms_mean": 0.9207,
+      "elapsed_seconds_per_1k": 0.9207
+    },
+    "rules": {
+      "n": 400,
+      "accuracy": 0.955,
+      "precision": 0.9714,
+      "recall": 0.6667,
+      "f1": 0.7907,
+      "latency_ms_p50": 0.0109,
+      "latency_ms_p95": 0.0271,
+      "latency_ms_mean": 0.0137,
+      "elapsed_seconds_per_1k": 0.0137
+    },
+    "llm:qwen2.5-1.5b-q4": {
+      "n": 400,
+      "accuracy": 0.8075,
+      "precision": 0.3818,
+      "recall": 0.8235,
+      "f1": 0.5217,
+      "latency_ms_p50": 97.8644,
+      "latency_ms_p95": 125.1869,
+      "latency_ms_mean": 102.3438,
+      "elapsed_seconds_per_1k": 102.3438,
+      "model": "qwen2.5-1.5b-instruct-q4_k_m",
+      "errors_fell_back_to_rules": {},
+      "successful_verdict_rate": 1.0,
+      "sampling_seed": 42,
+      "prompt_tokens_per_1k": 380090,
+      "completion_tokens_per_1k": 28292
+    },
+    "hybrid:qwen2.5-1.5b-q4": {
+      "n": 400,
+      "accuracy": 0.96,
+      "precision": 0.8182,
+      "recall": 0.8824,
+      "f1": 0.8491,
+      "latency_ms_p50": 0.9142,
+      "latency_ms_p95": 105.7636,
+      "latency_ms_mean": 12.8455,
+      "elapsed_seconds_per_1k": 12.8455,
+      "llm_call_fraction": 0.1125,
+      "latency_measurement": "derived from paired LLM + TF-IDF latencies; not a separate routed run"
+    }
+  },
+  "method": {
+    "split_seed": 42,
+    "prompt_version": "v1",
+    "temperature": 0,
+    "max_tokens": 80,
+    "quantiles": "numpy percentile, linear interpolation",
+    "elapsed_time_scope": "sequential client wall time; includes local HTTP, decoding and validation",
+    "hybrid_scope": "replayed decisions; latency derived from paired TF-IDF and LLM measurements"
+  }
+}
