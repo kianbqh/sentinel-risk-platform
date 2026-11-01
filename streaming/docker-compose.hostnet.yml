@@ -1,0 +1,16 @@
+# Override for hosts where Docker runs without iptables (the CI/box this was measured on):
+# use host networking so localhost:19092 reaches the broker directly.
+services:
+  redpanda:
+    network_mode: host
+    ports: !reset []
+    command:
+      - redpanda
+      - start
+      - --mode=dev-container
+      - --smp=2
+      - --memory=2G
+      - --kafka-addr=external://127.0.0.1:19092
+      - --advertise-kafka-addr=external://127.0.0.1:19092
+      - --rpc-addr=127.0.0.1:33145
+      - --advertise-rpc-addr=127.0.0.1:33145
