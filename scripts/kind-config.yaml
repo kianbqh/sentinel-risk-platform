@@ -1,0 +1,13 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+kubeadmConfigPatches:
+  - |
+    apiVersion: kubeadm.k8s.io/v1beta4
+    kind: InitConfiguration
+    timeouts:
+      kubernetesAPICall: 5m0s
+      controlPlaneComponentHealthCheck: 5m0s
+networking:
+  kubeProxyMode: nftables
+nodes:
+  - role: control-plane

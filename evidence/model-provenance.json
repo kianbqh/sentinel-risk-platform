@@ -1,0 +1,9 @@
+{
+  "threshold": 0.9999722811772073,
+  "model_sha256": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+  "source": "1_stripe_fraud_ml/stripe-fraud-ml/models",
+  "roc_auc": 0.9857916148016731,
+  "copied_utc": "2026-11-01T00:59:03.5953397Z",
+  "metadata_sha256": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+  "pr_auc": 0.7275893300291064
+}

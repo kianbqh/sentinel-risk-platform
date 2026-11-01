@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraud-api-config
+  namespace: fraud
+data:
+  WORKERS: "1"          # 1 uvicorn worker per pod; scale out with replicas/HPA instead
+  LOG_LEVEL: "INFO"
+  MAX_BATCH: "512"

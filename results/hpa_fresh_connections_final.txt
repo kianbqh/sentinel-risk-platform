@@ -1,0 +1,7 @@
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          3m34s
+
+NAME                             READY   STATUS      RESTARTS   AGE     IP            NODE                  NOMINATED NODE   READINESS GATES
+pod/fraud-api-5969479487-9zpcb   1/1     Running     0          5m37s   10.244.0.14   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-lsxzt   1/1     Running     0          5m27s   10.244.0.15   fraud-control-plane   <none>           <none>
+pod/hey-load-8h2gb               0/1     Completed   0          3m30s   10.244.0.20   fraud-control-plane   <none>           <none>

@@ -1,0 +1,4 @@
+region        = "us-west-2"
+image_tag     = "1.0.0"
+desired_count = 2
+max_count     = 6

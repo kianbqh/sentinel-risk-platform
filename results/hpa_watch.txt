@@ -1,0 +1,534 @@
+2026-11-01T01:13:51Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          99s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          99s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          100s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   2m           98Mi            
+2026-11-01T01:13:57Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          105s
+
+NAME                             READY   STATUS              RESTARTS   AGE
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running             0          105s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running             0          106s
+pod/hey-load-nlctb               0/1     ContainerCreating   0          5s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   2m           98Mi            
+2026-11-01T01:14:04Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          111s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          111s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          112s
+pod/hey-load-nlctb               1/1     Running   0          11s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   1m           98Mi            
+2026-11-01T01:14:09Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          116s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          116s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          117s
+pod/hey-load-nlctb               1/1     Running   0          16s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   1m           98Mi            
+2026-11-01T01:14:14Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          2m1s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m1s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m2s
+pod/hey-load-nlctb               1/1     Running   0          21s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   1m           98Mi            
+2026-11-01T01:14:19Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 114%/60%   2         6         2          2m7s
+
+NAME                             READY   STATUS              RESTARTS   AGE
+pod/fraud-api-6fc85bd499-9crjg   0/1     ContainerCreating   0          3s
+pod/fraud-api-6fc85bd499-rf84f   0/1     ContainerCreating   0          3s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running             0          2m7s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running             0          2m8s
+pod/hey-load-nlctb               1/1     Running             0          27s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   569m         103Mi           
+hey-load-nlctb               241m         69Mi            
+2026-11-01T01:14:26Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 114%/60%   2         6         2          2m13s
+
+NAME                             READY   STATUS              RESTARTS   AGE
+pod/fraud-api-6fc85bd499-9crjg   0/1     ContainerCreating   0          9s
+pod/fraud-api-6fc85bd499-rf84f   0/1     ContainerCreating   0          9s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running             0          2m13s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running             0          2m14s
+pod/hey-load-nlctb               1/1     Running             0          33s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   2m           98Mi            
+fraud-api-6fc85bd499-zwxqm   569m         103Mi           
+hey-load-nlctb               241m         69Mi            
+2026-11-01T01:14:31Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 114%/60%   2         6         2          2m18s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          14s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          14s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m18s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m19s
+pod/hey-load-nlctb               1/1     Running   0          38s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   986m         104Mi           
+fraud-api-6fc85bd499-zwxqm   569m         103Mi           
+hey-load-nlctb               328m         70Mi            
+2026-11-01T01:14:36Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 311%/60%   2         6         4          2m23s
+
+NAME                             READY   STATUS              RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   0/1     ContainerCreating   0          3s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running             0          19s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running             0          19s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running             0          2m23s
+pod/fraud-api-6fc85bd499-z87s5   0/1     ContainerCreating   0          4s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running             0          2m24s
+pod/hey-load-nlctb               1/1     Running             0          43s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   986m         104Mi           
+fraud-api-6fc85bd499-zwxqm   569m         103Mi           
+hey-load-nlctb               328m         70Mi            
+2026-11-01T01:14:42Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 311%/60%   2         6         4          2m29s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   0/1     Running   0          9s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          25s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          25s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m29s
+pod/fraud-api-6fc85bd499-z87s5   0/1     Running   0          10s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m30s
+pod/hey-load-nlctb               1/1     Running   0          49s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-x4p6s   986m         104Mi           
+fraud-api-6fc85bd499-zwxqm   569m         103Mi           
+hey-load-nlctb               328m         70Mi            
+2026-11-01T01:14:47Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 266%/60%   2         6         6          2m34s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          14s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          30s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          30s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m34s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          15s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m35s
+pod/hey-load-nlctb               1/1     Running   0          54s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-9crjg   119m         98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        104Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               337m         73Mi            
+2026-11-01T01:14:53Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 266%/60%   2         6         6          2m40s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          20s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          36s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          36s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m40s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          21s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m41s
+pod/hey-load-nlctb               1/1     Running   0          60s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-9crjg   119m         98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        104Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               337m         73Mi            
+2026-11-01T01:14:58Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 266%/60%   2         6         6          2m45s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          25s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          41s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          41s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m45s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          26s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m46s
+pod/hey-load-nlctb               1/1     Running   0          65s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-9crjg   119m         98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        104Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               337m         73Mi            
+2026-11-01T01:15:03Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          2m51s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          31s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          47s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          47s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m51s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          32s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m52s
+pod/hey-load-nlctb               1/1     Running   0          71s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   1m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   1m           100Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               331m         76Mi            
+2026-11-01T01:15:09Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          2m56s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          36s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          52s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          52s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          2m56s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          37s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          2m57s
+pod/hey-load-nlctb               1/1     Running   0          76s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   1m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   1m           100Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               331m         76Mi            
+2026-11-01T01:15:14Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m1s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          41s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          57s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          57s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m1s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          42s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m2s
+pod/hey-load-nlctb               1/1     Running   0          81s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   1m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   1m           100Mi           
+fraud-api-6fc85bd499-zwxqm   995m         116Mi           
+hey-load-nlctb               331m         76Mi            
+2026-11-01T01:15:19Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m7s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          47s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          63s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          63s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m7s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          48s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m8s
+pod/hey-load-nlctb               1/1     Running   0          87s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           101Mi           
+fraud-api-6fc85bd499-zwxqm   997m         103Mi           
+hey-load-nlctb               330m         79Mi            
+2026-11-01T01:15:25Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m12s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          52s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          68s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          68s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m12s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          53s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m13s
+pod/hey-load-nlctb               1/1     Running   0          92s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           101Mi           
+fraud-api-6fc85bd499-zwxqm   997m         103Mi           
+hey-load-nlctb               330m         79Mi            
+2026-11-01T01:15:30Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m17s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          57s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          73s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          73s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m17s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          58s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m18s
+pod/hey-load-nlctb               1/1     Running   0          97s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   1m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           101Mi           
+fraud-api-6fc85bd499-zwxqm   997m         103Mi           
+hey-load-nlctb               330m         79Mi            
+2026-11-01T01:15:35Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m22s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          62s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          78s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          78s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m22s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          63s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m23s
+pod/hey-load-nlctb               1/1     Running   0          102s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   1m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               339m         83Mi            
+2026-11-01T01:15:41Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m29s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          69s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          85s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          85s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m29s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          70s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m30s
+pod/hey-load-nlctb               1/1     Running   0          109s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   1m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               339m         83Mi            
+2026-11-01T01:15:47Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m34s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          74s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          90s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          90s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m34s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          75s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m35s
+pod/hey-load-nlctb               1/1     Running   0          114s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               344m         86Mi            
+2026-11-01T01:15:52Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m40s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          81s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          97s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          97s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m41s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          82s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m42s
+pod/hey-load-nlctb               1/1     Running   0          2m1s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               344m         86Mi            
+2026-11-01T01:15:59Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m46s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          86s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          102s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          102s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m46s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          87s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m47s
+pod/hey-load-nlctb               1/1     Running   0          2m6s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               344m         86Mi            
+2026-11-01T01:16:04Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m52s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          92s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          108s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          108s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m52s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          93s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m53s
+pod/hey-load-nlctb               1/1     Running   0          2m12s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           99Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   996m         104Mi           
+hey-load-nlctb               347m         88Mi            
+2026-11-01T01:16:10Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          3m58s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          98s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          114s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          114s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          3m58s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          99s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          3m59s
+pod/hey-load-nlctb               1/1     Running   0          2m18s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           99Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   996m         104Mi           
+hey-load-nlctb               347m         88Mi            
+2026-11-01T01:16:16Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          4m3s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          103s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          119s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          119s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          4m3s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          104s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          4m4s
+pod/hey-load-nlctb               1/1     Running   0          2m23s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           99Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   999m         104Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   996m         104Mi           
+hey-load-nlctb               342m         93Mi            
+2026-11-01T01:16:21Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          4m8s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          108s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          2m4s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          2m4s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          4m8s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          109s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          4m9s
+pod/hey-load-nlctb               1/1     Running   0          2m28s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           99Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   999m         104Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   996m         104Mi           
+hey-load-nlctb               342m         93Mi            
+2026-11-01T01:16:26Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          4m13s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          113s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          2m9s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          2m9s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          4m13s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          114s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          4m14s
+pod/hey-load-nlctb               1/1     Running   0          2m33s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           98Mi            
+fraud-api-6fc85bd499-9crjg   2m           99Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   999m         104Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   996m         104Mi           
+hey-load-nlctb               342m         93Mi            
+2026-11-01T01:16:32Z
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          4m19s
+
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running   0          119s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running   0          2m15s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running   0          2m15s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running   0          4m19s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running   0          2m
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running   0          4m20s
+pod/hey-load-nlctb               1/1     Running   0          2m39s
+NAME                         CPU(cores)   MEMORY(bytes)   
+fraud-api-6fc85bd499-4gn6f   2m           99Mi            
+fraud-api-6fc85bd499-9crjg   2m           98Mi            
+fraud-api-6fc85bd499-rf84f   2m           98Mi            
+fraud-api-6fc85bd499-x4p6s   1000m        105Mi           
+fraud-api-6fc85bd499-z87s5   2m           100Mi           
+fraud-api-6fc85bd499-zwxqm   1000m        103Mi           
+hey-load-nlctb               342m         93Mi            
+2026-11-01T01:16:37Z
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         6          5m10s
+
+NAME                             READY   STATUS      RESTARTS   AGE
+pod/fraud-api-6fc85bd499-4gn6f   1/1     Running     0          2m50s
+pod/fraud-api-6fc85bd499-9crjg   1/1     Running     0          3m6s
+pod/fraud-api-6fc85bd499-rf84f   1/1     Running     0          3m6s
+pod/fraud-api-6fc85bd499-x4p6s   1/1     Running     0          5m10s
+pod/fraud-api-6fc85bd499-z87s5   1/1     Running     0          2m51s
+pod/fraud-api-6fc85bd499-zwxqm   1/1     Running     0          5m11s
+pod/hey-load-nlctb               0/1     Completed   0          3m30s

@@ -1,0 +1,16 @@
+{
+  "base_url": "http://127.0.0.1:8005",
+  "readiness": {
+    "status": "ready",
+    "model": "logreg_balanced",
+    "threshold": 0.9999722811772073
+  },
+  "single": {
+    "fraud_score": 0.015085922103476694,
+    "flagged": false,
+    "threshold": 0.9999722811772073
+  },
+  "batch_n": 64,
+  "batch_n_flagged": 1,
+  "single_batch_parity": true
+}

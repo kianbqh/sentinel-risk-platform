@@ -1,0 +1,18 @@
+# In-cluster load test: hey pod -> ClusterIP Service -> fraud-api pods (avoids port-forward bottleneck).
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hey-load
+  namespace: fraud
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: hey
+          image: hey:local
+          imagePullPolicy: IfNotPresent
+          args: ["-z", "DURATION", "-c", "CONCURRENCY", "-m", "POST", "-T", "application/json",
+                 "-disable-keepalive=DISABLE_KEEPALIVE",
+                 "-D", "/sample_txn.json", "http://fraud-api.fraud.svc.cluster.local/score"]

@@ -1,0 +1,13 @@
+NAME                             READY   STATUS      RESTARTS   AGE     IP            NODE                  NOMINATED NODE   READINESS GATES
+pod/fraud-api-5969479487-9zpcb   1/1     Running     0          6m9s    10.244.0.14   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-lsxzt   1/1     Running     0          5m59s   10.244.0.15   fraud-control-plane   <none>           <none>
+pod/hey-load-8h2gb               0/1     Completed   0          4m2s    10.244.0.20   fraud-control-plane   <none>           <none>
+
+NAME                TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE   SELECTOR
+service/fraud-api   ClusterIP   10.96.8.41   <none>        80/TCP    12m   app=fraud-api
+
+NAME                                            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 0%/60%   2         6         2          4m6s
+
+NAME                                   MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+poddisruptionbudget.policy/fraud-api   1               N/A               1                     12m
