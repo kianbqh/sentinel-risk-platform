@@ -1,0 +1,44 @@
+{
+  "workflow_run_id": 41299200564,
+  "workflow_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41299200564",
+  "source_revision": "f2d3b528d14d3665ddfc26803620ef3d048de046",
+  "artifact_id": 13080952008,
+  "artifact_zip_sha256": "2418755166806268c4bc2405dbf7a7beb69250239fac711bc3ee0fd24e5c6387",
+  "zip_entry": "compose.log",
+  "compose_log_bytes": 21852127,
+  "compose_log_sha256": "9187747b5f94bae996d1cc11513304d35aa2aa4c08abb914785bb9a3a5bd4a8b",
+  "extraction": {
+    "console_line_regex": "^console-1\\s*\\|",
+    "errno99_line_regex": "connect\\(\\) to [^\\n]+ failed \\(99: Address not available\\)",
+    "access_log_http502_line_regex": "\"[^\"\\n]*\" 502 \\d+(?:\\s|$)",
+    "counting": "Count matching console lines once each; preserve original line order and bytes in the console extract.",
+    "error_timestamp_format": "%Y/%m/%d %H:%M:%S",
+    "error_timestamp_timezone": "UTC, matching the access log explicit +0000 offset in this CI console.",
+    "access_timestamp_format": "%d/%b/%Y:%H:%M:%S %z"
+  },
+  "nginx_upstream_errno99": {
+    "count": 6369,
+    "first_utc": "2026-11-01T10:58:35+00:00",
+    "last_utc": "2026-11-01T10:59:06+00:00",
+    "first_compose_line_1_based": 48337,
+    "last_compose_line_1_based": 67213
+  },
+  "nginx_access_http502": {
+    "count": 6369,
+    "first_utc": "2026-11-01T10:58:35+00:00",
+    "last_utc": "2026-11-01T10:59:06+00:00",
+    "first_compose_line_1_based": 48336,
+    "last_compose_line_1_based": 67211
+  },
+  "console_extract": {
+    "path": "41299200564/console.log.gz",
+    "lines": 86177,
+    "original_bytes": 21470892,
+    "original_sha256": "b42b263514057594e9e01581e526d2095da1f6be2727283059642712bde0f33a",
+    "stored_bytes": 202421,
+    "stored_sha256": "2bf711d11ab2844c6c4c37190c256f36ebff60fe6bb24b94199c5ab11fffd8d1",
+    "gzip_roundtrip_exact": true
+  },
+  "interpretation": "Historical proxy availability context. Original HIGH 6-5 alert HTTP bodies were not retained, so these counts do not determine their precise cause.",
+  "recomputed_utc": "2026-11-01T12:49:57.095215+00:00"
+}
