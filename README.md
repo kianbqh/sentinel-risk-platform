@@ -39,6 +39,8 @@ The demo uses a [bundled, SHA-256-checked prefix](gateway/fixtures/README.md) of
 
 The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash scripts/up.sh` uses the Linux host-network override for an engine with bridge networking disabled. Generated credentials and downloaded data stay in ignored local files.
 
+Containers write to ignored `.runtime/results/`. After the demo's checks pass, the host runner collects the evidence into `results/`, so reruns can update a fresh checkout's recorded results while the services remain non-root.
+
 ## What the models found
 
 | Experiment | Result | Evidence |

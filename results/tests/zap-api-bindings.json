@@ -1,0 +1,42 @@
+{
+  "image": "ghcr.io/zaproxy/zaproxy:stable",
+  "network_calls": 0,
+  "bindings": [
+    {
+      "method": "import_url",
+      "signature": "(endurl, url=None, apikey='')",
+      "arguments": {
+        "endurl": "http://127.0.0.1:13040/graphql"
+      }
+    },
+    {
+      "method": "set_option_max_query_depth",
+      "signature": "(integer, apikey='')",
+      "arguments": {
+        "integer": 3
+      }
+    },
+    {
+      "method": "set_option_max_args_depth",
+      "signature": "(integer, apikey='')",
+      "arguments": {
+        "integer": 2
+      }
+    },
+    {
+      "method": "set_option_max_additional_query_depth",
+      "signature": "(integer, apikey='')",
+      "arguments": {
+        "integer": 0
+      }
+    },
+    {
+      "method": "set_option_lenient_max_query_depth_enabled",
+      "signature": "(boolean, apikey='')",
+      "arguments": {
+        "boolean": "false"
+      }
+    }
+  ],
+  "all_bindings_passed": true
+}

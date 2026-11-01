@@ -1,0 +1,17 @@
+{
+  "test_only_permission_fixture": true,
+  "service_uid": 10001,
+  "host_uid": 10002,
+  "existing_targets": {
+    "integration/summary.json": {
+      "uid": 10002,
+      "mode": "0o644"
+    },
+    "streaming/progress.jsonl": {
+      "uid": 10002,
+      "mode": "0o644"
+    }
+  },
+  "host_collection_as_nonroot_passed": true,
+  "integration_and_streaming_overwrite_verified": true
+}

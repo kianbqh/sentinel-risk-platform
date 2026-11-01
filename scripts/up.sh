@@ -10,8 +10,8 @@ Path('.env').write_text('POSTGRES_PASSWORD='+secrets.token_hex(24)+'\nJWT_SECRET
 PY
   chmod 600 .env
 fi
-mkdir -p results/ato results/streaming
-chmod 777 results/ato results/streaming
+mkdir -p .runtime/results/ato .runtime/results/streaming
+chmod 777 .runtime/results .runtime/results/ato .runtime/results/streaming
 files=(-f compose.yml)
 if [ "${HOST_NETWORK:-0}" = 1 ]; then files+=(-f compose.hostnet.yml); fi
 network=()

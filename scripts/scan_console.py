@@ -82,7 +82,11 @@ def run():
                     for alert in site["alerts"]:counts[str(alert["riskcode"])]+=1
                 record["risk_type_counts"]={"high":counts["3"],"medium":counts["2"],"low":counts["1"],"informational":counts["0"]}
                 proof=json.loads((raw/(mode+"-scope.json")).read_text())
-                if proof["target"]!=TARGET or not proof["authenticated_graphql_seed"] or proof["active_scan_max_minutes"]!=5:raise RuntimeError("Scope/auth proof missing")
+                if (proof["target"]!=TARGET or not proof["authenticated_graphql_seed"]
+                    or proof["authenticated_analyst_id"] != auth["register"]["user"]["id"]
+                    or proof["active_scan_max_minutes"]!=5
+                    or proof["graphql_generation_limits"]!={"query_depth":3,"args_depth":2,"additional_depth":0,"lenient_depth":"false"}):
+                    raise RuntimeError("Scope/auth/generation-bound proof missing")
             finally:
                 # This unique scanner is ours; leave every platform/shared service running.
                 subprocess.run([docker,"rm","-f",name],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)

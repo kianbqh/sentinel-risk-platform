@@ -23,6 +23,9 @@ def zap_started(zap, target):
     zap_common.context_id, zap_common.context_name = context_id, name
     zap.core.set_mode("protect")
     token = Path("/zap/analyst-token").read_text().strip()
+    for rule in zap.replacer.rules:
+        if rule.get("description") == "owned analyst JWT":
+            zap.replacer.remove_rule("owned analyst JWT")
     zap.replacer.add_rule("owned analyst JWT", "true", "REQ_HEADER", "false", "Authorization",
                           replacement="Bearer " + token, url=pattern)
     # Seed authenticated API requests as well as the browser entry page.
@@ -43,8 +46,19 @@ def zap_tuned(zap):
     # Limit generated GraphQL exploration to a bounded schema depth/message count.
     zap.graphql.set_option_max_query_depth(3)
     zap.graphql.set_option_max_args_depth(2)
-    zap.graphql.import_url(TARGET + "/graphql", maxmessages=40)
+    zap.graphql.set_option_max_additional_query_depth(0)
+    zap.graphql.set_option_lenient_max_query_depth_enabled("false")
+    limits = {"query_depth": int(zap.graphql.option_max_query_depth),
+              "args_depth": int(zap.graphql.option_max_args_depth),
+              "additional_depth": int(zap.graphql.option_max_additional_query_depth),
+              "lenient_depth": str(zap.graphql.option_lenient_max_query_depth_enabled).lower()}
+    if limits != {"query_depth": 3, "args_depth": 2, "additional_depth": 0, "lenient_depth": "false"}:
+        raise RuntimeError("GraphQL generation limits were not applied")
+    imported = zap.graphql.import_url(TARGET + "/graphql")
+    if str(imported).upper() != "OK":
+        raise RuntimeError("GraphQL schema import failed: " + str(imported))
     proof_path = Path(os.environ["SENTINEL_SCOPE_PROOF"])
     proof = json.loads(proof_path.read_text())
-    proof.update(active_scan_max_minutes=5, graphql_import_max_messages=40)
+    proof.update(active_scan_max_minutes=5, graphql_generation_limits=limits,
+                 graphql_import_result=str(imported))
     proof_path.write_text(json.dumps(proof, indent=2) + "\n")

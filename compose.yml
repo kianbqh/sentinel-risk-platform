@@ -93,7 +93,7 @@ services:
       ALERTS_TOPIC: sentinel.alerts.v1
       ALERT_FORMAT: sentinel-v1
     command: [stream, --run-id, platform, --checkpoint, /state/checkpoint, --progress-log, /results/progress.jsonl, --idle-timeout-s, '86400']
-    volumes: [spark-state:/state, './results/streaming:/results']
+    volumes: [spark-state:/state, './.runtime/results/streaming:/results']
     depends_on:
       topics: {condition: service_completed_successfully}
   ato:
@@ -105,7 +105,7 @@ services:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
     command: [python, -m, ato.publish, --limit, '100', --output, /results/publish.json]
-    volumes: ['./results/ato:/results']
+    volumes: ['./.runtime/results/ato:/results']
     depends_on:
       topics: {condition: service_completed_successfully}
   demo:
@@ -120,7 +120,7 @@ services:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
     command: [python, -m, gateway.demo]
-    volumes: ['./.runtime/data:/data', './results:/results']
+    volumes: ['./.runtime/data:/data', './.runtime/results:/results']
     depends_on: [gateway, backend, streaming]
 volumes:
   broker-data:
