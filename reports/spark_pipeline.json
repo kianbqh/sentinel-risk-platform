@@ -1,0 +1,13 @@
+{
+  "rows": 284807,
+  "null_cells": 0,
+  "duplicate_rows": 1081,
+  "rows_after_dedup": 283726,
+  "train_rows": 226982,
+  "test_rows": 56744,
+  "train_fraud": 399,
+  "test_fraud": 74,
+  "time_cutoff_seconds": 145234.0,
+  "spark_version": "4.3.0",
+  "runtime_seconds": 213.5
+}

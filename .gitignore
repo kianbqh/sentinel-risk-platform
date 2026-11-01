@@ -1,0 +1,12 @@
+.venv
+.venv-*/
+.cache/
+.tmp/
+data/
+mlruns/
+mlartifacts/
+mlflow.db*
+__pycache__/
+.pytest_cache/
+*.log
+reports/batch_scores.parquet

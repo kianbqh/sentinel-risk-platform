@@ -1,0 +1,18 @@
+{
+  "run_date": "2026-10-31",
+  "environment": "Windows / WSL2",
+  "pytest": {
+    "command": "python -m pytest -q --capture=sys tests",
+    "passed": 15,
+    "warnings": 2,
+    "exit_code": 0,
+    "seconds": 338.72
+  },
+  "windows_http_health": {
+    "status": "ok",
+    "model": "logreg_balanced"
+  },
+  "api_batch_agree": true,
+  "example_request_status": 200,
+  "missing_features_status": 422
+}

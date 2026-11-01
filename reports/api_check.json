@@ -1,0 +1,21 @@
+{
+  "health": {
+    "status": "ok",
+    "model": "logreg_balanced"
+  },
+  "rows_checked": 2,
+  "api_batch_agree": true,
+  "missing_features_status": 422,
+  "responses": [
+    {
+      "fraud_score": 7.0144233745904e-20,
+      "flagged": false,
+      "threshold": 0.9999722811772073
+    },
+    {
+      "fraud_score": 1.0,
+      "flagged": true,
+      "threshold": 0.9999722811772073
+    }
+  ]
+}

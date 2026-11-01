@@ -1,0 +1,57 @@
+{
+  "data": {
+    "train": 181586,
+    "val": 45396,
+    "test": 56744,
+    "train_fraud": 347,
+    "val_fraud": 52,
+    "test_fraud": 74
+  },
+  "logreg_balanced": {
+    "val": {
+      "pr_auc": 0.7757983544170546,
+      "roc_auc": 0.9725932699093425
+    },
+    "test": {
+      "pr_auc": 0.7275893300291064,
+      "roc_auc": 0.9857916148016731,
+      "threshold": 0.9999722811772073,
+      "precision_at_thr": 0.847457627118644,
+      "recall_at_thr": 0.6756756756756757,
+      "flagged": 59,
+      "oracle_recall_at_p90": 0.6756756756756757
+    }
+  },
+  "hist_gbdt": {
+    "val": {
+      "pr_auc": 0.7052654559467301,
+      "roc_auc": 0.9617802033005809
+    },
+    "test": {
+      "pr_auc": 0.7498105582458932,
+      "roc_auc": 0.9800729925266717,
+      "threshold": 0.9590743140296104,
+      "precision_at_thr": 0.9285714285714286,
+      "recall_at_thr": 0.35135135135135137,
+      "flagged": 28,
+      "oracle_recall_at_p90": 0.6756756756756757
+    }
+  },
+  "isolation_forest": {
+    "test": {
+      "pr_auc": 0.025837193780248173,
+      "roc_auc": 0.9468566236962214
+    }
+  },
+  "kmeans": {
+    "k": 8,
+    "base_fraud_rate": 0.0013041026364020865,
+    "top_cluster_fraud_rate": 1.0,
+    "top_cluster_lift": 766.8108108108108,
+    "top_cluster_share_of_txns": 0.00022909911180036657,
+    "top_cluster_share_of_fraud": 0.17567567567567569,
+    "centroid_distance_roc_auc": 0.953699464419422
+  },
+  "best_model": "logreg_balanced",
+  "runtime_seconds": 127.6
+}
