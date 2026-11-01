@@ -1,0 +1,147 @@
+{
+  "concurrency": 50,
+  "ab_round_duration_s": 20,
+  "ab_order": "off/on, off/on, off/on",
+  "summary_method": "median of three run-level values; response counts summed",
+  "rounds": [
+    {
+      "raw": "ab_1_round_1.txt",
+      "duration_s": 20.0113,
+      "rps": 3285.996,
+      "p50_ms": 14.4,
+      "p95_ms": 21.7,
+      "p99_ms": 24.299999999999997,
+      "http_200": 65757,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "bce3cf3bd2a5e7270afef1f465d94f6f8600f4ad2c085429739d2c31e41e9fa2",
+      "round": 1,
+      "dataloader": "off"
+    },
+    {
+      "raw": "ab_0_round_1.txt",
+      "duration_s": 20.0061,
+      "rps": 6872.3605,
+      "p50_ms": 6.7,
+      "p95_ms": 13.700000000000001,
+      "p99_ms": 17.4,
+      "http_200": 137489,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "e37c1041cae150b83039e4b4e8c7f57827ede98c545ea3a77ffcf7beb89ac432",
+      "round": 1,
+      "dataloader": "on"
+    },
+    {
+      "raw": "ab_1_round_2.txt",
+      "duration_s": 20.0107,
+      "rps": 3552.8483,
+      "p50_ms": 13.899999999999999,
+      "p95_ms": 16.9,
+      "p99_ms": 18.700000000000003,
+      "http_200": 71095,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "83b52d8f339709dcdfec8743c0b3ca82b8f4c8eaef03ce8bda955e5972f1fda1",
+      "round": 2,
+      "dataloader": "off"
+    },
+    {
+      "raw": "ab_0_round_2.txt",
+      "duration_s": 20.0061,
+      "rps": 6820.5255,
+      "p50_ms": 6.8,
+      "p95_ms": 13.799999999999999,
+      "p99_ms": 17.3,
+      "http_200": 136452,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "0630c7a612a538185a269d59c2fd707b26293137e7336e6f6759f35d43338bed",
+      "round": 2,
+      "dataloader": "on"
+    },
+    {
+      "raw": "ab_1_round_3.txt",
+      "duration_s": 20.0116,
+      "rps": 3560.3932,
+      "p50_ms": 13.899999999999999,
+      "p95_ms": 16.7,
+      "p99_ms": 18.5,
+      "http_200": 71249,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "a8597222476f7a14897269a921d3df553b0b4a44de14f741e569ea21ce17e659",
+      "round": 3,
+      "dataloader": "off"
+    },
+    {
+      "raw": "ab_0_round_3.txt",
+      "duration_s": 20.0029,
+      "rps": 6602.9401,
+      "p50_ms": 7.0,
+      "p95_ms": 14.200000000000001,
+      "p99_ms": 18.0,
+      "http_200": 132078,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "3663c019bdb379ccf1b93eca98517a61d54d23b2c08ef5c82cd8bd6e749d91fb",
+      "round": 3,
+      "dataloader": "on"
+    }
+  ],
+  "ab_summary": {
+    "off": {
+      "rps": 3552.8483,
+      "p50_ms": 13.899999999999999,
+      "p95_ms": 16.9,
+      "p99_ms": 18.700000000000003,
+      "http_200": 208101,
+      "http_errors": 0
+    },
+    "on": {
+      "rps": 6820.5255,
+      "p50_ms": 6.8,
+      "p95_ms": 13.799999999999999,
+      "p99_ms": 17.4,
+      "http_200": 406019,
+      "http_errors": 0
+    }
+  },
+  "compose_through_nginx": {
+    "read": {
+      "raw": "hey_list_query_docker.txt",
+      "duration_s": 30.0098,
+      "rps": 5812.4408,
+      "p50_ms": 7.9,
+      "p95_ms": 16.299999999999997,
+      "p99_ms": 20.7,
+      "http_200": 174430,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "e3be5e72ae0b1e12e34f5afdb0e714cb18dbcbd711a690052191fc947cdfdbc5"
+    },
+    "create": {
+      "raw": "hey_create_mutation.txt",
+      "duration_s": 15.3947,
+      "rps": 183.8296,
+      "p50_ms": 216.6,
+      "p95_ms": 565.4,
+      "p99_ms": 1320.7,
+      "http_200": 2830,
+      "http_errors": 0,
+      "transport_errors": 0,
+      "sha256": "bc48617d4104e652722755563a0fef62be113975ef4219bbedb29cedb2acb6d3"
+    }
+  },
+  "write_database_verification": {
+    "applications": 2831,
+    "status_events": 2831,
+    "benchmark_users": 1,
+    "all_applied": true,
+    "http_200_responses": 2830,
+    "create_preflight": 1,
+    "result": "passed"
+  },
+  "graphql_checks": "fresh account with 50 applications; checked register/seed and nested GraphQL responses before and after each run",
+  "error_count_scope": "HTTP non-200 statuses and transport errors in hey output"
+}

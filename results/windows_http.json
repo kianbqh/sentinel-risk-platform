@@ -1,0 +1,19 @@
+{
+  "tested_from": "Windows host",
+  "ui_status": 200,
+  "ui_title": "Job Tracker",
+  "script_asset": "/assets/index-DI7cg9DV.js",
+  "api_health_status": 200,
+  "api_health": "ok",
+  "ui_proxy_status": 200,
+  "ui_proxy_response": {
+    "data": {
+      "__typename": "Query"
+    }
+  },
+  "script_status": 200,
+  "script_content_type": [
+    "application/javascript"
+  ],
+  "script_bytes": 224371
+}

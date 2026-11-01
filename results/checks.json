@@ -1,0 +1,60 @@
+{
+  "go_tests": {
+    "passed": 12,
+    "names": [
+      "TestHashAndCheck",
+      "TestIssueParseRoundTrip",
+      "TestRejectsExpiredAndForeignTokens",
+      "TestMiddleware",
+      "TestRegisterLoginAndDuplicate",
+      "TestValidation",
+      "TestRequiresAuth",
+      "TestApplicationLifecycleAndStats",
+      "TestTenantIsolation",
+      "TestPaginationAndHealth",
+      "TestMigrationsAreIdempotent",
+      "TestEventsBatchedPerApplication"
+    ],
+    "race": "passed",
+    "vet": "passed",
+    "gofmt": "passed",
+    "gqlgen_drift": "passed"
+  },
+  "postgres_unavailable_negative_test": "failed_as_required",
+  "frontend_tests": {
+    "passed": 4,
+    "production_build": "passed"
+  },
+  "compose_api_smoke": {
+    "ui": "http://localhost:3006",
+    "api": "http://localhost:8086",
+    "checks": [
+      "ui_html",
+      "health",
+      "register",
+      "login",
+      "create",
+      "status_update",
+      "status_history",
+      "search_filter",
+      "stats",
+      "delete"
+    ],
+    "result": "passed"
+  },
+  "coverage": {
+    "method": "go test ./... -coverpkg=./... -count=1; generated gqlgen files excluded; duplicate set-mode blocks merged",
+    "all_handwritten_go": {
+      "covered_statements": 207,
+      "total_statements": 286,
+      "percent": 72.37762237762237
+    },
+    "service_packages_without_cmd_entrypoint": {
+      "covered_statements": 207,
+      "total_statements": 260,
+      "percent": 79.61538461538461
+    },
+    "profile_sha256": "ffa888a91d4cdd68db2bc811c7b29f39492794bcae3ca511a0422cc186f84455"
+  },
+  "windows_host_http": "See windows_http.json: UI, JS bundle, health and GraphQL proxy passed."
+}
