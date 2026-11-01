@@ -1,0 +1,194 @@
+/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+{
+ "nodes": 203769,
+ "edges": 234355,
+ "features": 165,
+ "protocol": "temporal label split on a fixed full graph (transductive)",
+ "requested_arguments": {
+  "seeds": 3,
+  "epochs": 300,
+  "quick": false
+ },
+ "labelled": 46564,
+ "illicit": 4545,
+ "train_nodes_t1_29": 26381,
+ "val_nodes_t30_34": 3513,
+ "test_nodes_t35_49": 16670,
+ "train_illicit": 2871,
+ "val_illicit": 591,
+ "test_illicit": 1083,
+ "device": "cuda",
+ "torch": "2.15.0+cu132",
+ "cpu_threads": 4,
+ "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+}
+logreg[all]                    PR-AUC 0.2163 ROC-AUC 0.8467 F1 0.2853 R@valP90-selector 0.5217 (P 0.2308) 0.2s fit+score
+lightgbm[all]                  PR-AUC 0.7928 ROC-AUC 0.9321 F1 0.7691 R@valP90-selector 0.7488 (P 0.5677) 12.4s fit+score
+lightgbm[all+nbr_mean]         PR-AUC 0.7975 ROC-AUC 0.9353 F1 0.7950 R@valP90-selector 0.7498 (P 0.5562) 18.7s fit+score
+  epoch   0 loss 1.2246 val_pr_auc 0.4675
+  epoch  20 loss 0.3409 val_pr_auc 0.6124
+  epoch  40 loss 0.2135 val_pr_auc 0.7765
+  epoch  60 loss 0.1372 val_pr_auc 0.8599
+  epoch  80 loss 0.0875 val_pr_auc 0.8987
+  epoch 100 loss 0.0582 val_pr_auc 0.9149
+  epoch 120 loss 0.0435 val_pr_auc 0.9288
+  epoch 140 loss 0.0300 val_pr_auc 0.9290
+  epoch 160 loss 0.0249 val_pr_auc 0.9091
+  epoch 180 loss 0.0231 val_pr_auc 0.9344
+  epoch 200 loss 0.0193 val_pr_auc 0.9302
+  graphsage[all] seed 0: best val PR-AUC 0.9377, 217 epochs, 10s
+  epoch   0 loss 1.2453 val_pr_auc 0.3559
+  epoch  20 loss 0.3477 val_pr_auc 0.5934
+  epoch  40 loss 0.2178 val_pr_auc 0.7906
+  epoch  60 loss 0.1260 val_pr_auc 0.8838
+  epoch  80 loss 0.0862 val_pr_auc 0.9042
+  epoch 100 loss 0.0611 val_pr_auc 0.9165
+  epoch 120 loss 0.0502 val_pr_auc 0.9247
+  epoch 140 loss 0.0376 val_pr_auc 0.8889
+  graphsage[all] seed 1: best val PR-AUC 0.9302, 146 epochs, 6s
+  epoch   0 loss 1.2807 val_pr_auc 0.5504
+  epoch  20 loss 0.3529 val_pr_auc 0.6198
+  epoch  40 loss 0.2135 val_pr_auc 0.7424
+  epoch  60 loss 0.1309 val_pr_auc 0.8760
+  epoch  80 loss 0.0788 val_pr_auc 0.9106
+  epoch 100 loss 0.0569 val_pr_auc 0.9173
+  epoch 120 loss 0.0503 val_pr_auc 0.8985
+  graphsage[all] seed 2: best val PR-AUC 0.9253, 135 epochs, 6s
+graphsage[all]                 PR-AUC 0.5367 ROC-AUC 0.8855 F1 0.5115 R@valP90-selector 0.5673 (P 0.5342) 7.2s fit+score
+  epoch   0 loss 1.2254 val_pr_auc 0.4426
+  epoch  20 loss 0.3766 val_pr_auc 0.7203
+  epoch  40 loss 0.2762 val_pr_auc 0.7476
+  epoch  60 loss 0.2128 val_pr_auc 0.8060
+  epoch  80 loss 0.1753 val_pr_auc 0.8362
+  epoch 100 loss 0.1509 val_pr_auc 0.8529
+  epoch 120 loss 0.1381 val_pr_auc 0.8703
+  epoch 140 loss 0.1185 val_pr_auc 0.8787
+  epoch 160 loss 0.1131 val_pr_auc 0.8995
+  epoch 180 loss 0.1005 val_pr_auc 0.8976
+  epoch 200 loss 0.0888 val_pr_auc 0.9093
+  epoch 220 loss 0.0869 val_pr_auc 0.9088
+  epoch 240 loss 0.0832 val_pr_auc 0.9177
+  epoch 260 loss 0.0718 val_pr_auc 0.9105
+  epoch 280 loss 0.0700 val_pr_auc 0.9104
+  gat[all] seed 0: best val PR-AUC 0.9256, 300 epochs, 11s
+  epoch   0 loss 1.3434 val_pr_auc 0.3566
+  epoch  20 loss 0.4357 val_pr_auc 0.6703
+  epoch  40 loss 0.3038 val_pr_auc 0.7186
+  epoch  60 loss 0.2386 val_pr_auc 0.7599
+  epoch  80 loss 0.2010 val_pr_auc 0.8130
+  epoch 100 loss 0.1609 val_pr_auc 0.8345
+  epoch 120 loss 0.1445 val_pr_auc 0.8452
+  epoch 140 loss 0.1343 val_pr_auc 0.8552
+  epoch 160 loss 0.1279 val_pr_auc 0.8586
+  epoch 180 loss 0.1167 val_pr_auc 0.8586
+  epoch 200 loss 0.1033 val_pr_auc 0.8623
+  epoch 220 loss 0.0998 val_pr_auc 0.8662
+  epoch 240 loss 0.0921 val_pr_auc 0.8668
+  epoch 260 loss 0.0847 val_pr_auc 0.8796
+  epoch 280 loss 0.0820 val_pr_auc 0.8747
+  gat[all] seed 1: best val PR-AUC 0.8857, 300 epochs, 11s
+  epoch   0 loss 1.2701 val_pr_auc 0.2864
+  epoch  20 loss 0.3997 val_pr_auc 0.6654
+  epoch  40 loss 0.2974 val_pr_auc 0.7209
+  epoch  60 loss 0.2412 val_pr_auc 0.7496
+  epoch  80 loss 0.1955 val_pr_auc 0.7555
+  epoch 100 loss 0.1691 val_pr_auc 0.7833
+  epoch 120 loss 0.1504 val_pr_auc 0.8055
+  epoch 140 loss 0.1316 val_pr_auc 0.8014
+  epoch 160 loss 0.1180 val_pr_auc 0.8375
+  epoch 180 loss 0.1138 val_pr_auc 0.8345
+  epoch 200 loss 0.1026 val_pr_auc 0.8272
+  epoch 220 loss 0.0999 val_pr_auc 0.8282
+  gat[all] seed 2: best val PR-AUC 0.8468, 227 epochs, 8s
+gat[all]                       PR-AUC 0.3748 ROC-AUC 0.8641 F1 0.4631 R@valP90-selector 0.5392 (P 0.4445) 10.1s fit+score
+logreg[local]                  PR-AUC 0.1453 ROC-AUC 0.7951 F1 0.3380 R@valP90-selector 0.7461 (P 0.2211) 0.2s fit+score
+lightgbm[local]                PR-AUC 0.7742 ROC-AUC 0.9204 F1 0.7381 R@valP90-selector 0.7338 (P 0.5992) 9.5s fit+score
+lightgbm[local+nbr_mean]       PR-AUC 0.7961 ROC-AUC 0.9337 F1 0.7735 R@valP90-selector 0.7492 (P 0.5886) 13.3s fit+score
+  epoch   0 loss 1.2269 val_pr_auc 0.2157
+  epoch  20 loss 0.3967 val_pr_auc 0.6592
+  epoch  40 loss 0.2845 val_pr_auc 0.8207
+  epoch  60 loss 0.2252 val_pr_auc 0.8749
+  epoch  80 loss 0.1903 val_pr_auc 0.8926
+  epoch 100 loss 0.1595 val_pr_auc 0.9186
+  epoch 120 loss 0.1388 val_pr_auc 0.9172
+  epoch 140 loss 0.1192 val_pr_auc 0.9395
+  epoch 160 loss 0.1195 val_pr_auc 0.9376
+  epoch 180 loss 0.0918 val_pr_auc 0.9238
+  epoch 200 loss 0.0874 val_pr_auc 0.9294
+  graphsage[local] seed 0: best val PR-AUC 0.9447, 205 epochs, 7s
+  epoch   0 loss 1.2355 val_pr_auc 0.2283
+  epoch  20 loss 0.4002 val_pr_auc 0.6629
+  epoch  40 loss 0.2868 val_pr_auc 0.8224
+  epoch  60 loss 0.2261 val_pr_auc 0.8542
+  epoch  80 loss 0.1804 val_pr_auc 0.8773
+  epoch 100 loss 0.1570 val_pr_auc 0.8750
+  epoch 120 loss 0.1332 val_pr_auc 0.8777
+  graphsage[local] seed 1: best val PR-AUC 0.8945, 139 epochs, 5s
+  epoch   0 loss 1.2186 val_pr_auc 0.3504
+  epoch  20 loss 0.4013 val_pr_auc 0.6768
+  epoch  40 loss 0.2831 val_pr_auc 0.8345
+  epoch  60 loss 0.2174 val_pr_auc 0.8889
+  epoch  80 loss 0.1867 val_pr_auc 0.9160
+  epoch 100 loss 0.1577 val_pr_auc 0.9323
+  epoch 120 loss 0.1352 val_pr_auc 0.9440
+  epoch 140 loss 0.1184 val_pr_auc 0.9359
+  epoch 160 loss 0.1076 val_pr_auc 0.9495
+  epoch 180 loss 0.0895 val_pr_auc 0.9515
+  epoch 200 loss 0.0808 val_pr_auc 0.9416
+  epoch 220 loss 0.0730 val_pr_auc 0.9483
+  graphsage[local] seed 2: best val PR-AUC 0.9546, 224 epochs, 8s
+graphsage[local]               PR-AUC 0.3899 ROC-AUC 0.8677 F1 0.4292 R@valP90-selector 0.7030 (P 0.3814) 6.5s fit+score
+  epoch   0 loss 1.3145 val_pr_auc 0.2584
+  epoch  20 loss 0.5045 val_pr_auc 0.6262
+  epoch  40 loss 0.4086 val_pr_auc 0.6963
+  epoch  60 loss 0.3503 val_pr_auc 0.7125
+  epoch  80 loss 0.3026 val_pr_auc 0.7707
+  epoch 100 loss 0.2718 val_pr_auc 0.7919
+  epoch 120 loss 0.2588 val_pr_auc 0.7952
+  epoch 140 loss 0.2452 val_pr_auc 0.8135
+  epoch 160 loss 0.2261 val_pr_auc 0.8165
+  epoch 180 loss 0.2111 val_pr_auc 0.8343
+  epoch 200 loss 0.2101 val_pr_auc 0.8366
+  epoch 220 loss 0.1987 val_pr_auc 0.8392
+  epoch 240 loss 0.1788 val_pr_auc 0.7937
+  epoch 260 loss 0.1731 val_pr_auc 0.8256
+  gat[local] seed 0: best val PR-AUC 0.8414, 262 epochs, 9s
+  epoch   0 loss 1.2036 val_pr_auc 0.4660
+  epoch  20 loss 0.4844 val_pr_auc 0.6615
+  epoch  40 loss 0.3647 val_pr_auc 0.7869
+  epoch  60 loss 0.3074 val_pr_auc 0.8251
+  epoch  80 loss 0.2862 val_pr_auc 0.8292
+  epoch 100 loss 0.2577 val_pr_auc 0.8418
+  epoch 120 loss 0.2443 val_pr_auc 0.8503
+  epoch 140 loss 0.2381 val_pr_auc 0.8617
+  epoch 160 loss 0.2247 val_pr_auc 0.8755
+  epoch 180 loss 0.2032 val_pr_auc 0.8693
+  epoch 200 loss 0.2005 val_pr_auc 0.8855
+  epoch 220 loss 0.1936 val_pr_auc 0.8867
+  epoch 240 loss 0.1766 val_pr_auc 0.8917
+  gat[local] seed 1: best val PR-AUC 0.8955, 259 epochs, 9s
+  epoch   0 loss 1.2632 val_pr_auc 0.2527
+  epoch  20 loss 0.5041 val_pr_auc 0.7159
+  epoch  40 loss 0.3747 val_pr_auc 0.7558
+  epoch  60 loss 0.3158 val_pr_auc 0.7983
+  epoch  80 loss 0.2840 val_pr_auc 0.8066
+  epoch 100 loss 0.2596 val_pr_auc 0.8308
+  epoch 120 loss 0.2510 val_pr_auc 0.8432
+  epoch 140 loss 0.2288 val_pr_auc 0.8482
+  epoch 160 loss 0.2060 val_pr_auc 0.8437
+  epoch 180 loss 0.1962 val_pr_auc 0.8431
+  gat[local] seed 2: best val PR-AUC 0.8623, 197 epochs, 7s
+gat[local]                     PR-AUC 0.4134 ROC-AUC 0.8640 F1 0.3780 R@valP90-selector 0.4441 (P 0.5369) 8.5s fit+score
+| model | seeds | test PR-AUC | ROC-AUC | illicit F1 (val thr) | recall @ val-P90 selector | precision there | oracle recall@P90 | val P90 met seeds | fit+score s |
+|---|---|---|---|---|---|---|---|---|---|
+| logreg[all] | 1 | 0.216 | 0.847 | 0.285 | 0.522 | 0.231 | 0.000 | 0/1 | 0.2 |
+| lightgbm[all] | 3 | 0.793 ± 0.001 | 0.932 ± 0.001 | 0.769 ± 0.004 | 0.749 ± 0.001 | 0.568 ± 0.019 | 0.721 ± 0.001 | 3/3 | 12.4 |
+| lightgbm[all+nbr_mean] | 3 | 0.798 ± 0.001 | 0.935 ± 0.000 | 0.795 ± 0.004 | 0.750 ± 0.002 | 0.556 ± 0.019 | 0.722 ± 0.003 | 3/3 | 18.7 |
+| graphsage[all] | 3 | 0.537 ± 0.023 | 0.886 ± 0.002 | 0.512 ± 0.018 | 0.567 ± 0.025 | 0.534 ± 0.006 | 0.058 ± 0.082 | 3/3 | 7.2 |
+| gat[all] | 3 | 0.375 ± 0.031 | 0.864 ± 0.005 | 0.463 ± 0.029 | 0.539 ± 0.018 | 0.444 ± 0.021 | 0.000 ± 0.000 | 3/3 | 10.1 |
+| logreg[local] | 1 | 0.145 | 0.795 | 0.338 | 0.746 | 0.221 | 0.000 | 0/1 | 0.2 |
+| lightgbm[local] | 3 | 0.774 ± 0.001 | 0.920 ± 0.000 | 0.738 ± 0.005 | 0.734 ± 0.001 | 0.599 ± 0.007 | 0.660 ± 0.001 | 3/3 | 9.5 |
+| lightgbm[local+nbr_mean] | 3 | 0.796 ± 0.002 | 0.934 ± 0.001 | 0.773 ± 0.011 | 0.749 ± 0.002 | 0.589 ± 0.015 | 0.710 ± 0.002 | 3/3 | 13.3 |
+| graphsage[local] | 3 | 0.390 ± 0.029 | 0.868 ± 0.006 | 0.429 ± 0.043 | 0.703 ± 0.029 | 0.381 ± 0.050 | 0.000 ± 0.000 | 3/3 | 6.5 |
+| gat[local] | 3 | 0.413 ± 0.013 | 0.864 ± 0.003 | 0.378 ± 0.020 | 0.444 ± 0.067 | 0.537 ± 0.029 | 0.000 ± 0.000 | 3/3 | 8.5 |

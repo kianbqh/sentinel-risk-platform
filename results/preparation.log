@@ -1,0 +1,30 @@
+{
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "packages": {
+    "torch": "2.15.0",
+    "torch-geometric": "2.8.1",
+    "lightgbm": "4.7.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "matplotlib": "3.11.2",
+    "pytest": "9.2.0"
+  },
+  "torch_file": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "cuda_runtime": "13.2",
+  "cuda_device": "NVIDIA GeForce RTX 3080",
+  "cuda_capability": [
+    8,
+    6
+  ],
+  "cuda_total_bytes": 12884377600,
+  "cuda_free_bytes_before_training": 11602493440,
+  "cuda_probe_actual_tensor": "passed",
+  "thread_environment": {
+    "N_JOBS": "4",
+    "LGBM_JOBS": "1",
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4"
+  }
+}

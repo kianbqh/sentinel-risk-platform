@@ -1,0 +1,21 @@
+{
+  "model": "lightgbm[local]",
+  "feature_set": "local",
+  "seed": 1,
+  "fit_score_seconds": 9.589524847000575,
+  "best_epoch": null,
+  "epochs": null,
+  "trees": 600,
+  "metrics": {
+    "pr_auc": 0.7740879415026142,
+    "roc_auc": 0.9206087820537996,
+    "illicit_f1_at_val_thr": 0.731193100143747,
+    "precision_at_val_p90_thr": 0.5895910780669145,
+    "recall_at_val_p90_thr": 0.7322253000923361,
+    "oracle_recall_at_p90": 0.6620498614958449,
+    "val_f1_threshold": 0.3387308340355016,
+    "val_p90_threshold": 0.100363301843138,
+    "val_p90_achieved_precision": 0.9,
+    "val_p90_target_met": true
+  }
+}
