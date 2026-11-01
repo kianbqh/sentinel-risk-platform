@@ -1,0 +1,10 @@
+# Select a PyTorch build for your device first. The recorded local run uses CUDA;
+# the CI job explicitly installs the CPU wheel before these dependencies.
+torch>=2.6
+torch-geometric==2.8.1
+lightgbm==4.7.0
+scikit-learn==1.9.1
+numpy>=2.0
+pandas>=2.2
+matplotlib>=3.9
+pytest>=8

@@ -1,0 +1,23 @@
+{
+  "model": "gat[all]",
+  "feature_set": "all",
+  "seed": 2,
+  "fit_score_seconds": 8.316753569000866,
+  "best_epoch": 187,
+  "epochs": 227,
+  "best_val_pr_auc": 0.8468011271076878,
+  "cuda_peak_allocated_bytes": 1696372224,
+  "cuda_peak_reserved_bytes": 2900361216,
+  "metrics": {
+    "pr_auc": 0.3765054258595836,
+    "roc_auc": 0.8622347943550516,
+    "illicit_f1_at_val_thr": 0.4403341288782816,
+    "precision_at_val_p90_thr": 0.4341387373343726,
+    "recall_at_val_p90_thr": 0.5143120960295475,
+    "oracle_recall_at_p90": 0.0,
+    "val_f1_threshold": 0.927155613899231,
+    "val_p90_threshold": 0.996812641620636,
+    "val_p90_achieved_precision": 0.9024390243902439,
+    "val_p90_target_met": true
+  }
+}

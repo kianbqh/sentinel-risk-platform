@@ -1,0 +1,20 @@
+{
+  "model": "logreg[local]",
+  "feature_set": "local",
+  "seed": 0,
+  "fit_score_seconds": 0.1622650999997859,
+  "best_epoch": null,
+  "epochs": null,
+  "metrics": {
+    "pr_auc": 0.14534553085419274,
+    "roc_auc": 0.7951325953435282,
+    "illicit_f1_at_val_thr": 0.3379987466053896,
+    "precision_at_val_p90_thr": 0.22112753147235906,
+    "recall_at_val_p90_thr": 0.7460757156048015,
+    "oracle_recall_at_p90": 0.0,
+    "val_f1_threshold": 0.8390461206436157,
+    "val_p90_threshold": 0.8421717286109924,
+    "val_p90_achieved_precision": 0.6226114649681529,
+    "val_p90_target_met": false
+  }
+}

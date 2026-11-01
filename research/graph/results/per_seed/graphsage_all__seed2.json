@@ -1,0 +1,23 @@
+{
+  "model": "graphsage[all]",
+  "feature_set": "all",
+  "seed": 2,
+  "fit_score_seconds": 5.710758901999725,
+  "best_epoch": 95,
+  "epochs": 135,
+  "best_val_pr_auc": 0.9253439918630553,
+  "cuda_peak_allocated_bytes": 1276583424,
+  "cuda_peak_reserved_bytes": 1516240896,
+  "metrics": {
+    "pr_auc": 0.5491878230254041,
+    "roc_auc": 0.8878931770746048,
+    "illicit_f1_at_val_thr": 0.48723118279569894,
+    "precision_at_val_p90_thr": 0.5293159609120521,
+    "recall_at_val_p90_thr": 0.6001846722068329,
+    "oracle_recall_at_p90": 0.0,
+    "val_f1_threshold": 0.8222240805625916,
+    "val_p90_threshold": 0.944505512714386,
+    "val_p90_achieved_precision": 0.900390625,
+    "val_p90_target_met": true
+  }
+}
