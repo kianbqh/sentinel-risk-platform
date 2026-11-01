@@ -1,0 +1,71 @@
+{
+  "plugin_id": "43",
+  "raw_risk": "High",
+  "classification": "false positive for the two reported instances",
+  "basis": "The filename-like attack and random control are returned as template variables. The handlers use autoescaped templates and a parameterized SQL query, with no parameter-selected source-file read.",
+  "source_sha256": "9e73bddabffbbdf70c616d2ad25640b24f4496c6abfcebbe97389dcf604e99d8",
+  "reported_instances": [
+    {
+      "id": "39",
+      "uri": "http://127.0.0.1:5002/greet?name=guest",
+      "nodeName": "http://127.0.0.1:5002/greet (name)",
+      "method": "GET",
+      "param": "name",
+      "attack": "greet",
+      "evidence": "",
+      "otherinfo": "The output for the source code filename [greet] differs sufficiently from that of the random parameter [arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl], at [32%], compared to a threshold of [75%]"
+    },
+    {
+      "id": "40",
+      "uri": "http://127.0.0.1:5002/search?q=x",
+      "nodeName": "http://127.0.0.1:5002/search (q)",
+      "method": "GET",
+      "param": "q",
+      "attack": "search",
+      "evidence": "",
+      "otherinfo": "The output for the source code filename [search] differs sufficiently from that of the random parameter [arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl], at [50%], compared to a threshold of [75%]"
+    }
+  ],
+  "http_requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5002/greet?name=greet",
+      "status": 200,
+      "response_body": "<p>Hello greet</p>",
+      "expected_template_output": true
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5002/greet?name=arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl",
+      "status": 200,
+      "response_body": "<p>Hello arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl</p>",
+      "expected_template_output": true
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5002/search?q=search",
+      "status": 200,
+      "response_body": "<h1>Results for search</h1>",
+      "expected_template_output": true
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:5002/search?q=arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl",
+      "status": 200,
+      "response_body": "<h1>Results for arghzvwvifqndvlbxtqdarhtjdexnaevaeavnl</h1>",
+      "expected_template_output": true
+    }
+  ],
+  "reviewed_handlers": [
+    {
+      "function": "search",
+      "line": 103,
+      "source": "def search():\n        q = request.args.get(\"q\", \"\")\n        rows = db().execute(\"SELECT title FROM notes WHERE title LIKE ?\", (f\"%{q}%\",)).fetchall()\n        return render_template_string(\"<h1>Results for {{ q }}</h1>{% for r in rows %}<li>{{ r[0] }}</li>{% endfor %}\",\n                                      q=q, rows=rows)"
+    },
+    {
+      "function": "greet",
+      "line": 110,
+      "source": "def greet():\n        return render_template_string(\"<p>Hello {{ name }}</p>\", name=request.args.get(\"name\", \"guest\"))"
+    }
+  ]
+}

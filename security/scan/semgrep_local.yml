@@ -1,0 +1,24 @@
+rules:
+  - id: flask-login-without-throttle
+    languages: [python]
+    severity: WARNING
+    message: Login handler has no rate limiting / lockout (credential stuffing, brute force).
+    patterns:
+      - pattern: |
+          @$APP.route("/login", ...)
+          def $F(...):
+              ...
+      - pattern-not: |
+          @$APP.route("/login", ...)
+          def $F(...):
+              ...
+              if $T.blocked(...):
+                  ...
+              ...
+  - id: pickle-from-request
+    languages: [python]
+    severity: ERROR
+    message: Untrusted request data reaches pickle.loads (remote code execution).
+    mode: taint
+    pattern-sources: [{pattern: flask.request.$X.get(...)}]
+    pattern-sinks: [{pattern: pickle.loads(...)}]

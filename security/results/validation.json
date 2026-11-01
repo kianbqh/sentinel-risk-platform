@@ -1,0 +1,35 @@
+{
+  "four_reports_revalidated": [
+    {
+      "sites": 1,
+      "alert_types": 13,
+      "json_parsed": true,
+      "html_present": true
+    },
+    {
+      "sites": 1,
+      "alert_types": 24,
+      "json_parsed": true,
+      "html_present": true
+    },
+    {
+      "sites": 1,
+      "alert_types": 3,
+      "json_parsed": true,
+      "html_present": true
+    },
+    {
+      "sites": 1,
+      "alert_types": 6,
+      "json_parsed": true,
+      "html_present": true
+    }
+  ],
+  "owned_ports_released": [
+    5001,
+    5002
+  ],
+  "owned_scan_containers_remaining": [],
+  "python_ast_and_shell_syntax": "passed",
+  "fixed_high_alert_instances_triaged_with_http": 2
+}

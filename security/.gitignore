@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+app/*.db
+results/zap/**/*.html
+results/zap/**/app_*.log
+.venv
+.tmp/

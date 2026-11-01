@@ -1,0 +1,10 @@
+{
+  "target": "http://127.0.0.1:5001",
+  "mode": "protect",
+  "context_id": "1",
+  "context_name": "owned-appsec-5001",
+  "include_regexs": [
+    "^http://127\\.0\\.0\\.1:5001(?:/.*)?$"
+  ],
+  "active_scan_max_minutes": 5
+}

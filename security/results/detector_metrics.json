@@ -1,0 +1,195 @@
+{
+ "data": {
+  "train": {
+   "events": 140232,
+   "attack_events": 79518,
+   "windows": 51001,
+   "attack_windows": 5826
+  },
+  "test": {
+   "events": 143416,
+   "attack_events": 82076,
+   "windows": 53208,
+   "attack_windows": 7358,
+   "by_kind": {
+    "benign": 61340,
+    "stuffing": 43703,
+    "spraying": 18389,
+    "brute_force": 13967,
+    "low_slow": 6017
+   }
+  },
+  "seconds": 3.2
+ },
+ "results": [
+  {
+   "method": "rules R1-R4",
+   "window": {
+    "precision": 0.9987639060568603,
+    "recall": 0.4392497961402555,
+    "f1": 0.6101566924674343,
+    "tp": 3232,
+    "fp": 4,
+    "fn": 4126
+   },
+   "event_recall": 0.8651981090696428,
+   "benign_event_fpr": 0.0011411803064884252,
+   "per_kind_event_recall": {
+    "brute_force": 1.0,
+    "low_slow": 0.0,
+    "spraying": 0.9921692316058514,
+    "stuffing": 0.8878109054298332
+   },
+   "nat_window_fp": 4,
+   "nat_windows": 1062
+  },
+  {
+   "method": "rule R1_ip_failures",
+   "window": {
+    "precision": 1.0,
+    "recall": 0.1137537374286491,
+    "f1": 0.20427089688834657,
+    "tp": 837,
+    "fp": 0,
+    "fn": 6521
+   },
+   "event_recall": 0.5881865587991617,
+   "benign_event_fpr": 0.0,
+   "per_kind_event_recall": {
+    "brute_force": 0.996420133171046,
+    "low_slow": 0.0,
+    "spraying": 0.9639458371852738,
+    "stuffing": 0.3805917213921241
+   },
+   "nat_window_fp": 0,
+   "nat_windows": 1062
+  },
+  {
+   "method": "rule R2_ip_many_accounts",
+   "window": {
+    "precision": 0.9979392065945389,
+    "recall": 0.26325088339222613,
+    "f1": 0.4166039359070867,
+    "tp": 1937,
+    "fp": 4,
+    "fn": 5421
+   },
+   "event_recall": 0.5875408158292315,
+   "benign_event_fpr": 0.0011411803064884252,
+   "per_kind_event_recall": {
+    "brute_force": 0.0,
+    "low_slow": 0.0,
+    "spraying": 0.9921692316058514,
+    "stuffing": 0.6859483330663799
+   },
+   "nat_window_fp": 4,
+   "nat_windows": 1062
+  },
+  {
+   "method": "rule R3_one_account_hammered",
+   "window": {
+    "precision": 1.0,
+    "recall": 0.003397662408263115,
+    "f1": 0.006772314777190843,
+    "tp": 25,
+    "fp": 0,
+    "fn": 7333
+   },
+   "event_recall": 0.1701715483210683,
+   "benign_event_fpr": 0.0,
+   "per_kind_event_recall": {
+    "brute_force": 1.0,
+    "low_slow": 0.0,
+    "spraying": 0.0,
+    "stuffing": 0.0
+   },
+   "nat_window_fp": 0,
+   "nat_windows": 1062
+  },
+  {
+   "method": "rule R4_unknown_users",
+   "window": {
+    "precision": 1.0,
+    "recall": 0.3379994563740147,
+    "f1": 0.5052310817673946,
+    "tp": 2487,
+    "fp": 0,
+    "fn": 4871
+   },
+   "event_recall": 0.4227423363711682,
+   "benign_event_fpr": 0.0,
+   "per_kind_event_recall": {
+    "brute_force": 0.0,
+    "low_slow": 0.0,
+    "spraying": 0.0,
+    "stuffing": 0.793927190353065
+   },
+   "nat_window_fp": 0,
+   "nat_windows": 1062
+  },
+  {
+   "method": "IsolationForest (unsupervised)",
+   "window": {
+    "precision": 0.7006134969325153,
+    "recall": 0.6984234846425659,
+    "f1": 0.699516776696386,
+    "tp": 5139,
+    "fp": 2196,
+    "fn": 2219
+   },
+   "event_recall": 0.8554632292022029,
+   "benign_event_fpr": 0.19095207042712747,
+   "per_kind_event_recall": {
+    "brute_force": 1.0,
+    "low_slow": 0.8678743559913579,
+    "spraying": 0.9989667736146609,
+    "stuffing": 0.7471798274717982
+   },
+   "nat_window_fp": 1034,
+   "nat_windows": 1062
+  },
+  {
+   "method": "GradientBoosting (supervised)",
+   "window": {
+    "precision": 0.997119341563786,
+    "recall": 0.9879043218265833,
+    "f1": 0.9924904423812124,
+    "tp": 7269,
+    "fp": 21,
+    "fn": 89
+   },
+   "event_recall": 0.9977581753496759,
+   "benign_event_fpr": 0.0006194978806651451,
+   "per_kind_event_recall": {
+    "brute_force": 1.0,
+    "low_slow": 0.969419976732591,
+    "spraying": 1.0,
+    "stuffing": 1.0
+   },
+   "nat_window_fp": 1,
+   "nat_windows": 1062,
+   "pr_auc": 0.9941417299426973
+  },
+  {
+   "method": "rules OR GradientBoosting",
+   "window": {
+    "precision": 0.9965725253633123,
+    "recall": 0.9879043218265833,
+    "f1": 0.9922194922194922,
+    "tp": 7269,
+    "fp": 25,
+    "fn": 89
+   },
+   "event_recall": 0.9977581753496759,
+   "benign_event_fpr": 0.0017606781871535703,
+   "per_kind_event_recall": {
+    "brute_force": 1.0,
+    "low_slow": 0.969419976732591,
+    "spraying": 1.0,
+    "stuffing": 1.0
+   },
+   "nat_window_fp": 5,
+   "nat_windows": 1062
+  }
+ ]
+}

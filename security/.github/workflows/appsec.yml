@@ -1,0 +1,52 @@
+# SAST + tests on every push; scoped ZAP baseline against the local app pair. The pipeline fails on any
+# Medium/High Bandit finding or any Semgrep finding in app/fixed.py.
+name: appsec
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  sast-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.txt
+      - run: pytest --capture=sys -q tests
+      - name: bandit (fixed app must be clean)
+        run: bandit -q -ll app/fixed.py detector/
+      - name: semgrep (fixed app must be clean)
+        run: semgrep scan --metrics=off --error --config p/python --config p/flask --config p/secrets --config scan/semgrep_local.yml app/fixed.py
+      - name: report findings on the deliberately vulnerable app (informational)
+        run: BIN=$(dirname $(which bandit)) ./scan/run_sast.sh
+      - uses: actions/upload-artifact@v4
+        with: {name: sast, path: results/}
+  dast:
+    runs-on: ubuntu-latest
+    needs: sast-and-tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install flask==3.1.3
+      - name: Scoped baseline and validated reports
+        env:
+          PY: python
+        run: |
+          export TMPDIR="$RUNNER_TEMP/appsec-dast"
+          bash scan/run_dast.sh baseline
+      - name: Check fixed-app baseline
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path('results/dast_run_manifest.json').read_text())
+          fixed = next(row for row in manifest['scans'] if row['target_name'] == 'fixed')
+          report = json.loads(Path(fixed['report']).read_text())
+          assert not [alert for site in report['site'] for alert in site['alerts'] if int(alert['riskcode']) >= 2]
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scoped-dast
+          path: results/
