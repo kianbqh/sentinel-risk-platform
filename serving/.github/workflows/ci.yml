@@ -1,0 +1,45 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest --capture=sys -q tests
+
+  docker-and-k8s:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t fraud-scoring:1.0.0 .
+      - name: Smoke test container
+        run: |
+          docker run -d --name api -p 8000:8000 fraud-scoring:1.0.0
+          python scripts/smoke_api.py http://localhost:8000
+          docker rm -f api
+      - uses: helm/kind-action@v1
+        with: {cluster_name: fraud}
+      - name: Deploy to kind
+        run: |
+          kind load docker-image fraud-scoring:1.0.0 --name fraud
+          kubectl apply -k k8s
+          kubectl -n fraud rollout status deploy/fraud-api --timeout=180s
+          kubectl -n fraud get pods,svc,hpa
+          kubectl -n fraud port-forward svc/fraud-api 8000:80 > /tmp/fraud-port-forward.log 2>&1 &
+          python scripts/smoke_api.py http://localhost:8000
+
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with: {terraform_version: "1.17.1"}
+      - run: terraform -chdir=infra/terraform fmt -check -recursive
+      - run: terraform -chdir=infra/terraform init -backend=false
+      - run: terraform -chdir=infra/terraform validate

@@ -1,0 +1,23 @@
+2026-11-01T01:18:22Z
+deployment.apps/fraud-api restarted
+Waiting for deployment "fraud-api" rollout to finish: 0 out of 2 new replicas have been updated...
+Waiting for deployment "fraud-api" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "fraud-api" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "fraud-api" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "fraud-api" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "fraud-api" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "fraud-api" rollout to finish: 1 old replicas are pending termination...
+deployment "fraud-api" successfully rolled out
+2026-11-01T01:18:44Z
+Load job active at rollout completion: 1
+NAME                             READY   STATUS      RESTARTS   AGE    IP            NODE                  NOMINATED NODE   READINESS GATES
+pod/fraud-api-5969479487-9m28n   1/1     Running     0          43s    10.244.0.16   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-9zpcb   1/1     Running     0          88s    10.244.0.14   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-htmzf   1/1     Running     0          43s    10.244.0.17   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-lsxzt   1/1     Running     0          78s    10.244.0.15   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-p4grz   1/1     Running     0          16s    10.244.0.19   fraud-control-plane   <none>           <none>
+pod/fraud-api-5969479487-tn2k4   1/1     Running     0          16s    10.244.0.18   fraud-control-plane   <none>           <none>
+pod/hey-load-w755l               0/1     Completed   0          105s   10.244.0.13   fraud-control-plane   <none>           <none>
+
+NAME                                            REFERENCE              TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/fraud-api   Deployment/fraud-api   cpu: 133%/60%   2         6         6          7m38s

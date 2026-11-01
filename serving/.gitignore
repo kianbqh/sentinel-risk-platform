@@ -1,0 +1,10 @@
+.venv
+__pycache__/
+.pytest_cache/
+infra/terraform/.terraform/
+infra/terraform/*.tfstate*
+infra/terraform/terraform.tfvars
+tooling/
+evidence/*
+!evidence/model-provenance.json
+results/reference_archive/

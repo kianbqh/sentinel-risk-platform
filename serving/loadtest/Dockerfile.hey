@@ -1,0 +1,7 @@
+# Static hey binary + sample payload for in-cluster load tests.
+FROM golang:1.25 AS build
+RUN CGO_ENABLED=0 GOBIN=/out go install github.com/rakyll/hey@v0.1.4
+FROM scratch
+COPY --from=build /out/hey /hey
+COPY sample_txn.json /sample_txn.json
+ENTRYPOINT ["/hey"]

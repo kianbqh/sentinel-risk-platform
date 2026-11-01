@@ -1,0 +1,7 @@
+# Optional profile for an isolated WSL daemon with no bridge/NAT.
+services:
+  fraud-api:
+    network_mode: host
+    ports: !reset []
+    environment:
+      PORT: "8004"

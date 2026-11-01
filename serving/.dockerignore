@@ -1,0 +1,11 @@
+.venv
+.git
+__pycache__
+.pytest_cache
+results
+infra
+k8s
+loadtest
+*.zip
+tooling
+evidence
