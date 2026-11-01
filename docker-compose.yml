@@ -10,7 +10,7 @@ services:
       retries: 20
   backend:
     image: ${COMPOSE_PROJECT_NAME:-fullstack-go-graphql}-backend:local
-    build: {context: ./backend, network: host}
+    build: {context: ./backend}
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/jobs?sslmode=disable
       JWT_SECRET: ${JWT_SECRET:-change-me-in-prod}
@@ -19,7 +19,7 @@ services:
     depends_on: {db: {condition: service_healthy}}
   frontend:
     image: ${COMPOSE_PROJECT_NAME:-fullstack-go-graphql}-frontend:local
-    build: {context: ./frontend, network: host}
+    build: {context: ./frontend}
     ports: ["${UI_PORT:-3000}:80"]
     depends_on: [backend]
 volumes:

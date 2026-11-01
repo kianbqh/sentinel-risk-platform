@@ -16,8 +16,10 @@ Users register or log in, add job applications, move them through `SAVED → APP
 ## Run (exact commands)
 ```bash
 docker compose up -d --build        # http://localhost:3000 (UI), http://localhost:8080 (GraphQL playground), /healthz
-# On a host where Docker runs without iptables (no bridge DNS), use:
-#   docker compose -f docker-compose.yml -f docker-compose.hostnet.yml up -d --build
+# For a Docker daemon without bridge DNS/NAT, build separately, then use the runtime override:
+#   DOCKER_BUILDKIT=0 docker build --network host -t "${COMPOSE_PROJECT_NAME:-fullstack-go-graphql}-backend:local" backend
+#   DOCKER_BUILDKIT=0 docker build --network host -t "${COMPOSE_PROJECT_NAME:-fullstack-go-graphql}-frontend:local" frontend
+#   docker compose -f docker-compose.yml -f docker-compose.hostnet.yml up -d --no-build
 
 # backend tests (need Postgres on localhost:5432; each run creates and drops its own database)
 (cd backend && go test ./... -count=1 -v)

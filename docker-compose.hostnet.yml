@@ -1,5 +1,6 @@
-# Override for hosts where Docker runs without iptables (no bridge DNS/NAT), e.g. some CI sandboxes:
-#   docker compose -f docker-compose.yml -f docker-compose.hostnet.yml up -d
+# Runtime override for Docker hosts without bridge DNS/NAT.
+# Build the images first with the host-network commands in README.md, then:
+#   docker compose -f docker-compose.yml -f docker-compose.hostnet.yml up -d --no-build
 services:
   db:
     network_mode: host
