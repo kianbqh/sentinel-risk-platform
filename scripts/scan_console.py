@@ -48,7 +48,7 @@ def run():
     with httpx.Client(timeout=30) as client:
         response = client.get(TARGET);response.raise_for_status()
         if "Sentinel" not in response.text: raise RuntimeError("Wrong application at console port")
-        auth = graphql(client,TARGET+"/graphql",'mutation($e:String!){register(email:$e,password:"local-zap-scan-account"){token}}',{"e":"scan-"+uuid.uuid4().hex+"@example.com"})
+        auth = graphql(client,TARGET+"/graphql",'mutation($e:String!){register(email:$e,password:"local-zap-scan-account"){token user{id}}}',{"e":"scan-"+uuid.uuid4().hex+"@example.com"})
     token_path = private / "zap-analyst-token"
     token_path.write_text(auth["register"]["token"]);token_path.chmod(0o644)
     reports = ROOT / "results/security/zap";reports.mkdir(parents=True,exist_ok=True);reports.chmod(0o777)
@@ -62,6 +62,7 @@ def run():
             name = "sentinel-f1-zap-"+mode+"-"+uuid.uuid4().hex[:8]
             command=[docker,"run","--rm","--name",name,"--network=host","--cpus=2",
                      "-v",f"{raw}:/zap/wrk:rw","-v",f"{ROOT/'security/platform_scope.py'}:/zap/owned_scope.py:ro",
+                     "-v",f"{ROOT/'security/zap_seed.py'}:/zap/zap_seed.py:ro","-e",f"SENTINEL_ANALYST_ID={auth['register']['user']['id']}",
                      "-v",f"{token_path}:/zap/analyst-token:ro","-e",f"SENTINEL_SCOPE_PROOF=/zap/wrk/{mode}-scope.json",image,
                      "zap-baseline.py" if mode=="baseline" else "zap-full-scan.py","-t",TARGET,"-P","18049","-m","1","-T","5","-I",
                      "--hook","/zap/owned_scope.py","-J",mode+".json","-r",mode+".html"]

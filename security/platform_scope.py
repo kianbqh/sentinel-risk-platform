@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 from urllib.parse import urlsplit
 import zap_common
+from zap_seed import validate_seed
 
 TARGET = "http://127.0.0.1:13040"
 
@@ -28,11 +29,10 @@ def zap_started(zap, target):
     query = json.dumps({"query": "{me{id} alerts(limit:1){id case{id status events{action} labels{value}}} stats{total}}"})
     request = "POST /graphql HTTP/1.1\r\nHost: 127.0.0.1:13040\r\nContent-Type: application/json\r\nAuthorization: Bearer " + token + "\r\nContent-Length: " + str(len(query.encode())) + "\r\n\r\n" + query
     response = zap.core.send_request(request, followredirects="false")
-    if not response or "\"me\"" not in response[0].get("responseBody", ""):
-        raise RuntimeError("Authenticated GraphQL seed failed")
+    analyst_id = validate_seed(response, os.environ["SENTINEL_ANALYST_ID"])
     proof = {"target": TARGET, "mode": zap.core.mode, "context_id": context_id,
              "context_name": name, "include_regexs": zap.context.include_regexs(name),
-             "authenticated_graphql_seed": True}
+             "authenticated_graphql_seed": True, "authenticated_analyst_id": analyst_id}
     Path(os.environ["SENTINEL_SCOPE_PROOF"]).write_text(json.dumps(proof, indent=2) + "\n")
 
 

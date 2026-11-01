@@ -14,6 +14,7 @@ import pandas as pd
 
 from .contracts import Alert
 from .main import Models, Transaction
+from .verification import completed_progress, probability, verify_alert_values, verify_stream
 
 
 def prepare(path, source=None, limit=10000):
@@ -80,6 +81,10 @@ def run(args):
     partition = TopicPartition(topic, 0); reader.assign([partition]); reader.seek_to_beginning(partition)
     if reader.end_offsets([partition])[partition] != 0:
         raise RuntimeError("Scores topic already contains a replay. Use a fresh Compose project and volumes.")
+    input_topic = "sentinel.transactions.v1"
+    input_partition = TopicPartition(input_topic, 0)
+    if reader.end_offsets([input_partition])[input_partition] != 0:
+        raise RuntimeError("Transactions topic is not empty before the bounded replay")
     producer = KafkaProducer(bootstrap_servers=bootstrap.split(","), acks="all", retries=3,
                              value_serializer=lambda value: json.dumps(value, allow_nan=False).encode())
     started = time.perf_counter(); deliveries = []
@@ -88,28 +93,59 @@ def run(args):
           "amount": float(row.amount), "label": int(row.label), "v": list(map(float,row.v)), "produce_ts_ms": int(time.time()*1000)}))
     deliveries.append(producer.send("sentinel.transactions.v1", value={"txn_id": -1, "time": float.fromhex('0x1.fffffffffffffp+1023'),
                            "amount": 0., "label": 0, "v": [0.]*28, "produce_ts_ms": int(time.time()*1000)}))
-    for delivery in deliveries: delivery.get(timeout=60)
+    delivered = [delivery.get(timeout=60) for delivery in deliveries]
+    terminal_offset = delivered[-1].offset + 1
+    if terminal_offset != n + 1:
+        raise RuntimeError("Unexpected terminal input offset")
     producer.close(timeout=60)
-    scores = []; deadline = time.monotonic()+300
-    while len(scores)<n and time.monotonic()<deadline:
-        for records in reader.poll(timeout_ms=1000, max_records=n).values(): scores.extend(record.value for record in records)
+    progress_path = out.parent.parent / "streaming/progress.jsonl"
+    terminal = None; deadline = time.monotonic() + 300
+    while terminal is None and time.monotonic() < deadline:
+        if progress_path.exists():
+            lines = progress_path.read_text().splitlines(keepends=True)
+            progress = [json.loads(line) for line in lines if line.endswith("\n")]
+            terminal = completed_progress(progress, input_topic, terminal_offset, n + 1)
+        if terminal is None:
+            time.sleep(.5)
+    if terminal is None:
+        raise RuntimeError("No completed Spark batch covering the terminal flush marker")
+    high_water = reader.end_offsets([partition])[partition]
+    scores = []; score_offsets = []; deadline = time.monotonic() + 90
+    while reader.position(partition) < high_water and time.monotonic() < deadline:
+        for records in reader.poll(timeout_ms=1000, max_records=5000).values():
+            for record in records:
+                if record.offset < high_water:
+                    scores.append(record.value); score_offsets.append(record.offset)
+    if reader.position(partition) < high_water:
+        raise RuntimeError("Could not drain the completed score-topic high water")
     reader.close()
-    if len(scores)!=n or len({row["txnId"] for row in scores})!=n: raise RuntimeError(f"Lost/duplicate scores: {len(scores)}/{n}")
-    by_id = {int(row.txn_id): i for i,row in enumerate(frame.itertuples(index=False))}
-    delta = max(abs(row["proba"]-expected[by_id[row["txnId"]]]) for row in scores)
-    if delta > 1e-10: raise RuntimeError(f"Python/Spark scoring mismatch: {delta}")
-    expected_alerts = {"transaction-stream:"+str(row["txnId"]) for row in scores if row["isAlert"]}
+    actual_ids = {row["txnId"] for row in scores}
+    input_ids = {int(identity) for identity in frame.txn_id}
+    score_counts = {"total": len(scores), "unique": len(actual_ids), "duplicates": len(scores)-len(actual_ids),
+                    "unexpected_ids": sorted(actual_ids-input_ids), "missing_ids": sorted(input_ids-actual_ids)}
+    terminal.update(score_topic=topic, score_high_water=high_water, drained_offsets=score_offsets, score_counts=score_counts)
+    (out.parent/"terminal-progress.json").write_text(json.dumps(terminal,indent=2)+"\n")
+    (out.parent/"scores.jsonl").write_text("".join(json.dumps(row,allow_nan=False)+"\n" for row in scores))
+    reference = {int(row.txn_id): float(expected[i]) for i, row in enumerate(frame.itertuples(index=False))}
+    threshold = float(models.metadata["threshold"])
+    delta, expected_alerts = verify_stream(scores, reference, threshold)
     if not expected_alerts: raise RuntimeError("Replay produced no threshold alerts")
     replay_s = time.perf_counter()-started
     high = int(np.argmax(expected)); low = int(np.argmin(expected))
     with httpx.Client(timeout=30) as client:
         single = client.post(args.gateway+"/v1/transactions/score", json={"features": rows[high], "transaction_id": "integration-single"})
         single.raise_for_status(); single_body = single.json()
-        if not single_body["flagged"] or not single_body["alert_published"]: raise RuntimeError("Single prediction not delivered")
+        if single_body["transaction_id"] != "integration-single" or not single_body["flagged"] or not single_body["alert_published"]: raise RuntimeError("Single prediction not delivered")
+        if abs(probability(single_body["fraud_score"], "API score") - expected[high]) > 1e-10 or single_body["threshold"] != threshold:
+            raise RuntimeError("Single API score/threshold differs from Python")
         batch = client.post(args.gateway+"/v1/transactions/score-batch", json={"transactions":[
             {"features": rows[high], "transaction_id":"integration-batch-high"}, {"features":rows[low], "transaction_id":"integration-batch-low"}]})
         batch.raise_for_status(); batch_body=batch.json()
-        if batch_body["n"]!=2 or batch_body["n_flagged"]!=1: raise RuntimeError("Batch prediction mismatch")
+        if batch_body["n"]!=2 or batch_body["n_flagged"]!=1 or len(batch_body["results"]) != 2 or [row["transaction_id"] for row in batch_body["results"]] != ["integration-batch-high", "integration-batch-low"]:
+            raise RuntimeError("Batch prediction count/identity mismatch")
+        for prediction, index in zip(batch_body["results"], (high, low)):
+            if abs(probability(prediction["fraud_score"], "batch API score") - expected[index]) > 1e-10 or prediction["threshold"] != threshold or prediction["flagged"] != bool(expected[index] >= threshold):
+                raise RuntimeError("Batch API score/threshold/flag differs from Python")
         text = client.post(args.gateway+"/v1/text/classify", json={"text":"Congratulations! You have won a free prize. Call 09061701461 now to claim your cash reward! Text WIN to 87121.", "message_id":"integration-message"})
         text.raise_for_status(); text_body=text.json()
         if text_body["label"]!="scam" or not text_body["alert_published"]: raise RuntimeError("Text signal was not delivered")
@@ -140,23 +176,55 @@ def run(args):
         if len(resolved)!=1 or resolved[0]["id"]!="transaction-api:integration-single" or resolved[0]["case"]["labels"][0]["value"]!="FRAUD": raise RuntimeError("Analyst flow failed")
         # Re-publish the same ID and confirm the database still exposes one case.
         duplicate=client.post(args.gateway+"/v1/transactions/score",json={"features":rows[high],"transaction_id":"integration-single"});duplicate.raise_for_status()
-        time.sleep(1)
+        # OffsetFetch is read-only: do not join or commit to the backend's group.
+        audit=KafkaConsumer(bootstrap_servers=bootstrap.split(","),group_id=os.getenv("ALERTS_GROUP","sentinel-console-v1"),enable_auto_commit=False)
+        alerts_partition=TopicPartition("sentinel.alerts.v1",0)
+        alerts_high_water=audit.end_offsets([alerts_partition])[alerts_partition]
+        committed=None;deadline=time.monotonic()+90
+        while time.monotonic()<deadline:
+            committed=audit.committed(alerts_partition)
+            if committed is not None and committed>=alerts_high_water:break
+            time.sleep(.5)
+        audit.close()
+        if committed is None or committed<alerts_high_water:
+            raise RuntimeError("Console consumer has not committed the deliberately duplicated alert")
         duplicate_rows=graphql(client,args.graphql,'{alerts(search:"transaction-api:integration-single"){id case{id events{action}}}}',token=token)["alerts"]
         if len(duplicate_rows)!=1 or len(duplicate_rows[0]["case"]["events"])!=4: raise RuntimeError("Idempotent ingestion failed")
-    alerts_reader=KafkaConsumer("sentinel.alerts.v1",bootstrap_servers=bootstrap.split(","),auto_offset_reset="earliest",enable_auto_commit=False,consumer_timeout_ms=1500)
-    wire_events=[]
-    for record in alerts_reader:
-        event=Alert.model_validate_json(record.value);wire_events.append(event.model_dump(mode="json"))
+    alerts_reader=KafkaConsumer(bootstrap_servers=bootstrap.split(","),enable_auto_commit=False)
+    alerts_reader.assign([alerts_partition]);alerts_reader.seek_to_beginning(alerts_partition)
+    wire_events=[];deadline=time.monotonic()+90
+    while alerts_reader.position(alerts_partition)<alerts_high_water and time.monotonic()<deadline:
+        for records in alerts_reader.poll(timeout_ms=1000,max_records=5000).values():
+            for record in records:
+                if record.offset<alerts_high_water:
+                    event=Alert.model_validate_json(record.value);wire_events.append(event.model_dump(mode="json"))
+    if alerts_reader.position(alerts_partition)<alerts_high_water:
+        raise RuntimeError("Could not drain the completed alert-topic high water")
     alerts_reader.close()
     if {e["alert_id"] for e in wire_events}!=expected_ids: raise RuntimeError("Wire contract IDs differ from console cases")
+    producer_values = {
+        f"transaction-stream:{identity}": {"source": "transaction-stream", "risk_score": score, "threshold": threshold}
+        for identity, score in reference.items() if score >= threshold
+    }
+    for identity in ("integration-single", "integration-batch-high"):
+        producer_values["transaction-api:" + identity] = {"source": "transaction-api", "risk_score": float(expected[high]), "threshold": threshold}
+    producer_values["text-risk:integration-message"] = {"source": "text-risk", "risk_score": text_body["risk_score"], "threshold": .5 if text_body["source"] == "tfidf" else None}
+    producer_values.update({event["alert_id"]: {key: event[key] for key in ("source", "risk_score", "threshold")} for event in ato["events"]})
+    values_checked = verify_alert_values(wire_events, found, producer_values)
     (out.parent/"alerts-wire.jsonl").write_text("".join(json.dumps(e,allow_nan=False)+"\n" for e in wire_events))
     (out.parent/"scores.jsonl").write_text("".join(json.dumps(row,allow_nan=False)+"\n" for row in scores))
+    (out.parent/"reference-predictions.jsonl").write_text("".join(json.dumps({"txn_id": identity, "probability": score, "threshold": threshold, "is_alert": score >= threshold}, allow_nan=False)+"\n" for identity, score in reference.items()))
     report={"dataset":"OpenML 1597 credit-card replay prefix", "transactions":n,"input_records_including_flush":n+1,
-            "scores":len(scores),"duplicate_scores":0,"max_probability_difference":float(delta),"stream_alerts":len(expected_alerts),
+            "scores":len(scores),"unique_scores":score_counts["unique"],"duplicate_scores":score_counts["duplicates"],
+            "score_topic_high_water":high_water,"completed_input_rows":terminal["cumulative_input_rows"],
+            "unexpected_score_ids":score_counts["unexpected_ids"],"max_probability_difference":float(delta),"stream_alerts":len(expected_alerts),
             "ato_synthetic_alerts":ato["published"],"unique_console_alerts":len(found),"wire_records_including_duplicate":len(wire_events),
             "sources":sorted({row["source"] for row in found.values()}),"single_prediction":single_body,"batch_prediction":batch_body,
-            "text_prediction":text_body,"analyst_flow":["list","filter","assign","label","resolve"],"duplicate_ingestion":"one case, four history events",
-            "replay_delivery_and_scoring_seconds":replay_s,"all_assertions_passed":True}
+            "text_prediction":text_body,"analyst_flow":["list","filter","assign","label","resolve"],
+            "duplicate_ingestion":"duplicate offset committed; one case, four history events",
+            "alerts_high_water":alerts_high_water,"console_committed_offset":committed,
+            "replay_delivery_and_scoring_seconds":replay_s,"independent_threshold_flags_verified":n,
+            "wire_and_console_values_checked":values_checked,"all_assertions_passed":True}
     out.write_text(json.dumps(report,indent=2)+"\n");print(json.dumps(report,indent=2))
 
 

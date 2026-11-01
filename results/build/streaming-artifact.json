@@ -1,0 +1,25 @@
+{
+  "jar": "streaming/target/scala-2.13/fraud-streaming-scala-assembly-0.1.0.jar",
+  "jar_sha256": "a65fdfed3dd67f0ec83635227730948d0ae0974f267df68bae9c825be0db00e6",
+  "jar_bytes": 294766733,
+  "inputs": {
+    "streaming/build.sbt": "d8d12a619458da2d5fb8553ad22f6c085d8d4caac6b037001ffb8d2c36303c19",
+    "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+    "streaming/model/provenance.json": "c30bb311f7ab7672f70eb4241d4a6268991c76e2b603379695d69fa4a1dd6608",
+    "streaming/model/sklearn_parity.csv": "001e7ca8f58952c7da18506ac136e5662a0a05703fe62139ae339c66ab878114",
+    "streaming/project/build.properties": "89a4f4ed5f0e3fecef7b59ffa64da0266edba1e8eb7819eb1af88a435acc381c",
+    "streaming/project/plugins.sbt": "ddedf9c8bfa3e51dc2cc5e95ea7395b42dfe10430ae30891d1a92ac04493244c",
+    "streaming/src/main/resources/log4j2.properties": "15dd2a9d2987c1e512e0d25fefbbf6ca30649774c730d0fef2b556e50ceed155",
+    "streaming/src/main/scala/fraudstream/AlertContract.scala": "c6ea3037a30247b288e879e985621c669263789d08e65addfb3b4ccded8bc69c",
+    "streaming/src/main/scala/fraudstream/Features.scala": "edb4ca2f6ce1c98a9ef0e3036df9f2ae89c7dbff15f241978fa1d7b8ba5f0a7e",
+    "streaming/src/main/scala/fraudstream/Jobs.scala": "b28df4b5aacc24d90e234c4d4a7fd0aa0ad1d93d38292475a2b31bb5e4a1bb03",
+    "streaming/src/main/scala/fraudstream/Main.scala": "3bcfca0fcfd22f9676b86dc3910d43dd478c974c450af65386f79379e0f7a9d1",
+    "streaming/src/main/scala/fraudstream/Model.scala": "ee5fa85d1e1bdbefc9cb34e71d3a7ac5d7d90ce368ea91ec643304b9e0df5151",
+    "streaming/src/test/scala/fraudstream/AlertContractSpec.scala": "bf2a19c6b4782c114beab5507a44316c667a1a1c6c5cdccfc9b3d9e1b69ef1d1",
+    "streaming/src/test/scala/fraudstream/FeatureLogicSpec.scala": "05392e554ff63eb6bf2052b16203caf9ca8ad3e39e91ff519eeae0327ece21d5",
+    "streaming/src/test/scala/fraudstream/ModelSpec.scala": "1422bb8c3317b192497f478c7f543e2266c52eba466a4c06a49571541c44cb16",
+    "streaming/src/test/scala/fraudstream/SparkParitySpec.scala": "05aea061d1ed4b223bfd7e64b3c7046aa78d96b7024463ef106be73134b3d06d"
+  },
+  "compiled_class_matches": 42,
+  "scope": "All Scala sources/resources, project files excluding generated targets, build.sbt and model artifacts."
+}
