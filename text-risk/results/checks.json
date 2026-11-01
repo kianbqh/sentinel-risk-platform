@@ -1,0 +1,41 @@
+{
+  "local_tests_passed": 16,
+  "original_tests": 15,
+  "additional_regression": "malformed completion envelopes use rule fallback",
+  "private_dependency_check": "passed",
+  "python_bash_syntax": "passed",
+  "paired_eval_rows_per_model": 400,
+  "same_texts_and_labels": true,
+  "http_phases": {
+    "llm_cache_miss": {
+      "n": 100,
+      "metrics_reconciled": true,
+      "sources": {
+        "llm": 100
+      }
+    },
+    "llm_cache_hit": {
+      "n": 100,
+      "metrics_reconciled": true,
+      "sources": {
+        "cache": 100
+      }
+    },
+    "llm_timeout_fallback": {
+      "n": 100,
+      "metrics_reconciled": true,
+      "sources": {
+        "rules": 100
+      }
+    },
+    "hybrid": {
+      "n": 100,
+      "metrics_reconciled": true,
+      "sources": {
+        "tfidf": 86,
+        "llm": 14
+      }
+    }
+  },
+  "container_check_scope": "separate GitHub Actions CPU-container health/classify/metrics smoke; not part of local GPU timing"
+}

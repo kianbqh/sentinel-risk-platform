@@ -1,0 +1,9 @@
+data/
+__pycache__/
+.pytest_cache/
+.venv
+results/logs/llama_*.log
+.cache/
+.tmp/
+*.gguf
+*.log

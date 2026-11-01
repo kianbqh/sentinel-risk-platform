@@ -1,0 +1,28 @@
+[
+  {
+    "name": "cudart-llama-b12024-bin-ubuntu-cuda-12.8-x64.tar.gz",
+    "sha256": "2bf29bb45a323a3633ddb323a906457f03041d93ed30ad8cee67150f2dac54cb",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12024/cudart-llama-b12024-bin-ubuntu-cuda-12.8-x64.tar.gz",
+    "bytes": 594373607
+  },
+  {
+    "name": "llama-b12024-bin-ubuntu-cuda-12.8-x64.tar.gz",
+    "sha256": "2214b85fa76676e395c4928bc5cbcb3536e2a33f83783fffdaca3ce0c11c8acc",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12024/llama-b12024-bin-ubuntu-cuda-12.8-x64.tar.gz",
+    "bytes": 182782502
+  },
+  {
+    "name": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+    "repo": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "revision": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "bytes": 491400032
+  },
+  {
+    "name": "qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "repo": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+    "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+    "bytes": 1117320736
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "paired_text_and_labels": true,
+  "rows_per_model": 400,
+  "independently_recomputed": [
+    {
+      "model": "qwen2.5-0.5b-q4",
+      "n": 400,
+      "tp": 30,
+      "fp": 100,
+      "fn": 21,
+      "tn": 249,
+      "f1": 0.3314917127071823,
+      "reported_f1": 0.3315
+    },
+    {
+      "model": "qwen2.5-1.5b-q4",
+      "n": 400,
+      "tp": 42,
+      "fp": 68,
+      "fn": 9,
+      "tn": 281,
+      "f1": 0.5217391304347826,
+      "reported_f1": 0.5217
+    }
+  ],
+  "status": "evaluation_raw_predictions_accepted"
+}

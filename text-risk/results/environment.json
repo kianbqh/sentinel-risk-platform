@@ -1,0 +1,100 @@
+{
+  "run_date": "2026-10-31",
+  "origin": "local Windows / WSL2",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+  "logical_cpus_visible": 20,
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3080",
+    "driver": "621.01",
+    "peak_sampled_memory_mib": 4902,
+    "peak_sampled_utilization_percent": 81,
+    "samples": 194
+  },
+  "llama_cpp": {
+    "build": "b12024",
+    "version_output": "version: 0.8.0-dev (build 12024, commit ddf48f85c)\nbuilt with GNU 13.3.0 for Linux x86_64",
+    "commit": "ddf48f85c933c1f438212a02eb21e7b001d2d37d",
+    "cuda_runtime_bundle": "12.8",
+    "source": "official Ubuntu x64 CUDA binaries and matching cudart release assets",
+    "context_tokens": 4096,
+    "slots_per_model": 1,
+    "threads": 4,
+    "batch_threads": 4,
+    "requested_gpu_layers": 99,
+    "log_verbosity": 4,
+    "layer_offload": {
+      "qwen2.5-0.5b-q4": {
+        "offloaded_layers": 25,
+        "total_layers": 25,
+        "startup_evidence": "offloaded 25/25 layers to GPU"
+      },
+      "qwen2.5-1.5b-q4": {
+        "offloaded_layers": 29,
+        "total_layers": 29,
+        "startup_evidence": "offloaded 29/29 layers to GPU"
+      }
+    }
+  },
+  "sampling": {
+    "prompt_version": "v1",
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 80,
+    "schema_constrained": true,
+    "warmup_excluded": true,
+    "llama_prefix_cache": "server default"
+  },
+  "hybrid_thresholds": {
+    "low": 0.05,
+    "high": 0.95
+  },
+  "measurement_started": "2026-10-31T19:21:44-07:00",
+  "measurement_finished": "2026-10-31T19:25:01-07:00",
+  "dataset_archive_sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3",
+  "dataset_file_sha256": "7d039a24a6083ed9ef0f806ebad56bbb976e3aeb8de05669173bfdc4996c239d",
+  "tfidf_model_sha256": "f5c55856e55f2104d3f95fc78a4a1e548217bd69733ca1b409370e15ecff321c",
+  "packages": {
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "certifi": "2026.10.23",
+    "click": "8.5.0",
+    "cloudpickle": "3.1.2",
+    "fastapi": "0.162.0",
+    "h11": "0.16.0",
+    "httpcore": "1.0.9",
+    "httpx": "0.28.1",
+    "idna": "3.20",
+    "iniconfig": "2.3.1",
+    "joblib": "1.6.0",
+    "narwhals": "2.28.0",
+    "numpy": "2.5.4",
+    "opentelemetry-api": "1.45.2",
+    "packaging": "26.3",
+    "pandas": "3.1.0",
+    "pluggy": "1.7.0",
+    "prometheus_client": "0.26.0",
+    "pydantic": "2.14.2",
+    "pydantic_core": "2.50.2",
+    "Pygments": "2.21.0",
+    "pytest": "9.2.0",
+    "python-dateutil": "3.0.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "six": "1.17.0",
+    "starlette": "1.10.0",
+    "threadpoolctl": "3.7.0",
+    "typing-inspection": "0.4.4",
+    "typing_extensions": "4.16.0",
+    "tzdata": "2026.6",
+    "uvicorn": "0.54.0"
+  },
+  "validation_origins": {
+    "gpu_evaluation": "local CUDA llama.cpp",
+    "http_service": "local native uvicorn + CUDA backend",
+    "unit_tests": "local private Python environment",
+    "container_protocol": "GitHub Actions workflow builds and starts CPU TF-IDF container; evidence in ci-validation artifact"
+  }
+}

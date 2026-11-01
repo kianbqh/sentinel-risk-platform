@@ -1,0 +1,35 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13", cache: pip }
+      - run: pip install -r requirements-dev.txt
+      - run: python -m riskclf.baseline
+      - run: python -m pytest -q tests
+      - name: Offline eval, baselines only (no LLM in CI)
+        run: python eval/run_eval.py --n-llm 200 --tag ci_baselines
+      - name: Docker image builds
+        run: docker build -t llm-risk-classifier .
+      - name: Real container health, classification and metrics
+        run: |
+          docker run -d --name riskclf-ci -p 8008:8000 -e CLASSIFIER_MODE=tfidf llm-risk-classifier
+          python scripts/smoke.py
+      - name: Upload CI baseline and container records
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-validation
+          path: |
+            results/ci_baselines.json
+            results/ci_baselines_table.md
+            results/container_smoke.json
+      - name: Clean up container
+        if: always()
+        run: |
+          docker logs riskclf-ci || true
+          docker rm -f riskclf-ci || true
