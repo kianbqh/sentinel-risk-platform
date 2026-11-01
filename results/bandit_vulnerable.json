@@ -1,0 +1,295 @@
+{
+  "errors": [],
+  "generated_at": "2026-11-01T03:24:05Z",
+  "metrics": {
+    "./app/vulnerable.py": {
+      "CONFIDENCE.HIGH": 7,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 6,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 6,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 86,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "_totals": {
+      "CONFIDENCE.HIGH": 7,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 6,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 6,
+      "SEVERITY.LOW": 3,
+      "SEVERITY.MEDIUM": 4,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 86,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": [
+    {
+      "code": "9 import os\n10 import pickle\n11 import sqlite3\n",
+      "col_offset": 0,
+      "end_col_offset": 13,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with pickle module.",
+      "line_number": 10,
+      "line_range": [
+        10
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b403-import-pickle",
+      "test_id": "B403",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "11 import sqlite3\n12 import subprocess\n13 \n",
+      "col_offset": 0,
+      "end_col_offset": 17,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Consider possible security implications associated with the subprocess module.",
+      "line_number": 12,
+      "line_range": [
+        12
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_imports.html#b404-import-subprocess",
+      "test_id": "B404",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "20     app = Flask(__name__)\n21     app.config[\"SECRET_KEY\"] = \"dev-secret-123\"            # B105 hardcoded secret\n22     app.config[\"DB\"] = db_path\n",
+      "col_offset": 15,
+      "end_col_offset": 27,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 259,
+        "link": "https://cwe.mitre.org/data/definitions/259.html"
+      },
+      "issue_severity": "LOW",
+      "issue_text": "Possible hardcoded password: 'dev-secret-123'",
+      "line_number": 21,
+      "line_range": [
+        21
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b105_hardcoded_password_string.html",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string"
+    },
+    {
+      "code": "49         u, p = request.form.get(\"username\", \"\"), request.form.get(\"password\", \"\")\n50         h = hashlib.md5(p.encode()).hexdigest()               # weak hash\n51         row = db().execute(f\"SELECT id FROM users WHERE name='{u}' AND pw='{h}'\").fetchone()   # SQL injection\n",
+      "col_offset": 12,
+      "end_col_offset": 35,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 50,
+      "line_range": [
+        50
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "50         h = hashlib.md5(p.encode()).hexdigest()               # weak hash\n51         row = db().execute(f\"SELECT id FROM users WHERE name='{u}' AND pw='{h}'\").fetchone()   # SQL injection\n52         if not row:\n",
+      "col_offset": 29,
+      "end_col_offset": 62,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 89,
+        "link": "https://cwe.mitre.org/data/definitions/89.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible SQL injection vector through string-based query construction.",
+      "line_number": 51,
+      "line_range": [
+        51
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html",
+      "test_id": "B608",
+      "test_name": "hardcoded_sql_expressions"
+    },
+    {
+      "code": "61         raw = request.cookies.get(\"session_data\", \"\")\n62         data = pickle.loads(base64.b64decode(raw))             # insecure deserialization -> RCE\n63         return f\"hello {data['name']}\"\n",
+      "col_offset": 15,
+      "end_col_offset": 50,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 502,
+        "link": "https://cwe.mitre.org/data/definitions/502.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "line_number": 62,
+      "line_range": [
+        62
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b301-pickle",
+      "test_id": "B301",
+      "test_name": "blacklist"
+    },
+    {
+      "code": "67         q = request.args.get(\"q\", \"\")\n68         rows = db().execute(f\"SELECT title FROM notes WHERE title LIKE '%{q}%'\").fetchall()   # SQL injection\n69         return f\"<h1>Results for {q}</h1>\" + \"\".join(f\"<li>{r[0]}</li>\" for r in rows)       # reflected XSS\n",
+      "col_offset": 30,
+      "end_col_offset": 73,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 89,
+        "link": "https://cwe.mitre.org/data/definitions/89.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Possible SQL injection vector through string-based query construction.",
+      "line_number": 68,
+      "line_range": [
+        68
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b608_hardcoded_sql_expressions.html",
+      "test_id": "B608",
+      "test_name": "hardcoded_sql_expressions"
+    },
+    {
+      "code": "78         path = request.args.get(\"path\", \".\")\n79         out = subprocess.check_output(f\"du -s {path}\", shell=True, text=True)   # command injection\n80         return out\n",
+      "col_offset": 14,
+      "end_col_offset": 77,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 78,
+        "link": "https://cwe.mitre.org/data/definitions/78.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "subprocess call with shell=True identified, security issue.",
+      "line_number": 79,
+      "line_range": [
+        79
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b602_subprocess_popen_with_shell_equals_true.html",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true"
+    },
+    {
+      "code": "94     if conn.execute(\"SELECT COUNT(*) FROM users\").fetchone()[0] == 0:\n95         conn.execute(\"INSERT OR IGNORE INTO users(name, pw) VALUES (?, ?)\", (\"alice\", hashlib.md5(b\"wonderland\").hexdigest()))\n96         conn.execute(\"INSERT OR IGNORE INTO users(name, pw) VALUES (?, ?)\", (\"bob\", hashlib.md5(b\"builder\").hexdigest()))\n",
+      "col_offset": 86,
+      "end_col_offset": 112,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 95,
+      "line_range": [
+        95
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "95         conn.execute(\"INSERT OR IGNORE INTO users(name, pw) VALUES (?, ?)\", (\"alice\", hashlib.md5(b\"wonderland\").hexdigest()))\n96         conn.execute(\"INSERT OR IGNORE INTO users(name, pw) VALUES (?, ?)\", (\"bob\", hashlib.md5(b\"builder\").hexdigest()))\n97         conn.executemany(\"INSERT INTO notes(owner, title) VALUES (?, ?)\",\n",
+      "col_offset": 84,
+      "end_col_offset": 107,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "HIGH",
+      "issue_cwe": {
+        "id": 327,
+        "link": "https://cwe.mitre.org/data/definitions/327.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
+      "line_number": 96,
+      "line_range": [
+        96
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html",
+      "test_id": "B324",
+      "test_name": "hashlib"
+    },
+    {
+      "code": "102 def serve(db_path, port):\n103     create_app(db_path).run(host=\"127.0.0.1\", port=port, debug=True, use_reloader=False)   # debug mode\n104 \n",
+      "col_offset": 4,
+      "end_col_offset": 88,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",
+      "line_number": 103,
+      "line_range": [
+        103
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b201_flask_debug_true.html",
+      "test_id": "B201",
+      "test_name": "flask_debug_true"
+    },
+    {
+      "code": "107     create_app(os.environ.get(\"DB\", \"/tmp/vuln.db\")).run(host=\"127.0.0.1\", port=int(os.environ.get(\"PORT\", 5001)),\n108                                                           debug=True)   # debug mode: Werkzeug console\n",
+      "col_offset": 4,
+      "end_col_offset": 69,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 94,
+        "link": "https://cwe.mitre.org/data/definitions/94.html"
+      },
+      "issue_severity": "HIGH",
+      "issue_text": "A Flask app appears to be run with debug=True, which exposes the Werkzeug debugger and allows the execution of arbitrary code.",
+      "line_number": 108,
+      "line_range": [
+        107,
+        108
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b201_flask_debug_true.html",
+      "test_id": "B201",
+      "test_name": "flask_debug_true"
+    },
+    {
+      "code": "106 if __name__ == \"__main__\":\n107     create_app(os.environ.get(\"DB\", \"/tmp/vuln.db\")).run(host=\"127.0.0.1\", port=int(os.environ.get(\"PORT\", 5001)),\n108                                                           debug=True)   # debug mode: Werkzeug console\n",
+      "col_offset": 36,
+      "end_col_offset": 50,
+      "filename": "./app/vulnerable.py",
+      "issue_confidence": "MEDIUM",
+      "issue_cwe": {
+        "id": 377,
+        "link": "https://cwe.mitre.org/data/definitions/377.html"
+      },
+      "issue_severity": "MEDIUM",
+      "issue_text": "Probable insecure usage of temp file/directory.",
+      "line_number": 107,
+      "line_range": [
+        107
+      ],
+      "more_info": "https://bandit.readthedocs.io/en/1.9.4/plugins/b108_hardcoded_tmp_directory.html",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory"
+    }
+  ]
+}
