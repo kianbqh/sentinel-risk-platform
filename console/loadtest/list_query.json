@@ -1,0 +1,1 @@
+{"query":"{ applications(limit: 20) { id company role status updatedAt events { status at } } stats { total } }"}

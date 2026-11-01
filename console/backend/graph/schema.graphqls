@@ -1,0 +1,70 @@
+# Job-application tracker API.
+scalar Time
+
+enum Status {
+  SAVED
+  APPLIED
+  OA
+  INTERVIEW
+  OFFER
+  REJECTED
+}
+
+type User {
+  id: ID!
+  email: String!
+  createdAt: Time!
+}
+
+type Application {
+  id: ID!
+  company: String!
+  role: String!
+  url: String
+  status: Status!
+  appliedAt: Time
+  updatedAt: Time!
+  events: [StatusEvent!]!
+}
+
+type StatusEvent {
+  status: Status!
+  at: Time!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Stats {
+  total: Int!
+  byStatus: [StatusCount!]!
+}
+
+type StatusCount {
+  status: Status!
+  count: Int!
+}
+
+type Query {
+  me: User!
+  applications(status: Status, search: String, limit: Int = 50, offset: Int = 0): [Application!]!
+  application(id: ID!): Application
+  stats: Stats!
+}
+
+input NewApplication {
+  company: String!
+  role: String!
+  url: String
+  status: Status = SAVED
+}
+
+type Mutation {
+  register(email: String!, password: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  createApplication(input: NewApplication!): Application!
+  updateStatus(id: ID!, status: Status!): Application!
+  deleteApplication(id: ID!): Boolean!
+}

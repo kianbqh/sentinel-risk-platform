@@ -1,0 +1,6 @@
+server {
+  listen ${LISTEN_PORT};
+  root /usr/share/nginx/html;
+  location /query { proxy_pass ${BACKEND_URL}/query; }
+  location / { try_files $uri /index.html; }
+}
