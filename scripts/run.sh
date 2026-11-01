@@ -4,9 +4,13 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 CP_FILE=target/runtime-classpath.txt
-if [[ ! -s $CP_FILE || build.sbt -nt $CP_FILE || project/build.properties -nt $CP_FILE || -n $(find src/main -type f -newer "$CP_FILE" -print -quit 2>/dev/null) ]]; then
+classes_dir=
+if [[ -s $CP_FILE ]]; then
+  IFS=: read -r classes_dir _ < "$CP_FILE"
+fi
+if [[ ! -f "$classes_dir/fraudstream/Main.class" || build.sbt -nt $CP_FILE || project/build.properties -nt $CP_FILE || -n $(find src/main -type f -newer "$CP_FILE" -print -quit 2>/dev/null) ]]; then
   mkdir -p target
-  sbt -batch -error compile "export Runtime/fullClasspath" | tail -1 > "$CP_FILE"
+  sbt -batch -error writeRuntimeClasspath
 fi
 exec java -Xmx${JVM_HEAP:-4g} \
   --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \

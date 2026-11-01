@@ -45,4 +45,9 @@ jobs:
           assert sum(p['numInputRows'] for p in progress) == 283727
           PY
       - uses: actions/upload-artifact@v4
-        with: { name: replay-report, path: results/ }
+        if: always()
+        with:
+          name: replay-report
+          path: |
+            results/
+            target/runtime-classpath.txt

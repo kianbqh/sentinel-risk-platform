@@ -3,6 +3,7 @@ ThisBuild / organization := "io.github.kianbqh"
 ThisBuild / version := "0.1.0"
 
 val sparkVersion = "4.3.0"
+val writeRuntimeClasspath = taskKey[File]("Compile and write the JVM runtime classpath without terminal formatting")
 
 lazy val root = (project in file("."))
   .settings(
@@ -13,6 +14,14 @@ lazy val root = (project in file("."))
       "org.scalatest" %% "scalatest" % "3.2.19" % Test
     ),
     scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked"),
+    writeRuntimeClasspath := {
+      (Compile / compile).value
+      val classes = (Compile / classDirectory).value
+      require((classes / "fraudstream" / "Main.class").isFile, s"Missing compiled entry point under $classes")
+      val destination = target.value / "runtime-classpath.txt"
+      IO.write(destination, (Runtime / fullClasspath).value.files.mkString(java.io.File.pathSeparator) + "\n")
+      destination
+    },
     // Spark needs its own JVM with these module flags on Java 17+.
     fork := true,
     Test / fork := true,
