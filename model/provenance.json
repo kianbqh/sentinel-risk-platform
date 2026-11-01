@@ -1,0 +1,10 @@
+{
+  "source_repository": "https://github.com/kianbqh/stripe-fraud-ml",
+  "source_commit": "126d43ac28d313d59a91ba4abbc287f5bee11eb9",
+  "raw_dataset_sha256": "b7efcb35a428bbe22347a05d2437d9177bab07ce61e51214a17bec584ad9496d",
+  "source_model_sha256": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+  "source_metadata_sha256": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+  "exported_model_sha256": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+  "real_fixture_sha256": "001e7ca8f58952c7da18506ac136e5662a0a05703fe62139ae339c66ab878114",
+  "real_fixture_rows": 474
+}

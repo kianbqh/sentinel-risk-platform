@@ -1,0 +1,48 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17", cache: sbt }
+      - uses: sbt/setup-sbt@v1
+      - name: ScalaTest (model parity, feature logic, Spark batch vs Structured Streaming)
+        run: sbt -batch test
+  smoke-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17", cache: sbt }
+      - uses: sbt/setup-sbt@v1
+      - name: Start Redpanda
+        run: docker compose up -d --wait redpanda
+      - name: Data + batch reference
+        run: |
+          mkdir -p data
+          curl -sSfL -o data/creditcard.parquet https://data.openml.org/datasets/0000/1597/dataset_1597.pq
+          scripts/run.sh prepare && scripts/run.sh batch-reference
+      - name: Backlog replay (full dataset) and parity report
+        run: |
+          RUN_ID=ci MODE=backlog scripts/experiment.sh
+          python3 - <<'PY'
+          import json, math
+          r = json.load(open('results/ci.json'))
+          assert r['rows_in_scores_topic'] == r['distinct_txn_ids'] == 283726, r
+          for field in ('duplicates', 'missing_in_stream', 'extra_in_stream', 'txn_count_mismatches', 'alert_decision_mismatches', 'alert_topic_id_mismatches'):
+              assert r[field] == 0, (field, r)
+          for field, tolerance in [('max_abs_proba_diff', 1e-12), ('max_abs_logit_diff', 1e-9), ('max_abs_amount_z_diff', 1e-9), ('max_abs_amount_ratio_diff', 1e-9)]:
+              assert math.isfinite(r[field]) and r[field] <= tolerance, (field, r)
+          assert r['records_in_alerts_topic'] == r['stream_alerts'], r
+          progress = [json.loads(line) for line in open('results/ci_progress.jsonl') if line.strip()]
+          assert sum(p['numInputRows'] for p in progress) == 283727
+          PY
+      - uses: actions/upload-artifact@v4
+        with: { name: replay-report, path: results/ }
