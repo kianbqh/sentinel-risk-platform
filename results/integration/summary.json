@@ -1,0 +1,76 @@
+{
+  "dataset": "OpenML 1597 credit-card replay prefix",
+  "transactions": 10000,
+  "input_records_including_flush": 10001,
+  "scores": 10000,
+  "unique_scores": 10000,
+  "duplicate_scores": 0,
+  "score_topic_high_water": 10000,
+  "completed_input_rows": 10001,
+  "unexpected_score_ids": [],
+  "max_probability_difference": 1.2878587085651816e-14,
+  "stream_alerts": 38,
+  "ato_synthetic_alerts": 100,
+  "unique_console_alerts": 141,
+  "wire_records_including_duplicate": 142,
+  "sources": [
+    "ato",
+    "text-risk",
+    "transaction-api",
+    "transaction-stream"
+  ],
+  "single_prediction": {
+    "transaction_id": "integration-single",
+    "fraud_score": 1.0,
+    "flagged": true,
+    "threshold": 0.9999722811772073,
+    "alert_published": true
+  },
+  "batch_prediction": {
+    "n": 2,
+    "n_flagged": 1,
+    "results": [
+      {
+        "transaction_id": "integration-batch-high",
+        "fraud_score": 1.0,
+        "flagged": true,
+        "threshold": 0.9999722811772073,
+        "alert_published": true
+      },
+      {
+        "transaction_id": "integration-batch-low",
+        "fraud_score": 1.1134849444609442e-08,
+        "flagged": false,
+        "threshold": 0.9999722811772073,
+        "alert_published": false
+      }
+    ]
+  },
+  "text_prediction": {
+    "label": "scam",
+    "category": "other",
+    "reason": "tfidf p=1.000",
+    "risk_score": 0.9999627697757676,
+    "source": "tfidf",
+    "model": "tfidf_lr",
+    "latency_ms": 2.07827899998847,
+    "message_id": "integration-message",
+    "dataset_target": "SMS spam",
+    "score_source": "tfidf_lr",
+    "alert_published": true
+  },
+  "analyst_flow": [
+    "list",
+    "filter",
+    "assign",
+    "label",
+    "resolve"
+  ],
+  "duplicate_ingestion": "duplicate offset committed; one case, four history events",
+  "alerts_high_water": 142,
+  "console_committed_offset": 142,
+  "replay_delivery_and_scoring_seconds": 5.410723831000041,
+  "independent_threshold_flags_verified": 10000,
+  "wire_and_console_values_checked": 283,
+  "all_assertions_passed": true
+}

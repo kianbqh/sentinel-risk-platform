@@ -1,0 +1,33 @@
+{
+  "headless": true,
+  "case_id": "40",
+  "credentials": "Omitted; dedicated synthetic local UI account",
+  "method": "Playwright CLI browser actions and observed accessibility snapshots",
+  "observed_event_sequence": [
+    "INGESTED",
+    "ASSIGNED",
+    "LABELED",
+    "RESOLVED"
+  ],
+  "final_label": "FRAUD",
+  "browser": "HeadlessChrome/156.0.0.0 on Windows",
+  "observed_utc": "2026-11-01T10:08:18.052Z",
+  "note": "Browser review confirmed",
+  "console_errors": 0,
+  "alert_id": "transaction-api:integration-batch-high",
+  "final_status": "RESOLVED",
+  "screenshot": "analyst-case-resolved.png",
+  "observed_steps": [
+    "register",
+    "list 141 cases",
+    "filter source ato",
+    "filter source transaction-api and alert ID",
+    "assign case to current analyst",
+    "save FRAUD label with note",
+    "resolve case",
+    "filter RESOLVED and assigned to me"
+  ],
+  "analyst_id": "3",
+  "target": "http://127.0.0.1:13040/",
+  "console_warnings": 0
+}

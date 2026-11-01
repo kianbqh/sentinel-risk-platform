@@ -35,7 +35,7 @@ bash scripts/up.sh
 bash scripts/demo.sh
 ```
 
-The demo downloads OpenML's credit-card data when it is not cached, replays the first 10,000 ordered, deduplicated transactions, and runs the synthetic ATO classifier. It checks scores against Python, reconciles every unique alert with a case, then assigns, labels and resolves a case through GraphQL. Create an analyst account in the console to explore the same queue.
+The demo uses a [bundled, SHA-256-checked prefix](gateway/fixtures/README.md) of 10,000 real, ordered, deduplicated credit-card transactions and runs the synthetic ATO classifier. It checks scores against Python, reconciles every unique alert with a case, then assigns, labels and resolves a case through GraphQL. Create an analyst account in the console to explore the same queue. The full OpenML downloader remains an explicit `--download-full` option with its upstream checksum checks.
 
 The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash scripts/up.sh` uses the Linux host-network override for an engine with bridge networking disabled. Generated credentials and downloaded data stay in ignored local files.
 
@@ -52,6 +52,24 @@ The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash script
 The small LLM hybrids did not improve F1 over TF-IDF on these paired SMS messages, so Compose serves TF-IDF by default. The GNNs also did not beat LightGBM on this fixed-graph protocol. The graph study uses a temporal label split on the full graph, with train-only preprocessing and validation-only threshold selection; its full feature set already contains neighborhood aggregates.
 
 The batch and paired SMS evaluations are retained source measurements; the [quality manifest](results/model-quality/manifest.json) records their original paths and SHA-256 hashes. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
+
+## Local integration results
+
+The [Compose run](results/integration/summary.json) scored all 10,000 replayed transactions, with no missing or duplicate scores. Python and Spark differed by at most **1.29 × 10⁻¹⁴**, and all 10,000 threshold decisions matched. The terminal Spark batch covered the flush marker before the runner drained the Kafka high-water offset.
+
+The four producers delivered **141 unique alerts and cases**: 38 streaming transactions, two API predictions, one SMS and 100 synthetic ATO windows. A deliberately repeated alert made 142 Kafka records; the consumer committed that offset while keeping one case and its four-event audit trail. [Raw scores, independent references and offsets](results/integration/) accompany the summary.
+
+These GraphQL measurements ran in WSL2 on an i7-12700KF, with other project training paused. Reads return 50 cases with labels and complete histories. Writes update ten independent cases twenty times each; all 200 new audit events were read back with the expected actor and note.
+
+| Operation | Concurrency | Valid / attempted | Valid requests/s | P95 | P99 |
+|---|---:|---:|---:|---:|---:|
+| Read queue and histories | 1 | 200 / 200 | 243.0 | 4.7 ms | 5.3 ms |
+| Read queue and histories | 20 | 1,000 / 1,000 | 774.4 | 44.2 ms | 58.5 ms |
+| Write case labels | 10 | 200 / 200 | 116.5 | 145.4 ms | 164.5 ms |
+
+Every measured response body was checked. [Per-request latencies and persisted write checks](results/load/) retain the full run. The [browser check](results/ui/summary.json) also followed account creation, filtering, assignment, labeling and resolution through the interface, with no browser-console errors.
+
+![A resolved case in the analyst workspace](results/ui/analyst-case-resolved.png)
 
 ## Following a signal
 

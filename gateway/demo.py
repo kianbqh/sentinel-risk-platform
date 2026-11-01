@@ -5,6 +5,7 @@ import json
 import math
 import os
 from pathlib import Path
+import shutil
 import time
 
 import httpx
@@ -13,15 +14,35 @@ import numpy as np
 import pandas as pd
 
 from .contracts import Alert
+from .client import graphql
 from .main import Models, Transaction
 from .verification import completed_progress, probability, verify_alert_values, verify_stream
 
 
-def prepare(path, source=None, limit=10000):
+FIXTURE_DIR = Path(__file__).resolve().parent / "fixtures"
+
+
+def prepare(path, source=None, limit=10000, download_full=False):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists():
-        return pd.read_parquet(path)
+    if source is None and not download_full:
+        manifest = json.loads((FIXTURE_DIR / "manifest.json").read_text())
+        fixture = FIXTURE_DIR / manifest["file"]
+        if not 1 <= limit <= manifest["rows"]:
+            raise ValueError("The bundled replay contains 10000 rows; use --source or --download-full for a larger replay")
+        if hashlib.sha256(fixture.read_bytes()).hexdigest() != manifest["sha256"]:
+            raise RuntimeError("Bundled replay SHA-256 mismatch")
+        if not path.exists():
+            shutil.copyfile(fixture, path)
+        if hashlib.sha256(path.read_bytes()).hexdigest() != manifest["sha256"]:
+            raise RuntimeError("Cached replay SHA-256 mismatch")
+        frame = pd.read_parquet(path)
+        if len(frame) != manifest["rows"]:
+            raise RuntimeError("Bundled replay row count mismatch")
+        path.with_suffix(".json").write_text(json.dumps({"dataset": manifest["dataset"], "source": "versioned real OpenML prefix",
+            "sha256": manifest["sha256"], "rows_in_file": len(frame), "selected_rows": limit,
+            "full_replay_sha256": manifest["full_preprocessed_replay"]["sha256"]}, indent=2)+"\n")
+        return frame.head(limit).copy()
     if source:
         raw = pd.read_parquet(source)
         origin = str(source)
@@ -60,18 +81,9 @@ def features(frame):
     return result
 
 
-def graphql(client, endpoint, query, variables=None, token=None):
-    headers = {"Authorization": "Bearer " + token} if token else {}
-    response = client.post(endpoint, json={"query": query, "variables": variables or {}}, headers=headers)
-    response.raise_for_status(); body = response.json()
-    if body.get("errors") or not isinstance(body.get("data"), dict):
-        raise RuntimeError(f"GraphQL operation failed: {body}")
-    return body["data"]
-
-
 def run(args):
     out = Path(args.output); out.parent.mkdir(parents=True, exist_ok=True)
-    frame = prepare(args.replay, args.source, args.limit)
+    frame = prepare(args.replay, args.source, args.limit, args.download_full)
     n = len(frame); rows = features(frame); models = Models()
     expected = models.score([Transaction(features=row, publish=False) for row in rows])
     bootstrap = os.environ["KAFKA_BOOTSTRAP_SERVERS"]
@@ -231,6 +243,7 @@ def run(args):
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("--replay",default="/data/replay.parquet");parser.add_argument("--source")
+    parser.add_argument("--download-full",action="store_true",help="Explicitly fetch the complete OpenML dataset with its upstream checksum checks")
     parser.add_argument("--limit",type=int,default=10000);parser.add_argument("--ato-limit",type=int,default=100)
     parser.add_argument("--gateway",default=os.getenv("GATEWAY_URL","http://gateway:18040"))
     parser.add_argument("--graphql",default=os.getenv("GRAPHQL_URL","http://backend:18041/graphql"))

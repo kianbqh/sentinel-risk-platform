@@ -1,0 +1,3734 @@
+{
+  "synthetic": true,
+  "train_events": 140232,
+  "test_events": 143416,
+  "train_windows": 51001,
+  "test_windows": 53208,
+  "flagged_windows": 7290,
+  "published": 100,
+  "seconds": 2.8513966589998745,
+  "metrics": {
+    "method": "GradientBoosting (synthetic completed-hour classification)",
+    "window": {
+      "precision": 0.997119341563786,
+      "recall": 0.9879043218265833,
+      "f1": 0.9924904423812124,
+      "tp": 7269,
+      "fp": 21,
+      "fn": 89
+    },
+    "event_recall": 0.9977581753496759,
+    "benign_event_fpr": 0.0006194978806651451,
+    "per_kind_event_recall": {
+      "brute_force": 1.0,
+      "low_slow": 0.969419976732591,
+      "spraying": 1.0,
+      "stuffing": 1.0
+    },
+    "nat_window_fp": 1,
+    "nat_windows": 1062
+  },
+  "topic": "sentinel.alerts.v1",
+  "events": [
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.107.136.190:95",
+      "event_time": "2026-01-05T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.107.136.190",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.107.136.190:95"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.111.33.8:12",
+      "event_time": "2026-01-01T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.111.33.8",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.111.33.8:12"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.159.109.189:137",
+      "event_time": "2026-01-06T18:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.159.109.189",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.159.109.189:137"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.209.235.87:53",
+      "event_time": "2026-01-03T06:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.209.235.87",
+      "risk_score": 0.9921082081257208,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.209.235.87:53"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.215.102.220:64",
+      "event_time": "2026-01-03T17:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.215.102.220",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.215.102.220:64"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.229.62.253:119",
+      "event_time": "2026-01-06T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.229.62.253",
+      "risk_score": 0.9999655337332399,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 2.0,
+          "n_fail": 2.0,
+          "fail_ratio": 1.0,
+          "n_users": 2.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 5.784588671114761,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 2.0
+        }
+      },
+      "trace_id": "integration-ato:10.229.62.253:119"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.40.237.23:78",
+      "event_time": "2026-01-04T07:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.40.237.23",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.40.237.23:78"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.45.168.229:42",
+      "event_time": "2026-01-02T19:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.45.168.229",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.45.168.229:42"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.47.51.108:91",
+      "event_time": "2026-01-04T20:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.47.51.108",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.47.51.108:91"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.48.207.32:119",
+      "event_time": "2026-01-06T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.48.207.32",
+      "risk_score": 0.9999655337332399,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 2.0,
+          "n_fail": 2.0,
+          "fail_ratio": 1.0,
+          "n_users": 2.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 4.873479137721006,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 2.0
+        }
+      },
+      "trace_id": "integration-ato:10.48.207.32:119"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.66.81.206:95",
+      "event_time": "2026-01-05T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.66.81.206",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.66.81.206:95"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:10.94.59.177:71",
+      "event_time": "2026-01-04T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "10.94.59.177",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:10.94.59.177:71"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.114.244.236:23",
+      "event_time": "2026-01-02T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.114.244.236",
+      "risk_score": 0.9921082081257208,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.114.244.236:23"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.121.249.188:109",
+      "event_time": "2026-01-05T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.121.249.188",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.121.249.188:109"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.121.77.32:143",
+      "event_time": "2026-01-07T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.121.77.32",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.121.77.32:143"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.201.145.150:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.201.145.150",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.201.145.150:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.213.181.28:23",
+      "event_time": "2026-01-02T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.213.181.28",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.213.181.28:23"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.3.128.211:135",
+      "event_time": "2026-01-06T16:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.3.128.211",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.3.128.211:135"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.76.211.98:54",
+      "event_time": "2026-01-03T07:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.76.211.98",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.76.211.98:54"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:100.97.145.216:67",
+      "event_time": "2026-01-03T20:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "100.97.145.216",
+      "risk_score": 0.9465756258004877,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:100.97.145.216:67"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:172.169.81.95:17",
+      "event_time": "2026-01-01T18:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "172.169.81.95",
+      "risk_score": 0.6145844941256693,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 16.0,
+          "n_fail": 11.0,
+          "fail_ratio": 0.6875,
+          "n_users": 6.0,
+          "users_per_attempt": 0.375,
+          "unknown_user_ratio": 0.0,
+          "n_success": 5.0,
+          "iat_median": 23.142334811622277,
+          "iat_cv": 1.8059887201929403,
+          "n_ua": 6.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 6.0,
+          "ip_hist_users": 83.0
+        }
+      },
+      "trace_id": "integration-ato:172.169.81.95:17"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.105.136:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.105.136",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7,
+          "n_success": 0.0,
+          "iat_median": 69.01894637208898,
+          "iat_cv": 1.3349930556349197,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 10.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.105.136:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.105.136:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.105.136",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8333333333333334,
+          "n_success": 0.0,
+          "iat_median": 240.3561934759491,
+          "iat_cv": 0.8560626261519276,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 16.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.105.136:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.106.116:57",
+      "event_time": "2026-01-03T10:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.106.116",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.106.116:57"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.106.116:58",
+      "event_time": "2026-01-03T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.106.116",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 13.0,
+          "n_fail": 13.0,
+          "fail_ratio": 1.0,
+          "n_users": 13.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6923076923076923,
+          "n_success": 0.0,
+          "iat_median": 145.7942206380685,
+          "iat_cv": 1.2652267278047549,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 14.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.106.116:58"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.106.116:59",
+      "event_time": "2026-01-03T12:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.106.116",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.9,
+          "n_success": 0.0,
+          "iat_median": 230.52351634704974,
+          "iat_cv": 0.8136899216447403,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 24.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.106.116:59"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.106.116:60",
+      "event_time": "2026-01-03T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.106.116",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 15.0,
+          "n_fail": 15.0,
+          "fail_ratio": 1.0,
+          "n_users": 15.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7333333333333333,
+          "n_success": 0.0,
+          "iat_median": 127.02805261473986,
+          "iat_cv": 1.0367081069955046,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 39.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.106.116:60"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.106.116:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.106.116",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 8.0,
+          "fail_ratio": 1.0,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 341.48563990031835,
+          "iat_cv": 0.9175267716970614,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 47.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.106.116:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.118.3:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.118.3",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 8.0,
+          "fail_ratio": 1.0,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.875,
+          "n_success": 0.0,
+          "iat_median": 83.42882889491739,
+          "iat_cv": 1.0730346612503479,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 8.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.118.3:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.118.3:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.118.3",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 3.0,
+          "n_fail": 3.0,
+          "fail_ratio": 1.0,
+          "n_users": 3.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 326.1429692096426,
+          "iat_cv": 1.1405478847904649,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 11.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.118.3:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.130.37:145",
+      "event_time": "2026-01-07T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.130.37",
+      "risk_score": 0.9999814364846763,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 2.0,
+          "n_fail": 2.0,
+          "fail_ratio": 1.0,
+          "n_users": 2.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 81.37788089469541,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 2.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.130.37:145"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.130.37:146",
+      "event_time": "2026-01-07T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.130.37",
+      "risk_score": 0.9999794108456399,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 52.0,
+          "n_fail": 50.0,
+          "fail_ratio": 0.9615384615384616,
+          "n_users": 52.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7115384615384616,
+          "n_success": 2.0,
+          "iat_median": 42.84551971079782,
+          "iat_cv": 0.9873379346623765,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 54.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.130.37:146"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.191.216:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.191.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 7.0,
+          "n_fail": 7.0,
+          "fail_ratio": 1.0,
+          "n_users": 7.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5714285714285714,
+          "n_success": 0.0,
+          "iat_median": 156.3065916718042,
+          "iat_cv": 0.6933369153914194,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 7.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.191.216:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.191.216:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.191.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 8.0,
+          "fail_ratio": 1.0,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 192.9992999152746,
+          "iat_cv": 0.6894778651716603,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 15.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.191.216:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.249.80:34",
+      "event_time": "2026-01-02T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.249.80",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 12.0,
+          "fail_ratio": 1.0,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 65.28045304997067,
+          "iat_cv": 0.8592043017969578,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.249.80:34"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.252.149:34",
+      "event_time": "2026-01-02T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.252.149",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 13.0,
+          "n_fail": 13.0,
+          "fail_ratio": 1.0,
+          "n_users": 13.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7692307692307693,
+          "n_success": 0.0,
+          "iat_median": 140.44040677815065,
+          "iat_cv": 0.845966757389733,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 13.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.252.149:34"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.26.131:34",
+      "event_time": "2026-01-02T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.26.131",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 12.0,
+          "fail_ratio": 1.0,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 56.896303281217115,
+          "iat_cv": 0.8726809542273744,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.26.131:34"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.35.98:145",
+      "event_time": "2026-01-07T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.35.98",
+      "risk_score": 0.9999801818998093,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 2.0,
+          "n_fail": 2.0,
+          "fail_ratio": 1.0,
+          "n_users": 2.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 111.7578902868554,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 2.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.35.98:145"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.35.98:146",
+      "event_time": "2026-01-07T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.35.98",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 47.0,
+          "n_fail": 46.0,
+          "fail_ratio": 0.9787234042553191,
+          "n_users": 47.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.723404255319149,
+          "n_success": 1.0,
+          "iat_median": 49.64503834879724,
+          "iat_cv": 1.0055534094890333,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 49.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.35.98:146"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.0.45.65:34",
+      "event_time": "2026-01-02T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.0.45.65",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 11.0,
+          "n_fail": 11.0,
+          "fail_ratio": 1.0,
+          "n_users": 11.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6363636363636364,
+          "n_success": 0.0,
+          "iat_median": 91.23118921215791,
+          "iat_cv": 1.0743877351596312,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 11.0
+        }
+      },
+      "trace_id": "integration-ato:185.0.45.65:34"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.0.177:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.0.177",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 126.10436241596472,
+          "iat_cv": 0.32361299493132456,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.0.177:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.0.177:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.0.177",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7,
+          "n_success": 0.0,
+          "iat_median": 127.02637578779832,
+          "iat_cv": 0.9048440857976426,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 16.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.0.177:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.12.166:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.12.166",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 201.0098856256227,
+          "iat_cv": 0.773147887502606,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.12.166:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.12.166:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.12.166",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6,
+          "n_success": 0.0,
+          "iat_median": 102.62050327670295,
+          "iat_cv": 0.9115786482806246,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 16.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.12.166:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.19.158:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.19.158",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 289.72966458142037,
+          "iat_cv": 0.8804427327284206,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.19.158:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.19.158:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.19.158",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 5.0,
+          "n_fail": 5.0,
+          "fail_ratio": 1.0,
+          "n_users": 5.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 213.93583294353448,
+          "iat_cv": 0.720265406723867,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 11.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.19.158:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.223.67:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.223.67",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 7.0,
+          "fail_ratio": 0.875,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 1.0,
+          "iat_median": 169.8918126092758,
+          "iat_cv": 0.9628681548526653,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 8.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.223.67:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.223.67:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.223.67",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 4.0,
+          "n_fail": 4.0,
+          "fail_ratio": 1.0,
+          "n_users": 4.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 110.28298098035157,
+          "iat_cv": 1.4277777899498305,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.223.67:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.233.21:145",
+      "event_time": "2026-01-07T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.233.21",
+      "risk_score": 0.9921082081257208,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.233.21:145"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.233.21:146",
+      "event_time": "2026-01-07T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.233.21",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 46.0,
+          "n_fail": 46.0,
+          "fail_ratio": 1.0,
+          "n_users": 46.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.717391304347826,
+          "n_success": 0.0,
+          "iat_median": 51.84119137923699,
+          "iat_cv": 1.0697757309459808,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 47.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.233.21:146"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.35.169:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.35.169",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8333333333333334,
+          "n_success": 0.0,
+          "iat_median": 48.762114067329094,
+          "iat_cv": 1.090749622868359,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.35.169:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.35.169:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.35.169",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 11.0,
+          "n_fail": 11.0,
+          "fail_ratio": 1.0,
+          "n_users": 11.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5454545454545454,
+          "n_success": 0.0,
+          "iat_median": 59.7662946942728,
+          "iat_cv": 1.2500502252262733,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 17.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.35.169:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.43.48:57",
+      "event_time": "2026-01-03T10:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.43.48",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 2.0,
+          "n_fail": 2.0,
+          "fail_ratio": 1.0,
+          "n_users": 2.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 19.62344812878291,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 2.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.43.48:57"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.43.48:58",
+      "event_time": "2026-01-03T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.43.48",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8333333333333334,
+          "n_success": 0.0,
+          "iat_median": 331.3563001831644,
+          "iat_cv": 0.6285775566522236,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 8.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.43.48:58"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.43.48:59",
+      "event_time": "2026-01-03T12:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.43.48",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 12.0,
+          "fail_ratio": 1.0,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 240.1909029489325,
+          "iat_cv": 0.71689579827472,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 20.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.43.48:59"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.43.48:60",
+      "event_time": "2026-01-03T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.43.48",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 11.0,
+          "n_fail": 11.0,
+          "fail_ratio": 1.0,
+          "n_users": 11.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6363636363636364,
+          "n_success": 0.0,
+          "iat_median": 97.95496037253179,
+          "iat_cv": 1.5466053054667122,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 31.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.43.48:60"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.43.48:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.43.48",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 7.0,
+          "n_fail": 7.0,
+          "fail_ratio": 1.0,
+          "n_users": 7.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7142857142857143,
+          "n_success": 0.0,
+          "iat_median": 407.3844480627158,
+          "iat_cv": 0.8840600380498109,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 38.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.43.48:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.7.184:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.7.184",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 4.0,
+          "n_fail": 4.0,
+          "fail_ratio": 1.0,
+          "n_users": 4.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 259.03387090493925,
+          "iat_cv": 0.9971403675552973,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 4.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.7.184:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.7.184:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.7.184",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 235.06299291033065,
+          "iat_cv": 1.0649804434780281,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 10.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.7.184:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.76.231:145",
+      "event_time": "2026-01-07T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.76.231",
+      "risk_score": 0.9921082081257208,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.76.231:145"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.1.76.231:146",
+      "event_time": "2026-01-07T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.1.76.231",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 57.0,
+          "n_fail": 57.0,
+          "fail_ratio": 1.0,
+          "n_users": 57.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7017543859649122,
+          "n_success": 0.0,
+          "iat_median": 36.892471942468546,
+          "iat_cv": 1.018237672382871,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 58.0
+        }
+      },
+      "trace_id": "integration-ato:185.1.76.231:146"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.117.244:57",
+      "event_time": "2026-01-03T10:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.117.244",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 5.0,
+          "n_fail": 5.0,
+          "fail_ratio": 1.0,
+          "n_users": 5.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 93.11076892976416,
+          "iat_cv": 0.9398880127353465,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 5.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.117.244:57"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.117.244:58",
+      "event_time": "2026-01-03T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.117.244",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 13.0,
+          "n_fail": 13.0,
+          "fail_ratio": 1.0,
+          "n_users": 13.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 193.48110853407707,
+          "iat_cv": 1.2250509041172977,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 18.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.117.244:58"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.117.244:59",
+      "event_time": "2026-01-03T12:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.117.244",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6,
+          "n_success": 0.0,
+          "iat_median": 160.75047806673683,
+          "iat_cv": 1.0200033213423538,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 28.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.117.244:59"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.117.244:60",
+      "event_time": "2026-01-03T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.117.244",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 9.0,
+          "n_fail": 9.0,
+          "fail_ratio": 1.0,
+          "n_users": 9.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 247.03134955001588,
+          "iat_cv": 0.7269996923880183,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 37.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.117.244:60"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.117.244:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.117.244",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 8.0,
+          "fail_ratio": 1.0,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 153.1077090597828,
+          "iat_cv": 1.1436435865019154,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 45.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.117.244:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.123.13:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.123.13",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 123.75347404979402,
+          "iat_cv": 1.309114783802402,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.123.13:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.123.13:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.123.13",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 8.0,
+          "fail_ratio": 1.0,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5,
+          "n_success": 0.0,
+          "iat_median": 253.22383603878552,
+          "iat_cv": 0.5423211300223576,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 14.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.123.13:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.163.47:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.163.47",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.3333333333333333,
+          "n_success": 0.0,
+          "iat_median": 233.45567034895066,
+          "iat_cv": 0.6058214024930142,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 6.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.163.47:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.163.47:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.163.47",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 7.0,
+          "fail_ratio": 0.875,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.625,
+          "n_success": 1.0,
+          "iat_median": 126.88531426771078,
+          "iat_cv": 1.0681801316475992,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 14.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.163.47:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.178.107:145",
+      "event_time": "2026-01-07T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.178.107",
+      "risk_score": 0.9999801819193194,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 3.0,
+          "n_fail": 3.0,
+          "fail_ratio": 1.0,
+          "n_users": 3.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 64.94412876712158,
+          "iat_cv": 0.3249840584979007,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 3.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.178.107:145"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.10.178.107:146",
+      "event_time": "2026-01-07T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.10.178.107",
+      "risk_score": 0.9999794108456399,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 37.0,
+          "n_fail": 35.0,
+          "fail_ratio": 0.9459459459459459,
+          "n_users": 37.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6486486486486487,
+          "n_success": 2.0,
+          "iat_median": 60.83587465650635,
+          "iat_cv": 0.8639472264828144,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 40.0
+        }
+      },
+      "trace_id": "integration-ato:185.10.178.107:146"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.107.228:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.107.228",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 11.0,
+          "fail_ratio": 0.9166666666666666,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 1.0,
+          "iat_median": 96.85140009300085,
+          "iat_cv": 0.8929637399795105,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.107.228:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.107.228:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.107.228",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 3.0,
+          "n_fail": 3.0,
+          "fail_ratio": 1.0,
+          "n_users": 3.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 120.10302808773122,
+          "iat_cv": 1.1269113890521003,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 15.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.107.228:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.15.76:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.15.76",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 12.0,
+          "fail_ratio": 1.0,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 163.37767603225075,
+          "iat_cv": 0.609580258697406,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.15.76:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.15.76:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.15.76",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 6.0,
+          "n_fail": 6.0,
+          "fail_ratio": 1.0,
+          "n_users": 6.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 347.68373531184625,
+          "iat_cv": 0.5982424383494724,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 18.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.15.76:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.16.67:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.16.67",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 9.0,
+          "fail_ratio": 0.9,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7,
+          "n_success": 1.0,
+          "iat_median": 158.8596274504671,
+          "iat_cv": 0.6153872871846762,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 10.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.16.67:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.16.67:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.16.67",
+      "risk_score": 0.9999759293390796,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 3.0,
+          "n_fail": 2.0,
+          "fail_ratio": 0.6666666666666666,
+          "n_users": 3.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 1.0,
+          "iat_median": 350.54090023678145,
+          "iat_cv": 0.061437055118649005,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 13.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.16.67:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.194.222:93",
+      "event_time": "2026-01-04T22:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.194.222",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 23.0,
+          "n_fail": 22.0,
+          "fail_ratio": 0.9565217391304348,
+          "n_users": 23.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8260869565217391,
+          "n_success": 1.0,
+          "iat_median": 62.90700171381468,
+          "iat_cv": 0.7202220798589075,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 23.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.194.222:93"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.194.222:94",
+      "event_time": "2026-01-04T23:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.194.222",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 41.0,
+          "n_fail": 40.0,
+          "fail_ratio": 0.975609756097561,
+          "n_users": 41.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6097560975609756,
+          "n_success": 1.0,
+          "iat_median": 54.01122727431357,
+          "iat_cv": 1.3848440526307046,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 64.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.194.222:94"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.194.222:95",
+      "event_time": "2026-01-05T00:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.194.222",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 49.0,
+          "n_fail": 47.0,
+          "fail_ratio": 0.9591836734693877,
+          "n_users": 48.0,
+          "users_per_attempt": 0.9795918367346939,
+          "unknown_user_ratio": 0.7346938775510204,
+          "n_success": 2.0,
+          "iat_median": 39.98741786729079,
+          "iat_cv": 1.1086065190027856,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 2.0,
+          "ip_hist_users": 112.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.194.222:95"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.194.222:96",
+      "event_time": "2026-01-05T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.194.222",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 7.0,
+          "n_fail": 7.0,
+          "fail_ratio": 1.0,
+          "n_users": 7.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7142857142857143,
+          "n_success": 0.0,
+          "iat_median": 40.48824775300454,
+          "iat_cv": 0.7423037932512647,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 119.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.194.222:96"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.208.224:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.208.224",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 6.0,
+          "fail_ratio": 0.75,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.625,
+          "n_success": 2.0,
+          "iat_median": 149.58625975140603,
+          "iat_cv": 1.052109782576278,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 8.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.208.224:120"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.208.224:121",
+      "event_time": "2026-01-06T02:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.208.224",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 7.0,
+          "n_fail": 7.0,
+          "fail_ratio": 1.0,
+          "n_users": 7.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8571428571428571,
+          "n_success": 0.0,
+          "iat_median": 138.9077409405727,
+          "iat_cv": 0.881055170208858,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 15.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.208.224:121"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.212.76:34",
+      "event_time": "2026-01-02T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.212.76",
+      "risk_score": 0.999980181914568,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 13.0,
+          "n_fail": 12.0,
+          "fail_ratio": 0.9230769230769231,
+          "n_users": 13.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8461538461538461,
+          "n_success": 1.0,
+          "iat_median": 78.61263998026698,
+          "iat_cv": 1.4045017231559775,
+          "n_ua": 1.0,
+          "ua_tool": 0.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 13.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.212.76:34"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.64.42:57",
+      "event_time": "2026-01-03T10:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.64.42",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.64.42:57"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.64.42:58",
+      "event_time": "2026-01-03T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.64.42",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 11.0,
+          "n_fail": 11.0,
+          "fail_ratio": 1.0,
+          "n_users": 11.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.8181818181818182,
+          "n_success": 0.0,
+          "iat_median": 322.7424239326647,
+          "iat_cv": 0.6697144331320205,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 12.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.64.42:58"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.64.42:59",
+      "event_time": "2026-01-03T12:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.64.42",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 13.0,
+          "n_fail": 13.0,
+          "fail_ratio": 1.0,
+          "n_users": 13.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.5384615384615384,
+          "n_success": 0.0,
+          "iat_median": 168.2071502154722,
+          "iat_cv": 0.8800211487991751,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 25.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.64.42:59"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.64.42:60",
+      "event_time": "2026-01-03T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.64.42",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 5.0,
+          "n_fail": 5.0,
+          "fail_ratio": 1.0,
+          "n_users": 5.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 363.7054246468324,
+          "iat_cv": 0.8035743666973606,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 30.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.64.42:60"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.64.42:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.64.42",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 9.0,
+          "n_fail": 9.0,
+          "fail_ratio": 1.0,
+          "n_users": 9.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7777777777777778,
+          "n_success": 0.0,
+          "iat_median": 318.78283351520076,
+          "iat_cv": 0.8033949439574873,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 39.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.64.42:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.80.118:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.80.118",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 9.0,
+          "n_fail": 9.0,
+          "fail_ratio": 1.0,
+          "n_users": 9.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7777777777777778,
+          "n_success": 0.0,
+          "iat_median": 122.5190751500486,
+          "iat_cv": 0.8747674241904008,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 9.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.80.118:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.80.118:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.80.118",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 4.0,
+          "n_fail": 4.0,
+          "fail_ratio": 1.0,
+          "n_users": 4.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 492.90946781710954,
+          "iat_cv": 0.9284062740734811,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 13.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.80.118:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.91.216:57",
+      "event_time": "2026-01-03T10:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.91.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 1.0,
+          "n_fail": 1.0,
+          "fail_ratio": 1.0,
+          "n_users": 1.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 1.0,
+          "n_success": 0.0,
+          "iat_median": 3600.0,
+          "iat_cv": 0.0,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 1.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.91.216:57"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.91.216:58",
+      "event_time": "2026-01-03T11:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.91.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 8.0,
+          "n_fail": 7.0,
+          "fail_ratio": 0.875,
+          "n_users": 8.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 1.0,
+          "iat_median": 173.0018760903331,
+          "iat_cv": 1.629250143758663,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 9.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.91.216:58"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.91.216:59",
+      "event_time": "2026-01-03T12:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.91.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 12.0,
+          "n_fail": 12.0,
+          "fail_ratio": 1.0,
+          "n_users": 12.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 317.7946458448132,
+          "iat_cv": 0.7813524318366407,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 21.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.91.216:59"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.91.216:60",
+      "event_time": "2026-01-03T13:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.91.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7,
+          "n_success": 0.0,
+          "iat_median": 263.9928901284002,
+          "iat_cv": 0.739993180728802,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 31.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.91.216:60"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.91.216:61",
+      "event_time": "2026-01-03T14:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.91.216",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 11.0,
+          "n_fail": 11.0,
+          "fail_ratio": 1.0,
+          "n_users": 11.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.7272727272727273,
+          "n_success": 0.0,
+          "iat_median": 335.69760831874737,
+          "iat_cv": 0.5676932833097893,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 42.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.91.216:61"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.94.206:122",
+      "event_time": "2026-01-06T03:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.94.206",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 4.0,
+          "n_fail": 4.0,
+          "fail_ratio": 1.0,
+          "n_users": 4.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.75,
+          "n_success": 0.0,
+          "iat_median": 425.82460685638944,
+          "iat_cv": 0.6372709853689233,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 4.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.94.206:122"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.100.94.206:123",
+      "event_time": "2026-01-06T04:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.100.94.206",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 10.0,
+          "n_fail": 10.0,
+          "fail_ratio": 1.0,
+          "n_users": 10.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.9,
+          "n_success": 0.0,
+          "iat_median": 58.19163142202888,
+          "iat_cv": 1.0058977221298644,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 14.0
+        }
+      },
+      "trace_id": "integration-ato:185.100.94.206:123"
+    },
+    {
+      "schema_version": "1.0",
+      "alert_id": "integration-ato:185.101.100.3:120",
+      "event_time": "2026-01-06T01:00:00Z",
+      "source": "ato",
+      "entity_type": "ip",
+      "entity_id": "185.101.100.3",
+      "risk_score": 0.9999801819022226,
+      "threshold": 0.5,
+      "severity": "high",
+      "summary": "Synthetic login-abuse window flagged",
+      "model": {
+        "name": "synthetic-login-hgb",
+        "version": "242e06115b20df2e97db2c6b033caea348a1885c022c3625c05de19a0f5f6a5f"
+      },
+      "evidence": {
+        "synthetic": true,
+        "window": "completed IP-hour",
+        "seed": 2,
+        "features": {
+          "n": 9.0,
+          "n_fail": 9.0,
+          "fail_ratio": 1.0,
+          "n_users": 9.0,
+          "users_per_attempt": 1.0,
+          "unknown_user_ratio": 0.6666666666666666,
+          "n_success": 0.0,
+          "iat_median": 125.29452064205543,
+          "iat_cv": 1.354745339264193,
+          "n_ua": 1.0,
+          "ua_tool": 1.0,
+          "max_fail_one_user": 1.0,
+          "ip_hist_users": 9.0
+        }
+      },
+      "trace_id": "integration-ato:185.101.100.3:120"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+test_a_modified_cache_is_rejected_before_parquet_is_read (gateway.tests.test_replay_fixture.ReplayFixtureTests.test_a_modified_cache_is_rejected_before_parquet_is_read) ... ok
+test_a_modified_shipped_fixture_is_rejected (gateway.tests.test_replay_fixture.ReplayFixtureTests.test_a_modified_shipped_fixture_is_rejected) ... ok
+test_default_is_real_versioned_input_without_a_network_fetch (gateway.tests.test_replay_fixture.ReplayFixtureTests.test_default_is_real_versioned_input_without_a_network_fetch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 23.126s
+
+OK
+verified serving/model/model.joblib
+verified serving/model/model_meta.json
+verified text-risk/models/tfidf_lr.joblib
+verified streaming/model/lr_model.json
+verified streaming/model/sklearn_parity.csv
+verified gateway/fixtures/creditcard-prefix-10000.parquet
+verified gateway/fixtures/manifest.json

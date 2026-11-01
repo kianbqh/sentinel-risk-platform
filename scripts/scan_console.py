@@ -9,7 +9,7 @@ import time
 import uuid
 
 import httpx
-from gateway.demo import graphql
+from gateway.client import graphql
 from security.scan.run_dast import validate_report
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,6 +45,7 @@ def run():
         raise RuntimeError("Expected exactly one owned Compose console")
     with socket.socket() as probe: probe.bind(("127.0.0.1",18049))
     private = Path(os.getenv("SENTINEL_PRIVATE", ROOT/".runtime")); private.mkdir(parents=True,exist_ok=True)
+    zap_home = private / "zap-home";zap_home.mkdir(exist_ok=True);zap_home.chmod(0o777)
     with httpx.Client(timeout=30) as client:
         response = client.get(TARGET);response.raise_for_status()
         if "Sentinel" not in response.text: raise RuntimeError("Wrong application at console port")
@@ -56,12 +57,14 @@ def run():
     raw.mkdir(mode=0o777);raw.chmod(0o777)
     image = os.getenv("ZAP_IMAGE","ghcr.io/zaproxy/zaproxy:stable")
     manifest = {"target":TARGET,"project":project,"owned_console_container":containers[0],"image":image,
+                "policy":"Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
                 "redaction":"Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.","scans":[]}
     try:
         for mode in ("baseline","full"):
             name = "sentinel-f1-zap-"+mode+"-"+uuid.uuid4().hex[:8]
             command=[docker,"run","--rm","--name",name,"--network=host","--cpus=2",
                      "-v",f"{raw}:/zap/wrk:rw","-v",f"{ROOT/'security/platform_scope.py'}:/zap/owned_scope.py:ro",
+                     "-v",f"{zap_home}:/home/zap/.ZAP:rw",
                      "-v",f"{ROOT/'security/zap_seed.py'}:/zap/zap_seed.py:ro","-e",f"SENTINEL_ANALYST_ID={auth['register']['user']['id']}",
                      "-v",f"{token_path}:/zap/analyst-token:ro","-e",f"SENTINEL_SCOPE_PROOF=/zap/wrk/{mode}-scope.json",image,
                      "zap-baseline.py" if mode=="baseline" else "zap-full-scan.py","-t",TARGET,"-P","18049","-m","1","-T","5","-I",
@@ -87,6 +90,10 @@ def run():
                 (reports/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
     finally:
         token_path.unlink(missing_ok=True)
+    manifest["security_gate_passed"] = not any(scan["risk_type_counts"][level] for scan in manifest["scans"] for level in ("high","medium"))
+    (reports/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
+    if not manifest["security_gate_passed"]:
+        raise RuntimeError("Unresolved high/medium console findings; reports retained for correction and triage")
     print(json.dumps(manifest,indent=2))
 
 

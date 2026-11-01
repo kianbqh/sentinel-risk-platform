@@ -1,0 +1,61 @@
+{
+  "started_utc": "2026-11-01T09:55:52.493887+00:00",
+  "endpoint": "http://127.0.0.1:13040/graphql",
+  "query": "{me{id} alerts(limit:50){id source severity riskScore threshold case{id status events{action at} labels{value actorId}}} stats{total open investigating resolved assigned}}",
+  "page_size": 50,
+  "page_ids_sha256": "3ebb7b9097b80c43c1fc73dcbd6cfa2cb8db167a35d8f8ec37bc03864efdf543",
+  "validation": "HTTP200, no GraphQL errors, exact expected page IDs, analyst, sources, probabilities, case histories and count invariants",
+  "phases": [
+    {
+      "kind": "read-50-cases-with-history",
+      "concurrency": 1,
+      "attempts": 200,
+      "valid_successes": 200,
+      "errors": 0,
+      "wall_s": 0.8228944960001172,
+      "attempts_per_second": 243.04452268443842,
+      "valid_requests_per_second": 243.04452268443842,
+      "p50_ms": 3.8508390000515647,
+      "p95_ms": 4.71499680005536,
+      "p99_ms": 5.260793000095413,
+      "max_ms": 38.387704000115264,
+      "raw": "c1.jsonl",
+      "ten_warmups_excluded": true
+    },
+    {
+      "kind": "read-50-cases-with-history",
+      "concurrency": 20,
+      "attempts": 1000,
+      "valid_successes": 1000,
+      "errors": 0,
+      "wall_s": 1.2913228849999996,
+      "attempts_per_second": 774.399657603838,
+      "valid_requests_per_second": 774.399657603838,
+      "p50_ms": 22.640734499987047,
+      "p95_ms": 44.217560950130505,
+      "p99_ms": 58.53705872990303,
+      "max_ms": 88.55219400015812,
+      "raw": "c20.jsonl",
+      "ten_warmups_excluded": true
+    },
+    {
+      "kind": "label-case-write",
+      "concurrency": 10,
+      "independent_cases": 10,
+      "attempts": 200,
+      "valid_successes": 200,
+      "errors": 0,
+      "wall_s": 1.7174070819999088,
+      "valid_requests_per_second": 116.4546263353598,
+      "p50_ms": 77.20505599991156,
+      "p95_ms": 145.3650365499695,
+      "p99_ms": 164.52282644996555,
+      "max_ms": 175.74448699997447,
+      "raw": "writes-c10.jsonl",
+      "setup_assignments_excluded": 10,
+      "readback_verified": true,
+      "new_history_events": 200
+    }
+  ],
+  "finished_utc": "2026-11-01T09:55:56.884506+00:00"
+}

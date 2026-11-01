@@ -1,0 +1,72 @@
+{
+  "dataset": "OpenML 1597 creditcard version 1",
+  "source_url": "https://www.openml.org/d/1597",
+  "metadata_url": "https://www.openml.org/api/v1/json/data/1597",
+  "upstream_arff_md5": "178bcf9bb1f31a3dfe12d0e577884add",
+  "data_licence": "Public",
+  "licence_source": "The licence string in the OpenML dataset metadata.",
+  "creators": [
+    "Andrea Dal Pozzolo",
+    "Olivier Caelen",
+    "Gianluca Bontempi"
+  ],
+  "citation": "Andrea Dal Pozzolo, Olivier Caelen, Reid A. Johnson and Gianluca Bontempi. Calibrating Probability with Undersampling for Unbalanced Classification. IEEE CIDM, 2015.",
+  "file": "creditcard-prefix-10000.parquet",
+  "bytes": 2661375,
+  "rows": 10000,
+  "sha256": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+  "cached_creditcard_parquet": {
+    "sha256": "b7efcb35a428bbe22347a05d2437d9177bab07ce61e51214a17bec584ad9496d",
+    "rows": 284807
+  },
+  "full_preprocessed_replay": {
+    "part_file": "part-00000-fdd7374b-9f69-4be0-81a2-82fe5d7a844e-c000.snappy.parquet",
+    "sha256": "4acbe163408f90eb80d60374890b8494d9196601aef7cbdba9d8a0d8659094c6",
+    "rows": 283726
+  },
+  "ordering": "Drop duplicate complete rows; sort by Time,V1..V28,Amount; take the first 10000 rows; txn_id starts at zero.",
+  "prefix_check": {
+    "cached_raw_columns": [
+      "Time",
+      "Amount",
+      "Class",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28"
+    ],
+    "replay_columns": [
+      "txn_id",
+      "time",
+      "amount",
+      "label",
+      "v[0..27]"
+    ],
+    "all_values_equal_to_raw_and_full_replay_prefix": true
+  },
+  "measurement_source_revision": "72625bed1fb1c829cb35ff8c388c6c022092d3d7"
+}

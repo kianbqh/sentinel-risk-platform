@@ -1,5 +1,5 @@
 {
-  "description": "Committed serving artifacts retained from the fully imported source histories; graph training outputs are independent research results.",
+  "description": "Pinned serving artifacts and real replay input; graph training outputs are independent research results.",
   "files": [
     {
       "path": "serving/model/model.joblib",
@@ -25,6 +25,16 @@
       "path": "streaming/model/sklearn_parity.csv",
       "bytes": 312476,
       "sha256": "001e7ca8f58952c7da18506ac136e5662a0a05703fe62139ae339c66ab878114"
+    },
+    {
+      "bytes": 2661375,
+      "path": "gateway/fixtures/creditcard-prefix-10000.parquet",
+      "sha256": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4"
+    },
+    {
+      "bytes": 1961,
+      "path": "gateway/fixtures/manifest.json",
+      "sha256": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c"
     }
   ]
 }

@@ -12,7 +12,7 @@ import uuid
 
 import httpx
 import numpy as np
-from gateway.demo import graphql
+from gateway.client import graphql
 
 QUERY = """{me{id} alerts(limit:50){id source severity riskScore threshold case{id status events{action at} labels{value actorId}}} stats{total open investigating resolved assigned}}"""
 

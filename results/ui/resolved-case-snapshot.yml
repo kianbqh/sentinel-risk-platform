@@ -1,0 +1,118 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - text: SENTINEL / RISK OPERATIONS
+      - heading "Analyst workspace" [level=1] [ref=e6]
+    - generic [ref=e19]:
+      - text: ui-1002-f1@example.com
+      - button "Log out" [ref=e20] [cursor=pointer]
+  - region "Case totals" [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]: All cases
+      - strong [ref=e24]: "141"
+    - generic [ref=e25]:
+      - generic [ref=e26]: Open
+      - strong [ref=e27]: "129"
+    - generic [ref=e28]:
+      - generic [ref=e29]: Investigating
+      - strong [ref=e30]: "10"
+    - generic [ref=e31]:
+      - generic [ref=e32]: Resolved
+      - strong [ref=e33]: "2"
+  - region "Filters" [ref=e34]:
+    - textbox "Search alerts" [ref=e35]:
+      - /placeholder: Search entity, summary, alert ID…
+      - text: integration-batch-high
+    - combobox "Source" [ref=e36]:
+      - option "All sources"
+      - option "transaction-stream"
+      - option "transaction-api" [selected]
+      - option "ato"
+      - option "text-risk"
+    - combobox "Case status" [ref=e37]:
+      - option "All statuses"
+      - option "OPEN"
+      - option "INVESTIGATING"
+      - option "RESOLVED" [selected]
+    - combobox "Severity" [ref=e38]:
+      - option "All severities" [selected]
+      - option "high"
+      - option "medium"
+      - option "low"
+    - generic [ref=e39]:
+      - checkbox "Assigned to me" [ref=e40]
+      - text: Assigned to me
+    - button "Refresh" [ref=e41] [cursor=pointer]
+  - status [ref=e838]: Case resolved
+  - generic [ref=e42]:
+    - region "Alert queue" [ref=e43]:
+      - generic [ref=e44]:
+        - heading "Alert queue" [level=2] [ref=e45]
+        - generic [ref=e46]: 1 shown · latest 50
+      - button "high Transaction model threshold exceeded transaction-api · integration-batch-high RESOLVED 2026/11/1 01:55:12" [ref=e839] [cursor=pointer]:
+        - text: high
+        - strong [ref=e820]: Transaction model threshold exceeded
+        - generic [ref=e821]: transaction-api · integration-batch-high
+        - generic [ref=e822]:
+          - generic [ref=e823]: RESOLVED
+          - generic [ref=e824]: 2026/11/1 01:55:12
+    - region "Case detail" [ref=e347]:
+      - generic [ref=e348]:
+        - 'heading "Case #40" [level=2] [ref=e825]'
+        - generic [ref=e350]: RESOLVED
+      - heading "Transaction model threshold exceeded" [level=3] [ref=e826]
+      - paragraph [ref=e352]: transaction-api / transaction / integration-batch-high
+      - generic [ref=e353]:
+        - term [ref=e354]: Model score
+        - definition [ref=e355]: "1.000000"
+        - term [ref=e356]: Decision threshold
+        - definition [ref=e357]: "0.999972"
+        - term [ref=e358]: Model
+        - definition [ref=e359]: logreg_balanced 18e11ae45ff0ec48
+        - term [ref=e360]: Trace
+        - definition [ref=e361]: integration-batch-high
+      - generic [ref=e362]:
+        - generic [ref=e363]:
+          - text: Assignee
+          - combobox "Assignee" [ref=e364]:
+            - option "integration-1793526917@example.com"
+            - option "load-2bd95720b1494feb823beb992b82abd5@example.com"
+            - option "ui-1002-f1@example.com" [selected]
+        - button "Assign case" [ref=e365] [cursor=pointer]
+      - generic [ref=e366]:
+        - heading "Analyst decision" [level=3] [ref=e367]
+        - generic [ref=e368]:
+          - text: Label
+          - combobox "Label" [ref=e369]:
+            - option "FRAUD" [selected]
+            - option "BENIGN"
+            - option "UNCERTAIN"
+        - generic [ref=e370]:
+          - text: Note
+          - textbox "Decision note" [ref=e371]: Browser review confirmed
+        - generic [ref=e372]:
+          - button "Save label" [ref=e373] [cursor=pointer]
+          - button "Resolve case" [disabled] [ref=e374]
+      - heading "Labels" [level=3] [ref=e375]
+      - list [ref=e833]:
+        - listitem [ref=e834]: FRAUD · analyst 3 · Browser review confirmed
+      - group [ref=e377]:
+        - generic "Signal evidence" [ref=e378]
+      - heading "Case history" [level=3] [ref=e379]
+      - list [ref=e380]:
+        - listitem [ref=e381]:
+          - strong [ref=e382]: INGESTED
+          - text: transaction-api
+          - generic [ref=e383]: 2026/11/1 01:55:13 · ingestion
+        - listitem [ref=e829]:
+          - strong [ref=e830]: ASSIGNED
+          - text: "3"
+          - generic [ref=e831]: 2026/11/1 02:04:59 · analyst 3
+        - listitem [ref=e835]:
+          - strong [ref=e836]: LABELED
+          - text: "FRAUD: Browser review confirmed"
+          - generic [ref=e837]: 2026/11/1 02:05:01 · analyst 3
+        - listitem [ref=e840]:
+          - strong [ref=e841]: RESOLVED
+          - text: Browser review confirmed
+          - generic [ref=e842]: 2026/11/1 02:06:55 · analyst 3
