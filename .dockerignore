@@ -1,0 +1,17 @@
+.git
+.runtime
+**/.git
+**/node_modules
+**/dist
+**/target
+**/data
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/tooling
+**/.terraform
+**/results
+security/fixtures
+research/graph
+batch
+.env

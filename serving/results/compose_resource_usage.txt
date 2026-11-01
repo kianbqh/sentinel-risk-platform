@@ -1,2 +1,0 @@
-{"BlockIO":"0B / 0B","CPUPerc":"99.13%","Container":"fraud-cloud-fraud-api-1","ID":"342fb4329f69","MemPerc":"20.95%","MemUsage":"107.3MiB / 512MiB","Name":"fraud-cloud-fraud-api-1","NetIO":"0B / 0B","PIDs":"45"}
-{"BlockIO":"0B / 0B","CPUPerc":"98.90%","Container":"fraud-cloud-fraud-api-1","ID":"342fb4329f69","MemPerc":"21.86%","MemUsage":"111.9MiB / 512MiB","Name":"fraud-cloud-fraud-api-1","NetIO":"0B / 0B","PIDs":"23"}

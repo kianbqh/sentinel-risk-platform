@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "alert_id": "ato:synthetic-fixture:1",
+  "event_time": "2026-11-01T00:00:00Z",
+  "source": "ato",
+  "entity_type": "ip",
+  "entity_id": "192.0.2.1",
+  "risk_score": 0.98,
+  "threshold": 0.5,
+  "severity": "high",
+  "summary": "Synthetic login-abuse fixture",
+  "model": {"name": "login-gradient-boosting", "version": "synthetic-seed1-v1"},
+  "evidence": {"synthetic": true, "attempts": 40},
+  "trace_id": "synthetic-fixture:1"
+}

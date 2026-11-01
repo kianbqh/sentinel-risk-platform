@@ -1,0 +1,128 @@
+name: ${COMPOSE_PROJECT_NAME:-sentinel-risk}
+services:
+  redpanda:
+    image: redpandadata/redpanda:v25.2.9
+    command: [redpanda, start, --mode=dev-container, --smp=1, --memory=1G, '--kafka-addr=internal://0.0.0.0:29039,external://0.0.0.0:29040', '--advertise-kafka-addr=internal://redpanda:29039,external://localhost:29040', --rpc-addr=0.0.0.0:33140, --advertise-rpc-addr=redpanda:33140, --schema-registry-addr=0.0.0.0:28040, --pandaproxy-addr=0.0.0.0:28041, --set, 'redpanda.admin=[{"address":"0.0.0.0","port":29640}]']
+    ports: ['127.0.0.1:29040:29040']
+    volumes: [broker-data:/var/lib/redpanda/data]
+    healthcheck:
+      test: [CMD, rpk, cluster, health, --api-urls=127.0.0.1:29640, --exit-when-healthy]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+  topics:
+    image: redpandadata/redpanda:v25.2.9
+    depends_on:
+      redpanda: {condition: service_healthy}
+    entrypoint: [/bin/sh, -ec]
+    command:
+      - |
+        for topic in sentinel.transactions.v1 sentinel.scores.v1 sentinel.alerts.v1; do
+          if ! rpk topic list -X brokers=redpanda:29039 | awk '{print $$1}' | grep -Fxq "$$topic"; then
+            rpk topic create "$$topic" --partitions 1 --replicas 1 -X brokers=redpanda:29039
+          fi
+        done
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: sentinel
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run scripts/up.sh to generate local credentials}
+      POSTGRES_DB: sentinel
+    ports: ['127.0.0.1:15440:5432']
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U sentinel -d sentinel']
+      interval: 3s
+      retries: 30
+  gateway:
+    image: sentinel-risk-gateway:local
+    build: {context: ., dockerfile: gateway/Dockerfile}
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: redpanda:29039
+      ALERTS_TOPIC: sentinel.alerts.v1
+      CLASSIFIER_MODE: ${CLASSIFIER_MODE:-tfidf}
+      LLM_BASE_URL: ${LLM_BASE_URL:-http://127.0.0.1:8091/v1}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5-1.5b-instruct-q4_k_m}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_TIMEOUT_S: ${LLM_TIMEOUT_S:-2}
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    ports: ['127.0.0.1:18040:18040']
+    depends_on:
+      topics: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18040/health/ready',timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+  backend:
+    image: sentinel-risk-console-api:local
+    build: {context: console/backend}
+    environment:
+      DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@postgres:5432/sentinel?sslmode=disable
+      JWT_SECRET: ${JWT_SECRET:?Run scripts/up.sh to generate local credentials}
+      BCRYPT_COST: '12'
+      PORT: '18041'
+      CORS_ORIGIN: http://localhost:13040
+      KAFKA_BOOTSTRAP_SERVERS: redpanda:29039
+      ALERTS_TOPIC: sentinel.alerts.v1
+      ALERTS_GROUP: sentinel-console-v1
+    ports: ['127.0.0.1:18041:18041']
+    depends_on:
+      topics: {condition: service_completed_successfully}
+      postgres: {condition: service_healthy}
+  console:
+    image: sentinel-risk-console:local
+    build: {context: console/frontend}
+    environment:
+      LISTEN_PORT: '13040'
+      BACKEND_URL: http://backend:18041
+    ports: ['127.0.0.1:13040:13040']
+    depends_on: [backend]
+    healthcheck:
+      test: [CMD, wget, -q, --spider, http://127.0.0.1:13040/]
+      interval: 5s
+      retries: 30
+  streaming:
+    image: sentinel-risk-streaming:local
+    build: {context: ., dockerfile: streaming/Dockerfile}
+    environment:
+      KAFKA_BOOTSTRAP: redpanda:29039
+      INPUT_TOPIC: sentinel.transactions.v1
+      SCORES_TOPIC: sentinel.scores.v1
+      ALERTS_TOPIC: sentinel.alerts.v1
+      ALERT_FORMAT: sentinel-v1
+    command: [stream, --run-id, platform, --checkpoint, /state/checkpoint, --progress-log, /results/progress.jsonl, --idle-timeout-s, '86400']
+    volumes: [spark-state:/state, './results/streaming:/results']
+    depends_on:
+      topics: {condition: service_completed_successfully}
+  ato:
+    profiles: [demo]
+    image: sentinel-risk-gateway:local
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: redpanda:29039
+      ALERTS_TOPIC: sentinel.alerts.v1
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    command: [python, -m, ato.publish, --limit, '100', --output, /results/publish.json]
+    volumes: ['./results/ato:/results']
+    depends_on:
+      topics: {condition: service_completed_successfully}
+  demo:
+    profiles: [demo]
+    image: sentinel-risk-gateway:local
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: redpanda:29039
+      ALERTS_TOPIC: sentinel.alerts.v1
+      SCORES_TOPIC: sentinel.scores.v1
+      GATEWAY_URL: http://gateway:18040
+      GRAPHQL_URL: http://backend:18041/graphql
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    command: [python, -m, gateway.demo]
+    volumes: ['./.runtime/data:/data', './results:/results']
+    depends_on: [gateway, backend, streaming]
+volumes:
+  broker-data:
+  postgres-data:
+  spark-state:

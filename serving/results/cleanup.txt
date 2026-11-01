@@ -1,3 +1,0 @@
-Sun Nov  1 01:31:07 UTC 2026
-kind fraud node removed after evidence capture; no load Job or cluster processes remain; Compose API retained on port 8004
-fraud-cloud-fraud-api-1 Up 26 minutes (healthy)

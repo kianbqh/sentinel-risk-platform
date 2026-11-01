@@ -13,7 +13,9 @@ resolver:
 models:
   ID:
     model: github.com/99designs/gqlgen/graphql.ID
-  Application:
+  Case:
     fields:
       events:
+        resolver: true
+      labels:
         resolver: true

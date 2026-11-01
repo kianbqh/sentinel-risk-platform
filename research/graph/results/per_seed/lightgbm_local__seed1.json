@@ -2,7 +2,7 @@
   "model": "lightgbm[local]",
   "feature_set": "local",
   "seed": 1,
-  "fit_score_seconds": 9.589524847000575,
+  "fit_score_seconds": 12.172258419999707,
   "best_epoch": null,
   "epochs": null,
   "trees": 600,

@@ -29,9 +29,9 @@ object Spark {
 }
 
 final case class Topics(runId: String) {
-  val in = s"transactions-$runId"
-  val scores = s"scores-$runId"
-  val alerts = s"fraud-alerts-$runId"
+  val in = sys.env.getOrElse("INPUT_TOPIC", s"transactions-$runId")
+  val scores = sys.env.getOrElse("SCORES_TOPIC", s"scores-$runId")
+  val alerts = sys.env.getOrElse("ALERTS_TOPIC", s"fraud-alerts-$runId")
 }
 
 object Prepare {
@@ -174,6 +174,8 @@ object StreamJob {
     val scored = score(spark, parseKafka(spark, raw), model)
     val total = new AtomicLong(0)
     val alerts = new AtomicLong(0)
+    val canonical = sys.env.getOrElse("ALERT_FORMAT", "scored") == "sentinel-v1"
+    val version = if (canonical) AlertContract.modelVersion(sys.env.getOrElse("STREAM_MODEL_PATH", "model/lr_model.json")) else ""
 
     def writeBatch(ds: Dataset[Scored], batchId: Long): Unit = {
       ds.persist()
@@ -182,7 +184,11 @@ object StreamJob {
       asKafka(ds.toDF()).write.format("kafka").option("kafka.bootstrap.servers", bootstrap)
         .option("topic", topics.scores).save()
       val a = ds.filter(col("isAlert"))
-      asKafka(a.toDF()).write.format("kafka").option("kafka.bootstrap.servers", bootstrap)
+      val alertRows = if (canonical) {
+        import spark.implicits._
+        a.map(s => (AlertContract.key(s), AlertContract.json(s, version, model.threshold))).toDF("key", "value")
+      } else asKafka(a.toDF())
+      alertRows.write.format("kafka").option("kafka.bootstrap.servers", bootstrap)
         .option("topic", topics.alerts).save()
       alerts.addAndGet(a.count())
       total.addAndGet(ds.count()) // last: the driver loop stops once this reaches `expected`

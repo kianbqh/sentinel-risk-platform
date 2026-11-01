@@ -2,7 +2,7 @@
   "model": "lightgbm[all]",
   "feature_set": "all",
   "seed": 1,
-  "fit_score_seconds": 12.37717242799954,
+  "fit_score_seconds": 15.292153042999416,
   "best_epoch": null,
   "epochs": null,
   "trees": 600,

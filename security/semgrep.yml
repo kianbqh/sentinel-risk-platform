@@ -1,0 +1,26 @@
+rules:
+  - id: python-shell-command
+    languages: [python]
+    severity: ERROR
+    message: Avoid a shell when invoking a program from a service.
+    pattern: subprocess.$METHOD(..., shell=True, ...)
+  - id: python-unverified-tls
+    languages: [python]
+    severity: ERROR
+    message: TLS certificate verification must stay enabled.
+    pattern: $CLIENT.$METHOD(..., verify=False, ...)
+  - id: go-unverified-jwt
+    languages: [go]
+    severity: ERROR
+    message: JWT claims must be signature-verified.
+    pattern: $P.ParseUnverified(...)
+  - id: go-insecure-tls
+    languages: [go]
+    severity: ERROR
+    message: TLS certificate verification must stay enabled.
+    pattern: 'tls.Config{..., InsecureSkipVerify: true, ...}'
+  - id: react-raw-html
+    languages: [typescript]
+    severity: ERROR
+    message: Render alert evidence as escaped text, never raw HTML.
+    pattern: <$TAG ... dangerouslySetInnerHTML={$VALUE} ... />

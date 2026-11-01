@@ -1,0 +1,16 @@
+    PID    PPID STAT %CPU %MEM   RSS COMMAND
+ 275222  275082 Rl+  72.7 13.3 2179152 python
+ 280676  280662 Zs   30.3  0.0     0 python
+ 279081  278879 D+   10.0  1.0 176500 python
+ 277781  277780 D+    6.0  0.1 23072 python
+  59531   59506 Ssl   1.8  0.1 19256 server
+ 280662    8997 Dl    1.7  0.0 10504 runc
+   2034    2030 Sl    1.1  0.5 95348 dockerd
+ 280635       1 Ss    0.6  0.0  1416 SessionLeader
+   9054    8997 Ssl   0.3  0.8 138800 uvicorn
+   2059    2034 Ssl   0.1  0.2 46068 containerd
+  28286    2030 Sl    0.1  0.0 12636 containerd-shim
+     27      26 Ssl+  0.1  1.2 204052 python
+  59595    2030 Sl    0.0  0.0 11532 containerd-shim
+   8997    2030 Sl    0.0  0.0 12168 containerd-shim
+  59699   59619 S     0.0  0.0  2824 nginx

@@ -1,0 +1,102 @@
+name: platform
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .:text-risk
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: pip}
+      - run: pip install -r gateway/requirements-dev.txt flask==3.1.3
+      - run: python scripts/verify_artifacts.py
+      - run: python -m pytest --capture=sys -q gateway/tests text-risk/tests security/tests
+  console:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env: {POSTGRES_PASSWORD: postgres}
+        ports: ['15440:5432']
+        options: --health-cmd 'pg_isready -U postgres' --health-interval 3s --health-retries 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: {go-version: '1.26', cache-dependency-path: console/backend/go.sum}
+      - run: go test -race -count=1 ./...
+        working-directory: console/backend
+        env:
+          TEST_DATABASE_URL: postgres://postgres:postgres@127.0.0.1:15440/postgres?sslmode=disable
+      - uses: actions/setup-node@v4
+        with: {node-version: '24', cache: npm, cache-dependency-path: console/frontend/package-lock.json}
+      - run: npm ci && npm test && npm run build
+        working-directory: console/frontend
+  streaming:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '17'}
+      - uses: sbt/setup-sbt@v1
+      - run: sbt -batch test
+        working-directory: streaming
+        env: {JAVA_TOOL_OPTIONS: '-XX:ActiveProcessorCount=2'}
+  graph:
+    runs-on: ubuntu-latest
+    env: {DEVICE: cpu, OMP_NUM_THREADS: '2', OPENBLAS_NUM_THREADS: '2', MKL_NUM_THREADS: '2'}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: pip}
+      - run: pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: pip install -r research/graph/requirements-lock.txt
+      - run: python -m pytest --capture=sys -q tests
+        working-directory: research/graph
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with: {terraform_version: '1.14.0'}
+      - run: terraform fmt -check -recursive
+        working-directory: deploy/terraform
+      - run: terraform init -backend=false -input=false && terraform validate
+        working-directory: deploy/terraform
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install bandit==1.9.4 semgrep==1.183.0
+      - run: python scripts/security_sast.py
+      - run: bash scripts/trivy.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: production-security, path: results/security}
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      COMPOSE_PROJECT_NAME: sentinel-ci
+      PYTHONPATH: .:text-risk
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r gateway/requirements-dev.txt
+      - run: bash scripts/up.sh && bash scripts/demo.sh
+      - run: python scripts/load_console.py
+      - run: python scripts/scan_console.py
+      - run: docker compose -f compose.yml logs --no-color > results/compose.log
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: compose-integration, path: results}
+      - run: docker compose -f compose.yml down -v
+        if: always()

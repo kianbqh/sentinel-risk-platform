@@ -1,4 +1,4 @@
-module github.com/kianbqh/fullstack-go-graphql/backend
+module github.com/kianbqh/sentinel-risk-platform/console/backend
 
 go 1.26.0
 
@@ -7,6 +7,7 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/golang-migrate/migrate/v4 v4.20.1
 	github.com/jackc/pgx/v5 v5.12.0
+	github.com/segmentio/kafka-go v0.4.49
 	github.com/vektah/gqlparser/v2 v2.5.64
 	github.com/vikstrous/dataloadgen v0.0.10
 	golang.org/x/crypto v0.58.0
@@ -24,6 +25,8 @@ require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.3 // indirect
+	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/pierrec/lz4/v4 v4.1.16 // indirect
 	github.com/sosodev/duration v1.4.0 // indirect
 	github.com/urfave/cli/v3 v3.14.0 // indirect
 	go.opentelemetry.io/otel v1.44.0 // indirect

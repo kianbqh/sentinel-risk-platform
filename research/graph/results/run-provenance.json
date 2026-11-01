@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-01T05:40:57Z",
+  "command": "DEVICE=cuda N_JOBS=4 LGBM_JOBS=1 OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4 python -u train.py --seeds 3 --epochs 300",
+  "source_import_head": "65d5d9763b8f14fc8e292dc1e886e6321557bb52",
+  "fresh_fit_records": 26,
+  "trainer_timer_seconds": 531.0,
+  "raw_data_cache_reused_readonly": true,
+  "numeric_results": "complete",
+  "original_session_exit_code": null,
+  "original_session_status": "Handle unavailable after environment reset; numeric outputs had already been saved.",
+  "plot": "Regenerated on CPU from saved curves, exit0 at2026-11-01T06:21:54Z; no model fitting."
+}

@@ -10,7 +10,7 @@ from flask import Flask, abort, g, redirect, render_template_string, request, se
 from markupsafe import escape
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from detector.online import LoginThrottle
+from ato.online import LoginThrottle
 
 FILES_DIR = os.path.join(os.path.dirname(__file__), "files")
 DISK_ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), "files"))

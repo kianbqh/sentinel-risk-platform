@@ -1,9 +1,0 @@
-{
-  "applications": 2831,
-  "status_events": 2831,
-  "benchmark_users": 1,
-  "all_applied": true,
-  "http_200_responses": 2830,
-  "create_preflight": 1,
-  "result": "passed"
-}

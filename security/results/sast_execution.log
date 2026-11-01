@@ -1,4 +1,0 @@
-| target | bandit findings | bandit H/M/L | semgrep findings | semgrep ERROR/WARNING/INFO |
-|---|---|---|---|---|
-| vulnerable | 13 | 6/4/3 | 23 | 8/15/0 |
-| fixed | 0 | 0/0/0 | 0 | 0/0/0 |

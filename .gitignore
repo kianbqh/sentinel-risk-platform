@@ -1,0 +1,17 @@
+.env
+.runtime/
+.venv
+__pycache__/
+.pytest_cache/
+**/node_modules/
+**/dist/
+**/target/
+**/.venv
+**/data
+**/*.db
+**/tooling/
+**/.terraform/
+**/*.tfstate*
+results/security/*.html
+results/security/*app.log
+console/backend/server

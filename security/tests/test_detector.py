@@ -1,9 +1,9 @@
 import numpy as np
 
-from detector.datagen import generate
-from detector.features import FEATURES, window_features
-from detector.online import LoginThrottle
-from detector.rules import apply_rules
+from ato.datagen import generate
+from ato.features import FEATURES, window_features
+from ato.online import LoginThrottle
+from ato.rules import apply_rules
 
 
 def small():

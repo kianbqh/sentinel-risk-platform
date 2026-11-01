@@ -2,7 +2,7 @@
   "model": "logreg[local]",
   "feature_set": "local",
   "seed": 0,
-  "fit_score_seconds": 0.1622650999997859,
+  "fit_score_seconds": 0.48062301900063176,
   "best_epoch": null,
   "epochs": null,
   "metrics": {

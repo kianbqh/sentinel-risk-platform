@@ -1,0 +1,3 @@
+-r ../text-risk/requirements.txt
+kafka-python>=2.2,<3
+pyarrow==25.0.1

@@ -10,3 +10,5 @@ COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 ENV LISTEN_PORT=80 BACKEND_URL=http://backend:8080
 RUN rm -f /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
+RUN chown -R nginx:nginx /etc/nginx/conf.d /etc/nginx/templates /var/cache/nginx /var/run
+USER nginx

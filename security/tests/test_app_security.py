@@ -4,8 +4,8 @@ import pickle
 
 import pytest
 
-from app import fixed, vulnerable
-from detector.online import LoginThrottle
+from security.fixtures.apps import fixed, vulnerable
+from ato.online import LoginThrottle
 
 
 def login(c, user, pw, next_=None):

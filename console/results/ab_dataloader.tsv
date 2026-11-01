@@ -1,6 +1,0 @@
-round=1	dataloader=off	rps=3285.9960	p50=0.0144	p95=0.0217	ok=65757
-round=1	dataloader=on	rps=6872.3605	p50=0.0067	p95=0.0137	ok=137489
-round=2	dataloader=off	rps=3552.8483	p50=0.0139	p95=0.0169	ok=71095
-round=2	dataloader=on	rps=6820.5255	p50=0.0068	p95=0.0138	ok=136452
-round=3	dataloader=off	rps=3560.3932	p50=0.0139	p95=0.0167	ok=71249
-round=3	dataloader=on	rps=6602.9401	p50=0.0070	p95=0.0142	ok=132078

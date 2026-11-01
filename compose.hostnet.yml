@@ -1,0 +1,47 @@
+# Linux override for an engine running with bridge/iptables disabled.
+services:
+  redpanda:
+    network_mode: host
+    ports: !reset []
+    command: [redpanda, start, --mode=dev-container, --smp=1, --memory=1G, --kafka-addr=external://127.0.0.1:29040, --advertise-kafka-addr=external://127.0.0.1:29040, --rpc-addr=127.0.0.1:33140, --advertise-rpc-addr=127.0.0.1:33140, --schema-registry-addr=127.0.0.1:28040, --pandaproxy-addr=127.0.0.1:28041, --set, 'redpanda.admin=[{"address":"127.0.0.1","port":29640}]']
+  topics:
+    network_mode: host
+    command:
+      - |
+        for topic in sentinel.transactions.v1 sentinel.scores.v1 sentinel.alerts.v1; do
+          if ! rpk topic list -X brokers=127.0.0.1:29040 | awk '{print $$1}' | grep -Fxq "$$topic"; then
+            rpk topic create "$$topic" --partitions 1 --replicas 1 -X brokers=127.0.0.1:29040
+          fi
+        done
+  postgres:
+    network_mode: host
+    ports: !reset []
+    command: [postgres, -p, '15440', -c, listen_addresses=127.0.0.1]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U sentinel -d sentinel -p 15440']
+  gateway:
+    network_mode: host
+    ports: !reset []
+    environment: {KAFKA_BOOTSTRAP_SERVERS: '127.0.0.1:29040'}
+  backend:
+    network_mode: host
+    ports: !reset []
+    environment:
+      DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@127.0.0.1:15440/sentinel?sslmode=disable
+      KAFKA_BOOTSTRAP_SERVERS: 127.0.0.1:29040
+  console:
+    network_mode: host
+    ports: !reset []
+    environment: {BACKEND_URL: 'http://127.0.0.1:18041'}
+  streaming:
+    network_mode: host
+    environment: {KAFKA_BOOTSTRAP: '127.0.0.1:29040'}
+  ato:
+    network_mode: host
+    environment: {KAFKA_BOOTSTRAP_SERVERS: '127.0.0.1:29040'}
+  demo:
+    network_mode: host
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: 127.0.0.1:29040
+      GATEWAY_URL: http://127.0.0.1:18040
+      GRAPHQL_URL: http://127.0.0.1:18041/graphql

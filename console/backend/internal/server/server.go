@@ -3,15 +3,13 @@ package server
 
 import (
 	"net/http"
-	"os"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
-	"github.com/99designs/gqlgen/graphql/playground"
 
-	"github.com/kianbqh/fullstack-go-graphql/backend/graph"
-	"github.com/kianbqh/fullstack-go-graphql/backend/internal/loaders"
+	"github.com/kianbqh/sentinel-risk-platform/console/backend/graph"
+	"github.com/kianbqh/sentinel-risk-platform/console/backend/internal/loaders"
 )
 
 func New(res *graph.Resolver, corsOrigin string) http.Handler {
@@ -23,11 +21,7 @@ func New(res *graph.Resolver, corsOrigin string) http.Handler {
 
 	mux := http.NewServeMux()
 	var query http.Handler = loaders.Middleware(res.Store, gql)
-	if os.Getenv("DISABLE_DATALOADER") == "1" { // for A/B benchmarking the N+1 fix
-		query = gql
-	}
-	mux.Handle("/query", res.Auth.Middleware(query))
-	mux.Handle("/", playground.Handler("GraphQL", "/query"))
+	mux.Handle("/graphql", http.MaxBytesHandler(res.Auth.Middleware(query), 1<<20))
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		if err := res.Store.DB.Ping(r.Context()); err != nil {
 			http.Error(w, "db down", http.StatusServiceUnavailable)

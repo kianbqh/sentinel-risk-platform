@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"context"
 	"embed"
-	"errors"
 	"fmt"
 	"math"
 	"strconv"
@@ -15,7 +14,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/kianbqh/fullstack-go-graphql/backend/graph/model"
+	"github.com/kianbqh/sentinel-risk-platform/console/backend/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -30,7 +29,7 @@ func NewExecutableSchema(cfg Config) graphql.ExecutableSchema {
 type Config = graphql.Config[ResolverRoot, DirectiveRoot, ComplexityRoot]
 
 type ResolverRoot interface {
-	Application() ApplicationResolver
+	Case() CaseResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 }
@@ -39,15 +38,21 @@ type DirectiveRoot struct {
 }
 
 type ComplexityRoot struct {
-	Application struct {
-		AppliedAt func(childComplexity int) int
-		Company   func(childComplexity int) int
-		Events    func(childComplexity int) int
-		ID        func(childComplexity int) int
-		Role      func(childComplexity int) int
-		Status    func(childComplexity int) int
-		URL       func(childComplexity int) int
-		UpdatedAt func(childComplexity int) int
+	Alert struct {
+		Case         func(childComplexity int) int
+		EntityID     func(childComplexity int) int
+		EntityType   func(childComplexity int) int
+		EventTime    func(childComplexity int) int
+		Evidence     func(childComplexity int) int
+		ID           func(childComplexity int) int
+		ModelName    func(childComplexity int) int
+		ModelVersion func(childComplexity int) int
+		RiskScore    func(childComplexity int) int
+		Severity     func(childComplexity int) int
+		Source       func(childComplexity int) int
+		Summary      func(childComplexity int) int
+		Threshold    func(childComplexity int) int
+		TraceID      func(childComplexity int) int
 	}
 
 	AuthPayload struct {
@@ -55,34 +60,53 @@ type ComplexityRoot struct {
 		User  func(childComplexity int) int
 	}
 
+	Case struct {
+		AlertID    func(childComplexity int) int
+		AssigneeID func(childComplexity int) int
+		CreatedAt  func(childComplexity int) int
+		Events     func(childComplexity int) int
+		ID         func(childComplexity int) int
+		Labels     func(childComplexity int) int
+		Status     func(childComplexity int) int
+		UpdatedAt  func(childComplexity int) int
+	}
+
+	CaseEvent struct {
+		Action  func(childComplexity int) int
+		ActorID func(childComplexity int) int
+		At      func(childComplexity int) int
+		Note    func(childComplexity int) int
+	}
+
+	CaseLabel struct {
+		ActorID func(childComplexity int) int
+		At      func(childComplexity int) int
+		Note    func(childComplexity int) int
+		Value   func(childComplexity int) int
+	}
+
 	Mutation struct {
-		CreateApplication func(childComplexity int, input model.NewApplication) int
-		DeleteApplication func(childComplexity int, id string) int
-		Login             func(childComplexity int, email string, password string) int
-		Register          func(childComplexity int, email string, password string) int
-		UpdateStatus      func(childComplexity int, id string, status model.Status) int
+		AssignCase  func(childComplexity int, id string, assigneeID string) int
+		LabelCase   func(childComplexity int, id string, value model.LabelValue, note string) int
+		Login       func(childComplexity int, email string, password string) int
+		Register    func(childComplexity int, email string, password string) int
+		ResolveCase func(childComplexity int, id string, note string) int
 	}
 
 	Query struct {
-		Application  func(childComplexity int, id string) int
-		Applications func(childComplexity int, status *model.Status, search *string, limit *int, offset *int) int
-		Me           func(childComplexity int) int
-		Stats        func(childComplexity int) int
+		Alerts   func(childComplexity int, source *string, status *model.CaseStatus, severity *string, search *string, assigneeID *string, limit int, offset int) int
+		Analysts func(childComplexity int) int
+		Case     func(childComplexity int, id string) int
+		Me       func(childComplexity int) int
+		Stats    func(childComplexity int) int
 	}
 
 	Stats struct {
-		ByStatus func(childComplexity int) int
-		Total    func(childComplexity int) int
-	}
-
-	StatusCount struct {
-		Count  func(childComplexity int) int
-		Status func(childComplexity int) int
-	}
-
-	StatusEvent struct {
-		At     func(childComplexity int) int
-		Status func(childComplexity int) int
+		Assigned      func(childComplexity int) int
+		Investigating func(childComplexity int) int
+		Open          func(childComplexity int) int
+		Resolved      func(childComplexity int) int
+		Total         func(childComplexity int) int
 	}
 
 	User struct {
@@ -96,20 +120,22 @@ type ComplexityRoot struct {
 
 // region    ************************** generated!.gotpl **************************
 
-type ApplicationResolver interface {
-	Events(ctx context.Context, obj *model.Application) ([]*model.StatusEvent, error)
+type CaseResolver interface {
+	Events(ctx context.Context, obj *model.Case) ([]*model.CaseEvent, error)
+	Labels(ctx context.Context, obj *model.Case) ([]*model.CaseLabel, error)
 }
 type MutationResolver interface {
 	Register(ctx context.Context, email string, password string) (*model.AuthPayload, error)
 	Login(ctx context.Context, email string, password string) (*model.AuthPayload, error)
-	CreateApplication(ctx context.Context, input model.NewApplication) (*model.Application, error)
-	UpdateStatus(ctx context.Context, id string, status model.Status) (*model.Application, error)
-	DeleteApplication(ctx context.Context, id string) (bool, error)
+	AssignCase(ctx context.Context, id string, assigneeID string) (*model.Case, error)
+	ResolveCase(ctx context.Context, id string, note string) (*model.Case, error)
+	LabelCase(ctx context.Context, id string, value model.LabelValue, note string) (*model.Case, error)
 }
 type QueryResolver interface {
 	Me(ctx context.Context) (*model.User, error)
-	Applications(ctx context.Context, status *model.Status, search *string, limit *int, offset *int) ([]*model.Application, error)
-	Application(ctx context.Context, id string) (*model.Application, error)
+	Analysts(ctx context.Context) ([]*model.User, error)
+	Alerts(ctx context.Context, source *string, status *model.CaseStatus, severity *string, search *string, assigneeID *string, limit int, offset int) ([]*model.Alert, error)
+	Case(ctx context.Context, id string) (*model.Case, error)
 	Stats(ctx context.Context) (*model.Stats, error)
 }
 
@@ -131,54 +157,90 @@ func (e *executableSchema) Complexity(ctx context.Context, typeName, field strin
 	_ = ec
 	switch typeName + "." + field {
 
-	case "Application.appliedAt":
-		if e.ComplexityRoot.Application.AppliedAt == nil {
+	case "Alert.case":
+		if e.ComplexityRoot.Alert.Case == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.AppliedAt(childComplexity), true
-	case "Application.company":
-		if e.ComplexityRoot.Application.Company == nil {
+		return e.ComplexityRoot.Alert.Case(childComplexity), true
+	case "Alert.entityId":
+		if e.ComplexityRoot.Alert.EntityID == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.Company(childComplexity), true
-	case "Application.events":
-		if e.ComplexityRoot.Application.Events == nil {
+		return e.ComplexityRoot.Alert.EntityID(childComplexity), true
+	case "Alert.entityType":
+		if e.ComplexityRoot.Alert.EntityType == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.Events(childComplexity), true
-	case "Application.id":
-		if e.ComplexityRoot.Application.ID == nil {
+		return e.ComplexityRoot.Alert.EntityType(childComplexity), true
+	case "Alert.eventTime":
+		if e.ComplexityRoot.Alert.EventTime == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.ID(childComplexity), true
-	case "Application.role":
-		if e.ComplexityRoot.Application.Role == nil {
+		return e.ComplexityRoot.Alert.EventTime(childComplexity), true
+	case "Alert.evidence":
+		if e.ComplexityRoot.Alert.Evidence == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.Role(childComplexity), true
-	case "Application.status":
-		if e.ComplexityRoot.Application.Status == nil {
+		return e.ComplexityRoot.Alert.Evidence(childComplexity), true
+	case "Alert.id":
+		if e.ComplexityRoot.Alert.ID == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.Status(childComplexity), true
-	case "Application.url":
-		if e.ComplexityRoot.Application.URL == nil {
+		return e.ComplexityRoot.Alert.ID(childComplexity), true
+	case "Alert.modelName":
+		if e.ComplexityRoot.Alert.ModelName == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.URL(childComplexity), true
-	case "Application.updatedAt":
-		if e.ComplexityRoot.Application.UpdatedAt == nil {
+		return e.ComplexityRoot.Alert.ModelName(childComplexity), true
+	case "Alert.modelVersion":
+		if e.ComplexityRoot.Alert.ModelVersion == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Application.UpdatedAt(childComplexity), true
+		return e.ComplexityRoot.Alert.ModelVersion(childComplexity), true
+	case "Alert.riskScore":
+		if e.ComplexityRoot.Alert.RiskScore == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.RiskScore(childComplexity), true
+	case "Alert.severity":
+		if e.ComplexityRoot.Alert.Severity == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.Severity(childComplexity), true
+	case "Alert.source":
+		if e.ComplexityRoot.Alert.Source == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.Source(childComplexity), true
+	case "Alert.summary":
+		if e.ComplexityRoot.Alert.Summary == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.Summary(childComplexity), true
+	case "Alert.threshold":
+		if e.ComplexityRoot.Alert.Threshold == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.Threshold(childComplexity), true
+	case "Alert.traceId":
+		if e.ComplexityRoot.Alert.TraceID == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Alert.TraceID(childComplexity), true
 
 	case "AuthPayload.token":
 		if e.ComplexityRoot.AuthPayload.Token == nil {
@@ -193,28 +255,127 @@ func (e *executableSchema) Complexity(ctx context.Context, typeName, field strin
 
 		return e.ComplexityRoot.AuthPayload.User(childComplexity), true
 
-	case "Mutation.createApplication":
-		if e.ComplexityRoot.Mutation.CreateApplication == nil {
+	case "Case.alertId":
+		if e.ComplexityRoot.Case.AlertID == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_createApplication_args(ctx, rawArgs)
+		return e.ComplexityRoot.Case.AlertID(childComplexity), true
+	case "Case.assigneeId":
+		if e.ComplexityRoot.Case.AssigneeID == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.AssigneeID(childComplexity), true
+	case "Case.createdAt":
+		if e.ComplexityRoot.Case.CreatedAt == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.CreatedAt(childComplexity), true
+	case "Case.events":
+		if e.ComplexityRoot.Case.Events == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.Events(childComplexity), true
+	case "Case.id":
+		if e.ComplexityRoot.Case.ID == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.ID(childComplexity), true
+	case "Case.labels":
+		if e.ComplexityRoot.Case.Labels == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.Labels(childComplexity), true
+	case "Case.status":
+		if e.ComplexityRoot.Case.Status == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.Status(childComplexity), true
+	case "Case.updatedAt":
+		if e.ComplexityRoot.Case.UpdatedAt == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Case.UpdatedAt(childComplexity), true
+
+	case "CaseEvent.action":
+		if e.ComplexityRoot.CaseEvent.Action == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseEvent.Action(childComplexity), true
+	case "CaseEvent.actorId":
+		if e.ComplexityRoot.CaseEvent.ActorID == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseEvent.ActorID(childComplexity), true
+	case "CaseEvent.at":
+		if e.ComplexityRoot.CaseEvent.At == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseEvent.At(childComplexity), true
+	case "CaseEvent.note":
+		if e.ComplexityRoot.CaseEvent.Note == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseEvent.Note(childComplexity), true
+
+	case "CaseLabel.actorId":
+		if e.ComplexityRoot.CaseLabel.ActorID == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseLabel.ActorID(childComplexity), true
+	case "CaseLabel.at":
+		if e.ComplexityRoot.CaseLabel.At == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseLabel.At(childComplexity), true
+	case "CaseLabel.note":
+		if e.ComplexityRoot.CaseLabel.Note == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseLabel.Note(childComplexity), true
+	case "CaseLabel.value":
+		if e.ComplexityRoot.CaseLabel.Value == nil {
+			break
+		}
+
+		return e.ComplexityRoot.CaseLabel.Value(childComplexity), true
+
+	case "Mutation.assignCase":
+		if e.ComplexityRoot.Mutation.AssignCase == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_assignCase_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.ComplexityRoot.Mutation.CreateApplication(childComplexity, args["input"].(model.NewApplication)), true
-	case "Mutation.deleteApplication":
-		if e.ComplexityRoot.Mutation.DeleteApplication == nil {
+		return e.ComplexityRoot.Mutation.AssignCase(childComplexity, args["id"].(string), args["assigneeId"].(string)), true
+	case "Mutation.labelCase":
+		if e.ComplexityRoot.Mutation.LabelCase == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_deleteApplication_args(ctx, rawArgs)
+		args, err := ec.field_Mutation_labelCase_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.ComplexityRoot.Mutation.DeleteApplication(childComplexity, args["id"].(string)), true
+		return e.ComplexityRoot.Mutation.LabelCase(childComplexity, args["id"].(string), args["value"].(model.LabelValue), args["note"].(string)), true
 	case "Mutation.login":
 		if e.ComplexityRoot.Mutation.Login == nil {
 			break
@@ -237,40 +398,46 @@ func (e *executableSchema) Complexity(ctx context.Context, typeName, field strin
 		}
 
 		return e.ComplexityRoot.Mutation.Register(childComplexity, args["email"].(string), args["password"].(string)), true
-	case "Mutation.updateStatus":
-		if e.ComplexityRoot.Mutation.UpdateStatus == nil {
+	case "Mutation.resolveCase":
+		if e.ComplexityRoot.Mutation.ResolveCase == nil {
 			break
 		}
 
-		args, err := ec.field_Mutation_updateStatus_args(ctx, rawArgs)
+		args, err := ec.field_Mutation_resolveCase_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.ComplexityRoot.Mutation.UpdateStatus(childComplexity, args["id"].(string), args["status"].(model.Status)), true
+		return e.ComplexityRoot.Mutation.ResolveCase(childComplexity, args["id"].(string), args["note"].(string)), true
 
-	case "Query.application":
-		if e.ComplexityRoot.Query.Application == nil {
+	case "Query.alerts":
+		if e.ComplexityRoot.Query.Alerts == nil {
 			break
 		}
 
-		args, err := ec.field_Query_application_args(ctx, rawArgs)
+		args, err := ec.field_Query_alerts_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.ComplexityRoot.Query.Application(childComplexity, args["id"].(string)), true
-	case "Query.applications":
-		if e.ComplexityRoot.Query.Applications == nil {
+		return e.ComplexityRoot.Query.Alerts(childComplexity, args["source"].(*string), args["status"].(*model.CaseStatus), args["severity"].(*string), args["search"].(*string), args["assigneeId"].(*string), args["limit"].(int), args["offset"].(int)), true
+	case "Query.analysts":
+		if e.ComplexityRoot.Query.Analysts == nil {
 			break
 		}
 
-		args, err := ec.field_Query_applications_args(ctx, rawArgs)
+		return e.ComplexityRoot.Query.Analysts(childComplexity), true
+	case "Query.case":
+		if e.ComplexityRoot.Query.Case == nil {
+			break
+		}
+
+		args, err := ec.field_Query_case_args(ctx, rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.ComplexityRoot.Query.Applications(childComplexity, args["status"].(*model.Status), args["search"].(*string), args["limit"].(*int), args["offset"].(*int)), true
+		return e.ComplexityRoot.Query.Case(childComplexity, args["id"].(string)), true
 
 	case "Query.me":
 		if e.ComplexityRoot.Query.Me == nil {
@@ -285,44 +452,36 @@ func (e *executableSchema) Complexity(ctx context.Context, typeName, field strin
 
 		return e.ComplexityRoot.Query.Stats(childComplexity), true
 
-	case "Stats.byStatus":
-		if e.ComplexityRoot.Stats.ByStatus == nil {
+	case "Stats.assigned":
+		if e.ComplexityRoot.Stats.Assigned == nil {
 			break
 		}
 
-		return e.ComplexityRoot.Stats.ByStatus(childComplexity), true
+		return e.ComplexityRoot.Stats.Assigned(childComplexity), true
+	case "Stats.investigating":
+		if e.ComplexityRoot.Stats.Investigating == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Stats.Investigating(childComplexity), true
+	case "Stats.open":
+		if e.ComplexityRoot.Stats.Open == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Stats.Open(childComplexity), true
+	case "Stats.resolved":
+		if e.ComplexityRoot.Stats.Resolved == nil {
+			break
+		}
+
+		return e.ComplexityRoot.Stats.Resolved(childComplexity), true
 	case "Stats.total":
 		if e.ComplexityRoot.Stats.Total == nil {
 			break
 		}
 
 		return e.ComplexityRoot.Stats.Total(childComplexity), true
-
-	case "StatusCount.count":
-		if e.ComplexityRoot.StatusCount.Count == nil {
-			break
-		}
-
-		return e.ComplexityRoot.StatusCount.Count(childComplexity), true
-	case "StatusCount.status":
-		if e.ComplexityRoot.StatusCount.Status == nil {
-			break
-		}
-
-		return e.ComplexityRoot.StatusCount.Status(childComplexity), true
-
-	case "StatusEvent.at":
-		if e.ComplexityRoot.StatusEvent.At == nil {
-			break
-		}
-
-		return e.ComplexityRoot.StatusEvent.At(childComplexity), true
-	case "StatusEvent.status":
-		if e.ComplexityRoot.StatusEvent.Status == nil {
-			break
-		}
-
-		return e.ComplexityRoot.StatusEvent.Status(childComplexity), true
 
 	case "User.createdAt":
 		if e.ComplexityRoot.User.CreatedAt == nil {
@@ -351,9 +510,7 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 	opCtx := graphql.GetOperationContext(ctx)
 	ec := newExecutionContext(opCtx, e, make(chan graphql.DeferredResult))
 	inputUnmarshalers := func() *graphql.InputUnmarshalerIndex {
-		return graphql.NewInputUnmarshalerIndex(
-			graphql.NewInputUnmarshaler("NewApplication", ec.unmarshalInputNewApplication),
-		)
+		return graphql.NewInputUnmarshalerIndex()
 	}
 	first := true
 
@@ -428,7 +585,7 @@ func newExecutionContext(
 	}
 }
 
-//go:embed "schema.graphqls"
+//go:embed "sentinel.graphqls"
 var sourcesFS embed.FS
 
 func sourceData(filename string) string {
@@ -440,7 +597,7 @@ func sourceData(filename string) string {
 }
 
 var sources = []*ast.Source{
-	{Name: "schema.graphqls", Input: sourceData("schema.graphqls"), BuiltIn: false},
+	{Name: "sentinel.graphqls", Input: sourceData("sentinel.graphqls"), BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
@@ -448,26 +605,38 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 // Each function is generated once per unique object type, deduplicating the
 // switch statements that were previously inlined in every fieldContext_* function.
 
-func (ec *executionContext) childFields_Application(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+func (ec *executionContext) childFields_Alert(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 	switch field.Name {
 	case "id":
-		return ec.fieldContext_Application_id(ctx, field)
-	case "company":
-		return ec.fieldContext_Application_company(ctx, field)
-	case "role":
-		return ec.fieldContext_Application_role(ctx, field)
-	case "url":
-		return ec.fieldContext_Application_url(ctx, field)
-	case "status":
-		return ec.fieldContext_Application_status(ctx, field)
-	case "appliedAt":
-		return ec.fieldContext_Application_appliedAt(ctx, field)
-	case "updatedAt":
-		return ec.fieldContext_Application_updatedAt(ctx, field)
-	case "events":
-		return ec.fieldContext_Application_events(ctx, field)
+		return ec.fieldContext_Alert_id(ctx, field)
+	case "eventTime":
+		return ec.fieldContext_Alert_eventTime(ctx, field)
+	case "source":
+		return ec.fieldContext_Alert_source(ctx, field)
+	case "entityType":
+		return ec.fieldContext_Alert_entityType(ctx, field)
+	case "entityId":
+		return ec.fieldContext_Alert_entityId(ctx, field)
+	case "riskScore":
+		return ec.fieldContext_Alert_riskScore(ctx, field)
+	case "threshold":
+		return ec.fieldContext_Alert_threshold(ctx, field)
+	case "severity":
+		return ec.fieldContext_Alert_severity(ctx, field)
+	case "summary":
+		return ec.fieldContext_Alert_summary(ctx, field)
+	case "modelName":
+		return ec.fieldContext_Alert_modelName(ctx, field)
+	case "modelVersion":
+		return ec.fieldContext_Alert_modelVersion(ctx, field)
+	case "evidence":
+		return ec.fieldContext_Alert_evidence(ctx, field)
+	case "traceId":
+		return ec.fieldContext_Alert_traceId(ctx, field)
+	case "case":
+		return ec.fieldContext_Alert_case(ctx, field)
 	}
-	return nil, fmt.Errorf("no field named %q was found under type Application", field.Name)
+	return nil, fmt.Errorf("no field named %q was found under type Alert", field.Name)
 }
 
 func (ec *executionContext) childFields_AuthPayload(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
@@ -480,34 +649,70 @@ func (ec *executionContext) childFields_AuthPayload(ctx context.Context, field g
 	return nil, fmt.Errorf("no field named %q was found under type AuthPayload", field.Name)
 }
 
+func (ec *executionContext) childFields_Case(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+	switch field.Name {
+	case "id":
+		return ec.fieldContext_Case_id(ctx, field)
+	case "alertId":
+		return ec.fieldContext_Case_alertId(ctx, field)
+	case "status":
+		return ec.fieldContext_Case_status(ctx, field)
+	case "assigneeId":
+		return ec.fieldContext_Case_assigneeId(ctx, field)
+	case "createdAt":
+		return ec.fieldContext_Case_createdAt(ctx, field)
+	case "updatedAt":
+		return ec.fieldContext_Case_updatedAt(ctx, field)
+	case "events":
+		return ec.fieldContext_Case_events(ctx, field)
+	case "labels":
+		return ec.fieldContext_Case_labels(ctx, field)
+	}
+	return nil, fmt.Errorf("no field named %q was found under type Case", field.Name)
+}
+
+func (ec *executionContext) childFields_CaseEvent(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+	switch field.Name {
+	case "actorId":
+		return ec.fieldContext_CaseEvent_actorId(ctx, field)
+	case "action":
+		return ec.fieldContext_CaseEvent_action(ctx, field)
+	case "note":
+		return ec.fieldContext_CaseEvent_note(ctx, field)
+	case "at":
+		return ec.fieldContext_CaseEvent_at(ctx, field)
+	}
+	return nil, fmt.Errorf("no field named %q was found under type CaseEvent", field.Name)
+}
+
+func (ec *executionContext) childFields_CaseLabel(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+	switch field.Name {
+	case "actorId":
+		return ec.fieldContext_CaseLabel_actorId(ctx, field)
+	case "value":
+		return ec.fieldContext_CaseLabel_value(ctx, field)
+	case "note":
+		return ec.fieldContext_CaseLabel_note(ctx, field)
+	case "at":
+		return ec.fieldContext_CaseLabel_at(ctx, field)
+	}
+	return nil, fmt.Errorf("no field named %q was found under type CaseLabel", field.Name)
+}
+
 func (ec *executionContext) childFields_Stats(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
 	switch field.Name {
 	case "total":
 		return ec.fieldContext_Stats_total(ctx, field)
-	case "byStatus":
-		return ec.fieldContext_Stats_byStatus(ctx, field)
+	case "open":
+		return ec.fieldContext_Stats_open(ctx, field)
+	case "investigating":
+		return ec.fieldContext_Stats_investigating(ctx, field)
+	case "resolved":
+		return ec.fieldContext_Stats_resolved(ctx, field)
+	case "assigned":
+		return ec.fieldContext_Stats_assigned(ctx, field)
 	}
 	return nil, fmt.Errorf("no field named %q was found under type Stats", field.Name)
-}
-
-func (ec *executionContext) childFields_StatusCount(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-	switch field.Name {
-	case "status":
-		return ec.fieldContext_StatusCount_status(ctx, field)
-	case "count":
-		return ec.fieldContext_StatusCount_count(ctx, field)
-	}
-	return nil, fmt.Errorf("no field named %q was found under type StatusCount", field.Name)
-}
-
-func (ec *executionContext) childFields_StatusEvent(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-	switch field.Name {
-	case "status":
-		return ec.fieldContext_StatusEvent_status(ctx, field)
-	case "at":
-		return ec.fieldContext_StatusEvent_at(ctx, field)
-	}
-	return nil, fmt.Errorf("no field named %q was found under type StatusEvent", field.Name)
 }
 
 func (ec *executionContext) childFields_User(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
@@ -638,21 +843,7 @@ func (ec *executionContext) childFields___Type(ctx context.Context, field graphq
 
 // region    ***************************** args.gotpl *****************************
 
-func (ec *executionContext) field_Mutation_createApplication_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
-	var err error
-	args := map[string]any{}
-	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "input",
-		func(ctx context.Context, v any) (model.NewApplication, error) {
-			return ec.unmarshalNNewApplication2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐNewApplication(ctx, v)
-		})
-	if err != nil {
-		return nil, err
-	}
-	args["input"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_deleteApplication_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+func (ec *executionContext) field_Mutation_assignCase_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
 	args := map[string]any{}
 	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "id",
@@ -663,6 +854,44 @@ func (ec *executionContext) field_Mutation_deleteApplication_args(ctx context.Co
 		return nil, err
 	}
 	args["id"] = arg0
+	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "assigneeId",
+		func(ctx context.Context, v any) (string, error) {
+			return ec.unmarshalNID2string(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["assigneeId"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_labelCase_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "id",
+		func(ctx context.Context, v any) (string, error) {
+			return ec.unmarshalNID2string(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["id"] = arg0
+	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "value",
+		func(ctx context.Context, v any) (model.LabelValue, error) {
+			return ec.unmarshalNLabelValue2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐLabelValue(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["value"] = arg1
+	arg2, err := graphql.ProcessArgField(ctx, rawArgs, "note",
+		func(ctx context.Context, v any) (string, error) {
+			return ec.unmarshalNString2string(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["note"] = arg2
 	return args, nil
 }
 
@@ -710,7 +939,7 @@ func (ec *executionContext) field_Mutation_register_args(ctx context.Context, ra
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_updateStatus_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+func (ec *executionContext) field_Mutation_resolveCase_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
 	args := map[string]any{}
 	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "id",
@@ -721,14 +950,14 @@ func (ec *executionContext) field_Mutation_updateStatus_args(ctx context.Context
 		return nil, err
 	}
 	args["id"] = arg0
-	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "status",
-		func(ctx context.Context, v any) (model.Status, error) {
-			return ec.unmarshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, v)
+	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "note",
+		func(ctx context.Context, v any) (string, error) {
+			return ec.unmarshalNString2string(ctx, v)
 		})
 	if err != nil {
 		return nil, err
 	}
-	args["status"] = arg1
+	args["note"] = arg1
 	return args, nil
 }
 
@@ -746,7 +975,69 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_application_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+func (ec *executionContext) field_Query_alerts_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
+	var err error
+	args := map[string]any{}
+	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "source",
+		func(ctx context.Context, v any) (*string, error) {
+			return ec.unmarshalOString2ᚖstring(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["source"] = arg0
+	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "status",
+		func(ctx context.Context, v any) (*model.CaseStatus, error) {
+			return ec.unmarshalOCaseStatus2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["status"] = arg1
+	arg2, err := graphql.ProcessArgField(ctx, rawArgs, "severity",
+		func(ctx context.Context, v any) (*string, error) {
+			return ec.unmarshalOString2ᚖstring(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["severity"] = arg2
+	arg3, err := graphql.ProcessArgField(ctx, rawArgs, "search",
+		func(ctx context.Context, v any) (*string, error) {
+			return ec.unmarshalOString2ᚖstring(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["search"] = arg3
+	arg4, err := graphql.ProcessArgField(ctx, rawArgs, "assigneeId",
+		func(ctx context.Context, v any) (*string, error) {
+			return ec.unmarshalOID2ᚖstring(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["assigneeId"] = arg4
+	arg5, err := graphql.ProcessArgField(ctx, rawArgs, "limit",
+		func(ctx context.Context, v any) (int, error) {
+			return ec.unmarshalNInt2int(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["limit"] = arg5
+	arg6, err := graphql.ProcessArgField(ctx, rawArgs, "offset",
+		func(ctx context.Context, v any) (int, error) {
+			return ec.unmarshalNInt2int(ctx, v)
+		})
+	if err != nil {
+		return nil, err
+	}
+	args["offset"] = arg6
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_case_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
 	var err error
 	args := map[string]any{}
 	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "id",
@@ -757,44 +1048,6 @@ func (ec *executionContext) field_Query_application_args(ctx context.Context, ra
 		return nil, err
 	}
 	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_applications_args(ctx context.Context, rawArgs map[string]any) (map[string]any, error) {
-	var err error
-	args := map[string]any{}
-	arg0, err := graphql.ProcessArgField(ctx, rawArgs, "status",
-		func(ctx context.Context, v any) (*model.Status, error) {
-			return ec.unmarshalOStatus2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, v)
-		})
-	if err != nil {
-		return nil, err
-	}
-	args["status"] = arg0
-	arg1, err := graphql.ProcessArgField(ctx, rawArgs, "search",
-		func(ctx context.Context, v any) (*string, error) {
-			return ec.unmarshalOString2ᚖstring(ctx, v)
-		})
-	if err != nil {
-		return nil, err
-	}
-	args["search"] = arg1
-	arg2, err := graphql.ProcessArgField(ctx, rawArgs, "limit",
-		func(ctx context.Context, v any) (*int, error) {
-			return ec.unmarshalOInt2ᚖint(ctx, v)
-		})
-	if err != nil {
-		return nil, err
-	}
-	args["limit"] = arg2
-	arg3, err := graphql.ProcessArgField(ctx, rawArgs, "offset",
-		func(ctx context.Context, v any) (*int, error) {
-			return ec.unmarshalOInt2ᚖint(ctx, v)
-		})
-	if err != nil {
-		return nil, err
-	}
-	args["offset"] = arg3
 	return args, nil
 }
 
@@ -872,13 +1125,13 @@ func (ec *executionContext) field___Type_inputFields_args(ctx context.Context, r
 
 // region    **************************** field.gotpl *****************************
 
-func (ec *executionContext) _Application_id(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
+func (ec *executionContext) _Alert_id(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_id(ctx, field)
+			return ec.fieldContext_Alert_id(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
 			return obj.ID, nil
@@ -891,135 +1144,20 @@ func (ec *executionContext) _Application_id(ctx context.Context, field graphql.C
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Application_id(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "ID")
+func (ec *executionContext) fieldContext_Alert_id(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "ID")
 }
 
-func (ec *executionContext) _Application_company(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
+func (ec *executionContext) _Alert_eventTime(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_company(ctx, field)
+			return ec.fieldContext_Alert_eventTime(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			return obj.Company, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
-			return ec.marshalNString2string(ctx, selections, v)
-		},
-		true,
-		true,
-	)
-}
-func (ec *executionContext) fieldContext_Application_company(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "String")
-}
-
-func (ec *executionContext) _Application_role(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_role(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.Role, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
-			return ec.marshalNString2string(ctx, selections, v)
-		},
-		true,
-		true,
-	)
-}
-func (ec *executionContext) fieldContext_Application_role(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "String")
-}
-
-func (ec *executionContext) _Application_url(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_url(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.URL, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v *string) graphql.Marshaler {
-			return ec.marshalOString2ᚖstring(ctx, selections, v)
-		},
-		true,
-		false,
-	)
-}
-func (ec *executionContext) fieldContext_Application_url(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "String")
-}
-
-func (ec *executionContext) _Application_status(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_status(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.Status, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v model.Status) graphql.Marshaler {
-			return ec.marshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, selections, v)
-		},
-		true,
-		true,
-	)
-}
-func (ec *executionContext) fieldContext_Application_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "Status")
-}
-
-func (ec *executionContext) _Application_appliedAt(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_appliedAt(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.AppliedAt, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v *time.Time) graphql.Marshaler {
-			return ec.marshalOTime2ᚖtimeᚐTime(ctx, selections, v)
-		},
-		true,
-		false,
-	)
-}
-func (ec *executionContext) fieldContext_Application_appliedAt(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "Time")
-}
-
-func (ec *executionContext) _Application_updatedAt(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_updatedAt(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.UpdatedAt, nil
+			return obj.EventTime, nil
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
@@ -1029,37 +1167,290 @@ func (ec *executionContext) _Application_updatedAt(ctx context.Context, field gr
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Application_updatedAt(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("Application", field, false, false, "Time")
+func (ec *executionContext) fieldContext_Alert_eventTime(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "Time")
 }
 
-func (ec *executionContext) _Application_events(ctx context.Context, field graphql.CollectedField, obj *model.Application) (ret graphql.Marshaler) {
+func (ec *executionContext) _Alert_source(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Application_events(ctx, field)
+			return ec.fieldContext_Alert_source(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			return ec.Resolvers.Application().Events(ctx, obj)
+			return obj.Source, nil
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v []*model.StatusEvent) graphql.Marshaler {
-			return ec.marshalNStatusEvent2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusEventᚄ(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Application_events(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Alert_source(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_entityType(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_entityType(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.EntityType, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_entityType(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_entityId(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_entityId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.EntityID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_entityId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_riskScore(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_riskScore(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.RiskScore, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v *float64) graphql.Marshaler {
+			return ec.marshalOFloat2ᚖfloat64(ctx, selections, v)
+		},
+		true,
+		false,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_riskScore(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "Float")
+}
+
+func (ec *executionContext) _Alert_threshold(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_threshold(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Threshold, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v *float64) graphql.Marshaler {
+			return ec.marshalOFloat2ᚖfloat64(ctx, selections, v)
+		},
+		true,
+		false,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_threshold(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "Float")
+}
+
+func (ec *executionContext) _Alert_severity(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_severity(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Severity, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_severity(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_summary(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_summary(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Summary, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_summary(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_modelName(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_modelName(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.ModelName, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_modelName(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_modelVersion(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_modelVersion(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.ModelVersion, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_modelVersion(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_evidence(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_evidence(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Evidence, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_evidence(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_traceId(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_traceId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.TraceID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_traceId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Alert", field, false, false, "String")
+}
+
+func (ec *executionContext) _Alert_case(ctx context.Context, field graphql.CollectedField, obj *model.Alert) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Alert_case(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Case, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v *model.Case) graphql.Marshaler {
+			return ec.marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Alert_case(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
-		Object:     "Application",
+		Object:     "Alert",
 		Field:      field,
-		IsMethod:   true,
-		IsResolver: true,
+		IsMethod:   false,
+		IsResolver: false,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_StatusEvent(ctx, field)
+			return ec.childFields_Case(ctx, field)
 		},
 	}
 	return fc, nil
@@ -1101,7 +1492,7 @@ func (ec *executionContext) _AuthPayload_user(ctx context.Context, field graphql
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v *model.User) graphql.Marshaler {
-			return ec.marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐUser(ctx, selections, v)
+			return ec.marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUser(ctx, selections, v)
 		},
 		true,
 		true,
@@ -1120,6 +1511,392 @@ func (ec *executionContext) fieldContext_AuthPayload_user(_ context.Context, fie
 	return fc, nil
 }
 
+func (ec *executionContext) _Case_id(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_id(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.ID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNID2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_id(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "ID")
+}
+
+func (ec *executionContext) _Case_alertId(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_alertId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.AlertID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNID2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_alertId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "ID")
+}
+
+func (ec *executionContext) _Case_status(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_status(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Status, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v model.CaseStatus) graphql.Marshaler {
+			return ec.marshalNCaseStatus2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "CaseStatus")
+}
+
+func (ec *executionContext) _Case_assigneeId(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_assigneeId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.AssigneeID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v *string) graphql.Marshaler {
+			return ec.marshalOID2ᚖstring(ctx, selections, v)
+		},
+		true,
+		false,
+	)
+}
+func (ec *executionContext) fieldContext_Case_assigneeId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "ID")
+}
+
+func (ec *executionContext) _Case_createdAt(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_createdAt(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.CreatedAt, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
+			return ec.marshalNTime2timeᚐTime(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_createdAt(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "Time")
+}
+
+func (ec *executionContext) _Case_updatedAt(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_updatedAt(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.UpdatedAt, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
+			return ec.marshalNTime2timeᚐTime(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_updatedAt(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Case", field, false, false, "Time")
+}
+
+func (ec *executionContext) _Case_events(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_events(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return ec.Resolvers.Case().Events(ctx, obj)
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v []*model.CaseEvent) graphql.Marshaler {
+			return ec.marshalNCaseEvent2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseEventᚄ(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_events(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Case",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.childFields_CaseEvent(ctx, field)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Case_labels(ctx context.Context, field graphql.CollectedField, obj *model.Case) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Case_labels(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return ec.Resolvers.Case().Labels(ctx, obj)
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v []*model.CaseLabel) graphql.Marshaler {
+			return ec.marshalNCaseLabel2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseLabelᚄ(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Case_labels(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Case",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.childFields_CaseLabel(ctx, field)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _CaseEvent_actorId(ctx context.Context, field graphql.CollectedField, obj *model.CaseEvent) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseEvent_actorId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.ActorID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v *string) graphql.Marshaler {
+			return ec.marshalOID2ᚖstring(ctx, selections, v)
+		},
+		true,
+		false,
+	)
+}
+func (ec *executionContext) fieldContext_CaseEvent_actorId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseEvent", field, false, false, "ID")
+}
+
+func (ec *executionContext) _CaseEvent_action(ctx context.Context, field graphql.CollectedField, obj *model.CaseEvent) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseEvent_action(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Action, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseEvent_action(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseEvent", field, false, false, "String")
+}
+
+func (ec *executionContext) _CaseEvent_note(ctx context.Context, field graphql.CollectedField, obj *model.CaseEvent) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseEvent_note(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Note, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseEvent_note(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseEvent", field, false, false, "String")
+}
+
+func (ec *executionContext) _CaseEvent_at(ctx context.Context, field graphql.CollectedField, obj *model.CaseEvent) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseEvent_at(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.At, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
+			return ec.marshalNTime2timeᚐTime(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseEvent_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseEvent", field, false, false, "Time")
+}
+
+func (ec *executionContext) _CaseLabel_actorId(ctx context.Context, field graphql.CollectedField, obj *model.CaseLabel) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseLabel_actorId(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.ActorID, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNID2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseLabel_actorId(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseLabel", field, false, false, "ID")
+}
+
+func (ec *executionContext) _CaseLabel_value(ctx context.Context, field graphql.CollectedField, obj *model.CaseLabel) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseLabel_value(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Value, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v model.LabelValue) graphql.Marshaler {
+			return ec.marshalNLabelValue2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐLabelValue(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseLabel_value(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseLabel", field, false, false, "LabelValue")
+}
+
+func (ec *executionContext) _CaseLabel_note(ctx context.Context, field graphql.CollectedField, obj *model.CaseLabel) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseLabel_note(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Note, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v string) graphql.Marshaler {
+			return ec.marshalNString2string(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseLabel_note(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseLabel", field, false, false, "String")
+}
+
+func (ec *executionContext) _CaseLabel_at(ctx context.Context, field graphql.CollectedField, obj *model.CaseLabel) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_CaseLabel_at(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.At, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
+			return ec.marshalNTime2timeᚐTime(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_CaseLabel_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("CaseLabel", field, false, false, "Time")
+}
+
 func (ec *executionContext) _Mutation_register(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
@@ -1134,7 +1911,7 @@ func (ec *executionContext) _Mutation_register(ctx context.Context, field graphq
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v *model.AuthPayload) graphql.Marshaler {
-			return ec.marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx, selections, v)
+			return ec.marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx, selections, v)
 		},
 		true,
 		true,
@@ -1178,7 +1955,7 @@ func (ec *executionContext) _Mutation_login(ctx context.Context, field graphql.C
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v *model.AuthPayload) graphql.Marshaler {
-			return ec.marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx, selections, v)
+			return ec.marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx, selections, v)
 		},
 		true,
 		true,
@@ -1208,34 +1985,34 @@ func (ec *executionContext) fieldContext_Mutation_login(ctx context.Context, fie
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_createApplication(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_assignCase(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Mutation_createApplication(ctx, field)
+			return ec.fieldContext_Mutation_assignCase(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
 			fc := graphql.GetFieldContext(ctx)
-			return ec.Resolvers.Mutation().CreateApplication(ctx, fc.Args["input"].(model.NewApplication))
+			return ec.Resolvers.Mutation().AssignCase(ctx, fc.Args["id"].(string), fc.Args["assigneeId"].(string))
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v *model.Application) graphql.Marshaler {
-			return ec.marshalNApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v *model.Case) graphql.Marshaler {
+			return ec.marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Mutation_createApplication(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_assignCase(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
 		IsMethod:   true,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_Application(ctx, field)
+			return ec.childFields_Case(ctx, field)
 		},
 	}
 	defer func() {
@@ -1245,41 +2022,41 @@ func (ec *executionContext) fieldContext_Mutation_createApplication(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_createApplication_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_assignCase_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_updateStatus(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_resolveCase(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Mutation_updateStatus(ctx, field)
+			return ec.fieldContext_Mutation_resolveCase(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
 			fc := graphql.GetFieldContext(ctx)
-			return ec.Resolvers.Mutation().UpdateStatus(ctx, fc.Args["id"].(string), fc.Args["status"].(model.Status))
+			return ec.Resolvers.Mutation().ResolveCase(ctx, fc.Args["id"].(string), fc.Args["note"].(string))
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v *model.Application) graphql.Marshaler {
-			return ec.marshalNApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v *model.Case) graphql.Marshaler {
+			return ec.marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Mutation_updateStatus(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_resolveCase(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
 		IsMethod:   true,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_Application(ctx, field)
+			return ec.childFields_Case(ctx, field)
 		},
 	}
 	defer func() {
@@ -1289,41 +2066,41 @@ func (ec *executionContext) fieldContext_Mutation_updateStatus(ctx context.Conte
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_updateStatus_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_resolveCase_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Mutation_deleteApplication(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_labelCase(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Mutation_deleteApplication(ctx, field)
+			return ec.fieldContext_Mutation_labelCase(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
 			fc := graphql.GetFieldContext(ctx)
-			return ec.Resolvers.Mutation().DeleteApplication(ctx, fc.Args["id"].(string))
+			return ec.Resolvers.Mutation().LabelCase(ctx, fc.Args["id"].(string), fc.Args["value"].(model.LabelValue), fc.Args["note"].(string))
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v bool) graphql.Marshaler {
-			return ec.marshalNBoolean2bool(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v *model.Case) graphql.Marshaler {
+			return ec.marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Mutation_deleteApplication(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Mutation_labelCase(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Mutation",
 		Field:      field,
 		IsMethod:   true,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return nil, errors.New("field of type Boolean does not have child fields")
+			return ec.childFields_Case(ctx, field)
 		},
 	}
 	defer func() {
@@ -1333,7 +2110,7 @@ func (ec *executionContext) fieldContext_Mutation_deleteApplication(ctx context.
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Mutation_deleteApplication_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Mutation_labelCase_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
@@ -1353,7 +2130,7 @@ func (ec *executionContext) _Query_me(ctx context.Context, field graphql.Collect
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v *model.User) graphql.Marshaler {
-			return ec.marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐUser(ctx, selections, v)
+			return ec.marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUser(ctx, selections, v)
 		},
 		true,
 		true,
@@ -1372,34 +2149,66 @@ func (ec *executionContext) fieldContext_Query_me(_ context.Context, field graph
 	return fc, nil
 }
 
-func (ec *executionContext) _Query_applications(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_analysts(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Query_applications(ctx, field)
+			return ec.fieldContext_Query_analysts(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			fc := graphql.GetFieldContext(ctx)
-			return ec.Resolvers.Query().Applications(ctx, fc.Args["status"].(*model.Status), fc.Args["search"].(*string), fc.Args["limit"].(*int), fc.Args["offset"].(*int))
+			return ec.Resolvers.Query().Analysts(ctx)
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v []*model.Application) graphql.Marshaler {
-			return ec.marshalNApplication2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplicationᚄ(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v []*model.User) graphql.Marshaler {
+			return ec.marshalNUser2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUserᚄ(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_Query_applications(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Query_analysts(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Query",
 		Field:      field,
 		IsMethod:   true,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_Application(ctx, field)
+			return ec.childFields_User(ctx, field)
+		},
+	}
+	return fc, nil
+}
+
+func (ec *executionContext) _Query_alerts(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Query_alerts(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			fc := graphql.GetFieldContext(ctx)
+			return ec.Resolvers.Query().Alerts(ctx, fc.Args["source"].(*string), fc.Args["status"].(*model.CaseStatus), fc.Args["severity"].(*string), fc.Args["search"].(*string), fc.Args["assigneeId"].(*string), fc.Args["limit"].(int), fc.Args["offset"].(int))
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v []*model.Alert) graphql.Marshaler {
+			return ec.marshalNAlert2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAlertᚄ(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Query_alerts(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.childFields_Alert(ctx, field)
 		},
 	}
 	defer func() {
@@ -1409,41 +2218,41 @@ func (ec *executionContext) fieldContext_Query_applications(ctx context.Context,
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_applications_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Query_alerts_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
 	return fc, nil
 }
 
-func (ec *executionContext) _Query_application(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_case(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Query_application(ctx, field)
+			return ec.fieldContext_Query_case(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
 			fc := graphql.GetFieldContext(ctx)
-			return ec.Resolvers.Query().Application(ctx, fc.Args["id"].(string))
+			return ec.Resolvers.Query().Case(ctx, fc.Args["id"].(string))
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v *model.Application) graphql.Marshaler {
-			return ec.marshalOApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v *model.Case) graphql.Marshaler {
+			return ec.marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx, selections, v)
 		},
 		true,
-		false,
+		true,
 	)
 }
-func (ec *executionContext) fieldContext_Query_application(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+func (ec *executionContext) fieldContext_Query_case(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
 	fc = &graphql.FieldContext{
 		Object:     "Query",
 		Field:      field,
 		IsMethod:   true,
 		IsResolver: true,
 		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_Application(ctx, field)
+			return ec.childFields_Case(ctx, field)
 		},
 	}
 	defer func() {
@@ -1453,7 +2262,7 @@ func (ec *executionContext) fieldContext_Query_application(ctx context.Context, 
 		}
 	}()
 	ctx = graphql.WithFieldContext(ctx, fc)
-	if fc.Args, err = ec.field_Query_application_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
+	if fc.Args, err = ec.field_Query_case_args(ctx, field.ArgumentMap(ec.Variables)); err != nil {
 		ec.Error(ctx, err)
 		return fc, err
 	}
@@ -1473,7 +2282,7 @@ func (ec *executionContext) _Query_stats(ctx context.Context, field graphql.Coll
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v *model.Stats) graphql.Marshaler {
-			return ec.marshalNStats2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStats(ctx, selections, v)
+			return ec.marshalNStats2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐStats(ctx, selections, v)
 		},
 		true,
 		true,
@@ -1591,71 +2400,16 @@ func (ec *executionContext) fieldContext_Stats_total(_ context.Context, field gr
 	return graphql.NewScalarFieldContext("Stats", field, false, false, "Int")
 }
 
-func (ec *executionContext) _Stats_byStatus(ctx context.Context, field graphql.CollectedField, obj *model.Stats) (ret graphql.Marshaler) {
+func (ec *executionContext) _Stats_open(ctx context.Context, field graphql.CollectedField, obj *model.Stats) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_Stats_byStatus(ctx, field)
+			return ec.fieldContext_Stats_open(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			return obj.ByStatus, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v []*model.StatusCount) graphql.Marshaler {
-			return ec.marshalNStatusCount2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusCountᚄ(ctx, selections, v)
-		},
-		true,
-		true,
-	)
-}
-func (ec *executionContext) fieldContext_Stats_byStatus(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	fc = &graphql.FieldContext{
-		Object:     "Stats",
-		Field:      field,
-		IsMethod:   false,
-		IsResolver: false,
-		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.childFields_StatusCount(ctx, field)
-		},
-	}
-	return fc, nil
-}
-
-func (ec *executionContext) _StatusCount_status(ctx context.Context, field graphql.CollectedField, obj *model.StatusCount) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_StatusCount_status(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.Status, nil
-		},
-		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v model.Status) graphql.Marshaler {
-			return ec.marshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, selections, v)
-		},
-		true,
-		true,
-	)
-}
-func (ec *executionContext) fieldContext_StatusCount_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("StatusCount", field, false, false, "Status")
-}
-
-func (ec *executionContext) _StatusCount_count(ctx context.Context, field graphql.CollectedField, obj *model.StatusCount) (ret graphql.Marshaler) {
-	return graphql.ResolveField(
-		ctx,
-		ec.OperationContext,
-		field,
-		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_StatusCount_count(ctx, field)
-		},
-		func(ctx context.Context) (any, error) {
-			return obj.Count, nil
+			return obj.Open, nil
 		},
 		nil,
 		func(ctx context.Context, selections ast.SelectionSet, v int) graphql.Marshaler {
@@ -1665,54 +2419,77 @@ func (ec *executionContext) _StatusCount_count(ctx context.Context, field graphq
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_StatusCount_count(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("StatusCount", field, false, false, "Int")
+func (ec *executionContext) fieldContext_Stats_open(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Stats", field, false, false, "Int")
 }
 
-func (ec *executionContext) _StatusEvent_status(ctx context.Context, field graphql.CollectedField, obj *model.StatusEvent) (ret graphql.Marshaler) {
+func (ec *executionContext) _Stats_investigating(ctx context.Context, field graphql.CollectedField, obj *model.Stats) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_StatusEvent_status(ctx, field)
+			return ec.fieldContext_Stats_investigating(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			return obj.Status, nil
+			return obj.Investigating, nil
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v model.Status) graphql.Marshaler {
-			return ec.marshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v int) graphql.Marshaler {
+			return ec.marshalNInt2int(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_StatusEvent_status(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("StatusEvent", field, false, false, "Status")
+func (ec *executionContext) fieldContext_Stats_investigating(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Stats", field, false, false, "Int")
 }
 
-func (ec *executionContext) _StatusEvent_at(ctx context.Context, field graphql.CollectedField, obj *model.StatusEvent) (ret graphql.Marshaler) {
+func (ec *executionContext) _Stats_resolved(ctx context.Context, field graphql.CollectedField, obj *model.Stats) (ret graphql.Marshaler) {
 	return graphql.ResolveField(
 		ctx,
 		ec.OperationContext,
 		field,
 		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
-			return ec.fieldContext_StatusEvent_at(ctx, field)
+			return ec.fieldContext_Stats_resolved(ctx, field)
 		},
 		func(ctx context.Context) (any, error) {
-			return obj.At, nil
+			return obj.Resolved, nil
 		},
 		nil,
-		func(ctx context.Context, selections ast.SelectionSet, v time.Time) graphql.Marshaler {
-			return ec.marshalNTime2timeᚐTime(ctx, selections, v)
+		func(ctx context.Context, selections ast.SelectionSet, v int) graphql.Marshaler {
+			return ec.marshalNInt2int(ctx, selections, v)
 		},
 		true,
 		true,
 	)
 }
-func (ec *executionContext) fieldContext_StatusEvent_at(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
-	return graphql.NewScalarFieldContext("StatusEvent", field, false, false, "Time")
+func (ec *executionContext) fieldContext_Stats_resolved(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Stats", field, false, false, "Int")
+}
+
+func (ec *executionContext) _Stats_assigned(ctx context.Context, field graphql.CollectedField, obj *model.Stats) (ret graphql.Marshaler) {
+	return graphql.ResolveField(
+		ctx,
+		ec.OperationContext,
+		field,
+		func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			return ec.fieldContext_Stats_assigned(ctx, field)
+		},
+		func(ctx context.Context) (any, error) {
+			return obj.Assigned, nil
+		},
+		nil,
+		func(ctx context.Context, selections ast.SelectionSet, v int) graphql.Marshaler {
+			return ec.marshalNInt2int(ctx, selections, v)
+		},
+		true,
+		true,
+	)
+}
+func (ec *executionContext) fieldContext_Stats_assigned(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	return graphql.NewScalarFieldContext("Stats", field, false, false, "Int")
 }
 
 func (ec *executionContext) _User_id(ctx context.Context, field graphql.CollectedField, obj *model.User) (ret graphql.Marshaler) {
@@ -2857,73 +3634,6 @@ func (ec *executionContext) fieldContext___Type_isOneOf(_ context.Context, field
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputNewApplication(ctx context.Context, obj any) (model.NewApplication, error) {
-	var it model.NewApplication
-	if obj == nil {
-		return it, nil
-	}
-
-	asMap := map[string]any{}
-	for k, v := range obj.(map[string]any) {
-		asMap[k] = v
-	}
-
-	if _, present := asMap["status"]; !present {
-		asMap["status"] = "SAVED"
-	}
-
-	fieldsInOrder := [...]string{"company", "role", "url", "status"}
-	for _, k := range fieldsInOrder {
-		v, ok := asMap[k]
-		if !ok {
-			continue
-		}
-		switch k {
-		case "company":
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("company"))
-			data, err := ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-			it.Company = data
-		case "role":
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("role"))
-			data, err := ec.unmarshalNString2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-			it.Role = data
-		case "url":
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("url"))
-			data, err := ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-			it.URL = data
-		case "status":
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("status"))
-			data, err := ec.unmarshalOStatus2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx, v)
-			if err != nil {
-				return it, err
-			}
-			it.Status = data
-		}
-	}
-	return it, nil
-}
-
-// UnmarshalNewApplication unmarshals raw into the NewApplication input type, using the
-// unmarshaler bound to ctx's request. Call it from a resolver to decode an input
-// object that was not passed as a field argument.
-//
-// ctx must come from a gqlgen request; outside one there is no unmarshaler to use
-// and the returned error says so.
-func UnmarshalNewApplication(ctx context.Context, raw any) (model.NewApplication, error) {
-	var out model.NewApplication
-	err := graphql.UnmarshalNamedInputFromContext(ctx, "NewApplication", raw, &out)
-	return out, err
-}
-
 // endregion **************************** input.gotpl *****************************
 
 // region    ************************** interface.gotpl ***************************
@@ -2932,58 +3642,87 @@ func UnmarshalNewApplication(ctx context.Context, raw any) (model.NewApplication
 
 // region    **************************** object.gotpl ****************************
 
-var applicationImplementors = []string{"Application"}
+var alertImplementors = []string{"Alert"}
 
-func (ec *executionContext) _Application(ctx context.Context, sel ast.SelectionSet, obj *model.Application) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, applicationImplementors)
+func (ec *executionContext) _Alert(ctx context.Context, sel ast.SelectionSet, obj *model.Alert) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, alertImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	deferred := graphql.NewDeferredGroup(ctx)
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("Application")
+			out.Values[i] = graphql.MarshalString("Alert")
 		case "id":
-			out.Values[i] = ec._Application_id(ctx, field, obj)
+			out.Values[i] = ec._Alert_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "company":
-			out.Values[i] = ec._Application_company(ctx, field, obj)
+		case "eventTime":
+			out.Values[i] = ec._Alert_eventTime(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "role":
-			out.Values[i] = ec._Application_role(ctx, field, obj)
+		case "source":
+			out.Values[i] = ec._Alert_source(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "url":
-			out.Values[i] = ec._Application_url(ctx, field, obj)
+		case "entityType":
+			out.Values[i] = ec._Alert_entityType(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "entityId":
+			out.Values[i] = ec._Alert_entityId(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "riskScore":
+			out.Values[i] = ec._Alert_riskScore(ctx, field, obj)
 			if out.Values[i] == graphql.RequiredNull {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "status":
-			out.Values[i] = ec._Application_status(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&out.Invalids, 1)
-			}
-		case "appliedAt":
-			out.Values[i] = ec._Application_appliedAt(ctx, field, obj)
+		case "threshold":
+			out.Values[i] = ec._Alert_threshold(ctx, field, obj)
 			if out.Values[i] == graphql.RequiredNull {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "updatedAt":
-			out.Values[i] = ec._Application_updatedAt(ctx, field, obj)
+		case "severity":
+			out.Values[i] = ec._Alert_severity(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				atomic.AddUint32(&out.Invalids, 1)
+				out.Invalids++
 			}
-		case "events":
-			out.ResolveConcurrently(ec.OperationContext, &deferred, i,
-				true, true,
-				func(ctx context.Context) graphql.Marshaler {
-					return ec._Application_events(ctx, field, obj)
-				})
+		case "summary":
+			out.Values[i] = ec._Alert_summary(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "modelName":
+			out.Values[i] = ec._Alert_modelName(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "modelVersion":
+			out.Values[i] = ec._Alert_modelVersion(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "evidence":
+			out.Values[i] = ec._Alert_evidence(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "traceId":
+			out.Values[i] = ec._Alert_traceId(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "case":
+			out.Values[i] = ec._Alert_case(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -3039,6 +3778,172 @@ func (ec *executionContext) _AuthPayload(ctx context.Context, sel ast.SelectionS
 	return out
 }
 
+var caseImplementors = []string{"Case"}
+
+func (ec *executionContext) _Case(ctx context.Context, sel ast.SelectionSet, obj *model.Case) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, caseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	deferred := graphql.NewDeferredGroup(ctx)
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("Case")
+		case "id":
+			out.Values[i] = ec._Case_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "alertId":
+			out.Values[i] = ec._Case_alertId(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "status":
+			out.Values[i] = ec._Case_status(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "assigneeId":
+			out.Values[i] = ec._Case_assigneeId(ctx, field, obj)
+			if out.Values[i] == graphql.RequiredNull {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "createdAt":
+			out.Values[i] = ec._Case_createdAt(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "updatedAt":
+			out.Values[i] = ec._Case_updatedAt(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				atomic.AddUint32(&out.Invalids, 1)
+			}
+		case "events":
+			out.ResolveConcurrently(ec.OperationContext, &deferred, i,
+				true, true,
+				func(ctx context.Context) graphql.Marshaler {
+					return ec._Case_events(ctx, field, obj)
+				})
+		case "labels":
+			out.ResolveConcurrently(ec.OperationContext, &deferred, i,
+				true, true,
+				func(ctx context.Context) graphql.Marshaler {
+					return ec._Case_labels(ctx, field, obj)
+				})
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch(ctx)
+	if out.Invalids > 0 {
+		return graphql.Null
+	}
+
+	if n := len(deferred.Defers); n > 0 {
+		atomic.AddInt32(&ec.Deferred, int32(min(n, math.MaxInt32)))
+		ec.ProcessDeferredGroup(deferred)
+	}
+
+	return out
+}
+
+var caseEventImplementors = []string{"CaseEvent"}
+
+func (ec *executionContext) _CaseEvent(ctx context.Context, sel ast.SelectionSet, obj *model.CaseEvent) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, caseEventImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	deferred := graphql.NewDeferredGroup(ctx)
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("CaseEvent")
+		case "actorId":
+			out.Values[i] = ec._CaseEvent_actorId(ctx, field, obj)
+			if out.Values[i] == graphql.RequiredNull {
+				out.Invalids++
+			}
+		case "action":
+			out.Values[i] = ec._CaseEvent_action(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "note":
+			out.Values[i] = ec._CaseEvent_note(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "at":
+			out.Values[i] = ec._CaseEvent_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch(ctx)
+	if out.Invalids > 0 {
+		return graphql.Null
+	}
+
+	if n := len(deferred.Defers); n > 0 {
+		atomic.AddInt32(&ec.Deferred, int32(min(n, math.MaxInt32)))
+		ec.ProcessDeferredGroup(deferred)
+	}
+
+	return out
+}
+
+var caseLabelImplementors = []string{"CaseLabel"}
+
+func (ec *executionContext) _CaseLabel(ctx context.Context, sel ast.SelectionSet, obj *model.CaseLabel) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, caseLabelImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	deferred := graphql.NewDeferredGroup(ctx)
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("CaseLabel")
+		case "actorId":
+			out.Values[i] = ec._CaseLabel_actorId(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "value":
+			out.Values[i] = ec._CaseLabel_value(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "note":
+			out.Values[i] = ec._CaseLabel_note(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		case "at":
+			out.Values[i] = ec._CaseLabel_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				out.Invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch(ctx)
+	if out.Invalids > 0 {
+		return graphql.Null
+	}
+
+	if n := len(deferred.Defers); n > 0 {
+		atomic.AddInt32(&ec.Deferred, int32(min(n, math.MaxInt32)))
+		ec.ProcessDeferredGroup(deferred)
+	}
+
+	return out
+}
+
 var mutationImplementors = []string{"Mutation"}
 
 func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet) graphql.Marshaler {
@@ -3072,23 +3977,23 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		case "createApplication":
+		case "assignCase":
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_createApplication(ctx, field)
+				return ec._Mutation_assignCase(ctx, field)
 			})
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		case "updateStatus":
+		case "resolveCase":
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_updateStatus(ctx, field)
+				return ec._Mutation_resolveCase(ctx, field)
 			})
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		case "deleteApplication":
+		case "labelCase":
 			out.Values[i] = ec.OperationContext.RootResolverMiddleware(innerCtx, func(ctx context.Context) (res graphql.Marshaler) {
-				return ec._Mutation_deleteApplication(ctx, field)
+				return ec._Mutation_labelCase(ctx, field)
 			})
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
@@ -3135,17 +4040,23 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				func(ctx context.Context) graphql.Marshaler {
 					return ec._Query_me(ctx, field)
 				})
-		case "applications":
+		case "analysts":
 			out.ResolveRootConcurrently(innerCtx, ec.OperationContext, i,
 				true, true,
 				func(ctx context.Context) graphql.Marshaler {
-					return ec._Query_applications(ctx, field)
+					return ec._Query_analysts(ctx, field)
 				})
-		case "application":
+		case "alerts":
 			out.ResolveRootConcurrently(innerCtx, ec.OperationContext, i,
-				true, false,
+				true, true,
 				func(ctx context.Context) graphql.Marshaler {
-					return ec._Query_application(ctx, field)
+					return ec._Query_alerts(ctx, field)
+				})
+		case "case":
+			out.ResolveRootConcurrently(innerCtx, ec.OperationContext, i,
+				true, true,
+				func(ctx context.Context) graphql.Marshaler {
+					return ec._Query_case(ctx, field)
 				})
 		case "stats":
 			out.ResolveRootConcurrently(innerCtx, ec.OperationContext, i,
@@ -3200,84 +4111,23 @@ func (ec *executionContext) _Stats(ctx context.Context, sel ast.SelectionSet, ob
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		case "byStatus":
-			out.Values[i] = ec._Stats_byStatus(ctx, field, obj)
+		case "open":
+			out.Values[i] = ec._Stats_open(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch(ctx)
-	if out.Invalids > 0 {
-		return graphql.Null
-	}
-
-	if n := len(deferred.Defers); n > 0 {
-		atomic.AddInt32(&ec.Deferred, int32(min(n, math.MaxInt32)))
-		ec.ProcessDeferredGroup(deferred)
-	}
-
-	return out
-}
-
-var statusCountImplementors = []string{"StatusCount"}
-
-func (ec *executionContext) _StatusCount(ctx context.Context, sel ast.SelectionSet, obj *model.StatusCount) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, statusCountImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	deferred := graphql.NewDeferredGroup(ctx)
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("StatusCount")
-		case "status":
-			out.Values[i] = ec._StatusCount_status(ctx, field, obj)
+		case "investigating":
+			out.Values[i] = ec._Stats_investigating(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		case "count":
-			out.Values[i] = ec._StatusCount_count(ctx, field, obj)
+		case "resolved":
+			out.Values[i] = ec._Stats_resolved(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch(ctx)
-	if out.Invalids > 0 {
-		return graphql.Null
-	}
-
-	if n := len(deferred.Defers); n > 0 {
-		atomic.AddInt32(&ec.Deferred, int32(min(n, math.MaxInt32)))
-		ec.ProcessDeferredGroup(deferred)
-	}
-
-	return out
-}
-
-var statusEventImplementors = []string{"StatusEvent"}
-
-func (ec *executionContext) _StatusEvent(ctx context.Context, sel ast.SelectionSet, obj *model.StatusEvent) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, statusEventImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	deferred := graphql.NewDeferredGroup(ctx)
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("StatusEvent")
-		case "status":
-			out.Values[i] = ec._StatusEvent_status(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				out.Invalids++
-			}
-		case "at":
-			out.Values[i] = ec._StatusEvent_at(ctx, field, obj)
+		case "assigned":
+			out.Values[i] = ec._Stats_assigned(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				out.Invalids++
 			}
@@ -3703,11 +4553,11 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 
 // region    ***************************** type.gotpl *****************************
 
-func (ec *executionContext) marshalNApplication2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplicationᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Application) graphql.Marshaler {
+func (ec *executionContext) marshalNAlert2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAlertᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Alert) graphql.Marshaler {
 	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
 		fc := graphql.GetFieldContext(ctx)
 		fc.Result = &v[i]
-		return ec.marshalNApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx, sel, v[i])
+		return ec.marshalNAlert2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAlert(ctx, sel, v[i])
 	})
 
 	for _, e := range ret {
@@ -3719,15 +4569,15 @@ func (ec *executionContext) marshalNApplication2ᚕᚖgithubᚗcomᚋkianbqhᚋf
 	return ret
 }
 
-func (ec *executionContext) marshalNApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx context.Context, sel ast.SelectionSet, v *model.Application) graphql.Marshaler {
+func (ec *executionContext) marshalNAlert2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAlert(ctx context.Context, sel ast.SelectionSet, v *model.Alert) graphql.Marshaler {
 	if v == nil {
-		graphql.AddInvalidNullError(ctx, "Application!")
+		graphql.AddInvalidNullError(ctx, "Alert!")
 		return graphql.Null
 	}
-	return ec._Application(ctx, sel, v)
+	return ec._Alert(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx context.Context, sel ast.SelectionSet, v *model.AuthPayload) graphql.Marshaler {
+func (ec *executionContext) marshalNAuthPayload2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐAuthPayload(ctx context.Context, sel ast.SelectionSet, v *model.AuthPayload) graphql.Marshaler {
 	if v == nil {
 		graphql.AddInvalidNullError(ctx, "AuthPayload!")
 		return graphql.Null
@@ -3747,6 +4597,72 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 		graphql.AddInvalidNullFromMarshaler(ctx, "Boolean!")
 	}
 	return res
+}
+
+func (ec *executionContext) marshalNCase2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCase(ctx context.Context, sel ast.SelectionSet, v *model.Case) graphql.Marshaler {
+	if v == nil {
+		graphql.AddInvalidNullError(ctx, "Case!")
+		return graphql.Null
+	}
+	return ec._Case(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNCaseEvent2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseEventᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.CaseEvent) graphql.Marshaler {
+	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
+		fc := graphql.GetFieldContext(ctx)
+		fc.Result = &v[i]
+		return ec.marshalNCaseEvent2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseEvent(ctx, sel, v[i])
+	})
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCaseEvent2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseEvent(ctx context.Context, sel ast.SelectionSet, v *model.CaseEvent) graphql.Marshaler {
+	if v == nil {
+		graphql.AddInvalidNullError(ctx, "CaseEvent!")
+		return graphql.Null
+	}
+	return ec._CaseEvent(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNCaseLabel2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseLabelᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.CaseLabel) graphql.Marshaler {
+	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
+		fc := graphql.GetFieldContext(ctx)
+		fc.Result = &v[i]
+		return ec.marshalNCaseLabel2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseLabel(ctx, sel, v[i])
+	})
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNCaseLabel2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseLabel(ctx context.Context, sel ast.SelectionSet, v *model.CaseLabel) graphql.Marshaler {
+	if v == nil {
+		graphql.AddInvalidNullError(ctx, "CaseLabel!")
+		return graphql.Null
+	}
+	return ec._CaseLabel(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNCaseStatus2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx context.Context, v any) (model.CaseStatus, error) {
+	var res model.CaseStatus
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNCaseStatus2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx context.Context, sel ast.SelectionSet, v model.CaseStatus) graphql.Marshaler {
+	return v
 }
 
 func (ec *executionContext) unmarshalNID2string(ctx context.Context, v any) (string, error) {
@@ -3777,75 +4693,22 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
-func (ec *executionContext) unmarshalNNewApplication2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐNewApplication(ctx context.Context, v any) (model.NewApplication, error) {
-	res, err := ec.unmarshalInputNewApplication(ctx, v)
+func (ec *executionContext) unmarshalNLabelValue2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐLabelValue(ctx context.Context, v any) (model.LabelValue, error) {
+	var res model.LabelValue
+	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNStats2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStats(ctx context.Context, sel ast.SelectionSet, v *model.Stats) graphql.Marshaler {
+func (ec *executionContext) marshalNLabelValue2githubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐLabelValue(ctx context.Context, sel ast.SelectionSet, v model.LabelValue) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) marshalNStats2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐStats(ctx context.Context, sel ast.SelectionSet, v *model.Stats) graphql.Marshaler {
 	if v == nil {
 		graphql.AddInvalidNullError(ctx, "Stats!")
 		return graphql.Null
 	}
 	return ec._Stats(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx context.Context, v any) (model.Status, error) {
-	var res model.Status
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNStatus2githubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v model.Status) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) marshalNStatusCount2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusCountᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.StatusCount) graphql.Marshaler {
-	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
-		fc := graphql.GetFieldContext(ctx)
-		fc.Result = &v[i]
-		return ec.marshalNStatusCount2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusCount(ctx, sel, v[i])
-	})
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
-}
-
-func (ec *executionContext) marshalNStatusCount2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusCount(ctx context.Context, sel ast.SelectionSet, v *model.StatusCount) graphql.Marshaler {
-	if v == nil {
-		graphql.AddInvalidNullError(ctx, "StatusCount!")
-		return graphql.Null
-	}
-	return ec._StatusCount(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNStatusEvent2ᚕᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusEventᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.StatusEvent) graphql.Marshaler {
-	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
-		fc := graphql.GetFieldContext(ctx)
-		fc.Result = &v[i]
-		return ec.marshalNStatusEvent2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusEvent(ctx, sel, v[i])
-	})
-
-	for _, e := range ret {
-		if e == graphql.Null {
-			return graphql.Null
-		}
-	}
-
-	return ret
-}
-
-func (ec *executionContext) marshalNStatusEvent2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatusEvent(ctx context.Context, sel ast.SelectionSet, v *model.StatusEvent) graphql.Marshaler {
-	if v == nil {
-		graphql.AddInvalidNullError(ctx, "StatusEvent!")
-		return graphql.Null
-	}
-	return ec._StatusEvent(ctx, sel, v)
 }
 
 func (ec *executionContext) unmarshalNString2string(ctx context.Context, v any) (string, error) {
@@ -3876,7 +4739,23 @@ func (ec *executionContext) marshalNTime2timeᚐTime(ctx context.Context, sel as
 	return res
 }
 
-func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.User) graphql.Marshaler {
+	ret := graphql.MarshalSliceConcurrently(ctx, len(v), 0, false, func(ctx context.Context, i int) graphql.Marshaler {
+		fc := graphql.GetFieldContext(ctx)
+		fc.Result = &v[i]
+		return ec.marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUser(ctx, sel, v[i])
+	})
+
+	for _, e := range ret {
+		if e == graphql.Null {
+			return graphql.Null
+		}
+	}
+
+	return ret
+}
+
+func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
 	if v == nil {
 		graphql.AddInvalidNullError(ctx, "User!")
 		return graphql.Null
@@ -4026,13 +4905,6 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) marshalOApplication2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐApplication(ctx context.Context, sel ast.SelectionSet, v *model.Application) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._Application(ctx, sel, v)
-}
-
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v any) (bool, error) {
 	res, err := graphql.UnmarshalBoolean(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -4063,38 +4935,55 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return res
 }
 
-func (ec *executionContext) unmarshalOInt2ᚖint(ctx context.Context, v any) (*int, error) {
+func (ec *executionContext) unmarshalOCaseStatus2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx context.Context, v any) (*model.CaseStatus, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := graphql.UnmarshalInt(v)
+	var res = new(model.CaseStatus)
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOCaseStatus2ᚖgithubᚗcomᚋkianbqhᚋsentinelᚑriskᚑplatformᚋconsoleᚋbackendᚋgraphᚋmodelᚐCaseStatus(ctx context.Context, sel ast.SelectionSet, v *model.CaseStatus) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return v
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v any) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloatContext(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.SelectionSet, v *int) graphql.Marshaler {
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	_ = sel
+	res := graphql.MarshalFloatContext(*v)
+	return graphql.WrapContextMarshaler(ctx, res)
+}
+
+func (ec *executionContext) unmarshalOID2ᚖstring(ctx context.Context, v any) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalID(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOID2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	_ = sel
 	_ = ctx
-	res := graphql.MarshalInt(*v)
+	res := graphql.MarshalID(*v)
 	return res
-}
-
-func (ec *executionContext) unmarshalOStatus2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx context.Context, v any) (*model.Status, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var res = new(model.Status)
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOStatus2ᚖgithubᚗcomᚋkianbqhᚋfullstackᚑgoᚑgraphqlᚋbackendᚋgraphᚋmodelᚐStatus(ctx context.Context, sel ast.SelectionSet, v *model.Status) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return v
 }
 
 func (ec *executionContext) unmarshalOString2ᚖstring(ctx context.Context, v any) (*string, error) {
@@ -4112,24 +5001,6 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	_ = sel
 	_ = ctx
 	res := graphql.MarshalString(*v)
-	return res
-}
-
-func (ec *executionContext) unmarshalOTime2ᚖtimeᚐTime(ctx context.Context, v any) (*time.Time, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalTime(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOTime2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	_ = sel
-	_ = ctx
-	res := graphql.MarshalTime(*v)
 	return res
 }
 

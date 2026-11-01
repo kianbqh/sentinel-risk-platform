@@ -1,3 +1,0 @@
-DROP TABLE IF EXISTS applications;
-DROP TYPE IF EXISTS app_status;
-DROP TABLE IF EXISTS users;

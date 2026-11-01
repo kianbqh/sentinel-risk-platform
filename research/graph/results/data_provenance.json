@@ -1,32 +1,35 @@
-[
-  {
-    "file": "elliptic_txs_features.csv.zip",
-    "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_features.csv.zip",
-    "bytes": 150601883,
-    "sha256": "d33d62159e64b5e889f1a7ea880227c612775b58d409598855e0c4400fa52b3e",
-    "raw_file": "elliptic_txs_features.csv",
-    "raw_sha256": "fd7f83573443c9e302e371d3f110e3b6224160f5d1ed8a287757936127800ff0",
-    "raw_bytes": 689683771,
-    "raw_data_rows": 203769
-  },
-  {
-    "file": "elliptic_txs_edgelist.csv.zip",
-    "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_edgelist.csv.zip",
-    "bytes": 1690631,
-    "sha256": "a2f9f6b67a39da2d8cf87fe77b9db89571ba6d880e5dd5b5991dc45c80fa34ec",
-    "raw_file": "elliptic_txs_edgelist.csv",
-    "raw_sha256": "a35053ba68a98e4382cae2ba65b9d9e36b23b6439e02dff084971b1b72a5156e",
-    "raw_bytes": 4470584,
-    "raw_data_rows": 234355
-  },
-  {
-    "file": "elliptic_txs_classes.csv.zip",
-    "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_classes.csv.zip",
-    "bytes": 925698,
-    "sha256": "4ca957f0ceffd5dd164e255c7d5ad9ee69a6fa64ae1dd94d6f113e5ebf3b07ba",
-    "raw_file": "elliptic_txs_classes.csv",
-    "raw_sha256": "93e2e7b2405c735ba752bf6ba06b947561deddd1f5a8fc91e46f6a4c0e439493",
-    "raw_bytes": 3305144,
-    "raw_data_rows": 203769
-  }
-]
+{
+  "scope": "Retained raw-dataset provenance; the cache was reused read-only for the new integrated fit.",
+  "source_manifest": [
+    {
+      "file": "elliptic_txs_features.csv.zip",
+      "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_features.csv.zip",
+      "bytes": 150601883,
+      "sha256": "d33d62159e64b5e889f1a7ea880227c612775b58d409598855e0c4400fa52b3e",
+      "raw_file": "elliptic_txs_features.csv",
+      "raw_sha256": "fd7f83573443c9e302e371d3f110e3b6224160f5d1ed8a287757936127800ff0",
+      "raw_bytes": 689683771,
+      "raw_data_rows": 203769
+    },
+    {
+      "file": "elliptic_txs_edgelist.csv.zip",
+      "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_edgelist.csv.zip",
+      "bytes": 1690631,
+      "sha256": "a2f9f6b67a39da2d8cf87fe77b9db89571ba6d880e5dd5b5991dc45c80fa34ec",
+      "raw_file": "elliptic_txs_edgelist.csv",
+      "raw_sha256": "a35053ba68a98e4382cae2ba65b9d9e36b23b6439e02dff084971b1b72a5156e",
+      "raw_bytes": 4470584,
+      "raw_data_rows": 234355
+    },
+    {
+      "file": "elliptic_txs_classes.csv.zip",
+      "url": "https://data.pyg.org/datasets/elliptic/elliptic_txs_classes.csv.zip",
+      "bytes": 925698,
+      "sha256": "4ca957f0ceffd5dd164e255c7d5ad9ee69a6fa64ae1dd94d6f113e5ebf3b07ba",
+      "raw_file": "elliptic_txs_classes.csv",
+      "raw_sha256": "93e2e7b2405c735ba752bf6ba06b947561deddd1f5a8fc91e46f6a4c0e439493",
+      "raw_bytes": 3305144,
+      "raw_data_rows": 203769
+    }
+  ]
+}

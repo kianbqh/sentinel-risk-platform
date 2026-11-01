@@ -1,0 +1,27 @@
+scalar Time
+enum CaseStatus { OPEN INVESTIGATING RESOLVED }
+enum LabelValue { FRAUD BENIGN UNCERTAIN }
+type User { id: ID!, email: String!, createdAt: Time! }
+type AuthPayload { token: String!, user: User! }
+type Alert {
+ id: ID!, eventTime: Time!, source: String!, entityType: String!, entityId: String!,
+ riskScore: Float, threshold: Float, severity: String!, summary: String!,
+ modelName: String!, modelVersion: String!, evidence: String!, traceId: String!, case: Case!
+}
+type Case {
+ id: ID!, alertId: ID!, status: CaseStatus!, assigneeId: ID,
+ createdAt: Time!, updatedAt: Time!, events: [CaseEvent!]!, labels: [CaseLabel!]!
+}
+type CaseEvent { actorId: ID, action: String!, note: String!, at: Time! }
+type CaseLabel { actorId: ID!, value: LabelValue!, note: String!, at: Time! }
+type Stats { total: Int!, open: Int!, investigating: Int!, resolved: Int!, assigned: Int! }
+type Query {
+ me: User!, analysts: [User!]!,
+ alerts(source: String, status: CaseStatus, severity: String, search: String, assigneeId: ID, limit: Int! = 50, offset: Int! = 0): [Alert!]!,
+ case(id: ID!): Case!, stats: Stats!
+}
+type Mutation {
+ register(email: String!, password: String!): AuthPayload!, login(email: String!, password: String!): AuthPayload!,
+ assignCase(id: ID!, assigneeId: ID!): Case!, resolveCase(id: ID!, note: String! = ""): Case!,
+ labelCase(id: ID!, value: LabelValue!, note: String! = ""): Case!
+}

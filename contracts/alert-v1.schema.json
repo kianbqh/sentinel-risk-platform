@@ -1,0 +1,146 @@
+{
+  "$defs": {
+    "ModelReference": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "version": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "title": "ModelReference",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "alert_id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Alert Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "source": {
+      "enum": [
+        "transaction-stream",
+        "transaction-api",
+        "ato",
+        "text-risk"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "entity_type": {
+      "enum": [
+        "transaction",
+        "ip",
+        "message"
+      ],
+      "title": "Entity Type",
+      "type": "string"
+    },
+    "entity_id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Entity Id",
+      "type": "string"
+    },
+    "risk_score": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Risk Score"
+    },
+    "threshold": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Threshold"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "summary": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    },
+    "model": {
+      "$ref": "#/$defs/ModelReference"
+    },
+    "evidence": {
+      "additionalProperties": true,
+      "title": "Evidence",
+      "type": "object"
+    },
+    "trace_id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Trace Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "alert_id",
+    "event_time",
+    "source",
+    "entity_type",
+    "entity_id",
+    "risk_score",
+    "threshold",
+    "severity",
+    "summary",
+    "model",
+    "evidence",
+    "trace_id"
+  ],
+  "title": "Alert",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sentinel:alert:1.0"
+}

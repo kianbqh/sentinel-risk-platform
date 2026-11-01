@@ -10,15 +10,21 @@ import (
 	"time"
 )
 
-type Application struct {
-	ID        string         `json:"id"`
-	Company   string         `json:"company"`
-	Role      string         `json:"role"`
-	URL       *string        `json:"url,omitempty"`
-	Status    Status         `json:"status"`
-	AppliedAt *time.Time     `json:"appliedAt,omitempty"`
-	UpdatedAt time.Time      `json:"updatedAt"`
-	Events    []*StatusEvent `json:"events"`
+type Alert struct {
+	ID           string    `json:"id"`
+	EventTime    time.Time `json:"eventTime"`
+	Source       string    `json:"source"`
+	EntityType   string    `json:"entityType"`
+	EntityID     string    `json:"entityId"`
+	RiskScore    *float64  `json:"riskScore,omitempty"`
+	Threshold    *float64  `json:"threshold,omitempty"`
+	Severity     string    `json:"severity"`
+	Summary      string    `json:"summary"`
+	ModelName    string    `json:"modelName"`
+	ModelVersion string    `json:"modelVersion"`
+	Evidence     string    `json:"evidence"`
+	TraceID      string    `json:"traceId"`
+	Case         *Case     `json:"case"`
 }
 
 type AuthPayload struct {
@@ -26,32 +32,43 @@ type AuthPayload struct {
 	User  *User  `json:"user"`
 }
 
-type Mutation struct {
+type Case struct {
+	ID         string       `json:"id"`
+	AlertID    string       `json:"alertId"`
+	Status     CaseStatus   `json:"status"`
+	AssigneeID *string      `json:"assigneeId,omitempty"`
+	CreatedAt  time.Time    `json:"createdAt"`
+	UpdatedAt  time.Time    `json:"updatedAt"`
+	Events     []*CaseEvent `json:"events"`
+	Labels     []*CaseLabel `json:"labels"`
 }
 
-type NewApplication struct {
-	Company string  `json:"company"`
-	Role    string  `json:"role"`
-	URL     *string `json:"url,omitempty"`
-	Status  *Status `json:"status,omitempty"`
+type CaseEvent struct {
+	ActorID *string   `json:"actorId,omitempty"`
+	Action  string    `json:"action"`
+	Note    string    `json:"note"`
+	At      time.Time `json:"at"`
+}
+
+type CaseLabel struct {
+	ActorID string     `json:"actorId"`
+	Value   LabelValue `json:"value"`
+	Note    string     `json:"note"`
+	At      time.Time  `json:"at"`
+}
+
+type Mutation struct {
 }
 
 type Query struct {
 }
 
 type Stats struct {
-	Total    int            `json:"total"`
-	ByStatus []*StatusCount `json:"byStatus"`
-}
-
-type StatusCount struct {
-	Status Status `json:"status"`
-	Count  int    `json:"count"`
-}
-
-type StatusEvent struct {
-	Status Status    `json:"status"`
-	At     time.Time `json:"at"`
+	Total         int `json:"total"`
+	Open          int `json:"open"`
+	Investigating int `json:"investigating"`
+	Resolved      int `json:"resolved"`
+	Assigned      int `json:"assigned"`
 }
 
 type User struct {
@@ -60,56 +77,50 @@ type User struct {
 	CreatedAt time.Time `json:"createdAt"`
 }
 
-type Status string
+type CaseStatus string
 
 const (
-	StatusSaved     Status = "SAVED"
-	StatusApplied   Status = "APPLIED"
-	StatusOa        Status = "OA"
-	StatusInterview Status = "INTERVIEW"
-	StatusOffer     Status = "OFFER"
-	StatusRejected  Status = "REJECTED"
+	CaseStatusOpen          CaseStatus = "OPEN"
+	CaseStatusInvestigating CaseStatus = "INVESTIGATING"
+	CaseStatusResolved      CaseStatus = "RESOLVED"
 )
 
-var AllStatus = []Status{
-	StatusSaved,
-	StatusApplied,
-	StatusOa,
-	StatusInterview,
-	StatusOffer,
-	StatusRejected,
+var AllCaseStatus = []CaseStatus{
+	CaseStatusOpen,
+	CaseStatusInvestigating,
+	CaseStatusResolved,
 }
 
-func (e Status) IsValid() bool {
+func (e CaseStatus) IsValid() bool {
 	switch e {
-	case StatusSaved, StatusApplied, StatusOa, StatusInterview, StatusOffer, StatusRejected:
+	case CaseStatusOpen, CaseStatusInvestigating, CaseStatusResolved:
 		return true
 	}
 	return false
 }
 
-func (e Status) String() string {
+func (e CaseStatus) String() string {
 	return string(e)
 }
 
-func (e *Status) UnmarshalGQL(v any) error {
+func (e *CaseStatus) UnmarshalGQL(v any) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = Status(str)
+	*e = CaseStatus(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid Status", str)
+		return fmt.Errorf("%s is not a valid CaseStatus", str)
 	}
 	return nil
 }
 
-func (e Status) MarshalGQL(w io.Writer) {
+func (e CaseStatus) MarshalGQL(w io.Writer) {
 	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-func (e *Status) UnmarshalJSON(b []byte) error {
+func (e *CaseStatus) UnmarshalJSON(b []byte) error {
 	s, err := strconv.Unquote(string(b))
 	if err != nil {
 		return err
@@ -117,7 +128,64 @@ func (e *Status) UnmarshalJSON(b []byte) error {
 	return e.UnmarshalGQL(s)
 }
 
-func (e Status) MarshalJSON() ([]byte, error) {
+func (e CaseStatus) MarshalJSON() ([]byte, error) {
+	var buf bytes.Buffer
+	e.MarshalGQL(&buf)
+	return buf.Bytes(), nil
+}
+
+type LabelValue string
+
+const (
+	LabelValueFraud     LabelValue = "FRAUD"
+	LabelValueBenign    LabelValue = "BENIGN"
+	LabelValueUncertain LabelValue = "UNCERTAIN"
+)
+
+var AllLabelValue = []LabelValue{
+	LabelValueFraud,
+	LabelValueBenign,
+	LabelValueUncertain,
+}
+
+func (e LabelValue) IsValid() bool {
+	switch e {
+	case LabelValueFraud, LabelValueBenign, LabelValueUncertain:
+		return true
+	}
+	return false
+}
+
+func (e LabelValue) String() string {
+	return string(e)
+}
+
+func (e *LabelValue) UnmarshalGQL(v any) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = LabelValue(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid LabelValue", str)
+	}
+	return nil
+}
+
+func (e LabelValue) MarshalGQL(w io.Writer) {
+	_, _ = fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+func (e *LabelValue) UnmarshalJSON(b []byte) error {
+	s, err := strconv.Unquote(string(b))
+	if err != nil {
+		return err
+	}
+	return e.UnmarshalGQL(s)
+}
+
+func (e LabelValue) MarshalJSON() ([]byte, error) {
 	var buf bytes.Buffer
 	e.MarshalGQL(&buf)
 	return buf.Bytes(), nil
