@@ -1,6 +1,8 @@
 """Preserve observed scanner HTTP evidence without changing findings or scan inputs."""
 from datetime import datetime, timezone
+from collections import Counter
 import hashlib
+from itertools import chain, islice
 import json
 import re
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit
@@ -66,7 +68,7 @@ def _record(message, markers):
             'response_body_sha256_before_redaction':hashlib.sha256(body.encode()).hexdigest()}
 
 
-def capture(zap, target, max_messages=50000):
+def capture(zap, target, max_messages=None):
     """Get real alert-linked messages and original active-scan sentinel/candidate traffic."""
     scans = zap.ascan.scans
     ids = []
@@ -95,33 +97,49 @@ def capture(zap, target, max_messages=50000):
     messages = []
     missing = []
     fetched = set()
-    for identity in sorted(high_ids) + [identity for identity in ids[:max_messages] if identity not in high_ids]:
-        try:
-            message = zap.core.message(identity)
-            if not isinstance(message, dict) or not message.get('requestHeader'):
-                raise RuntimeError('HTTP message missing')
-            if _request_parts(message, target) is None:
-                if identity in high_ids:
-                    raise RuntimeError('Alert HTTP message is outside the owned origin')
-                continue
-            fetched.add(identity)
-            markers = marked_inputs(message, target)
-            if identity in high_ids or markers:
-                item = _record(message, markers)
-                item.update(message_id=identity, alert_linked=identity in high_ids)
-                messages.append(item)
-        except Exception as error:
-            missing.append({'message_id':identity, 'error':type(error).__name__ + ': ' + str(error)})
+    selected_ids = iter(ids) if max_messages is None else islice(ids, max_messages)
+    order = chain(sorted(high_ids), (identity for identity in selected_ids if identity not in high_ids))
+    batches = 0
+    statuses = Counter()
+    # The completed scan supplies a finite snapshot. Keep only one ID batch and
+    # one HTTP response in flight, retaining bodies only for selected evidence.
+    while page := tuple(islice(order, 1000)):
+        batches += 1
+        for identity in page:
+            try:
+                message = zap.core.message(identity)
+                if not isinstance(message, dict) or not message.get('requestHeader'):
+                    raise RuntimeError('HTTP message missing')
+                if _request_parts(message, target) is None:
+                    if identity in high_ids:
+                        raise RuntimeError('Alert HTTP message is outside the owned origin')
+                    continue
+                fetched.add(identity)
+                status = re.match(r'^HTTP/\S+\s+(\d{3})', message.get('responseHeader', ''))
+                if status is None:
+                    raise RuntimeError('HTTP response status missing')
+                statuses[status.group(1)] += 1
+                markers = marked_inputs(message, target)
+                if identity in high_ids or markers:
+                    item = _record(message, markers)
+                    item.update(message_id=identity, alert_linked=identity in high_ids)
+                    messages.append(item)
+            except Exception as error:
+                missing.append({'message_id':identity, 'error':type(error).__name__ + ': ' + str(error)})
     retention = str(zap.ascan.option_persist_temporary_messages).lower()
+    truncated = max_messages is not None and len(ids)>max_messages
     return {'collected_utc':datetime.now(timezone.utc).isoformat(), 'target':target,
             'selection':'Actual HIGH/MEDIUM-linked messages plus original active-scan GraphQL sentinel/candidate messages. No adjacency assumption pairs concurrent requests.',
             'zap_core_version':zap.core.version,
             'installed_addons':[{key:addon.get(key) for key in ('id','version','status')} for addon in zap.autoupdate.installed_addons],
             'temporary_messages_enabled':retention,
             'active_scans':scans, 'active_message_ids_total':len(ids), 'messages_limit':max_messages,
-            'history_truncated':len(ids)>max_messages, 'messages_fetched':len(fetched),
+            'capture_bound':'Finite ID snapshot from the completed, time-limited active scan.',
+            'message_page_size':1000,'message_batches_processed':batches,
+            'history_truncated':truncated, 'messages_fetched':len(fetched),
+            'http_status_counts':dict(sorted(statuses.items())),
             'alerts':alerts, 'messages':messages, 'missing_messages':missing,
-            'complete':retention=='true' and not missing and len(ids)<=max_messages and high_ids<=fetched}
+            'complete':retention=='true' and not missing and not truncated and high_ids<=fetched}
 
 
 def transport_probes(zap, target, token):

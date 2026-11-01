@@ -1,0 +1,31 @@
+#!/bin/sh
+# Sourced before the official nginx envsubst entrypoint.
+case "${BACKEND_URL:-}" in
+    http://*) BACKEND_SCHEME=http; authority=${BACKEND_URL#http://}; default_port=80 ;;
+    https://*) BACKEND_SCHEME=https; authority=${BACKEND_URL#https://}; default_port=443 ;;
+    *) echo 'BACKEND_URL must be an http(s) origin' >&2; exit 1 ;;
+esac
+authority=${authority%/}
+case "$authority" in
+    *[[:space:]]*) echo 'BACKEND_URL must not contain whitespace' >&2; exit 1 ;;
+esac
+if ! printf '%s\n' "$authority" | grep -Eq '^(\[[0-9A-Fa-f:.]+\]|[A-Za-z0-9_][A-Za-z0-9_.-]*)(:[0-9]{1,5})?$'; then
+    echo 'BACKEND_URL must contain only a hostname or bracketed IPv6 address and optional port' >&2
+    exit 1
+fi
+case "$authority" in
+    \[*) backend_host="${authority%%]*}]" ;;
+    *) backend_host=${authority%%:*} ;;
+esac
+backend_port=${authority#"$backend_host"}
+backend_port=${backend_port#:}
+backend_port=${backend_port:-$default_port}
+if [ "$backend_port" -lt 1 ] || [ "$backend_port" -gt 65535 ]; then
+    echo 'BACKEND_URL port must be between 1 and 65535' >&2
+    exit 1
+fi
+BACKEND_AUTHORITY=$authority
+BACKEND_UPSTREAM_SERVER=$backend_host:$backend_port
+BACKEND_TLS_NAME=${backend_host#\[}
+BACKEND_TLS_NAME=${BACKEND_TLS_NAME%\]}
+export BACKEND_SCHEME BACKEND_AUTHORITY BACKEND_UPSTREAM_SERVER BACKEND_TLS_NAME

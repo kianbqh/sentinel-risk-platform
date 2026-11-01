@@ -5,7 +5,10 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
+import platform
+import subprocess
 import time
 from urllib.parse import urlsplit
 import uuid
@@ -15,6 +18,27 @@ import numpy as np
 from gateway.client import graphql
 
 QUERY = """{me{id} alerts(limit:50){id source severity riskScore threshold case{id status events{action at} labels{value actorId}}} stats{total open investigating resolved assigned}}"""
+
+
+def environment():
+    """Bind measurements to the runner and source without entering timed phases."""
+    root = Path(__file__).resolve().parents[1]
+    def read(path):
+        target = Path(path)
+        return target.read_text().strip() if target.is_file() else None
+    cpu_info = read('/proc/cpuinfo') or ''
+    cpu_model = next((line.partition(':')[2].strip() for line in cpu_info.splitlines() if line.startswith('model name')), platform.processor())
+    sources = ('scripts/load_console.py', 'console/frontend/nginx.conf.template',
+               'console/frontend/19-backend-upstream.envsh', 'console/backend/cmd/server/main.go',
+               'console/backend/graph/sentinel.resolvers.go')
+    return {'source_revision': os.getenv('GITHUB_SHA') or subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
+            'github_run_id': os.getenv('GITHUB_RUN_ID'), 'github_run_attempt': os.getenv('GITHUB_RUN_ATTEMPT'),
+            'runner_environment': os.getenv('RUNNER_ENVIRONMENT'), 'runner_os': os.getenv('RUNNER_OS'),
+            'platform': platform.platform(), 'cpu_model': cpu_model, 'logical_cpus': os.cpu_count(),
+            'memory_total': next((line for line in (read('/proc/meminfo') or '').splitlines() if line.startswith('MemTotal:')), None),
+            'cgroup_cpu_max': read('/sys/fs/cgroup/cpu.max'), 'cgroup_memory_max': read('/sys/fs/cgroup/memory.max'),
+            'source_file_sha256': {name: hashlib.sha256((root/name).read_bytes()).hexdigest() for name in sources},
+            'python': platform.python_version(), 'httpx': httpx.__version__, 'numpy': np.__version__}
 
 
 def validate(body, expected_ids, analyst):
@@ -129,7 +153,7 @@ def run(args):
         expected=tuple(row["id"] for row in data["alerts"])
         if len(expected)!=50: raise RuntimeError("Need 50 real ingested cases before the load run")
         validate({"data":data},expected,analyst)
-    report={"started_utc":datetime.now(timezone.utc).isoformat(),"endpoint":args.endpoint,"query":QUERY,
+    report={"started_utc":datetime.now(timezone.utc).isoformat(),"endpoint":args.endpoint,"query":QUERY,"environment":environment(),
             "page_size":50,"page_ids_sha256":hashlib.sha256(json.dumps(expected).encode()).hexdigest(),
             "validation":"HTTP200, no GraphQL errors, exact expected page IDs, analyst, sources, probabilities, case histories and count invariants",
             "phases":[]}

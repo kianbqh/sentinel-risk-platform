@@ -6,6 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.29-alpine
+COPY --chmod=755 19-backend-upstream.envsh /docker-entrypoint.d/19-backend-upstream.envsh
 COPY nginx.conf.template /etc/nginx/templates/default.conf.template
 ENV LISTEN_PORT=80 BACKEND_URL=http://backend:8080
 RUN rm -f /etc/nginx/conf.d/default.conf

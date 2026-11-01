@@ -37,6 +37,18 @@ def scanner():
 
 
 class CaptureTests(unittest.TestCase):
+    def test_default_capture_covers_the_observed_85679_message_snapshot(self):
+        zap=scanner()
+        zap.ascan.messages_ids=lambda _:map(str,range(85679))
+        zap.alert.alerts=lambda **_:[]
+        zap.core.message=lambda identity:message(identity,1)
+        result=capture(zap,TARGET)
+        self.assertTrue(result['complete']);self.assertFalse(result['history_truncated'])
+        self.assertEqual(result['active_message_ids_total'],85679)
+        self.assertEqual(result['messages_fetched'],85679)
+        self.assertEqual(result['message_batches_processed'],86)
+        self.assertEqual(result['messages'],[])
+
     def test_original_alert_and_sentinel_bodies_are_preserved(self):
         zap = scanner();result = capture(zap,TARGET)
         self.assertTrue(result['complete'])
@@ -44,6 +56,13 @@ class CaptureTests(unittest.TestCase):
         self.assertEqual(result['messages'][0]['message'],zap.core.messages['2'])
         self.assertFalse(result['messages'][0]['response_has_error_marker'])
         self.assertTrue(result['messages'][1]['response_has_error_marker'])
+
+    def test_http_status_counts_include_messages_not_selected_for_body_evidence(self):
+        zap = scanner()
+        zap.core.messages['3']['responseHeader'] = 'HTTP/1.1 502 Bad Gateway\r\n'
+        result = capture(zap, TARGET)
+        self.assertEqual(result['http_status_counts'], {'200': 2, '502': 1})
+        self.assertNotIn('3', [row['message_id'] for row in result['messages']])
 
     def test_a_missing_alert_message_cannot_claim_complete_evidence(self):
         zap=scanner();del zap.core.messages['2']

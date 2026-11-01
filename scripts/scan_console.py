@@ -1,5 +1,6 @@
 """Scan only the console container belonging to this isolated Compose project."""
 import json
+from datetime import datetime, timezone
 import os
 from pathlib import Path
 import re
@@ -11,6 +12,7 @@ import uuid
 import httpx
 from gateway.client import graphql
 from security.scan.run_dast import validate_report
+from security.availability import availability
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = "http://127.0.0.1:13040"
@@ -65,6 +67,9 @@ def run():
     manifest = {"target":TARGET,"project":project,"owned_console_container":containers[0],"image":image,"source_revision":source_revision,
                 "policy":"Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
                 "redaction":"Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.","scans":[]}
+    config = subprocess.check_output([docker,"exec",containers[0],"nginx","-T"],stderr=subprocess.STDOUT,text=True)
+    (raw/"nginx-config.txt").write_text(config)
+    manifest["console_nginx_version"] = subprocess.check_output([docker,"exec",containers[0],"nginx","-v"],stderr=subprocess.STDOUT,text=True).strip()
     try:
         for mode in ("baseline","full"):
             name = "sentinel-f1-zap-"+mode+"-"+uuid.uuid4().hex[:8]
@@ -78,7 +83,7 @@ def run():
                      "zap-baseline.py" if mode=="baseline" else "zap-full-scan.py","-t",TARGET,"-P","18049","-m","1","-T","5","-I",
                      "--hook","/zap/owned_scope.py","-J",mode+".json","-r",mode+".html"]
             if mode=="baseline": command.append("--autooff")
-            record={"mode":mode,"container":name};manifest["scans"].append(record)
+            record={"mode":mode,"container":name,"started_utc":datetime.now(timezone.utc).isoformat()};manifest["scans"].append(record)
             started=time.monotonic()
             try:
                 with (raw/(mode+".log")).open("w") as log:
@@ -96,6 +101,11 @@ def run():
                     raise RuntimeError("Reported high/medium findings have no original HTTP evidence")
                 record["http_evidence"]={"file":mode+"-http.json","selected_messages":len(evidence["messages"]),
                     "alert_messages":len(evidence["alerts"]),"history_truncated":evidence["history_truncated"]}
+                console_log = subprocess.check_output([docker,"logs","--since",record["started_utc"],containers[0]],stderr=subprocess.STDOUT,text=True)
+                (raw/(mode+"-console.log")).write_text(console_log)
+                record["availability"] = availability(evidence, console_log)
+                if not record["availability"]["passed"]:
+                    raise RuntimeError("Scanner observed HTTP502 or nginx upstream address exhaustion; raw evidence retained")
                 proof=json.loads((raw/(mode+"-scope.json")).read_text())
                 if (proof["target"]!=TARGET or not proof["authenticated_graphql_seed"]
                     or proof["authenticated_analyst_id"] != auth["register"]["user"]["id"]

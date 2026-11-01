@@ -103,6 +103,7 @@ jobs:
         with: {python-version: '3.12'}
       - run: pip install -r gateway/requirements-dev.txt
       - run: bash scripts/up.sh && bash scripts/demo.sh
+      - run: docker compose -f compose.yml exec -T console nginx -T > results/nginx-config.txt 2>&1
       - run: python scripts/load_console.py
       - run: python scripts/scan_console.py
       - run: docker compose -f compose.yml logs --no-color > results/compose.log

@@ -1,0 +1,18 @@
+test_http_https_hostname_ipv4_and_ipv6 (gateway.tests.test_nginx_origin.OriginTests.test_http_https_hostname_ipv4_and_ipv6) ... ok
+test_rejects_ambiguous_origins_and_configuration_injection (gateway.tests.test_nginx_origin.OriginTests.test_rejects_ambiguous_origins_and_configuration_injection) ... ok
+test_expected_graphql_422_does_not_mask_service_availability (gateway.tests.test_scan_availability.AvailabilityTests.test_expected_graphql_422_does_not_mask_service_availability) ... ok
+test_rejects_unselected_502_and_nginx_ephemeral_port_errors (gateway.tests.test_scan_availability.AvailabilityTests.test_rejects_unselected_502_and_nginx_ephemeral_port_errors) ... ok
+test_a_missing_alert_message_cannot_claim_complete_evidence (gateway.tests.test_zap_capture.CaptureTests.test_a_missing_alert_message_cannot_claim_complete_evidence) ... ok
+test_an_external_alert_is_rejected_and_history_bounds_are_explicit (gateway.tests.test_zap_capture.CaptureTests.test_an_external_alert_is_rejected_and_history_bounds_are_explicit) ... ok
+test_constructed_url_probes_keep_the_json_body_identical (gateway.tests.test_zap_capture.CaptureTests.test_constructed_url_probes_keep_the_json_body_identical) ... ok
+test_default_capture_covers_the_observed_85679_message_snapshot (gateway.tests.test_zap_capture.CaptureTests.test_default_capture_covers_the_observed_85679_message_snapshot) ... ok
+test_disabled_temporary_message_storage_is_not_complete (gateway.tests.test_zap_capture.CaptureTests.test_disabled_temporary_message_storage_is_not_complete) ... ok
+test_http_status_counts_include_messages_not_selected_for_body_evidence (gateway.tests.test_zap_capture.CaptureTests.test_http_status_counts_include_messages_not_selected_for_body_evidence) ... ok
+test_original_alert_and_sentinel_bodies_are_preserved (gateway.tests.test_zap_capture.CaptureTests.test_original_alert_and_sentinel_bodies_are_preserved) ... ok
+test_path_alone_is_not_misclassified_as_an_injected_candidate (gateway.tests.test_zap_capture.CaptureTests.test_path_alone_is_not_misclassified_as_an_injected_candidate) ... ok
+test_public_captures_remove_tokens_and_local_credentials (gateway.tests.test_zap_capture.CaptureTests.test_public_captures_remove_tokens_and_local_credentials) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.511s
+
+OK

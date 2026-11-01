@@ -8,4 +8,6 @@ The backend verifies HS256 JWT signatures/expiry and enforces authentication on 
 
 Run the entire stack from the repository root with `bash scripts/up.sh` and populate it with `bash scripts/demo.sh`. The UI is `http://localhost:13040`, with GraphQL proxied at `/graphql`. The direct API uses port18041.
 
+`BACKEND_URL` accepts an HTTP(S) origin with a hostname, IPv4 address or bracketed IPv6 address and an optional port. The entrypoint renders an explicit upstream with 32 idle keepalive connections per worker and retains the configured Host header. Paths, credentials, query strings and fragments are rejected.
+
 Validation outputs are in `../results/tests/`, `../results/integration/` and `../results/load/`. The load runner has separate read and write phases: full histories for fifty alerts, then two hundred persisted label writes across ten independent cases. It validates each HTTP/GraphQL body and reads back the actor IDs, final labels and all new audit events. The JSONL files retain every request latency and failure.
