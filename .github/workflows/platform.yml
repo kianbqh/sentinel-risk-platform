@@ -3,6 +3,18 @@ on: [push, pull_request]
 permissions:
   contents: read
 jobs:
+  batch:
+    runs-on: ubuntu-latest
+    env: {SPARK_MASTER: 'local[2]', OMP_NUM_THREADS: '2', OPENBLAS_NUM_THREADS: '2'}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: pip, cache-dependency-path: batch/requirements.txt}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '17'}
+      - run: pip install -r batch/requirements.txt
+      - run: python -m pytest --capture=sys -q tests
+        working-directory: batch
   python:
     runs-on: ubuntu-latest
     env:
@@ -21,9 +33,9 @@ jobs:
     services:
       postgres:
         image: postgres:17-alpine
-        env: {POSTGRES_PASSWORD: postgres}
+        env: {POSTGRES_PASSWORD: postgres, PGUSER: postgres}
         ports: ['15440:5432']
-        options: --health-cmd 'pg_isready -U postgres' --health-interval 3s --health-retries 30
+        options: --health-cmd=pg_isready --health-interval=3s --health-retries=30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5

@@ -1,0 +1,26 @@
+[
+  {
+    "result": "batch.json",
+    "source": "batch/reports/metrics.json",
+    "sha256": "4484b09f4ff8780ce8d1538e49ac2257bab9d8635cdb4c746d6d8c030c51bbfe",
+    "measurement_scope": "Retained local batch evaluation from the imported source history."
+  },
+  {
+    "result": "sms-qwen05.json",
+    "source": "text-risk/results/eval_qwen0.5b.json",
+    "sha256": "a1a788f810fbce9e74acb0a5a84f36d2d78e9244476c60546313b43cae038237",
+    "measurement_scope": "Retained paired400-message SMS evaluation; hybrid routing is replayed."
+  },
+  {
+    "result": "sms-qwen15.json",
+    "source": "text-risk/results/eval_qwen1.5b.json",
+    "sha256": "88ee0402843cc7b6cad763b2f38491e58ad6eaa14ac4a9e0d3fa825cc48e9bc6",
+    "measurement_scope": "Retained paired400-message SMS evaluation; hybrid routing is replayed."
+  },
+  {
+    "result": "graph.json",
+    "source": "research/graph/results/metrics.json",
+    "sha256": "5a1d6bfbf480842b833f81357d67cec3028c71c7502d227fc63561ddf1b8d6d2",
+    "measurement_scope": "Fresh integrated full26-fit CUDA/CPU run, both feature sets,3seeds."
+  }
+]

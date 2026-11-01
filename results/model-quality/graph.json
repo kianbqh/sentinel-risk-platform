@@ -1,0 +1,871 @@
+{
+  "data": {
+    "nodes": 203769,
+    "edges": 234355,
+    "features": 165,
+    "protocol": "temporal label split on a fixed full graph (transductive)",
+    "requested_arguments": {
+      "seeds": 3,
+      "epochs": 300,
+      "quick": false
+    },
+    "labelled": 46564,
+    "illicit": 4545,
+    "train_nodes_t1_29": 26381,
+    "val_nodes_t30_34": 3513,
+    "test_nodes_t35_49": 16670,
+    "train_illicit": 2871,
+    "val_illicit": 591,
+    "test_illicit": 1083,
+    "device": "cuda",
+    "torch": "2.15.0+cu132",
+    "cpu_threads": 4,
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "message_passing_edges": 468710,
+    "total_runtime_s": 531.0
+  },
+  "results": {
+    "logreg[all]": {
+      "pr_auc": 0.21633285445904235,
+      "roc_auc": 0.8467341827401802,
+      "illicit_f1_at_val_thr": 0.28530166880616176,
+      "precision_at_val_p90_thr": 0.23080065359477125,
+      "recall_at_val_p90_thr": 0.5216989843028624,
+      "oracle_recall_at_p90": 0.0,
+      "val_f1_threshold": 0.9378427863121033,
+      "val_p90_threshold": 0.9897404909133911,
+      "val_p90_achieved_precision": 0.7100371747211895,
+      "fit_score_s": 0.38800853900102084,
+      "val_p90_target_met_seeds": 0,
+      "seeds": 1
+    },
+    "lightgbm[all]": {
+      "pr_auc": 0.7927906744284452,
+      "roc_auc": 0.9320796388574477,
+      "illicit_f1_at_val_thr": 0.7691323078464128,
+      "precision_at_val_p90_thr": 0.5676615628139174,
+      "recall_at_val_p90_thr": 0.7488457987072946,
+      "oracle_recall_at_p90": 0.7208371806709758,
+      "val_f1_threshold": 0.3078514554973368,
+      "val_p90_threshold": 0.059746375856987305,
+      "val_p90_achieved_precision": 0.9008775929792562,
+      "pr_auc_std": 0.0008256798501336102,
+      "roc_auc_std": 0.0008132800189896931,
+      "illicit_f1_at_val_thr_std": 0.004190930126876708,
+      "precision_at_val_p90_thr_std": 0.01940521402642037,
+      "recall_at_val_p90_thr_std": 0.001305829697482122,
+      "oracle_recall_at_p90_std": 0.0008705531316547132,
+      "val_f1_threshold_std": 0.027247660043290822,
+      "val_p90_threshold_std": 0.0039019275859564677,
+      "val_p90_achieved_precision_std": 7.240715513624485e-05,
+      "fit_score_s_std": 0.3108854171499856,
+      "fit_score_s": 15.383591940333039,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "lightgbm[all+nbr_mean]": {
+      "pr_auc": 0.7975343622084461,
+      "roc_auc": 0.935347962921726,
+      "illicit_f1_at_val_thr": 0.7949831649831651,
+      "precision_at_val_p90_thr": 0.5562348508620601,
+      "recall_at_val_p90_thr": 0.7497691597414589,
+      "oracle_recall_at_p90": 0.72176054170514,
+      "val_f1_threshold": 0.39333716241282485,
+      "val_p90_threshold": 0.03728521001187192,
+      "val_p90_achieved_precision": 0.9007238352031072,
+      "pr_auc_std": 0.0009441181975558653,
+      "roc_auc_std": 0.0004083463860069542,
+      "illicit_f1_at_val_thr_std": 0.004082552326945776,
+      "precision_at_val_p90_thr_std": 0.018858034087044166,
+      "recall_at_val_p90_thr_std": 0.002261763382071287,
+      "oracle_recall_at_p90_std": 0.003046935960791496,
+      "val_f1_threshold_std": 0.04787978902580808,
+      "val_p90_threshold_std": 0.002086825307731993,
+      "val_p90_achieved_precision_std": 7.263202207766274e-05,
+      "fit_score_s_std": 0.5020463658046546,
+      "fit_score_s": 24.991074158333504,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "graphsage[all]": {
+      "pr_auc": 0.5587136203787201,
+      "roc_auc": 0.8853750184406618,
+      "illicit_f1_at_val_thr": 0.5363804436750622,
+      "precision_at_val_p90_thr": 0.5479618045599793,
+      "recall_at_val_p90_thr": 0.590027700831025,
+      "oracle_recall_at_p90": 0.05293936595875654,
+      "val_f1_threshold": 0.9270853400230408,
+      "val_p90_threshold": 0.9674047231674194,
+      "val_p90_achieved_precision": 0.900597260997456,
+      "pr_auc_std": 0.011310936208225191,
+      "roc_auc_std": 0.003722149637824618,
+      "illicit_f1_at_val_thr_std": 0.009297271508888191,
+      "precision_at_val_p90_thr_std": 0.03662599034292861,
+      "recall_at_val_p90_thr_std": 0.027088754356033428,
+      "oracle_recall_at_p90_std": 0.07486756932230605,
+      "val_f1_threshold_std": 0.0205028265766523,
+      "val_p90_threshold_std": 0.012460502150616318,
+      "val_p90_achieved_precision_std": 0.00034089483602258363,
+      "fit_score_s_std": 8.741233534358951,
+      "fit_score_s": 26.745108257332806,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "gat[all]": {
+      "pr_auc": 0.40723837066130314,
+      "roc_auc": 0.8636251476857337,
+      "illicit_f1_at_val_thr": 0.4552507716013235,
+      "precision_at_val_p90_thr": 0.47106218802305194,
+      "recall_at_val_p90_thr": 0.5352416128039397,
+      "oracle_recall_at_p90": 0.0,
+      "val_f1_threshold": 0.9054579933484396,
+      "val_p90_threshold": 0.9817867279052734,
+      "val_p90_achieved_precision": 0.9002804362597749,
+      "pr_auc_std": 0.025607207615840333,
+      "roc_auc_std": 0.012708089781819257,
+      "illicit_f1_at_val_thr_std": 0.0372225500892721,
+      "precision_at_val_p90_thr_std": 0.010132772769823552,
+      "recall_at_val_p90_thr_std": 0.02948336107067539,
+      "oracle_recall_at_p90_std": 0.0,
+      "val_f1_threshold_std": 0.04281188400428204,
+      "val_p90_threshold_std": 0.02004616959255269,
+      "val_p90_achieved_precision_std": 0.00020523181139470178,
+      "fit_score_s_std": 38.80177515362207,
+      "fit_score_s": 51.97384128900254,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "logreg[local]": {
+      "pr_auc": 0.14534553085419274,
+      "roc_auc": 0.7951325953435282,
+      "illicit_f1_at_val_thr": 0.3379987466053896,
+      "precision_at_val_p90_thr": 0.22112753147235906,
+      "recall_at_val_p90_thr": 0.7460757156048015,
+      "oracle_recall_at_p90": 0.0,
+      "val_f1_threshold": 0.8390461206436157,
+      "val_p90_threshold": 0.8421717286109924,
+      "val_p90_achieved_precision": 0.6226114649681529,
+      "fit_score_s": 0.48062301900063176,
+      "val_p90_target_met_seeds": 0,
+      "seeds": 1
+    },
+    "lightgbm[local]": {
+      "pr_auc": 0.7742155000030615,
+      "roc_auc": 0.9203600170079623,
+      "illicit_f1_at_val_thr": 0.7380562885740799,
+      "precision_at_val_p90_thr": 0.5992303007765726,
+      "recall_at_val_p90_thr": 0.7337642351492767,
+      "oracle_recall_at_p90": 0.6602031394275162,
+      "val_f1_threshold": 0.39288124552161746,
+      "val_p90_threshold": 0.10695569950604596,
+      "val_p90_achieved_precision": 0.9003157901742336,
+      "pr_auc_std": 0.0005096128966993877,
+      "roc_auc_std": 0.00039634343654465346,
+      "illicit_f1_at_val_thr_std": 0.005402260700054546,
+      "precision_at_val_p90_thr_std": 0.0074715175358769995,
+      "recall_at_val_p90_thr_std": 0.0011516335447134213,
+      "oracle_recall_at_p90_std": 0.0013058296974820698,
+      "val_f1_threshold_std": 0.0426685608648609,
+      "val_p90_threshold_std": 0.00956977062350369,
+      "val_p90_achieved_precision_std": 0.00025757032924812306,
+      "fit_score_s_std": 0.2513782644303548,
+      "fit_score_s": 12.202534637999634,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "lightgbm[local+nbr_mean]": {
+      "pr_auc": 0.7961183856069342,
+      "roc_auc": 0.9336658665231182,
+      "illicit_f1_at_val_thr": 0.7734967608112528,
+      "precision_at_val_p90_thr": 0.5886226352575129,
+      "recall_at_val_p90_thr": 0.7491535857186827,
+      "oracle_recall_at_p90": 0.7103724222837796,
+      "val_f1_threshold": 0.3828052632255869,
+      "val_p90_threshold": 0.06594994514718266,
+      "val_p90_achieved_precision": 0.9006724766077648,
+      "pr_auc_std": 0.0017490750537327013,
+      "roc_auc_std": 0.000937528948064219,
+      "illicit_f1_at_val_thr_std": 0.010791449766273314,
+      "precision_at_val_p90_thr_std": 0.014930534171421133,
+      "recall_at_val_p90_thr_std": 0.0021763828291368353,
+      "oracle_recall_at_p90_std": 0.002176382829136783,
+      "val_f1_threshold_std": 0.08455676171972683,
+      "val_p90_threshold_std": 0.007875813436569568,
+      "val_p90_achieved_precision_std": 7.263202207766274e-05,
+      "fit_score_s_std": 1.2313710365075055,
+      "fit_score_s": 16.674220903332753,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "graphsage[local]": {
+      "pr_auc": 0.3303469003413671,
+      "roc_auc": 0.8624599822088959,
+      "illicit_f1_at_val_thr": 0.40507846083539256,
+      "precision_at_val_p90_thr": 0.3352142272432288,
+      "recall_at_val_p90_thr": 0.7208371806709758,
+      "oracle_recall_at_p90": 0.0,
+      "val_f1_threshold": 0.8847854733467102,
+      "val_p90_threshold": 0.9555942614873251,
+      "val_p90_achieved_precision": 0.9003663003663004,
+      "pr_auc_std": 0.010922452983698696,
+      "roc_auc_std": 0.0021655908240630216,
+      "illicit_f1_at_val_thr_std": 0.016811926875932963,
+      "precision_at_val_p90_thr_std": 0.004434915045188746,
+      "recall_at_val_p90_thr_std": 0.00784705988549214,
+      "oracle_recall_at_p90_std": 0.0,
+      "val_f1_threshold_std": 0.04781774995164139,
+      "val_p90_threshold_std": 0.023442076029883307,
+      "val_p90_achieved_precision_std": 0.0005180269459242089,
+      "fit_score_s_std": 1.0996679291419797,
+      "fit_score_s": 8.231327314000131,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    },
+    "gat[local]": {
+      "pr_auc": 0.39479565908536185,
+      "roc_auc": 0.8677145168542663,
+      "illicit_f1_at_val_thr": 0.4233275156342924,
+      "precision_at_val_p90_thr": 0.503155192634967,
+      "recall_at_val_p90_thr": 0.46568174823022473,
+      "oracle_recall_at_p90": 0.0,
+      "val_f1_threshold": 0.873831550280253,
+      "val_p90_threshold": 0.9857221245765686,
+      "val_p90_achieved_precision": 0.9010755441741357,
+      "pr_auc_std": 0.042177981609814855,
+      "roc_auc_std": 0.005844723539952742,
+      "illicit_f1_at_val_thr_std": 0.02480089114661652,
+      "precision_at_val_p90_thr_std": 0.06215598440173929,
+      "recall_at_val_p90_thr_std": 0.09582314790436225,
+      "oracle_recall_at_p90_std": 0.0,
+      "val_f1_threshold_std": 0.011182107949777247,
+      "val_p90_threshold_std": 0.008844929554999208,
+      "val_p90_achieved_precision_std": 0.0007787024888980306,
+      "fit_score_s_std": 2.367703144513118,
+      "fit_score_s": 10.91037964400069,
+      "val_p90_target_met_seeds": 3,
+      "seeds": 3
+    }
+  },
+  "test_recall_by_timestep_seed0": {
+    "logreg[all]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.956
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.7273
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.9
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8468
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.716
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.7946
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.6638
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.9289
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.5
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.4167
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.6
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 1.0
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.6818
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.6944
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.8571
+      }
+    },
+    "lightgbm[all]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9615
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.9697
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.625
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.9099
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.9259
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.6786
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.9483
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.8075
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "lightgbm[all+nbr_mean]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.967
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.9697
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.625
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.9099
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.9136
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.6696
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.931
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.8075
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "graphsage[all]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.8681
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.6061
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.65
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8468
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.5926
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.5982
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.6034
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.7531
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0455
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "gat[all]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9121
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.7576
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.625
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.6937
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.6667
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.5893
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.6466
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.7531
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0833
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0455
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0556
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "logreg[local]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9066
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 1.0
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.7
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8829
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.9383
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.7054
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.9224
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.8368
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0833
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.25
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.2
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 1.0
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.1944
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0893
+      }
+    },
+    "lightgbm[local]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9451
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 1.0
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.65
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8739
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.8395
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.625
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.931
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.7573
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.125
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "lightgbm[local+nbr_mean]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.967
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 1.0
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.625
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8829
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.8889
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.6518
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.9052
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.7992
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "graphsage[local]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9231
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 1.0
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.675
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.9009
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.9506
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.7411
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.9138
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.8577
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0833
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.2
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 0.5
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0455
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0179
+      }
+    },
+    "gat[local]": {
+      "35": {
+        "illicit": 182,
+        "recall": 0.9121
+      },
+      "36": {
+        "illicit": 33,
+        "recall": 0.9394
+      },
+      "37": {
+        "illicit": 40,
+        "recall": 0.575
+      },
+      "38": {
+        "illicit": 111,
+        "recall": 0.8468
+      },
+      "39": {
+        "illicit": 81,
+        "recall": 0.8765
+      },
+      "40": {
+        "illicit": 112,
+        "recall": 0.6786
+      },
+      "41": {
+        "illicit": 116,
+        "recall": 0.8707
+      },
+      "42": {
+        "illicit": 239,
+        "recall": 0.8536
+      },
+      "43": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "44": {
+        "illicit": 24,
+        "recall": 0.0417
+      },
+      "45": {
+        "illicit": 5,
+        "recall": 0.0
+      },
+      "46": {
+        "illicit": 2,
+        "recall": 1.0
+      },
+      "47": {
+        "illicit": 22,
+        "recall": 0.0455
+      },
+      "48": {
+        "illicit": 36,
+        "recall": 0.0278
+      },
+      "49": {
+        "illicit": 56,
+        "recall": 0.0357
+      }
+    }
+  }
+}

@@ -43,15 +43,15 @@ The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash script
 
 | Experiment | Result | Evidence |
 |---|---:|---|
-| Credit-card logistic regression, later holdout | PR-AUC **0.728** | [batch results](batch/reports/) |
-| SMS TF-IDF + LR, paired 400-message evaluation | F1 **0.9388** | [paired predictions](text-risk/results/eval_qwen1.5b_predictions.csv) |
-| Hybrid SMS routing to Qwen 0.5B / 1.5B, same messages | F1 **0.8190 / 0.8491** | [paired reports](text-risk/results/) |
-| Elliptic, all 165 features, new three-seed GraphSAGE / GAT run | PR-AUC **0.559 / 0.407** | [26 fresh fit records](research/graph/results/per_seed/) |
-| Elliptic, same split/features, three-seed LightGBM | PR-AUC **0.793** | [full graph comparison](research/graph/results/table.md) |
+| Credit-card logistic regression, later holdout | PR-AUC **0.728** | [raw batch metrics](results/model-quality/batch.json) |
+| SMS TF-IDF + LR, paired 400-message evaluation | F1 **0.9388** | [paired metrics](results/model-quality/sms-qwen15.json) |
+| Hybrid SMS routing to Qwen 0.5B / 1.5B, same messages | F1 **0.8190 / 0.8491** | [0.5B](results/model-quality/sms-qwen05.json), [1.5B](results/model-quality/sms-qwen15.json) |
+| Elliptic, all 165 features, new three-seed GraphSAGE / GAT run | PR-AUC **0.559 / 0.407** | [fresh graph metrics](results/model-quality/graph.json) |
+| Elliptic, same split/features, three-seed LightGBM | PR-AUC **0.793** | [full graph metrics](results/model-quality/graph.json) |
 
 The small LLM hybrids did not improve F1 over TF-IDF on these paired SMS messages, so Compose serves TF-IDF by default. The GNNs also did not beat LightGBM on this fixed-graph protocol. The graph study uses a temporal label split on the full graph, with train-only preprocessing and validation-only threshold selection; its full feature set already contains neighborhood aggregates.
 
-The batch and paired SMS evaluations are retained source measurements. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
+The batch and paired SMS evaluations are retained source measurements; the [quality manifest](results/model-quality/manifest.json) records their original paths and SHA-256 hashes. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
 
 ## Following a signal
 
@@ -65,7 +65,7 @@ The ATO data is entirely synthetic. Its supervised signal classifies completed I
 
 | Module | Data / purpose | Results |
 |---|---|---|
-| [batch](batch/README.md) | OpenML 1597 feature pipeline and model selection | `batch/reports/` |
+| [batch](batch/README.md) | OpenML 1597 feature pipeline and model selection | [quality metrics](results/model-quality/batch.json) |
 | [streaming](streaming/README.md) | Ordered credit-card replay, inclusive trailing-hour state | `results/integration/`, `results/streaming/` |
 | [gateway](gateway/README.md) | Shared transaction and SMS inference API | `results/integration/` |
 | [text-risk](text-risk/README.md) | UCI SMS Spam Collection; TF-IDF, rules and local LLM routing | `text-risk/results/` |
@@ -77,4 +77,4 @@ The ATO data is entirely synthetic. Its supervised signal classifies completed I
 
 The [single root workflow](.github/workflows/platform.yml) runs Python, real-PostgreSQL Go integration/race tests, frontend interactions/build, Scala parity/state tests, graph unit tests, Terraform validation, service scans and the Compose flow. Console load runners validate every GraphQL body and retain per-request read/write latencies. The bounded console ZAP scan includes authenticated GraphQL exploration on the owned localhost origin.
 
-Each imported source history remains reachable through unsquashed subtree merges. [History imports](results/history-imports.json) records the source commits and exact commands. The old numbered working copies remain separate.
+Each imported source history remains reachable through unsquashed subtree merges. [History imports](results/history-imports.json) records the source commits and exact commands.

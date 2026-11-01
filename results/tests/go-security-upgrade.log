@@ -1,0 +1,52 @@
+go: downloading github.com/klauspost/compress v1.18.7
+go: upgraded github.com/klauspost/compress v1.16.7 => v1.18.7
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/cmd/server	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/graph	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/graph/model	[no test files]
+=== RUN   TestSharedProducerFixture
+--- PASS: TestSharedProducerFixture (0.00s)
+=== RUN   TestConsumerContractRejectsInvalidEvents
+=== RUN   TestConsumerContractRejectsInvalidEvents/score
+=== RUN   TestConsumerContractRejectsInvalidEvents/unknown
+=== RUN   TestConsumerContractRejectsInvalidEvents/version
+=== RUN   TestConsumerContractRejectsInvalidEvents/entity
+=== RUN   TestConsumerContractRejectsInvalidEvents/synthetic
+--- PASS: TestConsumerContractRejectsInvalidEvents (0.01s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/score (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/unknown (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/version (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/entity (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/synthetic (0.00s)
+=== RUN   TestTextLabelWithoutProbability
+--- PASS: TestTextLabelWithoutProbability (0.00s)
+=== RUN   TestTrailingJSONRejected
+--- PASS: TestTrailingJSONRejected (0.00s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/alerts	0.018s
+=== RUN   TestHashAndCheck
+--- PASS: TestHashAndCheck (0.00s)
+=== RUN   TestIssueParseRoundTrip
+--- PASS: TestIssueParseRoundTrip (0.00s)
+=== RUN   TestRejectsExpiredAndForeignTokens
+--- PASS: TestRejectsExpiredAndForeignTokens (0.00s)
+=== RUN   TestMiddleware
+--- PASS: TestMiddleware (0.00s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/auth	0.006s
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/loaders	[no test files]
+=== RUN   TestSerialMutationAliasesSeeFreshHistoryAndLabels
+--- PASS: TestSerialMutationAliasesSeeFreshHistoryAndLabels (0.98s)
+=== RUN   TestAuthenticationAndInputValidation
+--- PASS: TestAuthenticationAndInputValidation (0.14s)
+=== RUN   TestConcurrentIngestionIsIdempotent
+--- PASS: TestConcurrentIngestionIsIdempotent (0.14s)
+=== RUN   TestSharedAnalystLifecycleAndFilters
+--- PASS: TestSharedAnalystLifecycleAndFilters (1.40s)
+=== RUN   TestDataloaderBatchesHistoryForEightCases
+--- PASS: TestDataloaderBatchesHistoryForEightCases (1.57s)
+=== RUN   TestNullableTextProbabilityPersists
+--- PASS: TestNullableTextProbabilityPersists (0.43s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/server	31.802s
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/store	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/migrations	[no test files]

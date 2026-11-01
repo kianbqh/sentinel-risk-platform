@@ -1,0 +1,10 @@
+# Package an assembly already built and checked against this checkout.
+FROM eclipse-temurin:17-jre
+RUN useradd --uid 10001 --create-home sentinel && mkdir -p /state /results && chown sentinel /state /results
+WORKDIR /opt/stream
+COPY app.jar app.jar
+COPY model ./model
+COPY entrypoint.sh /entrypoint.sh
+ENV SPARK_LOCAL_IP=127.0.0.1 SPARK_MASTER=local[2] JAVA_TOOL_OPTIONS=-XX:ActiveProcessorCount=4
+USER 10001
+ENTRYPOINT ["bash", "/entrypoint.sh"]

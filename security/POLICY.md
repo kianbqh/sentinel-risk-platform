@@ -8,4 +8,4 @@ The active services are the shared Python gateway/ATO publisher, the Scala strea
 - Generated GraphQL code, tests, imported CI examples, research outputs and intentional fixtures are outside the production SAST target. The dependency scan still includes the service lockfiles.
 - The bounded ZAP run targets only the owned console at `127.0.0.1:13040`, including authenticated GraphQL requests through its same-origin proxy. Its context is in protect mode and its active scanner has a five-minute cap. Scanner exit codes and parseable JSON/HTML reports are checked separately from finding counts.
 
-Raw findings are retained under `../results/security/`; triage notes accompany any accepted observation. A failed scanner startup is a failed check.
+Findings are retained under `../results/security/`; triage notes accompany any accepted observation. ZAP report copies remove scanner-account JWTs and passwords, with redaction counts recorded in their manifest; the original reports stay in the ignored private runtime. A failed scanner startup is a failed check.

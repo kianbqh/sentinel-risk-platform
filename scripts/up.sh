@@ -20,7 +20,13 @@ if [ "${HOST_NETWORK:-0}" = 1 ]; then network+=(--network host); fi
 docker build "${network[@]}" -f gateway/Dockerfile -t sentinel-risk-gateway:local .
 docker build "${network[@]}" -t sentinel-risk-console-api:local console/backend
 docker build "${network[@]}" -t sentinel-risk-console:local console/frontend
-docker build "${network[@]}" -f streaming/Dockerfile -t sentinel-risk-streaming:local .
+if python3 scripts/stream_artifact.py check --inputs-only; then
+  context=${STREAM_BUILD_CONTEXT:-$PWD/.runtime/stream-image}
+  python3 scripts/stream_artifact.py package --destination "$context"
+  docker build "${network[@]}" -t sentinel-risk-streaming:local "$context"
+else
+  docker build "${network[@]}" -f streaming/Dockerfile -t sentinel-risk-streaming:local .
+fi
 docker compose "${files[@]}" up -d --wait --wait-timeout 240
 echo 'Analyst console: http://localhost:13040'
 echo 'Risk gateway: http://localhost:18040/docs'
