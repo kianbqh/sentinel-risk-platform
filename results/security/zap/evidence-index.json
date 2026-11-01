@@ -1,0 +1,112 @@
+{
+  "run_id": 41306587753,
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41306587753",
+  "source_revision": "dbd3069eebb9b6b9f160715d8ade1a851afdb07b",
+  "artifact_id": 13084290809,
+  "artifact_zip_sha256": "822727671689c6540d10d192d03f70195138c5a3254d61d4cc8229165977f4ee",
+  "github_digest_verified": true,
+  "collected_utc": "2026-11-01T12:41:52.129219+00:00",
+  "load_directory": "results/load/ci-dbd3069",
+  "http_storage": "Lossless deterministic gzip; decompress to the original filename used by the scanner manifest.",
+  "public_evidence_credential_check_passed": true,
+  "files": [
+    {
+      "original_name": "baseline-console.log",
+      "stored_path": "baseline-console.log.gz",
+      "original_bytes": 136779,
+      "original_sha256": "7ec6373910ae1b1a15b4026a4287052f9d79a0ca6e977e4813b25b5009e079f5",
+      "stored_sha256": "c6515442e57dbb7fe763eec6a30d0599ccab35b5e277f35968c8a2067c70e98a"
+    },
+    {
+      "original_name": "baseline-http.json",
+      "stored_path": "baseline-http.json.gz",
+      "original_bytes": 5239,
+      "original_sha256": "93861b704e758727e408fc5a41bfa40eff32e286378635963108934f2ee89224",
+      "stored_sha256": "c1cb363216fa8e0275b345622021c8c18a48508c93e923feea82180be7458319"
+    },
+    {
+      "original_name": "baseline-scope.json",
+      "stored_path": "baseline-scope.json",
+      "original_bytes": 474,
+      "original_sha256": "2a1f86bed8b074117cd4a78a443360ee7093ae2e95c6af93c60eb438d0eee971",
+      "stored_sha256": "2a1f86bed8b074117cd4a78a443360ee7093ae2e95c6af93c60eb438d0eee971"
+    },
+    {
+      "original_name": "baseline.html",
+      "stored_path": "baseline.html",
+      "original_bytes": 65167,
+      "original_sha256": "02b7caee6ef2f1b90de1fa8dddc41ba509266e265800cedad0d6024a7f37a6c7",
+      "stored_sha256": "02b7caee6ef2f1b90de1fa8dddc41ba509266e265800cedad0d6024a7f37a6c7"
+    },
+    {
+      "original_name": "baseline.json",
+      "stored_path": "baseline.json",
+      "original_bytes": 21764,
+      "original_sha256": "4d9a77de7c7512c1412a178f171fb264aa881eaa1d02938bfb44134bde9abc50",
+      "stored_sha256": "4d9a77de7c7512c1412a178f171fb264aa881eaa1d02938bfb44134bde9abc50"
+    },
+    {
+      "original_name": "baseline.log",
+      "stored_path": "baseline.log",
+      "original_bytes": 6533,
+      "original_sha256": "cd0f6d2b7d4b7ea381bd8ddf6ff80e6e43247098cd287fc72e66ad439be8c5c6",
+      "stored_sha256": "cd0f6d2b7d4b7ea381bd8ddf6ff80e6e43247098cd287fc72e66ad439be8c5c6"
+    },
+    {
+      "original_name": "full-console.log",
+      "stored_path": "full-console.log.gz",
+      "original_bytes": 18480080,
+      "original_sha256": "167bd7d2a6c595a9048c9ae9812016ee8e1b941486b433df3283613f46d4a595",
+      "stored_sha256": "6f257d67d5de85c098405cd8bbb26dddd1078c5256a5c440877c7b0771366b25"
+    },
+    {
+      "original_name": "full-http.json",
+      "stored_path": "full-http.json.gz",
+      "original_bytes": 28141263,
+      "original_sha256": "231502d1493c8ecb8a049d62034043cf63970254ffa7501c802f13a9fed1c165",
+      "stored_sha256": "8f7db6896d595ffd7bcd656d4362bf7b2f85a144df4ce70e57ee3028ccf51dd8"
+    },
+    {
+      "original_name": "full-scope.json",
+      "stored_path": "full-scope.json",
+      "original_bytes": 474,
+      "original_sha256": "2a1f86bed8b074117cd4a78a443360ee7093ae2e95c6af93c60eb438d0eee971",
+      "stored_sha256": "2a1f86bed8b074117cd4a78a443360ee7093ae2e95c6af93c60eb438d0eee971"
+    },
+    {
+      "original_name": "full.html",
+      "stored_path": "full.html",
+      "original_bytes": 65138,
+      "original_sha256": "19269a3bc92deda1e4ea536f7d51bf9b89329e694f4656f2ac57853a6f568664",
+      "stored_sha256": "19269a3bc92deda1e4ea536f7d51bf9b89329e694f4656f2ac57853a6f568664"
+    },
+    {
+      "original_name": "full.json",
+      "stored_path": "full.json",
+      "original_bytes": 21727,
+      "original_sha256": "5fc990dac9faa2f53d07aa479eaa73587e63434e8e78b0ecc55f97b150bc2caa",
+      "stored_sha256": "5fc990dac9faa2f53d07aa479eaa73587e63434e8e78b0ecc55f97b150bc2caa"
+    },
+    {
+      "original_name": "full.log",
+      "stored_path": "full.log",
+      "original_bytes": 6826,
+      "original_sha256": "72d0c5d3b5018e347460811e7fe06df42db294aafa6a7bf1078d79940751cd73",
+      "stored_sha256": "72d0c5d3b5018e347460811e7fe06df42db294aafa6a7bf1078d79940751cd73"
+    },
+    {
+      "original_name": "manifest.json",
+      "stored_path": "manifest.json",
+      "original_bytes": 2974,
+      "original_sha256": "59becf46c4e35e2bc5710d96c80a79cd1ee0d44f7811adcfaac01a25d4f2954e",
+      "stored_sha256": "59becf46c4e35e2bc5710d96c80a79cd1ee0d44f7811adcfaac01a25d4f2954e"
+    },
+    {
+      "original_name": "nginx-config.txt",
+      "stored_path": "nginx-config.txt",
+      "original_bytes": 7447,
+      "original_sha256": "04719ea8b030ecdc64a88caa56e095ceaf50608d41abf2f93663f9079719e832",
+      "stored_sha256": "04719ea8b030ecdc64a88caa56e095ceaf50608d41abf2f93663f9079719e832"
+    }
+  ]
+}

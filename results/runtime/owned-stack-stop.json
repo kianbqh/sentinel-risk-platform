@@ -1,0 +1,155 @@
+{
+  "stopped_utc": "2026-11-01T02:57:04.96534-08:00",
+  "project": "sentinel-risk-f1",
+  "operation": "stop",
+  "before": [
+    {
+      "id": "257ad987de333bb29baacd7b9e84566213179c46a1358fec84014d80e3cc9ba9",
+      "name": "/sentinel-risk-f1-gateway-1",
+      "project": "sentinel-risk-f1",
+      "service": "gateway",
+      "state": "running",
+      "image_id": "sha256:fab5a5f8399069abbecef63adefe4cc619bf00aa2d8926369f4c9cf9a7079ddd",
+      "configured_user": "10001"
+    },
+    {
+      "id": "fb1077b785820109c051ae0f6b5b30a4a0c3c1d8b621df139322eb2cb1f18336",
+      "name": "/sentinel-risk-f1-console-1",
+      "project": "sentinel-risk-f1",
+      "service": "console",
+      "state": "running",
+      "image_id": "sha256:21d7c387cf367a8af273718621d34db65d98fa2e2bf8bd5da0a5fefeb1484cf8",
+      "configured_user": "nginx"
+    },
+    {
+      "id": "57fc63f9536813f7dd28b154826e60f04ca0ff095e80c039ce8798d31f08a297",
+      "name": "/sentinel-risk-f1-streaming-1",
+      "project": "sentinel-risk-f1",
+      "service": "streaming",
+      "state": "running",
+      "image_id": "sha256:644729a4f22b302c56f9c373055e0fa330929e80e5fb904d84d379b3282e16f8",
+      "configured_user": "10001"
+    },
+    {
+      "id": "2a7eb3fb5d458a418ad1bfb1ff6229f4c1475890b35db47227e2071da791df00",
+      "name": "/sentinel-risk-f1-backend-1",
+      "project": "sentinel-risk-f1",
+      "service": "backend",
+      "state": "running",
+      "image_id": "sha256:5062ff523dd619db9a0f67bbf68eea581c481b01f6e9c53a8d3c37d9fd7a9d0e",
+      "configured_user": "65532"
+    },
+    {
+      "id": "5bf54b6f7f3f74562f81066da5d2ac229e6fdb5c93c8018e34ffc626974afd82",
+      "name": "/sentinel-risk-f1-redpanda-1",
+      "project": "sentinel-risk-f1",
+      "service": "redpanda",
+      "state": "running",
+      "image_id": "sha256:6df7c37c0b89eacf16c2195542b22b227a3d65844f5e3bdcf7807380bc286153",
+      "configured_user": "redpanda"
+    },
+    {
+      "id": "33aaffe759b52536fecdf31998cd8e677ea5861f9372afa2fac104b9488c9fbd",
+      "name": "/sentinel-risk-f1-topics-1",
+      "project": "sentinel-risk-f1",
+      "service": "topics",
+      "state": "exited",
+      "image_id": "sha256:6df7c37c0b89eacf16c2195542b22b227a3d65844f5e3bdcf7807380bc286153",
+      "configured_user": "redpanda"
+    },
+    {
+      "id": "8e69e3170f44bde0f7e74a33b8f6ea59a9cc070deee0102bb3e7e28a20e1332a",
+      "name": "/sentinel-risk-f1-postgres-1",
+      "project": "sentinel-risk-f1",
+      "service": "postgres",
+      "state": "running",
+      "image_id": "sha256:ab20e934b27ba3ff927c1b4c9ff8cf6c32f315f743efe68dd3441182a87fb085",
+      "configured_user": ""
+    }
+  ],
+  "after": [
+    {
+      "id": "257ad987de333bb29baacd7b9e84566213179c46a1358fec84014d80e3cc9ba9",
+      "name": "/sentinel-risk-f1-gateway-1",
+      "project": "sentinel-risk-f1",
+      "service": "gateway",
+      "state": "exited",
+      "image_id": "sha256:fab5a5f8399069abbecef63adefe4cc619bf00aa2d8926369f4c9cf9a7079ddd",
+      "configured_user": "10001"
+    },
+    {
+      "id": "fb1077b785820109c051ae0f6b5b30a4a0c3c1d8b621df139322eb2cb1f18336",
+      "name": "/sentinel-risk-f1-console-1",
+      "project": "sentinel-risk-f1",
+      "service": "console",
+      "state": "exited",
+      "image_id": "sha256:21d7c387cf367a8af273718621d34db65d98fa2e2bf8bd5da0a5fefeb1484cf8",
+      "configured_user": "nginx"
+    },
+    {
+      "id": "57fc63f9536813f7dd28b154826e60f04ca0ff095e80c039ce8798d31f08a297",
+      "name": "/sentinel-risk-f1-streaming-1",
+      "project": "sentinel-risk-f1",
+      "service": "streaming",
+      "state": "exited",
+      "image_id": "sha256:644729a4f22b302c56f9c373055e0fa330929e80e5fb904d84d379b3282e16f8",
+      "configured_user": "10001"
+    },
+    {
+      "id": "2a7eb3fb5d458a418ad1bfb1ff6229f4c1475890b35db47227e2071da791df00",
+      "name": "/sentinel-risk-f1-backend-1",
+      "project": "sentinel-risk-f1",
+      "service": "backend",
+      "state": "exited",
+      "image_id": "sha256:5062ff523dd619db9a0f67bbf68eea581c481b01f6e9c53a8d3c37d9fd7a9d0e",
+      "configured_user": "65532"
+    },
+    {
+      "id": "5bf54b6f7f3f74562f81066da5d2ac229e6fdb5c93c8018e34ffc626974afd82",
+      "name": "/sentinel-risk-f1-redpanda-1",
+      "project": "sentinel-risk-f1",
+      "service": "redpanda",
+      "state": "exited",
+      "image_id": "sha256:6df7c37c0b89eacf16c2195542b22b227a3d65844f5e3bdcf7807380bc286153",
+      "configured_user": "redpanda"
+    },
+    {
+      "id": "33aaffe759b52536fecdf31998cd8e677ea5861f9372afa2fac104b9488c9fbd",
+      "name": "/sentinel-risk-f1-topics-1",
+      "project": "sentinel-risk-f1",
+      "service": "topics",
+      "state": "exited",
+      "image_id": "sha256:6df7c37c0b89eacf16c2195542b22b227a3d65844f5e3bdcf7807380bc286153",
+      "configured_user": "redpanda"
+    },
+    {
+      "id": "8e69e3170f44bde0f7e74a33b8f6ea59a9cc070deee0102bb3e7e28a20e1332a",
+      "name": "/sentinel-risk-f1-postgres-1",
+      "project": "sentinel-risk-f1",
+      "service": "postgres",
+      "state": "exited",
+      "image_id": "sha256:ab20e934b27ba3ff927c1b4c9ff8cf6c32f315f743efe68dd3441182a87fb085",
+      "configured_user": ""
+    }
+  ],
+  "preserved_fraud_cloud_running_before": "true",
+  "preserved_fraud_cloud_running_after": "true",
+  "docker_engine_version_after": "29.9.2",
+  "volumes_and_checkpoints_retained": true,
+  "measured_source_revision": "72625bed1fb1c829cb35ff8c388c6c022092d3d7",
+  "gateway_image_code_hashes": {
+    "gateway/main.py": {
+      "sha256": "17345789f70898d0b291c90e7e61492b3af67318d1583f04d5af53282d121e5a",
+      "git_blob_sha1": "c8582a443d8ba6ea851315ea5c7e8e68d0102eed"
+    },
+    "gateway/demo.py": {
+      "sha256": "02c1d7d84cf725476bb7c47858e4f889c4935b3fbae8dd1cc120f5bf43dd68a3",
+      "git_blob_sha1": "ec7b95e33f68b512a22809b9c50438be48053c0e"
+    },
+    "gateway/verification.py": {
+      "sha256": "3b6c4db77b4a3f49447a0ac2a526ec55d36f910376049b670e77c0ce747fb698",
+      "git_blob_sha1": "b6878ae9f1efc99d86916e12c1fc2e39bd87716b"
+    }
+  },
+  "gateway_code_matches_measured_revision": true
+}

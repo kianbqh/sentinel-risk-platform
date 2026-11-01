@@ -1,0 +1,72 @@
+{
+  "scope": "Preserved historical CI failures; these are not the final configuration results.",
+  "runs": [
+    {
+      "run_id": 41299200564,
+      "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41299200564",
+      "source_revision": "f2d3b528d14d3665ddfc26803620ef3d048de046",
+      "artifact_id": 13080952008,
+      "artifact_zip_sha256": "2418755166806268c4bc2405dbf7a7beb69250239fac711bc3ee0fd24e5c6387",
+      "files": [
+        {
+          "path": "baseline.json",
+          "original_bytes": 22575,
+          "original_sha256": "1c474467d7d56fb96b15f2dcf6c957685ee00c2a7eb38d8daedf286974fc5f69",
+          "stored_sha256": "1c474467d7d56fb96b15f2dcf6c957685ee00c2a7eb38d8daedf286974fc5f69"
+        },
+        {
+          "path": "full.json",
+          "original_bytes": 29870,
+          "original_sha256": "78b40cb3646b27fcf6694a3b2574230f796facab9914ef4bd17cd40223601cd4",
+          "stored_sha256": "78b40cb3646b27fcf6694a3b2574230f796facab9914ef4bd17cd40223601cd4"
+        },
+        {
+          "path": "manifest.json",
+          "original_bytes": 1438,
+          "original_sha256": "f068a209cc166f1570f48df02a030ea410c290bb6bcc1f81d35c89ba1c0457d2",
+          "stored_sha256": "f068a209cc166f1570f48df02a030ea410c290bb6bcc1f81d35c89ba1c0457d2"
+        }
+      ]
+    },
+    {
+      "run_id": 41303187547,
+      "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41303187547",
+      "source_revision": "135de2c79e8d478a060d36a106cbe14ffcde1da3",
+      "artifact_id": 13082910342,
+      "artifact_zip_sha256": "121db273713930530c4d9dcc6a2ef63569e0204dfb6d5049883de1081e59ca72",
+      "files": [
+        {
+          "path": "baseline.json",
+          "original_bytes": 21529,
+          "original_sha256": "c0faa4769d8d9a922b569cfe335b1963ffe7261e560533cecaef44be5edb2843",
+          "stored_sha256": "c0faa4769d8d9a922b569cfe335b1963ffe7261e560533cecaef44be5edb2843"
+        },
+        {
+          "path": "full.json",
+          "original_bytes": 22207,
+          "original_sha256": "a6b0b331dfe346cddfc77a00d5504462701d711b35e94ebb3a79ea47ef6dea41",
+          "stored_sha256": "a6b0b331dfe346cddfc77a00d5504462701d711b35e94ebb3a79ea47ef6dea41"
+        },
+        {
+          "path": "manifest.json",
+          "original_bytes": 1933,
+          "original_sha256": "16de5efed6feeb015883d0404d0c4e7531db2373391b2ab2e1f0eabf954056a3",
+          "stored_sha256": "16de5efed6feeb015883d0404d0c4e7531db2373391b2ab2e1f0eabf954056a3"
+        },
+        {
+          "path": "baseline-http.json.gz",
+          "original_bytes": 5062,
+          "original_sha256": "d15a6de13926f42dc4754d07f8d29fbe6a8e8b96abe6d6643652c3af4e14bdfe",
+          "stored_sha256": "28b37f4bb1cc0df4f4cd82607912ab846d893f74463927e5c8258e8e36a63a68"
+        },
+        {
+          "path": "full-http.json.gz",
+          "original_bytes": 25278096,
+          "original_sha256": "f8abc773c55b63ff3c7223b05a02ec61406db9c608c5c79a175693a9e8163ef5",
+          "stored_sha256": "f333459c583ce610cb9938af7f5538f4ab249526ba03a2503265a9950567a15d"
+        }
+      ]
+    }
+  ],
+  "archived_utc": "2026-11-01T12:26:25.148826+00:00"
+}

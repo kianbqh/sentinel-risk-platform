@@ -1,0 +1,67 @@
+{
+  "target": "http://127.0.0.1:13040",
+  "project": "sentinel-ci",
+  "owned_console_container": "475ccfb22f83",
+  "image": "ghcr.io/zaproxy/zaproxy:stable",
+  "source_revision": "135de2c79e8d478a060d36a106cbe14ffcde1da3",
+  "policy": "Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
+  "redaction": "Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.",
+  "scans": [
+    {
+      "mode": "baseline",
+      "container": "sentinel-f1-zap-baseline-a815f1c6",
+      "returncode": 0,
+      "wall_seconds": 75.139341914,
+      "sites": 1,
+      "alert_types": 9,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      },
+      "http_evidence": {
+        "file": "baseline-http.json",
+        "selected_messages": 0,
+        "alert_messages": 0,
+        "history_truncated": false
+      }
+    },
+    {
+      "mode": "full",
+      "container": "sentinel-f1-zap-full-49e489e3",
+      "returncode": 0,
+      "wall_seconds": 413.66001280300003,
+      "sites": 1,
+      "alert_types": 9,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      }
+    }
+  ],
+  "redacted_occurrences": {
+    "baseline.json": 0,
+    "full.json": 0,
+    "full-scope.json": 0,
+    "full.html": 0,
+    "baseline-http.json": 0,
+    "baseline.log": 0,
+    "baseline.html": 0,
+    "full.log": 0,
+    "baseline-scope.json": 0,
+    "full-http.json": 6110
+  },
+  "image_identity": {
+    "id": "sha256:cb61f6e33bb3378053bdaf26dc607b3c1c159ccbe87b7efb20c027c8746cf086",
+    "repo_digests": [
+      "ghcr.io/zaproxy/zaproxy@sha256:030d3df57735dacbb83464854758e674dd9ad01d79d12a129a8e58b1fd384238"
+    ]
+  }
+}

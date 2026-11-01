@@ -1,0 +1,53 @@
+{
+  "target": "http://127.0.0.1:13040",
+  "project": "sentinel-ci",
+  "owned_console_container": "85c14a961cde",
+  "image": "ghcr.io/zaproxy/zaproxy:stable",
+  "policy": "Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
+  "redaction": "Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.",
+  "scans": [
+    {
+      "mode": "baseline",
+      "container": "sentinel-f1-zap-baseline-003b8a31",
+      "returncode": 0,
+      "wall_seconds": 78.27179930099999,
+      "sites": 1,
+      "alert_types": 9,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      }
+    },
+    {
+      "mode": "full",
+      "container": "sentinel-f1-zap-full-287fe049",
+      "returncode": 0,
+      "wall_seconds": 324.27409964599997,
+      "sites": 1,
+      "alert_types": 10,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 1,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      }
+    }
+  ],
+  "redacted_occurrences": {
+    "baseline.json": 0,
+    "full.json": 0,
+    "full-scope.json": 0,
+    "full.html": 0,
+    "baseline.log": 0,
+    "baseline.html": 0,
+    "full.log": 0,
+    "baseline-scope.json": 0
+  },
+  "security_gate_passed": false
+}

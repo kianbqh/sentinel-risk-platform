@@ -1,0 +1,82 @@
+[
+  {
+    "request": -1,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 8.077440000022307
+  },
+  {
+    "request": -2,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 5.584023999972487
+  },
+  {
+    "request": -3,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 5.876892999992833
+  },
+  {
+    "request": -4,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 6.918721000033656
+  },
+  {
+    "request": -5,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 5.125553999960175
+  },
+  {
+    "request": -6,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 6.869848000008005
+  },
+  {
+    "request": -7,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 5.841175000000476
+  },
+  {
+    "request": -8,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 6.152993000000606
+  },
+  {
+    "request": -9,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 6.543275000012727
+  },
+  {
+    "request": -10,
+    "concurrency": 1,
+    "http_status": 200,
+    "valid": true,
+    "validated_alerts": 50,
+    "latency_ms": 6.540309000001798
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "target": "http://127.0.0.1:13040",
+  "mode": "protect",
+  "context_id": "1",
+  "context_name": "sentinel-owned-console",
+  "include_regexs": [
+    "^http://127\\.0\\.0\\.1:13040(?:/.*)?$"
+  ],
+  "authenticated_graphql_seed": true,
+  "authenticated_analyst_id": "3",
+  "active_scan_max_minutes": 5,
+  "graphql_generation_limits": {
+    "query_depth": 3,
+    "args_depth": 2,
+    "additional_depth": 0,
+    "lenient_depth": "false"
+  },
+  "graphql_import_result": "OK"
+}

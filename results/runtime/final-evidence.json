@@ -1,0 +1,21 @@
+{
+  "service_and_measurement_source_revision": "dbd3069eebb9b6b9f160715d8ade1a851afdb07b",
+  "workflow_run_id": 41306587753,
+  "workflow_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41306587753",
+  "all_eight_jobs_passed": true,
+  "compose_artifact": {
+    "id": 13084290809,
+    "zip_sha256": "822727671689c6540d10d192d03f70195138c5a3254d61d4cc8229165977f4ee"
+  },
+  "production_security_artifact": {
+    "zip_sha256": "9c5642d1835a20c86d28df35fca6925fd1983dfd16ba3dec88331d46a31eb843",
+    "provenance": "../security/ci-provenance.json"
+  },
+  "final_configuration_load": "../load/ci-dbd3069/summary.json",
+  "final_configuration_zap": "../security/zap/evidence-index.json",
+  "earlier_local_integration_source_revision": "72625bed1fb1c829cb35ff8c388c6c022092d3d7",
+  "earlier_local_integration": "../integration/summary.json",
+  "earlier_local_load": "../load/summary.json",
+  "local_service_cleanup": "owned-stack-stop.json",
+  "publication_contract": "The following results/documentation commit preserves this service and measurement source. Measurements remain attributed to this run rather than being replaced by later documentation-only CI runs."
+}

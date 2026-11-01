@@ -55,23 +55,25 @@ The small LLM hybrids did not improve F1 over TF-IDF on these paired SMS message
 
 The batch and paired SMS evaluations are retained source measurements; the [quality manifest](results/model-quality/manifest.json) records their original paths and SHA-256 hashes. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
 
-## Local integration results
+## Integration and console measurements
 
 The [Compose run](results/integration/summary.json) scored all 10,000 replayed transactions, with no missing or duplicate scores. Python and Spark differed by at most **1.29 × 10⁻¹⁴**, and all 10,000 threshold decisions matched. The terminal Spark batch covered the flush marker before the runner drained the Kafka high-water offset.
 
 The four producers delivered **141 unique alerts and cases**: 38 streaming transactions, two API predictions, one SMS and 100 synthetic ATO windows. A deliberately repeated alert made 142 Kafka records; the consumer committed that offset while keeping one case and its four-event audit trail. [Raw scores, independent references and offsets](results/integration/) accompany the summary.
 
-These GraphQL measurements ran in WSL2 on an i7-12700KF, with other project training paused. Reads return 50 cases with labels and complete histories. Writes update ten independent cases twenty times each; all 200 new audit events were read back with the expected actor and note.
+The final proxy configuration ran in [CI 41306587753](https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41306587753), on a GitHub-hosted Linux runner with a Xeon Platinum 8573C, four logical CPUs and 15.6 GiB RAM. Reads return 50 cases with labels and complete histories. Writes update ten independent cases twenty times each; all 200 new audit events were read back with the expected actor and note.
 
-| Operation | Concurrency | Valid / attempted | Valid requests/s | P95 | P99 |
-|---|---:|---:|---:|---:|---:|
-| Read queue and histories | 1 | 200 / 200 | 243.0 | 4.7 ms | 5.3 ms |
-| Read queue and histories | 20 | 1,000 / 1,000 | 774.4 | 44.2 ms | 58.5 ms |
-| Write case labels | 10 | 200 / 200 | 116.5 | 145.4 ms | 164.5 ms |
+| Operation | Concurrency | Valid / attempted | Batch wall | Valid requests/s | P95 | P99 |
+|---|---:|---:|---:|---:|---:|---:|
+| Read queue and histories | 1 | 200 / 200 | 1.064 s | 188.0 | 6.9 ms | 7.9 ms |
+| Read queue and histories | 20 | 1,000 / 1,000 | 2.569 s | 389.2 | 98.4 ms | 133.8 ms |
+| Write case labels | 10 | 200 / 200 | 0.258 s | 776.4 | 19.5 ms | 23.1 ms |
 
-Every measured response body was checked. [Per-request latencies and persisted write checks](results/load/) retain the full run. The [browser check](results/ui/summary.json) also followed account creation, filtering, assignment, labeling and resolution through the interface, with no browser-console errors.
+These are bounded request batches. Each read phase excludes ten warm-up requests; setup assignments and persisted-history readback sit outside the write timer. Every measured response body was checked. [Per-request latencies, environment and source hashes](results/load/ci-dbd3069/summary.json) identify source `dbd3069`; the [earlier WSL measurement](results/load/summary.json) retains the original proxy configuration's results. The [browser check](results/ui/summary.json) also followed account creation, filtering, assignment, labeling and resolution through the interface, with no browser-console errors.
 
 ![A resolved case in the analyst workspace](results/ui/analyst-case-resolved.png)
+
+The [security reports and triage](results/security/TRIAGE.md) retain the observations as well as the passing gates: Semgrep had no findings; Bandit flagged one medium-severity fixed-URL downloader call; Trivy retained one UNKNOWN, unfixed Go advisory and no secrets. Both authenticated ZAP scans reported **0 high, 0 medium, 4 low and 5 informational alert types**. The full scan used a five-minute active limit; the runner accounted for all 80,028 active responses, with no observed HTTP502 or nginx upstream address-exhaustion errors. Earlier findings and the connection-reuse fix remain in the [scan history](results/security/history/README.md).
 
 ## Following a signal
 

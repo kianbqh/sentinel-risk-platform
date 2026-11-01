@@ -1,0 +1,29 @@
+[
+  {
+    "tool": "bandit",
+    "targets": [
+      "gateway",
+      "ato",
+      "text-risk/riskclf"
+    ],
+    "returncode": 1,
+    "seconds": 0.2785263740000019,
+    "findings": 1,
+    "policy_failures": 0
+  },
+  {
+    "tool": "semgrep",
+    "targets": [
+      "gateway",
+      "ato",
+      "text-risk/riskclf",
+      "console/backend",
+      "console/frontend/src",
+      "streaming/src/main"
+    ],
+    "returncode": 0,
+    "seconds": 2.958313169,
+    "findings": 0,
+    "policy_failures": 0
+  }
+]

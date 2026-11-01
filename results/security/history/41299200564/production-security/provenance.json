@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "116d9f45cda33d2b3406803e558439cacc964e02d1d6d53e7a46d8b24b5c3531",
+  "scope": "CI production SAST, dependency and secret scans; exact original eleven reports.",
+  "artifact_id": 13080527347,
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41299200564",
+  "workflow_run_id": 41299200564,
+  "downloaded_utc": "2026-11-01T10:52:21.85Z",
+  "github_digest_verified": true,
+  "source_revision": "f2d3b528d14d3665ddfc26803620ef3d048de046"
+}

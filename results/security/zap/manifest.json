@@ -1,0 +1,99 @@
+{
+  "target": "http://127.0.0.1:13040",
+  "project": "sentinel-ci",
+  "owned_console_container": "e0312fe63f00",
+  "image": "ghcr.io/zaproxy/zaproxy:stable",
+  "source_revision": "dbd3069eebb9b6b9f160715d8ade1a851afdb07b",
+  "policy": "Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
+  "redaction": "Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.",
+  "scans": [
+    {
+      "mode": "baseline",
+      "container": "sentinel-f1-zap-baseline-c6c56a29",
+      "started_utc": "2026-11-01T12:31:33.630425+00:00",
+      "returncode": 0,
+      "wall_seconds": 75.29347588999997,
+      "sites": 1,
+      "alert_types": 9,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      },
+      "http_evidence": {
+        "file": "baseline-http.json",
+        "selected_messages": 0,
+        "alert_messages": 0,
+        "history_truncated": false
+      },
+      "availability": {
+        "observed_active_http_status_counts": {},
+        "observed_502_responses": 0,
+        "nginx_access_log_502_responses": 0,
+        "nginx_upstream_address_unavailable_errors": 0,
+        "passed": true
+      }
+    },
+    {
+      "mode": "full",
+      "container": "sentinel-f1-zap-full-b97725a8",
+      "started_utc": "2026-11-01T12:32:48.982457+00:00",
+      "returncode": 0,
+      "wall_seconds": 475.374184329,
+      "sites": 1,
+      "alert_types": 9,
+      "json_parsed": true,
+      "html_present": true,
+      "risk_type_counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 4,
+        "informational": 5
+      },
+      "http_evidence": {
+        "file": "full-http.json",
+        "selected_messages": 5564,
+        "alert_messages": 0,
+        "history_truncated": false
+      },
+      "availability": {
+        "observed_active_http_status_counts": {
+          "200": 40130,
+          "400": 28,
+          "404": 4,
+          "422": 39866
+        },
+        "observed_502_responses": 0,
+        "nginx_access_log_502_responses": 0,
+        "nginx_upstream_address_unavailable_errors": 0,
+        "passed": true
+      }
+    }
+  ],
+  "console_nginx_version": "nginx version: nginx/1.29.8",
+  "redacted_occurrences": {
+    "baseline.json": 0,
+    "full.json": 0,
+    "full-scope.json": 0,
+    "nginx-config.txt": 0,
+    "baseline-console.log": 0,
+    "full-console.log": 0,
+    "full.html": 0,
+    "baseline-http.json": 0,
+    "baseline.log": 0,
+    "baseline.html": 0,
+    "full.log": 0,
+    "baseline-scope.json": 0,
+    "full-http.json": 5570
+  },
+  "image_identity": {
+    "id": "sha256:cb61f6e33bb3378053bdaf26dc607b3c1c159ccbe87b7efb20c027c8746cf086",
+    "repo_digests": [
+      "ghcr.io/zaproxy/zaproxy@sha256:030d3df57735dacbb83464854758e674dd9ad01d79d12a129a8e58b1fd384238"
+    ]
+  },
+  "security_gate_passed": true
+}
