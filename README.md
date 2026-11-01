@@ -53,9 +53,11 @@ All four scanners returned 0. Their total wall times were 83.757 / 329.323 secon
 
 ## Login-abuse experiment
 
-The generator produces two independent synthetic weeks. Training uses seed 1: 140,232 events and 51,001 IP-hour windows, with no low-and-slow campaign. Testing uses seed 2: 143,416 events and 53,208 windows, including 6,017 low-and-slow attempts. Benign traffic includes password and username typos, forgotten-password bursts, and shared campus or corporate NAT addresses.
+The generator produces two independent synthetic traffic batches. Training uses seed 1: 140,232 events and 51,001 IP-hour windows, with no low-and-slow campaign. Testing uses seed 2: 143,416 events and 53,208 windows, including 6,017 low-and-slow attempts. Benign traffic includes password and username typos, forgotten-password bursts, and shared campus or corporate NAT addresses.
 
 The 13 features use login-service observations such as failures, distinct usernames, unknown-user ratio, inter-arrival times and user agents. Labels are assigned to IP-hour windows. The generator separates benign and attack IP pools, so weighting these windows by their event counts also gives the event-level metrics below.
+
+This is completed-hour retrospective classification: a flagged window counts its events as caught. The live throttle is the separate sliding-window component.
 
 | Method | Window precision | Window recall | Attack-event recall | Low-and-slow recall | Benign-event FPR | Shared-NAT windows flagged |
 |---|---|---|---|---|---|---|
