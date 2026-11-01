@@ -1,0 +1,57 @@
+[
+  {
+    "prefix": "batch",
+    "source": "G:/ResumeProject/1_stripe_fraud_ml/stripe-fraud-ml",
+    "source_sha": "126d43ac28d313d59a91ba4abbc287f5bee11eb9",
+    "method": "local clone then git mv",
+    "command": "git clone --no-hardlinks --branch main G:/ResumeProject/1_stripe_fraud_ml/stripe-fraud-ml G:\\ResumeProject\\platforms\\sentinel-risk-platform"
+  },
+  {
+    "prefix": "streaming",
+    "source": "G:/ResumeProject/7_fraud_streaming_scala/fraud-streaming-scala",
+    "source_sha": "1897adf5a6b55ab656c9e9fa0f6253c271191619",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=streaming G:/ResumeProject/7_fraud_streaming_scala/fraud-streaming-scala main",
+    "import_commit": "1a2ef8357874500558b040b0e2987d251e67c236"
+  },
+  {
+    "prefix": "serving",
+    "source": "G:/ResumeProject/4_fraud_scoring_cloud_deploy/fraud-scoring-cloud-deploy",
+    "source_sha": "9ad52422bfca707921ed625a160076751d9a01ec",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=serving G:/ResumeProject/4_fraud_scoring_cloud_deploy/fraud-scoring-cloud-deploy main",
+    "import_commit": "75dbd462be12308e9aa96b6abf3331b0525aeb71"
+  },
+  {
+    "prefix": "text-risk",
+    "source": "G:/ResumeProject/8_llm_risk_classifier/llm-risk-classifier",
+    "source_sha": "d9d6b54b1738a7b54682670625d058fcf8399e01",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=text-risk G:/ResumeProject/8_llm_risk_classifier/llm-risk-classifier main",
+    "import_commit": "d338f1ca38bbc7afdb65c0c36155b4b32108fdb8"
+  },
+  {
+    "prefix": "research/graph",
+    "source": "G:/ResumeProject/20_fraud_gnn/fraud-gnn",
+    "source_sha": "65d5d9763b8f14fc8e292dc1e886e6321557bb52",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=research/graph G:/ResumeProject/20_fraud_gnn/fraud-gnn main",
+    "import_commit": "e071410efabdcb8044b37a7c81ea321e87a343fd"
+  },
+  {
+    "prefix": "security",
+    "source": "G:/ResumeProject/13_appsec_detection/appsec-detection",
+    "source_sha": "75c31c09be57d3d5200889dfdba192612efd86ae",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=security G:/ResumeProject/13_appsec_detection/appsec-detection main",
+    "import_commit": "b8f64ce7978e99740787c0ffe0e6796ef8d9f44f"
+  },
+  {
+    "prefix": "console",
+    "source": "G:/ResumeProject/6_fullstack_go_graphql/fullstack-go-graphql",
+    "source_sha": "b4be7d09cfcf9190b95fdb17bcc9346bf3ba6ca5",
+    "method": "git subtree add without squash",
+    "command": "git subtree add --prefix=console G:/ResumeProject/6_fullstack_go_graphql/fullstack-go-graphql main",
+    "import_commit": "47d5ba7769ed82fdff32a4d8ff68828b99841c0c"
+  }
+]
