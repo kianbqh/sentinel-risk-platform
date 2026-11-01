@@ -6,6 +6,7 @@ import re
 from urllib.parse import urlsplit
 import zap_common
 from zap_seed import validate_seed
+from zap_capture import capture, transport_probes
 
 TARGET = "http://127.0.0.1:13040"
 
@@ -43,7 +44,11 @@ def zap_tuned(zap):
     zap.ascan.set_option_max_scan_duration_in_mins(5)
     if int(zap.ascan.option_max_scan_duration_in_mins) != 5 or zap.core.mode != "protect":
         raise RuntimeError("Active scan cap/protection not applied")
-    # Limit generated GraphQL exploration to a bounded schema depth/message count.
+    # Retain original temporary scan messages for differential-request evidence.
+    zap.ascan.set_option_persist_temporary_messages("true")
+    if str(zap.ascan.option_persist_temporary_messages).lower() != "true":
+        raise RuntimeError("Original scan message retention was not enabled")
+    # Limit generated GraphQL exploration to bounded schema depths.
     zap.graphql.set_option_max_query_depth(3)
     zap.graphql.set_option_max_args_depth(2)
     zap.graphql.set_option_max_additional_query_depth(0)
@@ -62,3 +67,16 @@ def zap_tuned(zap):
     proof.update(active_scan_max_minutes=5, graphql_generation_limits=limits,
                  graphql_import_result=str(imported))
     proof_path.write_text(json.dumps(proof, indent=2) + "\n")
+
+
+def zap_pre_shutdown(zap):
+    """Reports already exist; preserve observations before the daemon is shut down."""
+    evidence = {}
+    try:
+        evidence = capture(zap, TARGET)
+        evidence["source_revision"] = os.environ.get("SENTINEL_SOURCE_REVISION", "unknown")
+        if evidence["active_scans"]:
+            evidence["constructed_transport_probes"] = transport_probes(zap, TARGET, Path("/zap/analyst-token").read_text().strip())
+    except Exception as error:
+        evidence.update(complete=False, capture_error=type(error).__name__ + ": " + str(error))
+    Path(os.environ["SENTINEL_HTTP_EVIDENCE"]).write_text(json.dumps(evidence, indent=2) + "\n")

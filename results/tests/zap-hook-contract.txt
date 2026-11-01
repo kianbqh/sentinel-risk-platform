@@ -1,0 +1,2 @@
+670:         trigger_hook('zap_pre_shutdown', zap)
+672:         zap.core.shutdown()

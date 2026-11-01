@@ -3,6 +3,7 @@
   "network_calls": 0,
   "bindings": [
     {
+      "component": "graphql",
       "method": "import_url",
       "signature": "(endurl, url=None, apikey='')",
       "arguments": {
@@ -10,6 +11,7 @@
       }
     },
     {
+      "component": "graphql",
       "method": "set_option_max_query_depth",
       "signature": "(integer, apikey='')",
       "arguments": {
@@ -17,6 +19,7 @@
       }
     },
     {
+      "component": "graphql",
       "method": "set_option_max_args_depth",
       "signature": "(integer, apikey='')",
       "arguments": {
@@ -24,6 +27,7 @@
       }
     },
     {
+      "component": "graphql",
       "method": "set_option_max_additional_query_depth",
       "signature": "(integer, apikey='')",
       "arguments": {
@@ -31,11 +35,86 @@
       }
     },
     {
+      "component": "graphql",
       "method": "set_option_lenient_max_query_depth_enabled",
       "signature": "(boolean, apikey='')",
       "arguments": {
         "boolean": "false"
       }
+    },
+    {
+      "component": "ascan",
+      "method": "messages_ids",
+      "signature": "(scanid)",
+      "arguments": {
+        "scanid": "0"
+      }
+    },
+    {
+      "component": "ascan",
+      "method": "set_option_persist_temporary_messages",
+      "signature": "(boolean, apikey='')",
+      "arguments": {
+        "boolean": "true"
+      }
+    },
+    {
+      "component": "alert",
+      "method": "alerts",
+      "signature": "(baseurl=None, start=None, count=None, riskid=None, contextname=None, falsepositive=None)",
+      "arguments": {
+        "baseurl": "http://127.0.0.1:13040",
+        "start": 0,
+        "count": 500,
+        "riskid": "3"
+      }
+    },
+    {
+      "component": "alert",
+      "method": "alert",
+      "signature": "(id)",
+      "arguments": {
+        "id": "0"
+      }
+    },
+    {
+      "component": "core",
+      "method": "message",
+      "signature": "(id)",
+      "arguments": {
+        "id": "0"
+      }
+    },
+    {
+      "component": "core",
+      "method": "send_request",
+      "signature": "(request, followredirects=None, apikey='')",
+      "arguments": {
+        "request": "request",
+        "followredirects": "false"
+      }
+    }
+  ],
+  "properties": [
+    {
+      "component": "core",
+      "property": "version",
+      "descriptor_verified": true
+    },
+    {
+      "component": "ascan",
+      "property": "scans",
+      "descriptor_verified": true
+    },
+    {
+      "component": "ascan",
+      "property": "option_persist_temporary_messages",
+      "descriptor_verified": true
+    },
+    {
+      "component": "autoupdate",
+      "property": "installed_addons",
+      "descriptor_verified": true
     }
   ],
   "all_bindings_passed": true

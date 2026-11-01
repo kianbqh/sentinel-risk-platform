@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = "http://127.0.0.1:13040"
 
 
-def publish_redacted(raw, reports, token):
+def publish_redacted(raw, reports, token, local_secrets=()):
     """Keep original scanner evidence private and remove account secrets from copies."""
     counts = {}
     for path in raw.iterdir():
@@ -32,6 +32,10 @@ def publish_redacted(raw, reports, token):
         password = "local-zap-scan-account"
         count += extra + content.count(password)
         content = content.replace(password, "[REDACTED_SCANNER_PASSWORD]")
+        for value in (*local_secrets, "local-load-test-account", "local-integration-password"):
+            if value:
+                count += content.count(value)
+                content = content.replace(value, "[REDACTED_LOCAL_CREDENTIAL]")
         (reports / path.name).write_text(content, encoding="utf-8")
         counts[path.name] = count
     return counts
@@ -55,8 +59,10 @@ def run():
     reports = ROOT / "results/security/zap";reports.mkdir(parents=True,exist_ok=True);reports.chmod(0o777)
     raw = private / ("zap-raw-" + uuid.uuid4().hex)
     raw.mkdir(mode=0o777);raw.chmod(0o777)
+    local_secrets = [line.partition("=")[2].strip().strip("\"'") for line in (ROOT/".env").read_text().splitlines() if "=" in line]
     image = os.getenv("ZAP_IMAGE","ghcr.io/zaproxy/zaproxy:stable")
-    manifest = {"target":TARGET,"project":project,"owned_console_container":containers[0],"image":image,
+    source_revision = os.getenv("GITHUB_SHA") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
+    manifest = {"target":TARGET,"project":project,"owned_console_container":containers[0],"image":image,"source_revision":source_revision,
                 "policy":"Unresolved high or medium alert types fail the gate; low and informational findings remain in the reports.",
                 "redaction":"Original reports remain in the private runtime; public copies remove scanner JWTs and passwords without changing findings.","scans":[]}
     try:
@@ -65,7 +71,9 @@ def run():
             command=[docker,"run","--rm","--name",name,"--network=host","--cpus=2",
                      "-v",f"{raw}:/zap/wrk:rw","-v",f"{ROOT/'security/platform_scope.py'}:/zap/owned_scope.py:ro",
                      "-v",f"{zap_home}:/home/zap/.ZAP:rw",
+                     "-v",f"{ROOT/'security/zap_capture.py'}:/zap/zap_capture.py:ro",
                      "-v",f"{ROOT/'security/zap_seed.py'}:/zap/zap_seed.py:ro","-e",f"SENTINEL_ANALYST_ID={auth['register']['user']['id']}",
+                     "-e",f"SENTINEL_HTTP_EVIDENCE=/zap/wrk/{mode}-http.json","-e",f"SENTINEL_SOURCE_REVISION={source_revision}",
                      "-v",f"{token_path}:/zap/analyst-token:ro","-e",f"SENTINEL_SCOPE_PROOF=/zap/wrk/{mode}-scope.json",image,
                      "zap-baseline.py" if mode=="baseline" else "zap-full-scan.py","-t",TARGET,"-P","18049","-m","1","-T","5","-I",
                      "--hook","/zap/owned_scope.py","-J",mode+".json","-r",mode+".html"]
@@ -81,6 +89,13 @@ def run():
                 for site in report["site"]:
                     for alert in site["alerts"]:counts[str(alert["riskcode"])]+=1
                 record["risk_type_counts"]={"high":counts["3"],"medium":counts["2"],"low":counts["1"],"informational":counts["0"]}
+                evidence=json.loads((raw/(mode+"-http.json")).read_text())
+                if evidence.get("complete") is not True or evidence.get("temporary_messages_enabled") != "true":
+                    raise RuntimeError("Original HTTP evidence capture incomplete; raw diagnostics retained")
+                if (counts["3"] or counts["2"]) and not evidence["alerts"]:
+                    raise RuntimeError("Reported high/medium findings have no original HTTP evidence")
+                record["http_evidence"]={"file":mode+"-http.json","selected_messages":len(evidence["messages"]),
+                    "alert_messages":len(evidence["alerts"]),"history_truncated":evidence["history_truncated"]}
                 proof=json.loads((raw/(mode+"-scope.json")).read_text())
                 if (proof["target"]!=TARGET or not proof["authenticated_graphql_seed"]
                     or proof["authenticated_analyst_id"] != auth["register"]["user"]["id"]
@@ -90,7 +105,8 @@ def run():
             finally:
                 # This unique scanner is ours; leave every platform/shared service running.
                 subprocess.run([docker,"rm","-f",name],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-                manifest["redacted_occurrences"] = publish_redacted(raw, reports, auth["register"]["token"])
+                manifest["redacted_occurrences"] = publish_redacted(raw, reports, auth["register"]["token"], local_secrets)
+                manifest["image_identity"] = json.loads(subprocess.check_output([docker,"image","inspect","--format",'{"id":{{json .Id}},"repo_digests":{{json .RepoDigests}}}',image],text=True))
                 (reports/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n")
     finally:
         token_path.unlink(missing_ok=True)
