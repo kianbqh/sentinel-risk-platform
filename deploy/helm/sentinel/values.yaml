@@ -4,6 +4,10 @@ images:
   backend: {repository: sentinel-risk-console-api, tag: local, pullPolicy: IfNotPresent}
   frontend: {repository: sentinel-risk-console, tag: local, pullPolicy: IfNotPresent}
 replicas: 2
+termination:
+  # Let Service endpoint changes propagate before the application receives TERM.
+  preStopSeconds: 5
+  graceSeconds: 20
 auth:
   # Supply with an ignored --values file. Never commit live credentials.
   postgresPassword: ""

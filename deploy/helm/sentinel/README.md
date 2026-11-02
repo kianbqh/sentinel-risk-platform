@@ -15,6 +15,8 @@ bash ops/scripts/kind.sh
 
 The three application Deployments default to two replicas, `maxUnavailable: 0`, one surge pod, resource requests/limits and a PDB retaining one replica. Gateway/backend probes use dependency-free `/healthz` and dependency-aware `/readyz`. Frontend probes use `/`. ConfigMap and Secret checksums trigger a rolling update when settings change. Postgres is a simple StatefulSet; enable `postgres.persistence.enabled` for a PVC. `tracing.endpoint` optionally supplies an existing OTLP HTTP traces endpoint.
 
+Application pods also use a kubelet-native `preStop.sleep` hook. `termination.preStopSeconds` defaults to 5, leaving time for Service endpoint updates before TERM reaches the process; `termination.graceSeconds` defaults to 20 and includes this sleep. The chart requires at least ten seconds of remaining application shutdown time. The exercised target is Kubernetes 1.34, as used by the pinned kind image; the hook also works for the distroless Go image without a shell. Set the sleep to zero to omit the hook when reproducing the earlier behavior. A readiness/replica policy alone does not guarantee that every request succeeds during termination; the raw rollout measurements remain the evidence.
+
 The [ops report](../../../results/M1B_DELIVERY_REPORT.md) links measured results. The [ops protocol](../../../ops/README.md) explains timers and raw samples. The old `deploy/k8s/` files remain unchanged.
 
 ## Limitations

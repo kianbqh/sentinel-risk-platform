@@ -1,5 +1,11 @@
 {{- $root := . -}}
 {{- $name := include "sentinel.fullname" . -}}
+{{- if lt (int .Values.termination.preStopSeconds) 0 -}}
+{{- fail "termination.preStopSeconds must be nonnegative" -}}
+{{- end -}}
+{{- if lt (int .Values.termination.graceSeconds) (add (int .Values.termination.preStopSeconds) 10) -}}
+{{- fail "termination.graceSeconds must allow preStopSeconds plus at least 10 seconds for application shutdown" -}}
+{{- end -}}
 {{- range $component := list "gateway" "backend" "frontend" }}
 {{- $port := index $root.Values.service (printf "%sPort" $component) }}
 ---
@@ -26,7 +32,7 @@ spec:
         checksum/config: {{ include (print $root.Template.BasePath "/configmap.yaml") $root | sha256sum }}
         checksum/secret: {{ include (print $root.Template.BasePath "/secret.yaml") $root | sha256sum }}
     spec:
-      terminationGracePeriodSeconds: 20
+      terminationGracePeriodSeconds: {{ $root.Values.termination.graceSeconds }}
       securityContext: {runAsNonRoot: true}
       {{- if and $root.Values.kafka.enabled (ne $component "frontend") }}
       initContainers:
@@ -49,6 +55,12 @@ spec:
         - name: {{ $component }}
           image: {{ printf "%s:%s" (index $root.Values.images $component).repository ((index $root.Values.images $component).tag | toString) | quote }}
           imagePullPolicy: {{ (index $root.Values.images $component).pullPolicy }}
+          {{- if gt (int $root.Values.termination.preStopSeconds) 0 }}
+          lifecycle:
+            preStop:
+              sleep:
+                seconds: {{ $root.Values.termination.preStopSeconds }}
+          {{- end }}
           securityContext:
             runAsUser: {{ if eq $component "gateway" }}10001{{ else if eq $component "backend" }}65532{{ else }}101{{ end }}
             runAsNonRoot: true
