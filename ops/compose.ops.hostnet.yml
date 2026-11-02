@@ -1,5 +1,8 @@
 # Last override when the existing engine intentionally has bridge networking off.
 services:
+  postgres:
+    healthcheck:
+      test: [CMD, pg_isready, -h, 127.0.0.1, -p, '15440', -U, sentinel, -d, sentinel]
   gateway:
     environment:
       DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@127.0.0.1:15440/sentinel?sslmode=disable

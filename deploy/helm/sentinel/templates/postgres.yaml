@@ -30,11 +30,15 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom: {secretKeyRef: {name: {{ include "sentinel.fullname" . }}, key: POSTGRES_PASSWORD}}
           ports: [{name: postgres, containerPort: 5432}]
+          startupProbe:
+            exec: {command: [pg_isready, -h, '127.0.0.1', -U, sentinel, -d, sentinel]}
+            periodSeconds: 2
+            failureThreshold: 60
           readinessProbe:
-            exec: {command: [pg_isready, -U, sentinel, -d, sentinel]}
+            exec: {command: [pg_isready, -h, '127.0.0.1', -U, sentinel, -d, sentinel]}
             periodSeconds: 2
           livenessProbe:
-            exec: {command: [pg_isready, -U, sentinel, -d, sentinel]}
+            exec: {command: [pg_isready, -h, '127.0.0.1', -U, sentinel, -d, sentinel]}
             initialDelaySeconds: 10
             periodSeconds: 5
           resources:

@@ -34,8 +34,23 @@ spec:
     spec:
       terminationGracePeriodSeconds: {{ $root.Values.termination.graceSeconds }}
       securityContext: {runAsNonRoot: true}
-      {{- if and $root.Values.kafka.enabled (ne $component "frontend") }}
+      {{- if or (eq $component "backend") (and $root.Values.kafka.enabled (ne $component "frontend")) }}
       initContainers:
+        {{- if eq $component "backend" }}
+        - name: wait-postgres
+          image: {{ $root.Values.postgres.image | quote }}
+          securityContext: {runAsUser: 70, runAsNonRoot: true}
+          command: [/bin/sh, -ec]
+          args:
+            - |
+              until pg_isready -h "$PGHOST" -U sentinel -d sentinel; do sleep 2; done
+          env:
+            - {name: PGHOST, value: {{ printf "%s-postgres" $name | quote }}}
+          resources:
+            requests: {cpu: 10m, memory: 32Mi}
+            limits: {cpu: 250m, memory: 128Mi}
+        {{- end }}
+        {{- if and $root.Values.kafka.enabled (ne $component "frontend") }}
         - name: wait-kafka
           image: {{ $root.Values.kafka.image | quote }}
           securityContext: {runAsUser: 101, runAsNonRoot: true}
@@ -50,6 +65,7 @@ spec:
           resources:
             requests: {cpu: 10m, memory: 32Mi}
             limits: {cpu: 250m, memory: 128Mi}
+        {{- end }}
       {{- end }}
       containers:
         - name: {{ $component }}

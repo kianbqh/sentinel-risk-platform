@@ -1,5 +1,9 @@
 # Enable alongside compose.yml and --profile ops. Default Compose is unchanged.
 services:
+  postgres:
+    healthcheck:
+      # The official image's initialization server has a Unix socket but no TCP listener.
+      test: [CMD, pg_isready, -h, 127.0.0.1, -U, sentinel, -d, sentinel]
   gateway:
     environment:
       DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@postgres:5432/sentinel?sslmode=disable
