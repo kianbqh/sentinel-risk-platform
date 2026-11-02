@@ -1,0 +1,14 @@
+# Candidate pins from the live preflight, NOT a tested lock.
+# Install only in the private train-venv. Resolve, pip check and actual NF4
+# forward/backward/save/reload smoke are mandatory before a compatibility claim.
+torch==2.15.0
+transformers==5.22.1
+peft==0.21.2
+bitsandbytes==0.50.2
+accelerate==1.15.0
+numpy==2.5.4
+scikit-learn==1.9.1
+joblib==1.6.0
+pydantic>=2,<3
+safetensors>=0.7,<1
+huggingface-hub>=1,<2
