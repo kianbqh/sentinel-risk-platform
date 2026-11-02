@@ -1,0 +1,16 @@
+{
+  "scanned_targets": 6,
+  "vulnerabilities": [
+    {
+      "target": "console/backend/go.mod",
+      "id": "GO-2026-5932",
+      "package": "golang.org/x/crypto",
+      "severity": "UNKNOWN",
+      "installed": "v0.58.0",
+      "fixed": ""
+    }
+  ],
+  "fixable_high_critical": [],
+  "secrets": [],
+  "policy_passed": true
+}

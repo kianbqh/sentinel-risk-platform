@@ -31,6 +31,17 @@ docker compose --env-file .runtime/ops/.env --project-name sentinel-m1b-ops \
 
 The generated `.runtime/ops/.env` is ignored. It never replaces the original `.env`. Prometheus is at `http://localhost:19090`, Grafana at `http://localhost:13041` (user `sentinel`, generated `GRAFANA_PASSWORD`), and Jaeger at `http://localhost:16686`. Ports are bound to loopback. Jaeger's in-memory data disappears when it restarts.
 
+The recorded local run connected directly from WSL to Docker Desktop's socket. In that setup, Desktop saw the WSL `/mnt/g` bind paths as empty directories. The [recorded adapter](../results/ops/local/compose.desktop-bind.yml) maps the same G-drive files through `/run/desktop/mnt/host/g`; [mount evidence](../results/ops/local/runtime-mounts.json) retains their hashes. After building the images and generating `.runtime/ops/.env`, the exact local startup was:
+
+```bash
+docker compose --env-file .runtime/ops/.env --project-name sentinel-m1b-ops \
+  -f compose.yml -f ops/compose.ops.yml \
+  -f results/ops/local/compose.desktop-bind.yml --profile ops \
+  up -d --wait --wait-timeout 300
+```
+
+That adapter records this checkout's absolute G-drive location. For another checkout, use its actual shared host path or Docker Desktop's normal WSL integration. The [local config](../results/ops/local/config.json) records the startup command and measured endpoints.
+
 Gateway and Go readiness check the configured database and Kafka; gateway readiness also checks its loaded models. Liveness has no dependency checks. Prometheus scrapes both APIs and Spark every five seconds. Spark uses an HTTP endpoint on port 9108, enabled only by `STREAM_METRICS_ENABLED=true`; it does not use a Pushgateway. Consumer lag comes from broker end offsets minus the group's committed next offsets. Alert thresholds are local exercise defaults in [rules.yml](prometheus/rules.yml).
 
 ## Reproduce checks and evidence

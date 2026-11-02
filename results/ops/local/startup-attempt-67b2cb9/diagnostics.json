@@ -1,0 +1,122 @@
+{
+  "status": "failed",
+  "mode": "compose_cold_start",
+  "app_build_git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "ops_configuration_source_at_startup": "5a6147b5b0bc3bf8786ff78b55c1c0f9082a56f7",
+  "canonical_measurement": false,
+  "cause": "Postgres temporary Unix-socket initialization server passed the original socket healthcheck before final TCP startup; backend migration connection was refused.",
+  "diagnostics": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        ".runtime/ops/.env",
+        "--project-name",
+        "sentinel-m1b-ops",
+        "-f",
+        "compose.yml",
+        "-f",
+        "ops/compose.ops.yml",
+        "--profile",
+        "ops",
+        "logs",
+        "--no-color",
+        "backend",
+        "postgres"
+      ],
+      "exit_code": 0,
+      "stdout": "postgres-1  | The files belonging to this database system will be owned by user \"postgres\".\nbackend-1   | 2026/11/02 06:08:03 migrate: failed to open database: failed to connect to `user=sentinel database=sentinel`: 172.18.0.4:5432 (postgres): dial error: dial tcp 172.18.0.4:5432: connect: connection refused\npostgres-1  | This user must also own the server process.\npostgres-1  | \npostgres-1  | The database cluster will be initialized with locale \"en_US.utf8\".\npostgres-1  | The default database encoding has accordingly been set to \"UTF8\".\npostgres-1  | The default text search configuration will be set to \"english\".\npostgres-1  | \npostgres-1  | Data page checksums are disabled.\npostgres-1  | \npostgres-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok\npostgres-1  | creating subdirectories ... ok\npostgres-1  | selecting dynamic shared memory implementation ... posix\npostgres-1  | selecting default \"max_connections\" ... 100\npostgres-1  | selecting default \"shared_buffers\" ... 128MB\npostgres-1  | selecting default time zone ... UTC\npostgres-1  | creating configuration files ... ok\npostgres-1  | running bootstrap script ... ok\npostgres-1  | sh: locale: not found\npostgres-1  | 2026-11-02 06:07:14.918 UTC [72] WARNING:  no usable system locales were found\npostgres-1  | performing post-bootstrap initialization ... ok\npostgres-1  | initdb: warning: enabling \"trust\" authentication for local connections\npostgres-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.\npostgres-1  | syncing data to disk ... ok\npostgres-1  | \npostgres-1  | \npostgres-1  | Success. You can now start the database server using:\npostgres-1  | \npostgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start\npostgres-1  | \npostgres-1  | waiting for server to start....2026-11-02 06:07:56.810 UTC [162] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1  | 2026-11-02 06:07:56.985 UTC [162] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | .2026-11-02 06:07:57.553 UTC [165] LOG:  database system was shut down at 2026-11-02 06:07:16 UTC\npostgres-1  | 2026-11-02 06:07:58.033 UTC [162] LOG:  database system is ready to accept connections\npostgres-1  |  done\npostgres-1  | server started\npostgres-1  | 2026-11-02 06:07:59.991 UTC [180] FATAL:  database \"sentinel\" does not exist\npostgres-1  | CREATE DATABASE\npostgres-1  | \npostgres-1  | \npostgres-1  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*\npostgres-1  | \npostgres-1  | waiting for server to shut down....2026-11-02 06:08:00.282 UTC [162] LOG:  received fast shutdown request\npostgres-1  | 2026-11-02 06:08:00.402 UTC [162] LOG:  aborting any active transactions\npostgres-1  | 2026-11-02 06:08:00.404 UTC [162] LOG:  background worker \"logical replication launcher\" (PID 168) exited with exit code 1\npostgres-1  | 2026-11-02 06:08:00.404 UTC [163] LOG:  shutting down\npostgres-1  | 2026-11-02 06:08:00.624 UTC [163] LOG:  checkpoint starting: shutdown immediate\npostgres-1  | ..2026-11-02 06:08:03.049 UTC [189] FATAL:  the database system is shutting down\npostgres-1  | ...2026-11-02 06:08:06.101 UTC [196] FATAL:  the database system is shutting down\npostgres-1  | ...2026-11-02 06:08:09.148 UTC [203] FATAL:  the database system is shutting down\npostgres-1  | ...2026-11-02 06:08:12.196 UTC [210] FATAL:  the database system is shutting down\npostgres-1  | ..2026-11-02 06:08:14.202 UTC [163] LOG:  checkpoint complete: wrote 926 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.585 s, sync=12.128 s, total=13.799 s; sync files=301, longest=1.079 s, average=0.041 s; distance=4266 kB, estimate=4266 kB; lsn=0/191E820, redo lsn=0/191E820\npostgres-1  | 2026-11-02 06:08:14.206 UTC [162] LOG:  database system is shut down\npostgres-1  |  done\npostgres-1  | server stopped\npostgres-1  | \npostgres-1  | PostgreSQL init process complete; ready for start up.\npostgres-1  | \npostgres-1  | 2026-11-02 06:08:14.794 UTC [1] LOG:  starting PostgreSQL 17.11 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit\npostgres-1  | 2026-11-02 06:08:14.794 UTC [1] LOG:  listening on IPv4 address \"0.0.0.0\", port 5432\npostgres-1  | 2026-11-02 06:08:14.794 UTC [1] LOG:  listening on IPv6 address \"::\", port 5432\npostgres-1  | 2026-11-02 06:08:15.380 UTC [1] LOG:  listening on Unix socket \"/var/run/postgresql/.s.PGSQL.5432\"\npostgres-1  | 2026-11-02 06:08:15.769 UTC [220] LOG:  database system was shut down at 2026-11-02 06:08:14 UTC\npostgres-1  | 2026-11-02 06:08:16.004 UTC [1] LOG:  database system is ready to accept connections\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "--format",
+        "{{json .State}}",
+        "sentinel-m1b-ops-backend-1"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":1,\"Error\":\"\",\"StartedAt\":\"2026-11-02T06:08:01.770360897Z\",\"FinishedAt\":\"2026-11-02T06:08:03.661838124Z\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "network",
+        "inspect",
+        "sentinel-m1b-ops_default"
+      ],
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Name\": \"sentinel-m1b-ops_default\",\n        \"Id\": \"1e670789e9026f0afd1a6b71e3f34e1972402fc7b2ebe467ea532007ec20d324\",\n        \"Created\": \"2026-11-02T06:05:51.329855459Z\",\n        \"Scope\": \"local\",\n        \"Driver\": \"bridge\",\n        \"EnableIPv4\": true,\n        \"EnableIPv6\": false,\n        \"IPAM\": {\n            \"Driver\": \"default\",\n            \"Options\": null,\n            \"Config\": [\n                {\n                    \"Subnet\": \"172.18.0.0/16\",\n                    \"Gateway\": \"172.18.0.1\"\n                }\n            ]\n        },\n        \"Internal\": false,\n        \"Attachable\": false,\n        \"Ingress\": false,\n        \"ConfigFrom\": {\n            \"Network\": \"\"\n        },\n        \"ConfigOnly\": false,\n        \"Options\": {\n            \"com.docker.network.enable_ipv4\": \"true\",\n            \"com.docker.network.enable_ipv6\": \"false\"\n        },\n        \"Labels\": {\n            \"com.docker.compose.config-hash\": \"81a699b5e00db1198e247fe6fd9ac113384e164dee1d93d9471fa501b1a22992\",\n            \"com.docker.compose.network\": \"default\",\n            \"com.docker.compose.project\": \"sentinel-m1b-ops\",\n            \"com.docker.compose.version\": \"5.1.0\"\n        },\n        \"Containers\": {\n            \"05e6fc8cc30b72199964fbc4fef6a568af63821496fecd28f80ea6ebf6a5fb6b\": {\n                \"Name\": \"sentinel-m1b-ops-gateway-1\",\n                \"EndpointID\": \"59762357fe2304f0736fc174e88c61198988b64c22b89bf92d2d0adeb9f11f9d\",\n                \"MacAddress\": \"be:07:b8:bc:c7:ca\",\n                \"IPv4Address\": \"172.18.0.7/16\",\n                \"IPv6Address\": \"\"\n            },\n            \"355332a47180044241a25529823253b44f99df590dd499d24834101937304ec0\": {\n                \"Name\": \"sentinel-m1b-ops-streaming-1\",\n                \"EndpointID\": \"b449b1523278c2e7a922c230c5415931026b3b928cccdf50f9e1663bbfd1eca7\",\n                \"MacAddress\": \"7a:cb:7b:3c:3d:b7\",\n                \"IPv4Address\": \"172.18.0.3/16\",\n                \"IPv6Address\": \"\"\n            },\n            \"3fb3984760ff1b621509e8529783291ba87a66f2642db30cedbfd02d3f3bb24e\": {\n                \"Name\": \"sentinel-m1b-ops-jaeger-1\",\n                \"EndpointID\": \"e8d0da5082ba2b353c472abf6f1241e07ec9fdab85cbf10729645e42024869cb\",\n                \"MacAddress\": \"5a:7d:fe:f2:8b:b6\",\n                \"IPv4Address\": \"172.18.0.2/16\",\n                \"IPv6Address\": \"\"\n            },\n            \"77843a8c50cbb9babfc3f2bcc5e20d939ae656d5a1c8ccb4f8731b08fed800f9\": {\n                \"Name\": \"sentinel-m1b-ops-redpanda-1\",\n                \"EndpointID\": \"5ac14bfda5f9c38111b78f949ac03c2f0ec7fffac0a5b44551bad8516eb7cd09\",\n                \"MacAddress\": \"56:1c:ec:5a:2c:fe\",\n                \"IPv4Address\": \"172.18.0.5/16\",\n                \"IPv6Address\": \"\"\n            },\n            \"828d76f969d07d8048080d876285c60a0485f7233da10f91347d5de435adf9ac\": {\n                \"Name\": \"sentinel-m1b-ops-grafana-1\",\n                \"EndpointID\": \"dfcdeb7572cc02d42a5052a056ab9af14c8d5533450692e0ae115734f453e9c1\",\n                \"MacAddress\": \"3a:77:65:43:08:4a\",\n                \"IPv4Address\": \"172.18.0.6/16\",\n                \"IPv6Address\": \"\"\n            },\n            \"ce7460516421c1e1ecce39014449c7ed8ea050ed048d83f628d715548e58c30f\": {\n                \"Name\": \"sentinel-m1b-ops-postgres-1\",\n                \"EndpointID\": \"59514dc69b5a454ca5d6d592de6c8b9cfdd7561169b1eb23b5789241dfd7fc78\",\n                \"MacAddress\": \"f2:6c:36:f0:89:1a\",\n                \"IPv4Address\": \"172.18.0.4/16\",\n                \"IPv6Address\": \"\"\n            }\n        },\n        \"Status\": {\n            \"IPAM\": {\n                \"Subnets\": {\n                    \"172.18.0.0/16\": {\n                        \"IPsInUse\": 9,\n                        \"DynamicIPsAvailable\": 65527\n                    }\n                }\n            }\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--env-file",
+        ".runtime/ops/.env",
+        "--project-name",
+        "sentinel-m1b-ops",
+        "-f",
+        "compose.yml",
+        "-f",
+        "ops/compose.ops.yml",
+        "--profile",
+        "ops",
+        "exec",
+        "-T",
+        "postgres",
+        "pg_isready",
+        "-U",
+        "sentinel",
+        "-d",
+        "sentinel"
+      ],
+      "exit_code": 0,
+      "stdout": "/var/run/postgresql:5432 - accepting connections\n",
+      "stderr": ""
+    }
+  ],
+  "redaction": "Generated .env credential values replaced in memory before persistence; no raw credential-bearing log was written.",
+  "volume_or_credential_reset": false,
+  "provenance": {
+    "timestamp": "2026-11-02T06:19:32.059253+00:00",
+    "git_sha": "5a6147b5b0bc3bf8786ff78b55c1c0f9082a56f7",
+    "git_sha_source": "caller supplied from native Git",
+    "git_worktree_dirty": true,
+    "config_path": ".runtime/ops/desktop-config.json",
+    "config_sha256": "ec8b9eaf269939ea5aa56f532d8eb37fd27db744812d9f34e4b098b4fb3e7aec",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "Docker Desktop 29.3.1 containers, controlled from WSL2 CodexResearchATTAlf01 on Windows",
+    "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "logical_cpus": 20,
+    "gpu_driver_cuda": "Sun Nov  1 22:19:32 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   41C    P3             70W /  350W |    1950MiB /  12288MiB |     23%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.3",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "python .runtime/all-modules-v2/m1b/deploy/archive_startup_failure.py; diagnostic Docker commands are retained individually",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 0.5864816770044854
+  }
+}

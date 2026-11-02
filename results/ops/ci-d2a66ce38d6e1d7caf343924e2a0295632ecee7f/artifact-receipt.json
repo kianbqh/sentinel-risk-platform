@@ -1,0 +1,275 @@
+{
+  "run_id": 41399450431,
+  "head_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+  "artifacts": [
+    {
+      "id": 13120917446,
+      "name": "ops-integration",
+      "size_in_bytes": 112043,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120917446",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120917446/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:26:04Z",
+      "expires_at": "2027-01-31T06:22:00Z",
+      "updated_at": "2026-11-02T06:26:04Z",
+      "digest": "sha256:3fe8bce71178cae9228a5bc4afc6898ab409fe1a2fb57e84b0be1290ce7427cc",
+      "workflow_run": {
+        "id": 41399450431,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f"
+      }
+    },
+    {
+      "id": 13120782551,
+      "name": "production-security",
+      "size_in_bytes": 2565964,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120782551",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120782551/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:22:44Z",
+      "expires_at": "2027-01-31T06:22:00Z",
+      "updated_at": "2026-11-02T06:22:44Z",
+      "digest": "sha256:81fbb6302522292df04f7d88765099f96ad122fbfd631d7af9f25dddcafd8579",
+      "workflow_run": {
+        "id": 41399450431,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f"
+      }
+    },
+    {
+      "id": 13120673066,
+      "name": "ops-static",
+      "size_in_bytes": 2856,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120673066",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120673066/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:22:19Z",
+      "expires_at": "2027-01-31T06:22:00Z",
+      "updated_at": "2026-11-02T06:22:19Z",
+      "digest": "sha256:ece796d27c0afdfc0ab9fd28cbbb9c4774223de68a328e357ea62b031d378390",
+      "workflow_run": {
+        "id": 41399450431,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f"
+      }
+    },
+    {
+      "id": 13120533890,
+      "name": "kind-helm",
+      "size_in_bytes": 458271,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120533890",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13120533890/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:26:01Z",
+      "expires_at": "2027-01-31T06:22:00Z",
+      "updated_at": "2026-11-02T06:26:01Z",
+      "digest": "sha256:d59cc290aff2033273afed23978c67546881b7b2306a84b44d58b6b74d6e51f4",
+      "workflow_run": {
+        "id": 41399450431,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f"
+      }
+    }
+  ],
+  "import_timestamp_utc": "2026-11-02T06:28:26.836571+00:00",
+  "scope": "CI-produced files copied unchanged. Only root-level current security outputs imported; nested historical snapshots remain in the verified ZIP.",
+  "files": [
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/compose.log",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/compose.log",
+      "bytes": 527227,
+      "sha256": "ac12e4c832676dfaff7bdfe02bdf234c311b69585197fed4c9979b903533b524"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/drill-db-outage.events.jsonl",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/drill-db-outage.events.jsonl",
+      "bytes": 17567,
+      "sha256": "630e336d7137269c3edaee09173206750bdc2b52c1731049ddbf04f563102af5"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/drill-db-outage.json",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/drill-db-outage.json",
+      "bytes": 64791,
+      "sha256": "d87f3ea7d19a110b98212828e61a46416a45bd1afd8401ef531a6c20e6a63e50"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.events.jsonl",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.events.jsonl",
+      "bytes": 13386,
+      "sha256": "1181f050c0cb8476f8beb5bd226dc481f554c442dc3d67a967128c9c187391d5"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.json",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.json",
+      "bytes": 35536,
+      "sha256": "7ac5b31476c02cc77686522a5b55c9a713a2177f44c0f74e1cec784d4f49daf7"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/spark.events.jsonl",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/spark.events.jsonl",
+      "bytes": 19810,
+      "sha256": "038ef637a3adc0107e5aca164ba7be8bc87c2aa653248d88d1d42930caeb65be"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/spark.json",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/spark.json",
+      "bytes": 43805,
+      "sha256": "bd085bf2160491e8e7ddcc4d6da096e829da26eb2aa3958bd9b6349f18c96a07"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.events.jsonl",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.events.jsonl",
+      "bytes": 11648,
+      "sha256": "78fc8c289f2ad061a2da7577161c57681d34d8c20f79492881c5d9e1cbd754f0"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.json",
+      "artifact_id": 13120917446,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.json",
+      "bytes": 30159,
+      "sha256": "155f2ab6fefa8986308b5cd1fcb7697fcfc45be2aad62895eb12f966d6705c69"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/TRIAGE.md",
+      "artifact_id": 13120782551,
+      "member": "TRIAGE.md",
+      "bytes": 3268,
+      "sha256": "391471826cb58baf3561dbe47af7b167f66310a65f189019c11fc323e0bb929e"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/bandit.log",
+      "artifact_id": 13120782551,
+      "member": "bandit.log",
+      "bytes": 286,
+      "sha256": "5097dacf5c1612ee608dbba418f8326d0f2cb8c16cd0578bfca1d80c405e0445"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/bandit.json",
+      "artifact_id": 13120782551,
+      "member": "bandit.json",
+      "bytes": 8370,
+      "sha256": "ed7678818835abdc0c645c92e845f98151835b1dcb5e0c35850b1720adda789c"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/ci-provenance.json",
+      "artifact_id": 13120782551,
+      "member": "ci-provenance.json",
+      "bytes": 1455,
+      "sha256": "37ad39afcda20f6b287315719aef70d2225282a2b6fde5fa104920063464ba95"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/public-credential-audit.json",
+      "artifact_id": 13120782551,
+      "member": "public-credential-audit.json",
+      "bytes": 265,
+      "sha256": "e091de1b8c54d3ce53bf571d6241af24d69542cc0922982722821842cb440b8a"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/publication-check.json",
+      "artifact_id": 13120782551,
+      "member": "publication-check.json",
+      "bytes": 3916,
+      "sha256": "b338e99861079706fc40b034b0515684ffb35932e66beb469a9ea1c2b5be96a4"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/sast-manifest.json",
+      "artifact_id": 13120782551,
+      "member": "sast-manifest.json",
+      "bytes": 508,
+      "sha256": "a6dc55b7989d4abc7d24675304a0a51b99fabd3c854ab6e11a17f57b30709e3e"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/semgrep.json",
+      "artifact_id": 13120782551,
+      "member": "semgrep.json",
+      "bytes": 3769,
+      "sha256": "914a5bb7a4f63cfb0761e21c93d5a85c2bc832755a81e71f671e25116e665c7c"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/semgrep.log",
+      "artifact_id": 13120782551,
+      "member": "semgrep.log",
+      "bytes": 2443,
+      "sha256": "c22fa871617062f881a8a3364ebda7dfbfcefaf4990136389bb037444164afd7"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy-image.json",
+      "artifact_id": 13120782551,
+      "member": "trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy-pull.log",
+      "artifact_id": 13120782551,
+      "member": "trivy-pull.log",
+      "bytes": 570,
+      "sha256": "6db7e6c281b169d5cadaf80aad4ecc8666451b6b3802b74a307f173ca66da3e1"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy-summary.json",
+      "artifact_id": 13120782551,
+      "member": "trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy-version.txt",
+      "artifact_id": 13120782551,
+      "member": "trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy.json",
+      "artifact_id": 13120782551,
+      "member": "trivy.json",
+      "bytes": 38249,
+      "sha256": "4553d1a294de695b0b77e1a397cedcf0a42d431819ec231d9a45da72dfe1af9e"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/security/trivy.log",
+      "artifact_id": 13120782551,
+      "member": "trivy.log",
+      "bytes": 3368,
+      "sha256": "291c121f8dee302d1046f1fac8f9673c95d1167ecff8015fd27ff21a47a7355e"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/static.json",
+      "artifact_id": 13120673066,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/static.json",
+      "bytes": 6929,
+      "sha256": "2371479248f6538ee9c22393980544cfd56cf2a46f8182a2a207cbedb77f0d0e"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.events.jsonl",
+      "artifact_id": 13120533890,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.events.jsonl",
+      "bytes": 1360501,
+      "sha256": "6fd1b8248ce497d936da1992137cdc2400126e8bfb6249c4df324042b539b81f"
+    },
+    {
+      "path": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.json",
+      "artifact_id": 13120533890,
+      "member": "ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.json",
+      "bytes": 4361798,
+      "sha256": "fb822025efbfe1e73d4d4a97d830e0a1cf1ecbf87c5be1c9296e0e21ed73c425"
+    }
+  ]
+}

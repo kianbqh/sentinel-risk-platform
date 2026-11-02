@@ -1,0 +1,22 @@
+{
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41306587753",
+  "workflow_run_id": 41306587753,
+  "source_revision": "dbd3069eebb9b6b9f160715d8ade1a851afdb07b",
+  "artifact_id": 13083880417,
+  "archive_sha256": "9c5642d1835a20c86d28df35fca6925fd1983dfd16ba3dec88331d46a31eb843",
+  "github_digest_verified": true,
+  "scope": "Exact original eleven production SAST, dependency and secret scan reports.",
+  "files": {
+    "bandit.json": "09e2a01d32656211394c6cc7aac1821ad3cd2cb5dff0ba0ca5cc39a148052241",
+    "bandit.log": "5097dacf5c1612ee608dbba418f8326d0f2cb8c16cd0578bfca1d80c405e0445",
+    "sast-manifest.json": "a653ecf99770ed34a71e1a3f88428492227143727edf3d4ca02a01787646e4c1",
+    "semgrep.json": "a2a4e4e178b7d96d911eac80bfdf4bcef7d00e31b8c00bdbd8c1623c20609ad3",
+    "semgrep.log": "022fc012b6a323d607a820d36129b2687c9dee91f26fc16231ea7ff636e3abad",
+    "trivy-image.json": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba",
+    "trivy-pull.log": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e",
+    "trivy-summary.json": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32",
+    "trivy-version.txt": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba",
+    "trivy.json": "ddee4ed151c06fa312831d40ee55c9b3173e5b1133ba3578d12922a55d18f916",
+    "trivy.log": "f76400587dfb3eedd6293c650c2d4ec35302a6113dbc7eb6cd8a6e9396b44a14"
+  }
+}

@@ -83,6 +83,21 @@ These are bounded request batches. Each read phase excludes ten warm-up requests
 
 The [security reports and triage](results/security/TRIAGE.md) retain the observations as well as the passing gates: Semgrep had no findings; Bandit flagged one medium-severity fixed-URL downloader call; Trivy retained one UNKNOWN, unfixed Go advisory and no secrets. Both authenticated ZAP scans reported **0 high, 0 medium, 4 low and 5 informational alert types**. The full scan used a five-minute active limit; the runner accounted for all 80,028 active responses, with no observed HTTP502 or nginx upstream address-exhaustion errors. Earlier findings and the connection-reuse fix remain in the [scan history](results/security/history/README.md).
 
+## Watching failures and recovery
+
+I added metrics and tracing, then stopped the database and updated the application under load. The [operations report](results/M1B_DELIVERY_REPORT.md) keeps the failed attempts alongside the fixes, with separate local and CI measurements.
+
+| Check | Observed result | Evidence |
+|---|---|---|
+| Local Prometheus / Grafana | 3 scraped endpoints; 8 dashboard panels checked | [service checks](results/ops/local/smoke.json) |
+| Alert rules | 9 test groups; 15 assertions passed | [rule tests](results/ops/local/static.json) |
+| Gateway → Kafka → consumer → database | 4 spans with verified parent relationships | [local trace](results/ops/local/trace.json) |
+| Local database outage and recovery | 21 Kafka records; 20 unique cases; 0 duplicate cases | [offsets and recovery timeline](results/ops/local/drill-db-outage.json) |
+| Local rolling update, rollback and pod recovery | 10919 requests; 9943 overlapping the update; 0 failures; rollback and recovery passed | [raw local kind run](results/ops/local/kind-lifecycle.json) |
+| CI rolling update after termination draining | 2815 requests; 2561 overlapping the update; 0 failures | [raw kind run](results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.json) |
+
+An earlier update had [36 connection failures](results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/kind-lifecycle.json). I kept those samples and added an exit delay so endpoint updates can reach clients before the process stops. These are bounded single-node kind runs. The [Helm chart](deploy/helm/sentinel/README.md), [Bash commands](ops/README.md) and [database runbook](ops/RUNBOOK.md) reproduce the exercises; AWS remains validation-only.
+
 ## Following a signal
 
 All producers use [alert v1](contracts/README.md). An alert has a stable ID, source, entity, model version, evidence and trace ID. Numeric models attach a probability and decision threshold. An LLM label can have no probability; hybrid text routing identifies its TF-IDF probability separately from the label decision.

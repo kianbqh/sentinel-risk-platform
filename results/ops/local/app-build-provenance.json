@@ -1,0 +1,59 @@
+{
+  "app_build_git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "measurement_source_git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+  "verified_utc": "2026-11-02T06:22:50.0042644Z",
+  "component_git_tree_ids": {
+    "gateway": "f913e7e3f27350f54ce4837397eef45dbbb7e086",
+    "console/backend": "a1613f83cb77ba5a7b72c7db4d6466b5394ad403",
+    "console/frontend": "f08747f050ad312c0db09de9c0d31d7364888cac",
+    "streaming": "5801deae5f961fac9b16933f506ac5bcaafccc39",
+    "text-risk": "598fbf549eba890afbe9cb376153afa20a9b24d4",
+    "serving/model": "247975ba6fe470e358f4241259e0fea509afe5d4"
+  },
+  "app_component_diff_command": "git diff --name-only 67b2cb9c341c18722412cb7c32df626313bf9a9a d2a66ce38d6e1d7caf343924e2a0295632ecee7f -- gateway console/backend console/frontend streaming text-risk serving/model",
+  "app_component_diff_paths": [],
+  "tracked_source_diff": [],
+  "staged_source_diff": [],
+  "actual_built_images": [
+    {
+      "tag": [
+        "sentinel-risk-gateway:local"
+      ],
+      "image_id": "sha256:bf401667f1d81168b088e81df453449c7d4ad50767bd969e1d721227fb61050e",
+      "repo_digests": [
+        "sentinel-risk-gateway@sha256:bf401667f1d81168b088e81df453449c7d4ad50767bd969e1d721227fb61050e"
+      ],
+      "created": "2026-11-02T05:56:22.402234959Z"
+    },
+    {
+      "tag": [
+        "sentinel-risk-console-api:local"
+      ],
+      "image_id": "sha256:b5f7555f83c6253602c5d8a51d5abf5d656c8a95023ade5f98f90c105de4f23a",
+      "repo_digests": [
+        "sentinel-risk-console-api@sha256:b5f7555f83c6253602c5d8a51d5abf5d656c8a95023ade5f98f90c105de4f23a"
+      ],
+      "created": "2026-11-02T05:58:34.85402844Z"
+    },
+    {
+      "tag": [
+        "sentinel-risk-console:local"
+      ],
+      "image_id": "sha256:a07247349f73269818c01f5dc2b386dbcb8d17f7bcd9303be15755dd09aebd4a",
+      "repo_digests": [
+        "sentinel-risk-console@sha256:a07247349f73269818c01f5dc2b386dbcb8d17f7bcd9303be15755dd09aebd4a"
+      ],
+      "created": "2026-11-02T06:01:05.761897217Z"
+    },
+    {
+      "tag": [
+        "sentinel-risk-streaming:local"
+      ],
+      "image_id": "sha256:616d8110bc569fc96a61d789c980965d5bf2a8e5ddfbf108cdd38ec13b6da7e2",
+      "repo_digests": [
+        "sentinel-risk-streaming@sha256:616d8110bc569fc96a61d789c980965d5bf2a8e5ddfbf108cdd38ec13b6da7e2"
+      ],
+      "created": "2026-11-02T06:04:53.791915223Z"
+    }
+  ]
+}

@@ -1,0 +1,1028 @@
+{
+  "status": "passed",
+  "mode": "smoke",
+  "result": {
+    "health": {
+      "gateway/healthz": {
+        "status": 200,
+        "body": {
+          "status": "alive"
+        }
+      },
+      "gateway/readyz": {
+        "status": 200,
+        "body": {
+          "status": "ready",
+          "checks": {
+            "model": true,
+            "kafka": true,
+            "database": true
+          }
+        }
+      },
+      "backend/healthz": {
+        "status": 200,
+        "body": {
+          "status": "alive"
+        }
+      },
+      "backend/readyz": {
+        "status": 200,
+        "body": {
+          "checks": {
+            "database": true,
+            "kafka": true
+          },
+          "status": "ready"
+        }
+      }
+    },
+    "metric_endpoints_scraped": 3,
+    "targets": [
+      {
+        "discoveredLabels": {
+          "__address__": "backend:18041",
+          "__metrics_path__": "/metrics",
+          "__scheme__": "http",
+          "__scrape_interval__": "5s",
+          "__scrape_timeout__": "4s",
+          "job": "console-backend"
+        },
+        "labels": {
+          "instance": "backend:18041",
+          "job": "console-backend"
+        },
+        "scrapePool": "console-backend",
+        "scrapeUrl": "http://backend:18041/metrics",
+        "globalUrl": "http://backend:18041/metrics",
+        "lastError": "",
+        "lastScrape": "2026-11-02T06:25:26.083393774Z",
+        "lastScrapeDuration": 0.002956534,
+        "health": "up",
+        "scrapeInterval": "5s",
+        "scrapeTimeout": "4s"
+      },
+      {
+        "discoveredLabels": {
+          "__address__": "gateway:18040",
+          "__metrics_path__": "/metrics",
+          "__scheme__": "http",
+          "__scrape_interval__": "5s",
+          "__scrape_timeout__": "4s",
+          "job": "gateway"
+        },
+        "labels": {
+          "instance": "gateway:18040",
+          "job": "gateway"
+        },
+        "scrapePool": "gateway",
+        "scrapeUrl": "http://gateway:18040/metrics",
+        "globalUrl": "http://gateway:18040/metrics",
+        "lastError": "",
+        "lastScrape": "2026-11-02T06:25:23.306482869Z",
+        "lastScrapeDuration": 0.13178372,
+        "health": "up",
+        "scrapeInterval": "5s",
+        "scrapeTimeout": "4s"
+      },
+      {
+        "discoveredLabels": {
+          "__address__": "streaming:9108",
+          "__metrics_path__": "/metrics",
+          "__scheme__": "http",
+          "__scrape_interval__": "5s",
+          "__scrape_timeout__": "4s",
+          "job": "spark-scorer"
+        },
+        "labels": {
+          "instance": "streaming:9108",
+          "job": "spark-scorer"
+        },
+        "scrapePool": "spark-scorer",
+        "scrapeUrl": "http://streaming:9108/metrics",
+        "globalUrl": "http://streaming:9108/metrics",
+        "lastError": "",
+        "lastScrape": "2026-11-02T06:25:25.668026899Z",
+        "lastScrapeDuration": 0.061812618,
+        "health": "up",
+        "scrapeInterval": "5s",
+        "scrapeTimeout": "4s"
+      }
+    ],
+    "grafana": {
+      "health": {
+        "database": "ok",
+        "version": "12.2.1",
+        "commit": "563109b696e9c1cbaf345f2ab7a11f7f78422982"
+      },
+      "dashboard_uid": "sentinel-ops",
+      "panel_count": 8,
+      "panels_and_queries_verified": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "reqps"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 0
+          },
+          "id": 1,
+          "targets": [
+            {
+              "expr": "sum by (route) (rate(sentinel_gateway_http_requests_total[1m]))",
+              "legendFormat": "{{route}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Gateway requests per second",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "percentunit"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 0
+          },
+          "id": 2,
+          "targets": [
+            {
+              "expr": "sum(rate(sentinel_gateway_http_requests_total{status=~\"5..\"}[1m])) / clamp_min(sum(rate(sentinel_gateway_http_requests_total[1m])), 0.001)",
+              "legendFormat": "5xx fraction",
+              "refId": "A"
+            }
+          ],
+          "title": "Gateway 5xx fraction",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "id": 3,
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.5, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+              "legendFormat": "p50",
+              "refId": "A"
+            },
+            {
+              "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+              "legendFormat": "p95",
+              "refId": "B"
+            },
+            {
+              "expr": "histogram_quantile(0.99, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+              "legendFormat": "p99",
+              "refId": "C"
+            }
+          ],
+          "title": "Gateway request latency",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "id": 4,
+          "targets": [
+            {
+              "expr": "sentinel_consumer_lag",
+              "legendFormat": "{{topic}} p{{partition}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Alert consumer lag",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 16
+          },
+          "id": 5,
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_spark_batch_duration_seconds_bucket[1m])))",
+              "legendFormat": "batch p95",
+              "refId": "A"
+            },
+            {
+              "expr": "rate(sentinel_spark_batch_duration_seconds_sum[1m]) / clamp_min(rate(sentinel_spark_batch_duration_seconds_count[1m]), 0.001)",
+              "legendFormat": "batch mean",
+              "refId": "B"
+            }
+          ],
+          "title": "Spark batch duration",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "max": 1,
+              "min": 0
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 16
+          },
+          "id": 6,
+          "targets": [
+            {
+              "expr": "sentinel_dependency_ready",
+              "legendFormat": "{{job}} {{dependency}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Dependency readiness",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 24
+          },
+          "id": 7,
+          "targets": [
+            {
+              "expr": "sum(rate(sentinel_consumer_messages_total[1m]))",
+              "legendFormat": "messages",
+              "refId": "A"
+            },
+            {
+              "expr": "sum(rate(sentinel_consumer_duplicates_total[1m]))",
+              "legendFormat": "duplicates suppressed",
+              "refId": "B"
+            }
+          ],
+          "title": "Consumer messages and duplicates per second",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "sentinel-prometheus"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            }
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 24
+          },
+          "id": 8,
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_model_score_seconds_bucket[1m])))",
+              "legendFormat": "model score p95",
+              "refId": "A"
+            },
+            {
+              "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_db_transaction_seconds_bucket[1m])))",
+              "legendFormat": "DB transaction p95",
+              "refId": "B"
+            }
+          ],
+          "title": "Model and DB transaction p95",
+          "type": "timeseries"
+        }
+      ],
+      "datasource_uid": "sentinel-prometheus",
+      "datasource_type": "prometheus",
+      "datasource_url": "http://prometheus:9090",
+      "authenticated_api_verified": true
+    },
+    "runtime_container_images": [
+      {
+        "name": "/sentinel-m1b-ci-backend-1",
+        "requested_image": "sentinel-risk-console-api:local",
+        "image_id": "sha256:5f00177bab5cd9f749ac1f743091177c7dd54b6643474a3c9529831612ce1c45"
+      },
+      {
+        "name": "/sentinel-m1b-ci-console-1",
+        "requested_image": "sentinel-risk-console:local",
+        "image_id": "sha256:97b0c40c70e7ac7a4c19b88a2fd3842a77f4ae7bfa6c52f7c8101286fdca55bc"
+      },
+      {
+        "name": "/sentinel-m1b-ci-gateway-1",
+        "requested_image": "sentinel-risk-gateway:local",
+        "image_id": "sha256:4bb96b1b5b12a2263a6b27615b4bb52dde6e63f2e0fd4219db79888c0d4f3954"
+      },
+      {
+        "name": "/sentinel-m1b-ci-grafana-1",
+        "requested_image": "grafana/grafana:12.2.1",
+        "image_id": "sha256:bac4f177a0d5a5f8539398abee9c956472c55d98a4438e1c3d03247c3a302b19"
+      },
+      {
+        "name": "/sentinel-m1b-ci-jaeger-1",
+        "requested_image": "jaegertracing/all-in-one:1.76.0",
+        "image_id": "sha256:b0d7a1169c4ca6b61d502adc1c35deafa3ad96a129b872b9ee74606dbeba7833"
+      },
+      {
+        "name": "/sentinel-m1b-ci-postgres-1",
+        "requested_image": "postgres:17-alpine",
+        "image_id": "sha256:ab20e934b27ba3ff927c1b4c9ff8cf6c32f315f743efe68dd3441182a87fb085"
+      },
+      {
+        "name": "/sentinel-m1b-ci-prometheus-1",
+        "requested_image": "prom/prometheus:v3.7.3",
+        "image_id": "sha256:a683da7699127231b140f7dbd7d60e9741d51543ba91c656bf3287860a39428f"
+      },
+      {
+        "name": "/sentinel-m1b-ci-redpanda-1",
+        "requested_image": "redpandadata/redpanda:v25.2.9",
+        "image_id": "sha256:6df7c37c0b89eacf16c2195542b22b227a3d65844f5e3bdcf7807380bc286153"
+      },
+      {
+        "name": "/sentinel-m1b-ci-streaming-1",
+        "requested_image": "sentinel-risk-streaming:local",
+        "image_id": "sha256:a1d88665b61c248825bd0b32f8955ce3954ae5e237d6e96800123d5b58990312"
+      }
+    ],
+    "gateway_package_versions": {
+      "fastapi": "0.162.0",
+      "prometheus-client": "0.26.0",
+      "opentelemetry-sdk": "1.45.2",
+      "opentelemetry-exporter-otlp-proto-http": "1.45.2",
+      "kafka-python": "2.3.3",
+      "psycopg": "3.3.6",
+      "scikit-learn": "1.9.1"
+    }
+  },
+  "provenance": {
+    "timestamp": "2026-11-02T06:25:27.156476+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "git rev-parse HEAD",
+    "git_worktree_dirty": true,
+    "config_path": ".runtime/ops/ci-config.json",
+    "config_sha256": "d96ece55b62bf19e40f3c76c9f26282c248cb123e7a70ab1c6b5fac7a337aadd",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "GitHub-hosted Linux runner with Docker containers",
+    "kernel": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "python": "3.12.15",
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "logical_cpus": 4,
+    "gpu_driver_cuda": "not available",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"DefaultAPIVersion\":\"1.48\",\"GitCommit\":\"b8034c0\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Components\":[{\"Name\":\"Engine\",\"Version\":\"28.0.4\",\"Details\":{\"ApiVersion\":\"1.48\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Experimental\":\"false\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"KernelVersion\":\"7.0.0-1017-azure\",\"MinAPIVersion\":\"1.24\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.4.2\",\"Details\":{\"GitCommit\":\"b7a25261e029d68978bbf290df0a62fc819b3c51\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"v1.5.2-0-g29dd3dc2\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"MinAPIVersion\":\"1.24\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"KernelVersion\":\"7.0.0-1017-azure\",\"BuildTime\":\"2025-03-25T15:07:16.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.15"
+    },
+    "exact_command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python ops/verify.py smoke --config .runtime/ops/ci-config.json --output results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.json",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 2.248203679999989
+  },
+  "raw_event_log": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.events.jsonl",
+  "progress_events": [
+    {
+      "timestamp": "2026-11-02T06:25:25.094695+00:00",
+      "elapsed_seconds": 0.13734568200001718,
+      "event": "run_started",
+      "mode": "smoke",
+      "provenance": {
+        "timestamp": "2026-11-02T06:25:25.061178+00:00",
+        "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+        "git_sha_source": "git rev-parse HEAD",
+        "git_worktree_dirty": true,
+        "config_path": ".runtime/ops/ci-config.json",
+        "config_sha256": "d96ece55b62bf19e40f3c76c9f26282c248cb123e7a70ab1c6b5fac7a337aadd",
+        "source_sha256": {
+          "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+          "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+          "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+          "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+          "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+          "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+          "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+          "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+          "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+          "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+          "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+          "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+        },
+        "environment": "GitHub-hosted Linux runner with Docker containers",
+        "kernel": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+        "python": "3.12.15",
+        "cpu_model": "AMD EPYC 7763 64-Core Processor",
+        "logical_cpus": 4,
+        "gpu_driver_cuda": "not available",
+        "gpu_used": false,
+        "docker": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"DefaultAPIVersion\":\"1.48\",\"GitCommit\":\"b8034c0\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Components\":[{\"Name\":\"Engine\",\"Version\":\"28.0.4\",\"Details\":{\"ApiVersion\":\"1.48\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Experimental\":\"false\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"KernelVersion\":\"7.0.0-1017-azure\",\"MinAPIVersion\":\"1.24\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.4.2\",\"Details\":{\"GitCommit\":\"b7a25261e029d68978bbf290df0a62fc819b3c51\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"v1.5.2-0-g29dd3dc2\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"MinAPIVersion\":\"1.24\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"KernelVersion\":\"7.0.0-1017-azure\",\"BuildTime\":\"2025-03-25T15:07:16.000000000+00:00\"}}",
+        "package_versions": {
+          "python": "3.12.15"
+        },
+        "exact_command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python ops/verify.py smoke --config .runtime/ops/ci-config.json --output results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/smoke.json",
+        "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+        "wall_seconds": 0.1378559659999894
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:25.140600+00:00",
+      "elapsed_seconds": 0.18324871600000847,
+      "event": "http_health",
+      "service": "gateway",
+      "endpoint": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "alive"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:25.156720+00:00",
+      "elapsed_seconds": 0.19938605500001927,
+      "event": "http_health",
+      "service": "gateway",
+      "endpoint": "/readyz",
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "checks": {
+          "model": true,
+          "kafka": true,
+          "database": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:25.159696+00:00",
+      "elapsed_seconds": 0.20233934300000556,
+      "event": "http_health",
+      "service": "backend",
+      "endpoint": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "alive"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:25.161493+00:00",
+      "elapsed_seconds": 0.2041356809999968,
+      "event": "http_health",
+      "service": "backend",
+      "endpoint": "/readyz",
+      "status": 200,
+      "body": {
+        "checks": {
+          "database": true,
+          "kafka": true
+        },
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:25.163751+00:00",
+      "elapsed_seconds": 0.2063922899999966,
+      "event": "prometheus_targets",
+      "targets": [
+        {
+          "discoveredLabels": {
+            "__address__": "backend:18041",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "console-backend"
+          },
+          "labels": {
+            "instance": "backend:18041",
+            "job": "console-backend"
+          },
+          "scrapePool": "console-backend",
+          "scrapeUrl": "http://backend:18041/metrics",
+          "globalUrl": "http://backend:18041/metrics",
+          "lastError": "",
+          "lastScrape": "2026-11-02T06:25:21.083393774Z",
+          "lastScrapeDuration": 0.006606681,
+          "health": "up",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        },
+        {
+          "discoveredLabels": {
+            "__address__": "gateway:18040",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "gateway"
+          },
+          "labels": {
+            "instance": "gateway:18040",
+            "job": "gateway"
+          },
+          "scrapePool": "gateway",
+          "scrapeUrl": "http://gateway:18040/metrics",
+          "globalUrl": "http://gateway:18040/metrics",
+          "lastError": "",
+          "lastScrape": "2026-11-02T06:25:23.306482869Z",
+          "lastScrapeDuration": 0.13178372,
+          "health": "up",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        },
+        {
+          "discoveredLabels": {
+            "__address__": "streaming:9108",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "spark-scorer"
+          },
+          "labels": {
+            "instance": "streaming:9108",
+            "job": "spark-scorer"
+          },
+          "scrapePool": "spark-scorer",
+          "scrapeUrl": "http://streaming:9108/metrics",
+          "globalUrl": "http://streaming:9108/metrics",
+          "lastError": "Get \"http://streaming:9108/metrics\": dial tcp 172.18.0.8:9108: connect: connection refused",
+          "lastScrape": "2026-11-02T06:25:20.668026899Z",
+          "lastScrapeDuration": 0.002036046,
+          "health": "down",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.167605+00:00",
+      "elapsed_seconds": 1.2102570430000128,
+      "event": "http_health",
+      "service": "gateway",
+      "endpoint": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "alive"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.181422+00:00",
+      "elapsed_seconds": 1.2240740340000116,
+      "event": "http_health",
+      "service": "gateway",
+      "endpoint": "/readyz",
+      "status": 200,
+      "body": {
+        "status": "ready",
+        "checks": {
+          "model": true,
+          "kafka": true,
+          "database": true
+        }
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.183055+00:00",
+      "elapsed_seconds": 1.2256990820000055,
+      "event": "http_health",
+      "service": "backend",
+      "endpoint": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "alive"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.184769+00:00",
+      "elapsed_seconds": 1.2274125970000114,
+      "event": "http_health",
+      "service": "backend",
+      "endpoint": "/readyz",
+      "status": 200,
+      "body": {
+        "checks": {
+          "database": true,
+          "kafka": true
+        },
+        "status": "ready"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.186145+00:00",
+      "elapsed_seconds": 1.2287867459999973,
+      "event": "prometheus_targets",
+      "targets": [
+        {
+          "discoveredLabels": {
+            "__address__": "backend:18041",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "console-backend"
+          },
+          "labels": {
+            "instance": "backend:18041",
+            "job": "console-backend"
+          },
+          "scrapePool": "console-backend",
+          "scrapeUrl": "http://backend:18041/metrics",
+          "globalUrl": "http://backend:18041/metrics",
+          "lastError": "",
+          "lastScrape": "2026-11-02T06:25:26.083393774Z",
+          "lastScrapeDuration": 0.002956534,
+          "health": "up",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        },
+        {
+          "discoveredLabels": {
+            "__address__": "gateway:18040",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "gateway"
+          },
+          "labels": {
+            "instance": "gateway:18040",
+            "job": "gateway"
+          },
+          "scrapePool": "gateway",
+          "scrapeUrl": "http://gateway:18040/metrics",
+          "globalUrl": "http://gateway:18040/metrics",
+          "lastError": "",
+          "lastScrape": "2026-11-02T06:25:23.306482869Z",
+          "lastScrapeDuration": 0.13178372,
+          "health": "up",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        },
+        {
+          "discoveredLabels": {
+            "__address__": "streaming:9108",
+            "__metrics_path__": "/metrics",
+            "__scheme__": "http",
+            "__scrape_interval__": "5s",
+            "__scrape_timeout__": "4s",
+            "job": "spark-scorer"
+          },
+          "labels": {
+            "instance": "streaming:9108",
+            "job": "spark-scorer"
+          },
+          "scrapePool": "spark-scorer",
+          "scrapeUrl": "http://streaming:9108/metrics",
+          "globalUrl": "http://streaming:9108/metrics",
+          "lastError": "",
+          "lastScrape": "2026-11-02T06:25:25.668026899Z",
+          "lastScrapeDuration": 0.061812618,
+          "health": "up",
+          "scrapeInterval": "5s",
+          "scrapeTimeout": "4s"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.187533+00:00",
+      "elapsed_seconds": 1.230174481000006,
+      "event": "grafana_health",
+      "status": 200,
+      "response": {
+        "database": "ok",
+        "version": "12.2.1",
+        "commit": "563109b696e9c1cbaf345f2ab7a11f7f78422982"
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:26.241965+00:00",
+      "elapsed_seconds": 1.2846157270000162,
+      "event": "grafana_provisioning_verified",
+      "result": {
+        "health": {
+          "database": "ok",
+          "version": "12.2.1",
+          "commit": "563109b696e9c1cbaf345f2ab7a11f7f78422982"
+        },
+        "dashboard_uid": "sentinel-ops",
+        "panel_count": 8,
+        "panels_and_queries_verified": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "reqps"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 0
+            },
+            "id": 1,
+            "targets": [
+              {
+                "expr": "sum by (route) (rate(sentinel_gateway_http_requests_total[1m]))",
+                "legendFormat": "{{route}}",
+                "refId": "A"
+              }
+            ],
+            "title": "Gateway requests per second",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "percentunit"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 0
+            },
+            "id": 2,
+            "targets": [
+              {
+                "expr": "sum(rate(sentinel_gateway_http_requests_total{status=~\"5..\"}[1m])) / clamp_min(sum(rate(sentinel_gateway_http_requests_total[1m])), 0.001)",
+                "legendFormat": "5xx fraction",
+                "refId": "A"
+              }
+            ],
+            "title": "Gateway 5xx fraction",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "s"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 8
+            },
+            "id": 3,
+            "targets": [
+              {
+                "expr": "histogram_quantile(0.5, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+                "legendFormat": "p50",
+                "refId": "A"
+              },
+              {
+                "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+                "legendFormat": "p95",
+                "refId": "B"
+              },
+              {
+                "expr": "histogram_quantile(0.99, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))",
+                "legendFormat": "p99",
+                "refId": "C"
+              }
+            ],
+            "title": "Gateway request latency",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "short"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 8
+            },
+            "id": 4,
+            "targets": [
+              {
+                "expr": "sentinel_consumer_lag",
+                "legendFormat": "{{topic}} p{{partition}}",
+                "refId": "A"
+              }
+            ],
+            "title": "Alert consumer lag",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "s"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 16
+            },
+            "id": 5,
+            "targets": [
+              {
+                "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_spark_batch_duration_seconds_bucket[1m])))",
+                "legendFormat": "batch p95",
+                "refId": "A"
+              },
+              {
+                "expr": "rate(sentinel_spark_batch_duration_seconds_sum[1m]) / clamp_min(rate(sentinel_spark_batch_duration_seconds_count[1m]), 0.001)",
+                "legendFormat": "batch mean",
+                "refId": "B"
+              }
+            ],
+            "title": "Spark batch duration",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "max": 1,
+                "min": 0
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 16
+            },
+            "id": 6,
+            "targets": [
+              {
+                "expr": "sentinel_dependency_ready",
+                "legendFormat": "{{job}} {{dependency}}",
+                "refId": "A"
+              }
+            ],
+            "title": "Dependency readiness",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 24
+            },
+            "id": 7,
+            "targets": [
+              {
+                "expr": "sum(rate(sentinel_consumer_messages_total[1m]))",
+                "legendFormat": "messages",
+                "refId": "A"
+              },
+              {
+                "expr": "sum(rate(sentinel_consumer_duplicates_total[1m]))",
+                "legendFormat": "duplicates suppressed",
+                "refId": "B"
+              }
+            ],
+            "title": "Consumer messages and duplicates per second",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "sentinel-prometheus"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "unit": "s"
+              }
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 24
+            },
+            "id": 8,
+            "targets": [
+              {
+                "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_model_score_seconds_bucket[1m])))",
+                "legendFormat": "model score p95",
+                "refId": "A"
+              },
+              {
+                "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_db_transaction_seconds_bucket[1m])))",
+                "legendFormat": "DB transaction p95",
+                "refId": "B"
+              }
+            ],
+            "title": "Model and DB transaction p95",
+            "type": "timeseries"
+          }
+        ],
+        "datasource_uid": "sentinel-prometheus",
+        "datasource_type": "prometheus",
+        "datasource_url": "http://prometheus:9090",
+        "authenticated_api_verified": true
+      }
+    }
+  ]
+}

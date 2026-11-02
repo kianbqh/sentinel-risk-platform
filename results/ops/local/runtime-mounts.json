@@ -1,0 +1,187 @@
+{
+  "status": "passed",
+  "actual_mounts_and_ports": [
+    {
+      "name": "/sentinel-m1b-ops-prometheus-1",
+      "id": "bc82df213bd724916975ab1457578b7d22656bc33c1f69d4c4e3270446867389",
+      "mounts": [
+        {
+          "Destination": "/prometheus",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "sentinel-m1b-ops_prometheus-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/sentinel-m1b-ops_prometheus-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/prometheus",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/prometheus",
+          "Type": "bind"
+        }
+      ],
+      "ports": {
+        "9090/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "19090"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/sentinel-m1b-ops-grafana-1",
+      "id": "5f9803881375e04e090d9bccc2eaccad9e38853ae4ff29bd618782df4f7c25da",
+      "mounts": [
+        {
+          "Destination": "/var/lib/grafana/dashboards",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/grafana/dashboards",
+          "Type": "bind"
+        },
+        {
+          "Destination": "/var/lib/grafana",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "sentinel-m1b-ops_grafana-data",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/sentinel-m1b-ops_grafana-data/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/etc/grafana/provisioning",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": false,
+          "Source": "/run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/grafana/provisioning",
+          "Type": "bind"
+        }
+      ],
+      "ports": {
+        "3000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "13041"
+          }
+        ]
+      }
+    },
+    {
+      "name": "/sentinel-m1b-ops-streaming-1",
+      "id": "1e8e0f1367e0f7f903f75f8f13426c08f1c740bd8ad807cd3a27cd2dfdada591",
+      "mounts": [
+        {
+          "Destination": "/state",
+          "Driver": "local",
+          "Mode": "rw",
+          "Name": "sentinel-m1b-ops_spark-state",
+          "Propagation": "",
+          "RW": true,
+          "Source": "/var/lib/docker/volumes/sentinel-m1b-ops_spark-state/_data",
+          "Type": "volume"
+        },
+        {
+          "Destination": "/results",
+          "Mode": "",
+          "Propagation": "rprivate",
+          "RW": true,
+          "Source": "/run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/.runtime/ops/spark",
+          "Type": "bind"
+        }
+      ],
+      "ports": {}
+    },
+    {
+      "name": "/sentinel-m1b-ops-backend-1",
+      "id": "a1b79542fe250aa336640f3f814f9ce843cdfdc3f83798543de5e7deb73957c0",
+      "mounts": [],
+      "ports": {
+        "18041/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "18041"
+          }
+        ]
+      }
+    }
+  ],
+  "files_verified_byte_identical": [
+    {
+      "container": "sentinel-m1b-ops-prometheus-1",
+      "guest_file": "/etc/prometheus/prometheus.yml",
+      "host_file": "ops/prometheus/prometheus.yml",
+      "sha256": "599a1adfe3384d28c1b2e1af7cbf7ff12126878b50f2a4ace033a8f00addac55"
+    },
+    {
+      "container": "sentinel-m1b-ops-prometheus-1",
+      "guest_file": "/etc/prometheus/rules.yml",
+      "host_file": "ops/prometheus/rules.yml",
+      "sha256": "92c7f125e21240d1211de84589efe7b3fbcf33d5395cecd07bda224b7c8e49d1"
+    },
+    {
+      "container": "sentinel-m1b-ops-grafana-1",
+      "guest_file": "/etc/grafana/provisioning/datasources/prometheus.yml",
+      "host_file": "ops/grafana/provisioning/datasources/prometheus.yml",
+      "sha256": "e989bbf879108476b3284d36ac4a553196bc090e9cef488a6e1f4ebd5e326bb6"
+    },
+    {
+      "container": "sentinel-m1b-ops-grafana-1",
+      "guest_file": "/var/lib/grafana/dashboards/sentinel.json",
+      "host_file": "ops/grafana/dashboards/sentinel.json",
+      "sha256": "c2054187a9401ac4bcf5b621bdd6470aeec422d8920824097cfcda2de8987bff"
+    },
+    {
+      "container": "sentinel-m1b-ops-streaming-1",
+      "guest_file": "/opt/stream/model/lr_model.json",
+      "host_file": "streaming/model/lr_model.json",
+      "sha256": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1"
+    }
+  ],
+  "desktop_override_sha256": "86c780e2456ec4f22295370da793d788dba28ff513f3c9179e31ab6f449bd4d1",
+  "prior_empty_bind_diagnostics": ".runtime/ops/mount-diagnostics-redacted.json",
+  "prior_missing_backend_port_diagnostics": ".runtime/ops/backend-port-diagnostics.json",
+  "provenance": {
+    "timestamp": "2026-11-02T06:41:18.041186+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "caller supplied from native Git",
+    "git_worktree_dirty": true,
+    "config_path": "results/ops/local/config.json",
+    "config_sha256": "4a2773acbfec51fd72865be79ad3cf90943733d7cd113806069c310e7bbd415d",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "WSL2 CodexResearchATTAlf01 on Windows; targets run in Docker Desktop 29.3.1",
+    "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "logical_cpus": 20,
+    "gpu_driver_cuda": "Sun Nov  1 22:41:18 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   43C    P3             81W /  350W |    2019MiB /  12288MiB |     20%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.3",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "docker inspect scoped mounts/ports and docker exec sha256sum; coordinator run-canonical-d2a66ce.sh",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 1.4901092700019944
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "environment": "WSL2 CodexResearchATTAlf01, local[2], G-backed Linux disk",
+  "source_checkpoint": "880275a83a6541d3ba3cb3cfe5d10dac7621a2db",
+  "scope": "Full Scala correctness suite with synthetic MemoryStream/listener/HTTP metrics fixture",
+  "command": "bash scripts/test_metrics.sh /mnt/g/ResumeProject/platforms/sentinel-risk-platform/results/ops/local/scala",
+  "no_service_performance_measurement": true
+}

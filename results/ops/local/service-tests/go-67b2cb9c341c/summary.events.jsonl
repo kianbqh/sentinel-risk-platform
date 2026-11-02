@@ -1,0 +1,2 @@
+{"timestamp": "2026-11-02T05:47:24.819443+00:00", "elapsed_seconds": 0.5473057110066293, "event": "full_go_test_started", "command": ["bash", "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1b/services/go-test.sh"], "exact_inner_command": "go test -mod=readonly -race -count=1 -v ./..."}
+{"timestamp": "2026-11-02T05:53:12.477718+00:00", "elapsed_seconds": 348.21862058900297, "event": "full_go_test_finished", "status": "passed", "returncode": 0, "tracked_source_unchanged": true}

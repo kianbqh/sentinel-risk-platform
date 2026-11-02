@@ -53,7 +53,7 @@ bash scripts/test_metrics.sh /path/on/G/new-scala-evidence
 
 The script saves `scala-tests.log`, `scala-progress.jsonl`, `scala-metrics.prom` and `scala-metrics-smoke.json`. The JSON records the source commit, per-file source hashes, config hash, runtime versions, CPU, exact command and wall time. `STREAM_METRICS_SOURCE_STATE` can describe any local edits. Add `--metrics-only` after the directory to run just the metrics suite. The check is a correctness smoke test with no warm-up and one run; it is not a latency benchmark.
 
-The local ops evidence retains the [smoke summary](../results/ops/local/scala-metrics-smoke.json), [actual scrape](../results/ops/local/scala-metrics.prom) and [raw Spark progress](../results/ops/local/scala-progress.jsonl). `recentProgress` includes idle snapshots that can reuse the next real batch ID. The fixture's duration check selects its nonempty input batches; the exporter observes `onQueryProgress` events and does not count idle snapshots as completed batches.
+The local ops evidence retains the [smoke summary](../results/ops/local/scala/scala-metrics-smoke.json), [actual scrape](../results/ops/local/scala/scala-metrics.prom) and [raw Spark progress](../results/ops/local/scala/scala-progress.jsonl). `recentProgress` includes idle snapshots that can reuse the next real batch ID. The fixture's duration check selects its nonempty input batches; the exporter observes `onQueryProgress` events and does not count idle snapshots as completed batches.
 
 ## Limitations
 

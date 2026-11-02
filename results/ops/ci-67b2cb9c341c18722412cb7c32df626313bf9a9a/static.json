@@ -1,0 +1,148 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "command": [
+        "promtool",
+        "check",
+        "rules",
+        "ops/prometheus/rules.yml"
+      ],
+      "exit_code": 0,
+      "stdout": "Checking ops/prometheus/rules.yml\n  SUCCESS: 5 rules found\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "promtool",
+        "test",
+        "rules",
+        "ops/prometheus/rules.test.yml"
+      ],
+      "exit_code": 0,
+      "stdout": "  SUCCESS\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "shellcheck",
+        "ops/sentinelctl.sh",
+        "ops/scripts/up.sh",
+        "ops/scripts/kind.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bats",
+        "ops/tests/sentinelctl.bats"
+      ],
+      "exit_code": 0,
+      "stdout": "1..5\nok 1 help has no external side effects\nok 2 invalid commands and shell-like image tags are rejected\nok 3 rollout scopes the release namespace and context\nok 4 rollback selects the actual previous Helm revision\nok 5 drill delegates to the real evidence runner\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+        "-m",
+        "pytest",
+        "--capture=sys",
+        "-q",
+        "ops/tests"
+      ],
+      "exit_code": 0,
+      "stdout": "........                                                                 [100%]\n8 passed in 0.04s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "helm",
+        "lint",
+        "deploy/helm/sentinel",
+        "--set-string",
+        "auth.postgresPassword=lint-only,auth.jwtSecret=lint-only-0000000000000000000000000000"
+      ],
+      "exit_code": 0,
+      "stdout": "==> Linting deploy/helm/sentinel\n[INFO] Chart.yaml: icon is recommended\n\n1 chart(s) linted, 0 chart(s) failed\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "helm",
+        "template",
+        "m1b",
+        "deploy/helm/sentinel",
+        "|",
+        "kubeconform",
+        "-strict",
+        "-summary"
+      ],
+      "variant": "bundled Kafka",
+      "exit_code": 0,
+      "stdout": "Summary: 15 resources found parsing stdin - Valid: 15, Invalid: 0, Errors: 0, Skipped: 0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "helm",
+        "template",
+        "m1b",
+        "deploy/helm/sentinel",
+        "|",
+        "kubeconform",
+        "-strict",
+        "-summary"
+      ],
+      "variant": "external Kafka and persistent Postgres",
+      "exit_code": 0,
+      "stdout": "Summary: 13 resources found parsing stdin - Valid: 13, Invalid: 0, Errors: 0, Skipped: 0\n",
+      "stderr": ""
+    }
+  ],
+  "alert_rule_test_groups_passed": 9,
+  "alert_rule_assertions_passed": 15,
+  "tool_versions": {
+    "helm": "v3.19.0+g3d8990f",
+    "kubeconform": "v0.7.0",
+    "promtool": "promtool, version 3.7.3 (branch: HEAD, revision: 0a41f0000705c69ab8e0f9a723fc73e39ed62b07)\n  build user:       root@08c890a84441\n  build date:       20251030-07:26:10\n  go version:       go1.25.3\n  platform:         linux/amd64\n  tags:             netgo,builtinassets",
+    "shellcheck": "ShellCheck - shell script analysis tool\nversion: 0.11.0\nlicense: GNU General Public License, version 3\nwebsite: https://www.shellcheck.net",
+    "bats": "Bats 1.12.0"
+  },
+  "provenance": {
+    "timestamp": "2026-11-02T05:47:24.017386+00:00",
+    "git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+    "git_sha_source": "git rev-parse HEAD",
+    "git_worktree_dirty": false,
+    "config_path": ".runtime/ops/ci-config.json",
+    "config_sha256": "1f4e5e2f6b047ff6767b8acebfaf56bf6c5a238907f9ae31a02a40372bea3cdb",
+    "source_sha256": {
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "GitHub-hosted Linux runner, CPU validation",
+    "kernel": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "python": "3.12.15",
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 4,
+    "gpu_driver_cuda": "not available",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"DefaultAPIVersion\":\"1.48\",\"GitCommit\":\"b8034c0\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Components\":[{\"Name\":\"Engine\",\"Version\":\"28.0.4\",\"Details\":{\"ApiVersion\":\"1.48\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Experimental\":\"false\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"KernelVersion\":\"7.0.0-1017-azure\",\"MinAPIVersion\":\"1.24\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.4.2\",\"Details\":{\"GitCommit\":\"b7a25261e029d68978bbf290df0a62fc819b3c51\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"v1.5.2-0-g29dd3dc2\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"MinAPIVersion\":\"1.24\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"KernelVersion\":\"7.0.0-1017-azure\",\"BuildTime\":\"2025-03-25T15:07:16.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.15",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python ops/static_check.py --config .runtime/ops/ci-config.json --output results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/static.json",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 1.6647949560000015
+  }
+}
