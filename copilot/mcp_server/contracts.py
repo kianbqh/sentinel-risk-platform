@@ -20,6 +20,22 @@ def failure(code, message):
     return {"ok": False, "error": {"code": code, "message": message}}
 
 
+def validate_envelope(value):
+    """Require the exact structured success/failure contract on both boundaries."""
+    if not isinstance(value, dict) or type(value.get("ok")) is not bool:
+        raise ValueError("Tool response must contain a Boolean ok field")
+    if value["ok"]:
+        if set(value) != {"ok", "data"} or not isinstance(value["data"], dict):
+            raise ValueError("Successful tool response must contain exactly ok and object data")
+    else:
+        error = value.get("error")
+        if set(value) != {"ok", "error"} or not isinstance(error, dict) or set(error) != {"code", "message"}:
+            raise ValueError("Failed tool response must contain exactly ok and a typed error")
+        if any(not isinstance(error[key], str) or not error[key] for key in ("code", "message")):
+            raise ValueError("Tool error code/message must be nonempty strings")
+    return value
+
+
 def positive_id(value):
     if type(value) is not int or not 1 <= value <= 9223372036854775807:
         raise ToolRejected("invalid_arguments", "case_id must be a positive integer")

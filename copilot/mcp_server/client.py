@@ -2,7 +2,7 @@
 from contextlib import AsyncExitStack
 from typing import Protocol
 
-from .contracts import failure, validate_call
+from .contracts import failure, validate_call, validate_envelope
 
 
 class ToolClient(Protocol):
@@ -49,7 +49,9 @@ class MCPToolClient:
             if result.is_error:
                 return failure("mcp_rejected", "MCP server rejected the tool call")
             data = result.structured_content
-            if not isinstance(data, dict) or type(data.get("ok")) is not bool:
+            try:
+                validate_envelope(data)
+            except ValueError:
                 raise ToolTransportError("MCP response envelope is invalid")
             return data
         except ToolTransportError:

@@ -50,6 +50,7 @@ class RealHTTPTest(unittest.TestCase):
         async def check():
             async with MCPToolClient(self.endpoint,TOKENS["valid"]) as client:
                 result=await client.call("get_case",{"case_id":1})
+                self.assertEqual(set(result),{"ok","data"})
                 self.assertTrue(result["ok"])
                 self.assertEqual(result["data"]["case_id"],1)
                 result=await client.call("score_transaction",{"features":dict.fromkeys(FEATURE_NAMES,0.)})
@@ -57,6 +58,7 @@ class RealHTTPTest(unittest.TestCase):
             async with MCPToolClient(self.endpoint,TOKENS["limited"]) as client:
                 result=await client.call("get_case",{"case_id":1})
                 self.assertEqual(result["error"]["code"],"forbidden")
+                self.assertEqual(set(result),{"ok","error"})
                 self.assertTrue((await client.call("list_case_events",{"case_id":1}))["ok"])
         asyncio.run(check())
 
@@ -67,6 +69,9 @@ class RealHTTPTest(unittest.TestCase):
                 listed=await client._client.list_tools()
                 self.assertEqual({tool.name for tool in listed.tools},set(TOOL_SCOPES))
                 for tool in listed.tools:self.assertFalse(tool.input_schema["additionalProperties"])
+                for tool in listed.tools:
+                    self.assertIsNotNone(tool.output_schema)
+                    self.assertIn("oneOf",tool.output_schema)
                 for name,args in (("label_case",{"case_id":1}),("get_case",{"case_id":1,"publish":True}),
                     ("get_case",{"case_id":True}),("score_transaction",{"features":{},"publish":True})):
                     try:

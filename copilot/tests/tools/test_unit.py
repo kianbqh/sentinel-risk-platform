@@ -11,7 +11,7 @@ from unittest import mock
 
 from copilot.db.persistence import validate_turn
 from copilot.db.vectors import vector_literal
-from copilot.mcp_server.contracts import FEATURE_NAMES,TOOL_SCOPES,ToolRejected,validate_call,tool_schemas
+from copilot.mcp_server.contracts import FEATURE_NAMES,TOOL_SCOPES,ToolRejected,validate_call,tool_schemas,validate_envelope
 from copilot.mcp_server.explanation import ExactExplainer,MODEL_SHA256
 from copilot.mcp_server.gateway import GatewayScorer
 from copilot.mcp_server.service import ToolService
@@ -21,6 +21,14 @@ from copilot.scripts.provenance import RunRecord,git_output,git_snapshot,verify_
 
 
 class ContractsTest(unittest.TestCase):
+    def test_exact_structured_envelope_rejects_null_wrapped_and_malformed(self):
+        for value in ({"ok":True,"data":{}},{"ok":False,"error":{"code":"forbidden","message":"Scope missing"}}):
+            self.assertEqual(validate_envelope(value),value)
+        malformed=(None,{"result":{"ok":True,"data":{}}},{"ok":1,"data":{}},{"ok":True},
+            {"ok":True,"data":[]},{"ok":True,"data":{},"error":{}},{"ok":False,"error":"bad"},
+            {"ok":False,"error":{"code":"bad","message":"x","extra":True}},{"ok":False,"error":{"code":"","message":"x"}})
+        for value in malformed:
+            with self.subTest(value=value),self.assertRaises(ValueError):validate_envelope(value)
     def test_exact_allowlist(self):
         self.assertEqual(set(TOOL_SCOPES),{"get_case","list_case_events","score_transaction","explain_score","search_similar_cases"})
         for name in ("label_case","resolve_case","assign_case","sql","fetch_url",""):
