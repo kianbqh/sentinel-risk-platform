@@ -28,6 +28,8 @@
     "gateway_local_port": 18140,
     "backend_local_port": 18141,
     "frontend_local_port": 13140,
+    "initial_smoke_timeout_seconds": 60,
+    "initial_smoke_poll_seconds": 0.5,
     "rollout_timeout_seconds": 300
   }
 }

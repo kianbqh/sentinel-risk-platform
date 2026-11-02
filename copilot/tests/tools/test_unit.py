@@ -10,6 +10,7 @@ import unittest
 from unittest import mock
 
 from copilot.db.persistence import validate_turn
+from copilot.db.reader import PostgresCaseReader,select_unique_neighbors
 from copilot.db.vectors import vector_literal
 from copilot.mcp_server.contracts import FEATURE_NAMES,TOOL_SCOPES,ToolRejected,validate_call,tool_schemas,validate_envelope
 from copilot.mcp_server.explanation import ExactExplainer,MODEL_SHA256
@@ -132,6 +133,33 @@ class ExplanationTest(unittest.TestCase):
 
 
 class RetrievalTest(unittest.TestCase):
+    @staticmethod
+    def neighbor(case_id,entity,digest,similarity):
+        return {"case_id":case_id,"alert_id":"case:"+str(case_id),"source":"transaction-api","summary":"Fixture",
+            "similarity":similarity,"entity_key":entity,"evidence_sha256":digest}
+
+    def test_unique_entities_and_evidence_after_nearest_first_selection(self):
+        rows=[self.neighbor(1,"query","query-hash",1.),self.neighbor(1000001,"A","hash-A",.99),
+            self.neighbor(1000121,"A","hash-A",.99),self.neighbor(2,"B","hash-A",.98),
+            self.neighbor(3,"A","hash-C",.97),self.neighbor(4,"C","hash-C",.96),self.neighbor(5,"B","hash-B",.95)]
+        result=select_unique_neighbors(rows,3,query_case_id=1,query_entity_key="query",query_evidence_sha256="query-hash")
+        self.assertEqual([row["case_id"] for row in result],[1000001,4,5])
+        self.assertTrue(all(set(row)=={"case_id","alert_id","source","summary","similarity"} for row in result))
+
+    def test_reader_scans_beyond_duplicate_prefix_before_k_selection(self):
+        rows=[self.neighbor(i,"A","hash-A",.99) for i in range(2,22)]
+        rows.extend([self.neighbor(22,"B","hash-B",.8),self.neighbor(23,"C","hash-C",.7)])
+        query={"embedding":"[1,0]","entity_key":"query","evidence_sha256":"query-hash"}
+        first=type("Cursor",(),{"fetchone":lambda self:query})()
+        second=type("Cursor",(),{"fetchall":lambda self:rows})()
+        conn=mock.MagicMock();conn.__enter__.return_value=conn;conn.execute.side_effect=[first,second]
+        reader=PostgresCaseReader("unused",embedding_model="fixed",embedding_revision="fixed")
+        with mock.patch.object(reader,"_connect",return_value=conn):result=reader.search_similar_cases(1,3)
+        self.assertEqual([row["case_id"] for row in result["neighbors"]],[2,22,23])
+        sql=conn.execute.call_args_list[1].args[0]
+        self.assertNotIn("LIMIT",sql.upper())
+        self.assertIn("ORDER BY v.embedding <=> %s::vector, v.case_id",sql)
+
     def test_no_outcomes_ids_or_predictions_in_embedding(self):
         raw={name:float(i+1) for i,name in enumerate(ATO_FEATURES)}
         base=evidence_text("ato",raw)

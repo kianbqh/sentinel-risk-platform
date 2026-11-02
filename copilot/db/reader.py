@@ -10,6 +10,22 @@ def json_value(value):
     return value
 
 
+def select_unique_neighbors(ordered_rows, k, *, query_case_id, query_entity_key, query_evidence_sha256):
+    """Consume distance/case-id ordered rows; only selected rows claim a key."""
+    neighbors, entities, evidence = [], set(), set()
+    for row in ordered_rows:
+        entity, digest = row["entity_key"], row["evidence_sha256"]
+        if (row["case_id"] == query_case_id or entity == query_entity_key or digest == query_evidence_sha256
+                or entity in entities or digest in evidence):
+            continue
+        entities.add(entity)
+        evidence.add(digest)
+        neighbors.append({key: row[key] for key in ("case_id", "alert_id", "source", "summary", "similarity")})
+        if len(neighbors) == k:
+            break
+    return neighbors
+
+
 class PostgresCaseReader:
     def __init__(self, dsn, *, embedding_model, embedding_revision):
         self.dsn = dsn
@@ -38,13 +54,17 @@ class PostgresCaseReader:
                 (case_id, self.embedding_model, self.embedding_revision)).fetchone()
             if query is None:
                 raise ToolRejected("embedding_unavailable", "Case has no matching pinned evidence embedding")
-            rows = conn.execute("""SELECT v.case_id, e.alert_id, e.source, e.summary,
+            # Exact scan of the bounded local fixture queue. Fetch the ordered
+            # candidates before deduplication: LIMIT k could return only clones.
+            rows = conn.execute("""SELECT v.case_id, e.alert_id, e.source, e.summary, v.entity_key, v.evidence_sha256,
                 1-(v.embedding <=> %s::vector) AS similarity
                 FROM copilot.case_vectors_read v JOIN copilot.case_evidence e USING(case_id)
                 WHERE v.case_id<>%s AND v.entity_key<>%s AND v.evidence_sha256<>%s
                 AND v.embedding_model=%s AND v.embedding_revision=%s
-                ORDER BY v.embedding <=> %s::vector, v.case_id LIMIT %s""",
+                ORDER BY v.embedding <=> %s::vector, v.case_id""",
                 (str(query["embedding"]), case_id, query["entity_key"], query["evidence_sha256"],
-                 self.embedding_model, self.embedding_revision, str(query["embedding"]), k)).fetchall()
+                 self.embedding_model, self.embedding_revision, str(query["embedding"]))).fetchall()
+        neighbors = select_unique_neighbors(rows, k, query_case_id=case_id,
+            query_entity_key=query["entity_key"], query_evidence_sha256=query["evidence_sha256"])
         return {"case_id": case_id, "metric": "cosine", "embedding_model": self.embedding_model,
-            "embedding_revision": self.embedding_revision, "neighbors": [dict(row) for row in rows]}
+            "embedding_revision": self.embedding_revision, "neighbors": neighbors}

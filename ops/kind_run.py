@@ -56,6 +56,68 @@ def validate_serving_state(deployment, all_pods, endpoint_slices, expected_tag):
     return ready
 
 
+INITIAL_SMOKE_SOURCE = r'''
+import json,sys,time,urllib.request
+cfg=json.loads(sys.argv[1]); timeout=float(sys.argv[2]); statuses={}
+for name,url in cfg.items():
+ started=time.time_ns(); status=None; error=None
+ try:
+  with urllib.request.urlopen(url,timeout=timeout) as response:
+   status=response.status
+ except Exception as exc:
+  status=getattr(exc,"code",None); error=str(exc)
+ print(json.dumps({"event":"service_probe","service":name,"url":url,"start_unix_ns":started,"end_unix_ns":time.time_ns(),"status":status,"error":error}),flush=True)
+ if status!=200: sys.exit(1)
+ statuses[name]=status
+print(json.dumps({"service_status":statuses}),flush=True)
+'''
+
+
+def wait_for_initial_smoke(probe, journal, expected_services, timeout, interval=.5,
+                          *, monotonic=time.monotonic, sleep=time.sleep):
+    """Bound initial Service warmup only; journal every failed or successful attempt."""
+    if not expected_services or not 0 < timeout < float("inf") or not 0 < interval < float("inf"):
+        raise ValueError("Initial smoke requires services and finite positive timeout/poll seconds")
+    started = monotonic()
+    deadline = started + timeout
+    attempt = 0
+    expected = {name: 200 for name in expected_services}
+    while monotonic() < deadline:
+        attempt += 1
+        before = monotonic()
+        remaining = deadline - before
+        if remaining <= 0:
+            break
+        journal.record("initial_service_smoke_attempt_started", attempt=attempt, remaining_budget_seconds=remaining)
+        try:
+            process = probe(remaining)
+        except subprocess.TimeoutExpired as error:
+            def decoded(value):
+                return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value
+            journal.record("initial_service_smoke_attempt", attempt=attempt, timed_out=True,
+                           duration_seconds=monotonic() - before, remaining_budget_seconds=remaining,
+                           command=error.cmd, stdout=decoded(error.stdout), stderr=decoded(error.stderr))
+            raise RuntimeError("Initial Service HTTP smoke exhausted its startup deadline") from error
+        journal.record("initial_service_smoke_attempt", attempt=attempt, timed_out=False,
+                       duration_seconds=monotonic() - before, remaining_budget_seconds=remaining,
+                       command=process.args, exit_code=process.returncode, stdout=process.stdout,
+                       stderr=process.stderr)
+        if process.returncode == 0:
+            try:
+                result = json.loads(process.stdout.splitlines()[-1])
+            except (ValueError, IndexError) as error:
+                raise RuntimeError("Initial Service HTTP smoke emitted no valid summary") from error
+            if result.get("service_status") != expected:
+                raise RuntimeError("Initial Service HTTP smoke did not verify every expected Service")
+            # Reject a probe which only completed after the total startup budget.
+            if monotonic() > deadline:
+                break
+            return {**result, "attempts": attempt, "duration_seconds": monotonic() - started,
+                    "scope": "initial startup gate before load Pod creation; not measured load"}
+        sleep(min(interval, max(0, deadline - monotonic())))
+    raise RuntimeError(f"Initial Service HTTP smoke did not converge within {timeout} seconds ({attempt} attempts)")
+
+
 LOAD_SOURCE = r'''
 import concurrent.futures, json, pathlib, sys, threading, time, urllib.request
 cfg=json.loads(sys.argv[1]); body=json.loads(sys.argv[2]); url=sys.argv[3]
@@ -141,8 +203,23 @@ print(json.dumps({"service_status":{name:200 for name in cfg}}))
     journal.record("helm_install_started", cluster=cluster, namespace=namespace)
     install_output = helm("install", release, "deploy/helm/sentinel", "--create-namespace", "--values", str(values_path),
                           "--set-string", tags_a, "--wait", "--timeout", "5m")
-    installed = {"duration_seconds": time.perf_counter() - install_start, "helm_output": install_output,
-                 "smoke": smoke(), "pods": stable_versions(cfg["initial_tag"])}
+    install_seconds = time.perf_counter() - install_start
+    installed_pods = stable_versions(cfg["initial_tag"])
+    urls = {"gateway": f"http://{base}-gateway:18040/readyz", "backend": f"http://{base}-backend:18041/readyz",
+            "frontend": f"http://{base}-frontend:13040/"}
+
+    def initial_probe(remaining):
+        return command(["kubectl", "--context", context, "--namespace", namespace,
+                        "exec", "deploy/" + base + "-gateway", "--", "python", "-c", INITIAL_SMOKE_SOURCE,
+                        json.dumps(urls), str(min(8, remaining / len(urls)))],
+                       timeout=remaining, check=False)
+
+    journal.record("initial_service_smoke_started", urls=urls,
+                   timeout_seconds=cfg["initial_smoke_timeout_seconds"], poll_seconds=cfg["initial_smoke_poll_seconds"])
+    initial_smoke = wait_for_initial_smoke(initial_probe, journal, urls,
+                                          cfg["initial_smoke_timeout_seconds"], cfg["initial_smoke_poll_seconds"])
+    installed = {"duration_seconds": install_seconds, "helm_output": install_output,
+                 "smoke": initial_smoke, "pods": installed_pods}
     journal.record("helm_install_completed", **installed)
     load_name = "sentinel-m1b-load"
     body = {"features": synthetic_features(), "transaction_id": "ops-kind-load", "publish": False}
