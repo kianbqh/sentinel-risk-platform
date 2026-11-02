@@ -31,10 +31,11 @@ python3 -m venv "$M1A_RUNTIME/agent-venv"
 "$M1A_RUNTIME/agent-venv/bin/python" -m pip check
 ```
 
-The direct dependency file is a pinned candidate list, not a resolved lock or
-evidence of compatibility. Save the installed package freeze with actual run
-evidence after testing. The embedding dependency may install Torch; coordinate
-it with the training owner and keep shared environments read-only.
+The direct dependency file lists the inputs. The tested local environment is
+recorded in [agent-runtime-lock.txt](configs/agent-runtime-lock.txt), and the
+[CI package freeze](results/ci-tools-5465aae-01/environment/requirements.txt)
+records its separate resolved environment. The embedding dependency may install
+Torch; keep shared environments read-only.
 
 Generate fresh short-lived credentials into a private, ignored G: directory.
 The generator prints paths only. Never commit the token, registry, database
@@ -204,11 +205,35 @@ vector using this stack's real gateway. Fixed evaluation cases are not changed.
 The optional gateway is configured for inference-only scoring; MCP always forces
 publish=false.
 
-Runtime measurements, model parity against actual joblib inference, PostgreSQL
-integration and the real HTTP suite must be run before reporting results. This
-preparation contains no claimed retrieval accuracy or serving latency. Every
-runner requires a config and a fresh output directory and records source/config
-identity, packages, environment, hardware, exact invocation and wall time.
+The November 2 local run passed [24 tool checks](results/functional-dcb8436-01/checks/result.json)
+with real HTTP and PostgreSQL enabled and no skips. A separate
+[GitHub-hosted run](results/ci-tools-5465aae-01/checks/result.json) passed 26
+checks with those boundaries enabled. [Exact model parity](results/functional-dcb8436-01/model-parity/result.json)
+used 128 vectors; the largest probability difference from actual joblib inference
+was 3.33 × 10⁻¹⁶.
+
+The [same-database review check](results/functional-dcb8436-01/human-review/result.json)
+saved a controlled test draft, read it through MCP and the console proxy, then
+labeled and resolved the separate cloned case through the analyst API. The
+draft preserved human decision fields and remained unchanged after review.
+This check did not ask an LLM to produce the draft.
+
+The [balanced retrieval run](results/retrieval-dcb8436-01/benchmark/result.json)
+used 32 queries and 64 gallery records, balanced across card/login domain and
+gold label. BGE ran on CPU and queried PostgreSQL 17.11 with pgvector 0.8.7.
+
+| Method | Overall P@5 | Card P@5 | Synthetic login P@5 |
+| --- | ---: | ---: | ---: |
+| BGE + pgvector cosine | 0.75625 | 0.6375 | 0.875 |
+| Gallery-fit TF-IDF cosine | 0.5625 | 0.5125 | 0.6125 |
+| Fixed random | 0.46875 | 0.4875 | 0.45 |
+
+[Per-query neighbors](results/retrieval-dcb8436-01/benchmark/per_query.json)
+retain every result. The separate [live-case index](results/retrieval-dcb8436-01/case-index/result.json)
+indexed 92 eligible cases and skipped 30 incomplete or unsupported cases;
+these counts describe the demo database; the balanced gallery is separate.
+Every runner records its source/config identity, packages, environment,
+exact invocation and wall time in a fresh result directory.
 
 Git provenance is mandatory: `COPILOT_GIT` selects an explicit executable,
 otherwise `FINETUNE_GIT`, the task-private Linux Git or Git on PATH is used.

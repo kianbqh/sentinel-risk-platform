@@ -47,9 +47,21 @@ local llama.cpp process, draft API and evaluation commands. Each runner takes
 a JSON configuration and creates a new result directory. Use the exact model
 revisions and dependency snapshots recorded alongside a measured run.
 
-Results are added under `copilot/results/` after actual execution. CPU CI tests
-the contracts and real HTTP/database boundaries; recorded-response replay
-checks the agent without loading an LLM on a GitHub-hosted runner.
+The [local tool run](results/functional-dcb8436-01/checks/result.json) passed
+24 checks with real HTTP and PostgreSQL enabled; the
+[GitHub-hosted tool run](results/ci-tools-5465aae-01/checks/result.json) passed
+26. On a separate balanced 32-query/64-gallery fixture,
+[CPU BGE + pgvector](results/retrieval-dcb8436-01/benchmark/result.json)
+reached P@5 of 0.75625, versus 0.5625 for gallery-fit TF-IDF and 0.46875 for
+fixed random. The [controlled draft and human-review check](results/functional-dcb8436-01/human-review/result.json)
+used the same database as the console and preserved the draft after analyst
+labeling and resolution.
+
+[49 CPU agent checks](results/recording-unit-20261102/tests.log) passed with
+synthetic model boundaries. The 120-case actual-MCP protocol is frozen, but
+real-Qwen quality, latency, the live draft API and actual-model cassette replay
+remain pending. Recorded-response CI replay is prepared and does not load an
+LLM on the GitHub-hosted runner.
 
 ## Limitations
 

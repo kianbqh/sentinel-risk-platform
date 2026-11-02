@@ -5,10 +5,14 @@ triage note. The tools read the same case database as the analyst console.
 Only an analyst can label, assign or resolve a case. The copilot saves a
 validated draft event with actor `copilot` through a restricted writer role.
 
-The graph, protocol and replay code are implemented here. Real-model quality,
-HTTP/database integration and latency results are **not run** until recorded
-under a new `copilot/results/` run directory. Unit tests use clearly synthetic
-models and are not model-quality measurements.
+The graph, protocol and replay code are implemented here. The
+[tool HTTP/database checks and retrieval benchmark](README-tools.md#checks-and-results)
+have run. The fixed 120-case actual-MCP protocol is frozen, and
+[49 CPU agent checks](results/recording-unit-20261102/tests.log) passed after
+the recording changes were integrated. Those checks use synthetic model
+responses. The 120-case real-Qwen evaluation, live draft API check and cassette
+export/replay are **pending**; no model-quality or model-latency result is
+claimed here.
 
 ## Setup
 
@@ -135,10 +139,15 @@ tool accuracy, usage and latency. Failed cases stay in quality denominators.
 A fallback that passes final schema/PII checks does not erase the raw failure.
 
 Only a completed actual local-model/MCP/PostgreSQL run can export the per-case
-gzip replay cassette. CI replays those actual responses with exact prompt,
-schema, tool, draft and memory checks, plus floors copied from the observed
-baseline. Replay timing is not model latency. Synthetic fault fixtures under
-`tests/agent/` remain separate from that cassette.
+gzip replay cassette. The exporter retains all 120 cases and separately counts
+actual model/MCP responses, recorded adapter exceptions and MCP-only handoffs.
+An exception is recorded at its request boundary without invented response,
+content or usage. Case or storage failures block whole-cassette export.
+Replay checks exact prompt, schema, tool, draft and memory records; a mismatch
+remains a failure even if the graph safely hands off. CI replay is prepared,
+with floors copied from the future observed baseline. No actual-model cassette
+has been generated yet. Replay timing is not model latency; synthetic fault
+fixtures under `tests/agent/` remain separate.
 
 ## Checks
 
@@ -148,12 +157,22 @@ python -m unittest discover -s copilot/tests/agent -p 'test_*.py' -v
 pytest --capture=sys copilot/tests/agent
 ```
 
-These checks cover schema failures, numeric precision, privacy patterns, case
-binding, budgets, model-selected calls in actual LangGraph, redacted memory,
-authentication handling, preserved failures and exact recording boundaries.
-Real HTTP, PostgreSQL role/transaction invariants, actual Qwen output quality,
-same-database console actions and real-model cassette generation still require
-the local integration run and independently reviewed evidence.
+The [November 2 integrated run](results/recording-unit-20261102/receipt.json)
+passed all 49 CPU checks. They cover schema failures, numeric precision,
+privacy patterns, case binding, budgets, model-selected calls in LangGraph,
+redacted memory, authentication handling, preserved failures and exact
+response/error recording. The [source integration record](results/recording-unit-20261102/source-integration.json)
+identifies the seven accepted recording files.
+
+Real tool HTTP, PostgreSQL role/transaction invariants and same-database human
+review have [separate measured evidence](README-tools.md#checks-and-results).
+The [runtime-v2 freeze](results/runtime-v2-5465aae-01/runtime-protocol/result.json)
+contains 120 balanced cases read through actual MCP, with protocol SHA-256
+`21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb`.
+Its [state check](results/runtime-v2-5465aae-01/state-check/result.json)
+confirmed no labels, memory or turns on those cases at the freeze. This is
+pre-model evidence. Actual Qwen quality/latency, the live draft API and
+whole-run cassette replay still require the pending evaluation.
 
 ## Limitations
 
