@@ -1,0 +1,70 @@
+{
+  "source": "GitHub Actions artifact; raw member bytes preserved",
+  "run_id": 41413483282,
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41413483282",
+  "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "artifact_id": 13126657169,
+  "artifact_zip_sha256": "db133d62597fbede56ed3b7b1d400e7eb5cf8a61b69a8da540a5c105b3045ed6",
+  "files": [
+    {
+      "path": "checks/config.json",
+      "bytes": 301,
+      "sha256": "0dae2ecfa0ed9c6cd9475cc1162e715c63cb393ce2627c8bab114d11de9372f7"
+    },
+    {
+      "path": "checks/result.json",
+      "bytes": 76665,
+      "sha256": "712f0ef0b26c947eda047cc48fde22dbffda67d3e30e936abc7356d80a8a03c8"
+    },
+    {
+      "path": "checks/started.json",
+      "bytes": 51136,
+      "sha256": "ff914d18ca0688390fff8502dd099ba76159358f9249f3575f61819a7f6276e4"
+    },
+    {
+      "path": "checks/unittest.log",
+      "bytes": 3392,
+      "sha256": "960214a80fe3183f1c12f51f1e2b598e284a7de838f3ec051e0ade7f1edc4f31"
+    },
+    {
+      "path": "environment/pip-inspect.json",
+      "bytes": 486520,
+      "sha256": "10f7bda7eab3d1d36165b6aadce1b91288cfc4b9ac6159e255dfd8e072540a48"
+    },
+    {
+      "path": "environment/requirements.txt",
+      "bytes": 686,
+      "sha256": "0e136cf25fb69559cbcf57403a8e117f80f86fad686e45a3c972e6bd14028572"
+    },
+    {
+      "path": "model-parity/config.json",
+      "bytes": 629,
+      "sha256": "6280a37a51483a4c8fb082c883bb7649ef5225a6fc666cf92055da9413a358c1"
+    },
+    {
+      "path": "model-parity/parity_vectors.json",
+      "bytes": 50025,
+      "sha256": "f6c732363d4fb18ad668307727f4860e2f811cd6c79ba2d375827d317ac238ae"
+    },
+    {
+      "path": "model-parity/result.json",
+      "bytes": 76941,
+      "sha256": "e63f5468feadb2e457a1401c03061f4cc470ac5c5c9a9940318ddd5b8716a94b"
+    },
+    {
+      "path": "model-parity/retained_explanations.json",
+      "bytes": 49022,
+      "sha256": "79708b3dbe802ed0a14d731cb7045d4e6bb1af08e07e42c0e3f1e07ab233d300"
+    },
+    {
+      "path": "model-parity/started.json",
+      "bytes": 51154,
+      "sha256": "150097d57735f07e2726c860d67120db0f96952c9d78ab4675c6aa6842497038"
+    }
+  ],
+  "independent_acceptance": {
+    "scope": "Actual GitHub-hosted HTTP/PG tools checks at this checkpoint",
+    "checks": 26,
+    "status": "passed"
+  }
+}

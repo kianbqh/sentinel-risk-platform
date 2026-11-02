@@ -1,0 +1,14 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 with Docker Desktop services",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/functional-dcb8436-01/model-parity",
+  "seed": 42,
+  "vectors": 128,
+  "coefficient_export": "streaming/model/lr_model.json",
+  "coefficient_export_sha256": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+  "joblib_model": "serving/model/model.joblib",
+  "retained_alerts": "results/integration/alerts-wire.jsonl",
+  "retained_alerts_sha256": "6dd6c4595aae806c6167b40449d20c037e1428ca705a3f32f8d00f6dab63b377",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git"
+}

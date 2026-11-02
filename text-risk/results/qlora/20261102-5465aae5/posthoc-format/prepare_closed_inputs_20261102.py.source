@@ -1,0 +1,39 @@
+"""Bind already closed, independently accepted evaluation evidence to the diagnostic."""
+import hashlib
+import json
+from pathlib import Path
+
+base = Path(__file__).resolve().parent
+m1a = base.parent
+group_name = 'continuation-20261102T083924Z-d41d86d6'
+mirrors = m1a / 'training' / ('actual-' + group_name)
+linux = '/opt/codex-resume/all-modules-v2/m1a/runs/' + group_name
+
+def ref(path):
+    return {'path': str(path.resolve()), 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+
+receipt = json.loads((m1a/'root-comparison-acceptance-20261102.json').read_text())
+assert receipt['accepted'] is True
+completion = mirrors/'completion-20261102T131352Z-c7d4e6/CONTINUATION_COMPLETE.json'
+comparison = mirrors/'comparison-20261102T131304Z-9fa241/comparison'
+spec = {'schema_version': 1, 'kind': 'closed_m1a_posthoc_inputs',
+        'continuation_complete': ref(completion),
+        'comparison': {'run_path': linux+'/comparison',
+                       'summary': ref(comparison/'summary.json'),
+                       'predictions': ref(comparison/'comparison-predictions.jsonl')},
+        'systems': {}}
+for name, stage, mirror in [
+    ('prompt_only_nf4', 'prompt-only', 'prompt-only-20261102T115248Z-da9431'),
+    ('qlora_seed_42', 'eval-42', 'eval-42-20261102T121846Z-2e632d'),
+    ('qlora_seed_43', 'eval-43', 'eval-43-20261102T124451Z-3608dd'),
+    ('qlora_seed_44', 'eval-44', 'eval-44-20261102T131054Z-0bde94'),
+]:
+    source = mirrors/mirror/stage
+    spec['systems'][name] = {'run_path': linux+'/'+stage,
+        'summary': ref(source/'summary.json'),
+        'predictions': ref(source/'predictions.jsonl'),
+        'latency': ref(source/'latency.jsonl')}
+with (base/'closed-inputs-20261102.json').open('x', encoding='utf-8', newline='\n') as stream:
+    json.dump(spec, stream, indent=2)
+    stream.write('\n')
+print('Bound closed inputs; no normalization or inference performed.')

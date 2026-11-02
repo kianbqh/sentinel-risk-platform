@@ -1,0 +1,108 @@
+{
+  "status": "downloaded_and_verified",
+  "purpose": "private environment preparation; not a model experiment",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "license": "apache-2.0",
+  "reference_sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32",
+  "destination": "/opt/codex-resume/all-modules-v2/m1a/weights/qwen25-15b-instruct",
+  "files": [
+    {
+      "name": "LICENSE",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "git_blob_sha1": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.536746153011336,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "config.json",
+      "bytes": 660,
+      "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+      "git_blob_sha1": "f81ead14ab072d65a07817f83a3ee0e5a1890d10",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.31721016801020596,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 242,
+      "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+      "git_blob_sha1": "dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.29609372300910763,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 3087467144,
+      "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+      "git_blob_sha1": null,
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 56.90198094899824,
+      "final_host": "us.aws.cdn.hf.co"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "git_blob_sha1": "443909a61d429dff23010e5bddd28ff530edda00",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.5519348080124473,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 7305,
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "git_blob_sha1": "07bfe0640cb5a0037f9322287fbfc682806cf672",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.2959507399937138,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "merges.txt",
+      "bytes": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "git_blob_sha1": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.4071070500067435,
+      "final_host": "huggingface.co"
+    },
+    {
+      "name": "vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "git_blob_sha1": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "verified": true,
+      "download_status": "downloaded_verified",
+      "attempts": 1,
+      "wall_seconds": 0.42931972999940626,
+      "final_host": "huggingface.co"
+    }
+  ],
+  "environment": "WSL2 CodexResearchATTAlf01; G-backed native Linux disk",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "exact_command": [
+    "/usr/bin/python3",
+    "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/training/download_pinned_qwen.py"
+  ],
+  "started_at": "2026-11-02T06:59:39.297114+00:00",
+  "finished_at": "2026-11-02T07:00:39.036782+00:00",
+  "wall_seconds": 59.742716833003215
+}

@@ -7,6 +7,7 @@ from pathlib import Path
 from copilot.agent.llm import canonical
 from copilot.scripts.provenance import RunRecord, sha256
 from .protocol import load_protocol
+from .model_events import validate_event_record,validate_tool_events
 
 
 def export(config_path):
@@ -21,11 +22,14 @@ def export(config_path):
         protocol_path = run.root/actual_config["runtime_protocol"]
         protocol = load_protocol(protocol_path, actual_config["runtime_protocol_sha256"], runtime=True)
         cases = []
+        event_counts = {"actual_model_responses": 0, "recorded_model_errors": 0, "actual_mcp_responses":0, "recorded_mcp_transport_errors":0,
+                        "model_invoked_cases":0,"mcp_only_handoff_cases":0}
         for row in protocol["cases"]:
             path = source/f"case-{row['case']['case_id']}.json"
             record = json.loads(path.read_text())
-            if record["status"] != "complete" or not record.get("raw_completed_model_turns") or any("transport_error_type" in item for item in record["attempts"]):
-                raise ValueError("Raw transport failures cannot masquerade as recorded LLM responses")
+            counts={**validate_event_record(record),**validate_tool_events(record)}
+            for key,count in counts.items():event_counts[key]+=count
+            event_counts["model_invoked_cases" if record["model_events"] else "mcp_only_handoff_cases"]+=1
             name = f"case-{row['case']['case_id']}.json.gz"
             payload = {"fixture": row, "record": record}
             (run.output/name).write_bytes(gzip.compress(canonical(payload).encode(), mtime=0))
@@ -34,11 +38,12 @@ def export(config_path):
             "source_result_sha256": sha256(source/"result.json"), "source_git_sha": result["git_sha"],
             "source_config_sha256": result["config_sha256"], "runtime_protocol_sha256": actual_config["runtime_protocol_sha256"],
             "artifacts": result["artifacts"], "agent_config": actual_config["agent"], "cases": cases,
+            "event_counts": event_counts,
             "observed_regression_floors": {key: result["metrics"][key] for key in ("tool_exact_accuracy", "tool_set_accuracy", "pre_guard_schema_valid_rate", "final_schema_valid_rate", "first_decision_schema_valid_rate", "pre_guard_lexical_faithful_rate", "final_lexical_faithful_rate")},
             "pii_ceiling": result["metrics"]["final_pii_leak_count"],
-            "scope": "Actual responses replayed deterministically in CI. CI does not run the real model and replay wall times are not model latencies."}
+            "scope": "Actual model/MCP responses and recorded adapter errors replayed in order in CI. Errors are not responses. MCP-only handoffs did not invoke the LLM. CI does not run the real model; replay wall times are not model latencies."}
         run.write("manifest.json", manifest)
-        run.finish({"status": "complete", "cases": len(cases), "manifest_sha256": sha256(run.output/"manifest.json"), "source_result_sha256": manifest["source_result_sha256"]})
+        run.finish({"status": "complete", "cases": len(cases), "event_counts": event_counts, "manifest_sha256": sha256(run.output/"manifest.json"), "source_result_sha256": manifest["source_result_sha256"]})
     except Exception as exc:
         run.fail(type(exc).__name__); raise
 

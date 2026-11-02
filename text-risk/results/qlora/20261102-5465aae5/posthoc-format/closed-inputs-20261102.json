@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "kind": "closed_m1a_posthoc_inputs",
+  "continuation_complete": {
+    "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\completion-20261102T131352Z-c7d4e6\\CONTINUATION_COMPLETE.json",
+    "sha256": "f486d519c85b3e9b40af3703770fc6a311fbf249f4b9cc6085a36e843668323c"
+  },
+  "comparison": {
+    "run_path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/comparison",
+    "summary": {
+      "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\comparison-20261102T131304Z-9fa241\\comparison\\summary.json",
+      "sha256": "34c26cc49bd11ae520a1031fe48361602d36ec56ec8b8186cfad77c5baca5e9f"
+    },
+    "predictions": {
+      "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\comparison-20261102T131304Z-9fa241\\comparison\\comparison-predictions.jsonl",
+      "sha256": "2bd456c782d00877ec434bee37adaa60666d12496b8ba6418699231df8927f8e"
+    }
+  },
+  "systems": {
+    "prompt_only_nf4": {
+      "run_path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only",
+      "summary": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\prompt-only-20261102T115248Z-da9431\\prompt-only\\summary.json",
+        "sha256": "3e990294a16671344c40871caa225f5546d11d4cb5a3394b5b7c66e8c01b45c4"
+      },
+      "predictions": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\prompt-only-20261102T115248Z-da9431\\prompt-only\\predictions.jsonl",
+        "sha256": "b2da36126229af37caccb1c8e68136e68999f25e61063fcbb928f5cdbdabffc9"
+      },
+      "latency": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\prompt-only-20261102T115248Z-da9431\\prompt-only\\latency.jsonl",
+        "sha256": "7e8380b1f2daadffa4239f50af3f7f20e55834ef858b0a1f0f8a8f6561219512"
+      }
+    },
+    "qlora_seed_42": {
+      "run_path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42",
+      "summary": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-42-20261102T121846Z-2e632d\\eval-42\\summary.json",
+        "sha256": "48a939c61c296fb21dcec485d0dd82a3932791802187b6af06867404f331e233"
+      },
+      "predictions": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-42-20261102T121846Z-2e632d\\eval-42\\predictions.jsonl",
+        "sha256": "c99d85f564a79056df5bdb71f63d774b6a801ff17350bf399464e9d7ac16fb2c"
+      },
+      "latency": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-42-20261102T121846Z-2e632d\\eval-42\\latency.jsonl",
+        "sha256": "61bc41a7eee81a2c0b28e8811508dd7264ba1fe506fcd4633d846b02fd584be1"
+      }
+    },
+    "qlora_seed_43": {
+      "run_path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43",
+      "summary": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-43-20261102T124451Z-3608dd\\eval-43\\summary.json",
+        "sha256": "d0792e4a309f7b34a6741f22c419a2241416141c3fc270fbba3b0ccc7198bad5"
+      },
+      "predictions": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-43-20261102T124451Z-3608dd\\eval-43\\predictions.jsonl",
+        "sha256": "29def1aa0e298e42c4e85159bc25aa4dffaa9f6491c2c1975098e90e0c5b8c72"
+      },
+      "latency": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-43-20261102T124451Z-3608dd\\eval-43\\latency.jsonl",
+        "sha256": "18d72ddd951472941a59473815637e9c79f7a7ac470fdf2a8d7fc5271f7aeed7"
+      }
+    },
+    "qlora_seed_44": {
+      "run_path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44",
+      "summary": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-44-20261102T131054Z-0bde94\\eval-44\\summary.json",
+        "sha256": "807cfaef9a3b14f54b70beed6ade7102571398ebf7e2f6882d3daee6878cbcff"
+      },
+      "predictions": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-44-20261102T131054Z-0bde94\\eval-44\\predictions.jsonl",
+        "sha256": "443d4af9a36ce79ceaa8f832aa0b4631dcbe6ac422afc8a8203b25ddf0c53c1c"
+      },
+      "latency": {
+        "path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-44-20261102T131054Z-0bde94\\eval-44\\latency.jsonl",
+        "sha256": "75ff5921f8360f6fe490ccf10e3c1f396fa66730479129341624ee5918171c12"
+      }
+    }
+  }
+}

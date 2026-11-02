@@ -1,0 +1,39 @@
+{
+  "started_at": "2026-11-02T08:39:24.254958+00:00",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+  "scope": "three training seeds then matched model evaluations and paired comparison; no download",
+  "files": [
+    {
+      "path": "text-risk/finetune/configs/qwen15_nf4.json",
+      "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+    },
+    {
+      "path": "text-risk/finetune/requirements-lock.txt",
+      "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+    },
+    {
+      "path": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/training/continue_training.sh",
+      "sha256": "db8ce6b17a77c545884281c63b8d779ae8b37b8df6b663ec1fab1494d8c49a21"
+    },
+    {
+      "path": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/training/run_continuation_stage.py",
+      "sha256": "932c78a6b5648e0c281a88e05207a17a6137ac0491918e2319927bb362d90f4c"
+    },
+    {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke/summary.json",
+      "sha256": "ca1f9ee4f67a89a2d25aa37b60058e87c9f5b42bc95bbe4fd52c5c2ea5c4c481"
+    }
+  ],
+  "environment": {
+    "FINETUNE_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+    "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+    "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+    "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+    "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+    "CUDA_CACHE_PATH": "/opt/codex-resume/all-modules-v2/m1a/cache/cuda",
+    "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+    "HF_HUB_OFFLINE": "1",
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8"
+  }
+}

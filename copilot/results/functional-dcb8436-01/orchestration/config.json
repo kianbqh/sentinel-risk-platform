@@ -1,0 +1,38 @@
+{
+  "expected_git_sha": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "python": "/opt/codex-resume/all-modules-v2/m1a/agent-venv/bin/python",
+  "git": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "docker": "/opt/codex-resume/ros2-runtime/bin/docker/docker",
+  "desktop_socket": "unix:///mnt/wsl/docker-desktop/shared-sockets/host-services/docker.proxy.sock",
+  "portable_socket": "unix:///opt/codex-resume/ros2-runtime/run/docker.sock",
+  "docker_config": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/tools/runtime/docker-public-config",
+  "project": "sentinel-copilot",
+  "volume": "sentinel_copilot_pg17_vector_v1",
+  "pgvector_image": "pgvector/pgvector:0.8.7-pg17",
+  "images": {
+    "gateway": "sha256:bf401667f1d81168b088e81df453449c7d4ad50767bd969e1d721227fb61050e",
+    "backend": "sha256:b5f7555f83c6253602c5d8a51d5abf5d656c8a95023ade5f98f90c105de4f23a",
+    "console": "sha256:a07247349f73269818c01f5dc2b386dbcb8d17f7bcd9303be15755dd09aebd4a"
+  },
+  "ports": {
+    "postgres": 15449,
+    "backend": 18074,
+    "gateway": 18079,
+    "console": 13049,
+    "mcp": 18070
+  },
+  "protocol": "copilot/eval/fixtures/source-protocol-v2.json",
+  "protocol_sha256": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+  "private_run_dir": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/tools/runtime/runs/functional-dcb8436-01",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/functional-dcb8436-01/orchestration",
+  "environment": "WSL2 with Docker Desktop services",
+  "start_requires_env": "M1A_CPU_FUNCTIONAL_WINDOW=released",
+  "preserve_running_after_success": true,
+  "allow_build": false,
+  "allow_embedding": false,
+  "allow_llm": false,
+  "run_id": "functional-dcb8436-01",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git"
+}

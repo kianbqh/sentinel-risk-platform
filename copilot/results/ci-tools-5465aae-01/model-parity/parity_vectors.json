@@ -1,0 +1,1153 @@
+{
+  "value": [
+    {
+      "case_id": 1,
+      "joblib_probability": 0.08116336242713647,
+      "reconstructed_probability": 0.08116336242713654,
+      "absolute_difference": 6.938893903907228e-17
+    },
+    {
+      "case_id": 2,
+      "joblib_probability": 0.0017714534171697177,
+      "reconstructed_probability": 0.0017714534171697177,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 3,
+      "joblib_probability": 0.0008299012684192623,
+      "reconstructed_probability": 0.0008299012684192614,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 4,
+      "joblib_probability": 0.05100680685445736,
+      "reconstructed_probability": 0.051006806854457375,
+      "absolute_difference": 1.3877787807814457e-17
+    },
+    {
+      "case_id": 5,
+      "joblib_probability": 0.9958823606890079,
+      "reconstructed_probability": 0.9958823606890079,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 6,
+      "joblib_probability": 2.1537491475061553e-05,
+      "reconstructed_probability": 2.153749147506155e-05,
+      "absolute_difference": 3.3881317890172014e-21
+    },
+    {
+      "case_id": 7,
+      "joblib_probability": 2.3977074107728154e-05,
+      "reconstructed_probability": 2.3977074107728154e-05,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 8,
+      "joblib_probability": 0.009357310892989286,
+      "reconstructed_probability": 0.009357310892989277,
+      "absolute_difference": 8.673617379884035e-18
+    },
+    {
+      "case_id": 9,
+      "joblib_probability": 0.9537039061099377,
+      "reconstructed_probability": 0.9537039061099377,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 10,
+      "joblib_probability": 0.5532014606919444,
+      "reconstructed_probability": 0.5532014606919441,
+      "absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "case_id": 11,
+      "joblib_probability": 0.03242443644462586,
+      "reconstructed_probability": 0.03242443644462586,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 12,
+      "joblib_probability": 0.6017182549318428,
+      "reconstructed_probability": 0.6017182549318427,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 13,
+      "joblib_probability": 1.5640761629943683e-06,
+      "reconstructed_probability": 1.5640761629943713e-06,
+      "absolute_difference": 2.964615315390051e-21
+    },
+    {
+      "case_id": 14,
+      "joblib_probability": 0.003804482733445869,
+      "reconstructed_probability": 0.003804482733445868,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 15,
+      "joblib_probability": 0.0004754053500330383,
+      "reconstructed_probability": 0.0004754053500330383,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 16,
+      "joblib_probability": 7.880917545790244e-06,
+      "reconstructed_probability": 7.880917545790244e-06,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 17,
+      "joblib_probability": 0.08734003846369384,
+      "reconstructed_probability": 0.08734003846369379,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 18,
+      "joblib_probability": 0.000840420869526888,
+      "reconstructed_probability": 0.0008404208695268879,
+      "absolute_difference": 1.0842021724855044e-19
+    },
+    {
+      "case_id": 19,
+      "joblib_probability": 0.00017489678917843678,
+      "reconstructed_probability": 0.00017489678917843708,
+      "absolute_difference": 2.981555974335137e-19
+    },
+    {
+      "case_id": 20,
+      "joblib_probability": 0.5366415235143107,
+      "reconstructed_probability": 0.5366415235143106,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 21,
+      "joblib_probability": 0.4409135877303493,
+      "reconstructed_probability": 0.4409135877303493,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 22,
+      "joblib_probability": 0.0046258895303335785,
+      "reconstructed_probability": 0.004625889530333574,
+      "absolute_difference": 4.336808689942018e-18
+    },
+    {
+      "case_id": 23,
+      "joblib_probability": 1.0752490882830667e-05,
+      "reconstructed_probability": 1.0752490882830669e-05,
+      "absolute_difference": 1.6940658945086007e-21
+    },
+    {
+      "case_id": 24,
+      "joblib_probability": 0.5079089490052108,
+      "reconstructed_probability": 0.5079089490052107,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 25,
+      "joblib_probability": 0.4345419855044286,
+      "reconstructed_probability": 0.43454198550442863,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 26,
+      "joblib_probability": 0.03752615571488958,
+      "reconstructed_probability": 0.0375261557148896,
+      "absolute_difference": 2.0816681711721685e-17
+    },
+    {
+      "case_id": 27,
+      "joblib_probability": 0.4279607495975885,
+      "reconstructed_probability": 0.42796074959758856,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 28,
+      "joblib_probability": 0.0001965591285349757,
+      "reconstructed_probability": 0.00019655912853497608,
+      "absolute_difference": 3.7947076036992655e-19
+    },
+    {
+      "case_id": 29,
+      "joblib_probability": 0.0823613077255506,
+      "reconstructed_probability": 0.0823613077255506,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 30,
+      "joblib_probability": 2.427023803884781e-05,
+      "reconstructed_probability": 2.4270238038847808e-05,
+      "absolute_difference": 3.3881317890172014e-21
+    },
+    {
+      "case_id": 31,
+      "joblib_probability": 0.002006870229290536,
+      "reconstructed_probability": 0.002006870229290536,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 32,
+      "joblib_probability": 0.012312484185566066,
+      "reconstructed_probability": 0.012312484185566066,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 33,
+      "joblib_probability": 0.046274274235163684,
+      "reconstructed_probability": 0.046274274235163684,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 34,
+      "joblib_probability": 0.040803408466550437,
+      "reconstructed_probability": 0.04080340846655044,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "case_id": 35,
+      "joblib_probability": 0.09719286440050225,
+      "reconstructed_probability": 0.09719286440050232,
+      "absolute_difference": 6.938893903907228e-17
+    },
+    {
+      "case_id": 36,
+      "joblib_probability": 0.23218905366024756,
+      "reconstructed_probability": 0.23218905366024756,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 37,
+      "joblib_probability": 0.04155941574280569,
+      "reconstructed_probability": 0.041559415742805694,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "case_id": 38,
+      "joblib_probability": 0.006320424551801783,
+      "reconstructed_probability": 0.006320424551801785,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case_id": 39,
+      "joblib_probability": 0.07005046885454226,
+      "reconstructed_probability": 0.07005046885454222,
+      "absolute_difference": 4.163336342344337e-17
+    },
+    {
+      "case_id": 40,
+      "joblib_probability": 0.000856903426175549,
+      "reconstructed_probability": 0.0008569034261755498,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 41,
+      "joblib_probability": 0.00031436024713515405,
+      "reconstructed_probability": 0.0003143602471351541,
+      "absolute_difference": 5.421010862427522e-20
+    },
+    {
+      "case_id": 42,
+      "joblib_probability": 0.010658493020474941,
+      "reconstructed_probability": 0.010658493020474941,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 43,
+      "joblib_probability": 0.6133222596182593,
+      "reconstructed_probability": 0.6133222596182593,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 44,
+      "joblib_probability": 0.7477645076180992,
+      "reconstructed_probability": 0.7477645076180993,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 45,
+      "joblib_probability": 6.315819176861704e-05,
+      "reconstructed_probability": 6.315819176861705e-05,
+      "absolute_difference": 1.3552527156068805e-20
+    },
+    {
+      "case_id": 46,
+      "joblib_probability": 0.12787178234739185,
+      "reconstructed_probability": 0.12787178234739185,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 47,
+      "joblib_probability": 0.0048250477751551855,
+      "reconstructed_probability": 0.004825047775155186,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 48,
+      "joblib_probability": 0.046460800028654554,
+      "reconstructed_probability": 0.046460800028654554,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 49,
+      "joblib_probability": 0.42495531411443493,
+      "reconstructed_probability": 0.4249553141144349,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 50,
+      "joblib_probability": 0.006676745297880021,
+      "reconstructed_probability": 0.0066767452978800206,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 51,
+      "joblib_probability": 0.003267610592404188,
+      "reconstructed_probability": 0.0032676105924041876,
+      "absolute_difference": 4.336808689942018e-19
+    },
+    {
+      "case_id": 52,
+      "joblib_probability": 0.0013787102178597905,
+      "reconstructed_probability": 0.0013787102178597905,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 53,
+      "joblib_probability": 0.001890183596664286,
+      "reconstructed_probability": 0.0018901835966642878,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case_id": 54,
+      "joblib_probability": 0.012760038518272338,
+      "reconstructed_probability": 0.012760038518272352,
+      "absolute_difference": 1.3877787807814457e-17
+    },
+    {
+      "case_id": 55,
+      "joblib_probability": 0.5258389311608759,
+      "reconstructed_probability": 0.525838931160876,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 56,
+      "joblib_probability": 0.0030755762521572335,
+      "reconstructed_probability": 0.003075576252157233,
+      "absolute_difference": 4.336808689942018e-19
+    },
+    {
+      "case_id": 57,
+      "joblib_probability": 0.45827777631408784,
+      "reconstructed_probability": 0.4582777763140877,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 58,
+      "joblib_probability": 0.015549485964352773,
+      "reconstructed_probability": 0.015549485964352773,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 59,
+      "joblib_probability": 0.015905393024241554,
+      "reconstructed_probability": 0.015905393024241554,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 60,
+      "joblib_probability": 0.0010296222975175653,
+      "reconstructed_probability": 0.001029622297517565,
+      "absolute_difference": 2.168404344971009e-19
+    },
+    {
+      "case_id": 61,
+      "joblib_probability": 0.019829548023144624,
+      "reconstructed_probability": 0.019829548023144624,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 62,
+      "joblib_probability": 0.004374191323999573,
+      "reconstructed_probability": 0.004374191323999573,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 63,
+      "joblib_probability": 0.027905984450988342,
+      "reconstructed_probability": 0.027905984450988335,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "case_id": 64,
+      "joblib_probability": 0.04127292077153131,
+      "reconstructed_probability": 0.04127292077153129,
+      "absolute_difference": 2.0816681711721685e-17
+    },
+    {
+      "case_id": 65,
+      "joblib_probability": 0.9746755103362634,
+      "reconstructed_probability": 0.9746755103362634,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 66,
+      "joblib_probability": 0.2050050118667779,
+      "reconstructed_probability": 0.20500501186677783,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 67,
+      "joblib_probability": 0.03542508811129954,
+      "reconstructed_probability": 0.03542508811129954,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 68,
+      "joblib_probability": 0.12909109559030152,
+      "reconstructed_probability": 0.12909109559030144,
+      "absolute_difference": 8.326672684688674e-17
+    },
+    {
+      "case_id": 69,
+      "joblib_probability": 0.4580759465286069,
+      "reconstructed_probability": 0.4580759465286069,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 70,
+      "joblib_probability": 0.013576473488894741,
+      "reconstructed_probability": 0.013576473488894741,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 71,
+      "joblib_probability": 0.0005050498917270211,
+      "reconstructed_probability": 0.0005050498917270211,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 72,
+      "joblib_probability": 0.03261601025883206,
+      "reconstructed_probability": 0.03261601025883207,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "case_id": 73,
+      "joblib_probability": 0.8128104935903626,
+      "reconstructed_probability": 0.8128104935903626,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 74,
+      "joblib_probability": 0.006616858399626312,
+      "reconstructed_probability": 0.006616858399626311,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 75,
+      "joblib_probability": 0.00014251279188085903,
+      "reconstructed_probability": 0.000142512791880859,
+      "absolute_difference": 2.710505431213761e-20
+    },
+    {
+      "case_id": 76,
+      "joblib_probability": 0.00023916841132178682,
+      "reconstructed_probability": 0.0002391684113217868,
+      "absolute_difference": 2.710505431213761e-20
+    },
+    {
+      "case_id": 77,
+      "joblib_probability": 0.007215076522414356,
+      "reconstructed_probability": 0.0072150765224143565,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 78,
+      "joblib_probability": 0.2255717727531306,
+      "reconstructed_probability": 0.22557177275313056,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "case_id": 79,
+      "joblib_probability": 0.445509768418035,
+      "reconstructed_probability": 0.4455097684180352,
+      "absolute_difference": 1.6653345369377348e-16
+    },
+    {
+      "case_id": 80,
+      "joblib_probability": 0.00131585588019087,
+      "reconstructed_probability": 0.001315855880190871,
+      "absolute_difference": 1.0842021724855044e-18
+    },
+    {
+      "case_id": 81,
+      "joblib_probability": 0.08907002919398345,
+      "reconstructed_probability": 0.08907002919398349,
+      "absolute_difference": 4.163336342344337e-17
+    },
+    {
+      "case_id": 82,
+      "joblib_probability": 0.22934058618080833,
+      "reconstructed_probability": 0.22934058618080821,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 83,
+      "joblib_probability": 0.0011777191686067343,
+      "reconstructed_probability": 0.0011777191686067345,
+      "absolute_difference": 2.168404344971009e-19
+    },
+    {
+      "case_id": 84,
+      "joblib_probability": 0.004936462322120244,
+      "reconstructed_probability": 0.004936462322120239,
+      "absolute_difference": 4.336808689942018e-18
+    },
+    {
+      "case_id": 85,
+      "joblib_probability": 0.0017852765662843201,
+      "reconstructed_probability": 0.001785276566284322,
+      "absolute_difference": 1.951563910473908e-18
+    },
+    {
+      "case_id": 86,
+      "joblib_probability": 0.005375181085684225,
+      "reconstructed_probability": 0.00537518108568422,
+      "absolute_difference": 5.204170427930421e-18
+    },
+    {
+      "case_id": 87,
+      "joblib_probability": 0.06235252156111827,
+      "reconstructed_probability": 0.062352521561118236,
+      "absolute_difference": 3.469446951953614e-17
+    },
+    {
+      "case_id": 88,
+      "joblib_probability": 0.5142953604723352,
+      "reconstructed_probability": 0.5142953604723352,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 89,
+      "joblib_probability": 0.0066237064617797325,
+      "reconstructed_probability": 0.006623706461779733,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 90,
+      "joblib_probability": 0.010973408203572786,
+      "reconstructed_probability": 0.010973408203572784,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case_id": 91,
+      "joblib_probability": 0.37020701402421374,
+      "reconstructed_probability": 0.37020701402421374,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 92,
+      "joblib_probability": 0.14628701632458274,
+      "reconstructed_probability": 0.14628701632458269,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 93,
+      "joblib_probability": 0.0045872034118694454,
+      "reconstructed_probability": 0.0045872034118694454,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 94,
+      "joblib_probability": 0.09323080484214578,
+      "reconstructed_probability": 0.09323080484214573,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 95,
+      "joblib_probability": 0.010762821733054305,
+      "reconstructed_probability": 0.010762821733054305,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 96,
+      "joblib_probability": 0.01258338309239936,
+      "reconstructed_probability": 0.01258338309239936,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 97,
+      "joblib_probability": 0.01743912579011039,
+      "reconstructed_probability": 0.017439125790110394,
+      "absolute_difference": 3.469446951953614e-18
+    },
+    {
+      "case_id": 98,
+      "joblib_probability": 0.036483300852794144,
+      "reconstructed_probability": 0.03648330085279414,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "case_id": 99,
+      "joblib_probability": 0.044241473651868375,
+      "reconstructed_probability": 0.04424147365186836,
+      "absolute_difference": 1.3877787807814457e-17
+    },
+    {
+      "case_id": 100,
+      "joblib_probability": 0.10413174952814322,
+      "reconstructed_probability": 0.10413174952814325,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "case_id": 101,
+      "joblib_probability": 0.6861132654419992,
+      "reconstructed_probability": 0.6861132654419995,
+      "absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "case_id": 102,
+      "joblib_probability": 0.0031301213885690077,
+      "reconstructed_probability": 0.003130121388569008,
+      "absolute_difference": 4.336808689942018e-19
+    },
+    {
+      "case_id": 103,
+      "joblib_probability": 0.07053737084607077,
+      "reconstructed_probability": 0.07053737084607072,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 104,
+      "joblib_probability": 0.4891699610419183,
+      "reconstructed_probability": 0.4891699610419182,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 105,
+      "joblib_probability": 0.3211337608569718,
+      "reconstructed_probability": 0.3211337608569719,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 106,
+      "joblib_probability": 0.0004495278917602551,
+      "reconstructed_probability": 0.00044952789176025594,
+      "absolute_difference": 8.131516293641283e-19
+    },
+    {
+      "case_id": 107,
+      "joblib_probability": 0.026817879334486306,
+      "reconstructed_probability": 0.026817879334486296,
+      "absolute_difference": 1.0408340855860843e-17
+    },
+    {
+      "case_id": 108,
+      "joblib_probability": 0.004414945638663339,
+      "reconstructed_probability": 0.004414945638663336,
+      "absolute_difference": 3.469446951953614e-18
+    },
+    {
+      "case_id": 109,
+      "joblib_probability": 0.010998726646177561,
+      "reconstructed_probability": 0.01099872664617757,
+      "absolute_difference": 8.673617379884035e-18
+    },
+    {
+      "case_id": 110,
+      "joblib_probability": 0.0028378447277318565,
+      "reconstructed_probability": 0.0028378447277318565,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 111,
+      "joblib_probability": 0.2500671320419001,
+      "reconstructed_probability": 0.25006713204190006,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 112,
+      "joblib_probability": 0.34735260852951955,
+      "reconstructed_probability": 0.34735260852951955,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 113,
+      "joblib_probability": 0.0015773960071272441,
+      "reconstructed_probability": 0.0015773960071272441,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 114,
+      "joblib_probability": 0.004464121075856019,
+      "reconstructed_probability": 0.004464121075856016,
+      "absolute_difference": 3.469446951953614e-18
+    },
+    {
+      "case_id": 115,
+      "joblib_probability": 0.007675350208675524,
+      "reconstructed_probability": 0.007675350208675525,
+      "absolute_difference": 8.673617379884035e-19
+    },
+    {
+      "case_id": 116,
+      "joblib_probability": 0.010363419332839189,
+      "reconstructed_probability": 0.01036341933283919,
+      "absolute_difference": 1.734723475976807e-18
+    },
+    {
+      "case_id": 117,
+      "joblib_probability": 0.09789392456266262,
+      "reconstructed_probability": 0.09789392456266262,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 118,
+      "joblib_probability": 0.4297323492529155,
+      "reconstructed_probability": 0.42973234925291554,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "case_id": 119,
+      "joblib_probability": 0.7333146322467679,
+      "reconstructed_probability": 0.7333146322467677,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 120,
+      "joblib_probability": 0.0011173171676971076,
+      "reconstructed_probability": 0.0011173171676971076,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 121,
+      "joblib_probability": 0.956377219780811,
+      "reconstructed_probability": 0.956377219780811,
+      "absolute_difference": 0.0
+    },
+    {
+      "case_id": 122,
+      "joblib_probability": 0.0653433483531103,
+      "reconstructed_probability": 0.06534334835311033,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "case_id": 123,
+      "joblib_probability": 0.7355578963429715,
+      "reconstructed_probability": 0.7355578963429713,
+      "absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "case_id": 124,
+      "joblib_probability": 0.8193770913732021,
+      "reconstructed_probability": 0.819377091373202,
+      "absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "case_id": 125,
+      "joblib_probability": 0.0013196817991365422,
+      "reconstructed_probability": 0.0013196817991365445,
+      "absolute_difference": 2.3852447794681098e-18
+    },
+    {
+      "case_id": 126,
+      "joblib_probability": 0.00028647064527494983,
+      "reconstructed_probability": 0.0002864706452749498,
+      "absolute_difference": 5.421010862427522e-20
+    },
+    {
+      "case_id": 127,
+      "joblib_probability": 0.09432769237627822,
+      "reconstructed_probability": 0.09432769237627826,
+      "absolute_difference": 4.163336342344337e-17
+    },
+    {
+      "case_id": 128,
+      "joblib_probability": 0.1238523781906109,
+      "reconstructed_probability": 0.12385237819061079,
+      "absolute_difference": 1.1102230246251565e-16
+    }
+  ],
+  "run_context": {
+    "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+    "git": {
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "executable": "/usr/bin/git",
+      "executable_sha256": "824d5b2fffef332ec7ba053e579659bb12f26a0b4747da6f9c6dc0e71d36f235",
+      "repository_argument": "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+      "selected_source_scope": [
+        "copilot/agent",
+        "copilot/eval",
+        "copilot/mcp_server",
+        "copilot/retrieval",
+        "copilot/db",
+        "copilot/scripts",
+        "copilot/configs",
+        "copilot/requirements-tools.txt",
+        "copilot/README-tools.md",
+        "copilot/compose.copilot.yml",
+        "serving/model/model.joblib",
+        "serving/model/model_meta.json",
+        "streaming/model/lr_model.json",
+        "gateway/main.py",
+        "gateway/fixtures/manifest.json",
+        "gateway/fixtures/creditcard-prefix-10000.parquet",
+        "ato/datagen.py",
+        "ato/features.py"
+      ],
+      "source_hashes": {
+        "sha256": {
+          "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+          "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+          "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+          "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+          "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+          "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+          "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+          "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+          "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+          "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+          "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+          "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+          "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+          "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+          "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+          "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+          "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+          "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+          "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+          "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+          "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+          "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+          "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+          "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+          "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+          "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+          "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+          "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+          "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+          "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+          "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+          "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+          "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+          "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+          "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+          "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+          "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+          "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+          "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+          "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+          "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+          "copilot/db/reader.py": "98c1df62c91f31f81b7705866dbb24e775aa22c81f5d7acb863fee986d2a3b69",
+          "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+          "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+          "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+          "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+          "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+          "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+          "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+          "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+          "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+          "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+          "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+          "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+          "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+          "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+          "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+          "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+          "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+          "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+          "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+          "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+          "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+          "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+          "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+          "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+          "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+          "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+          "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+          "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+          "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+          "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+          "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+          "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+          "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+          "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+          "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+          "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+        },
+        "missing_paths": []
+      },
+      "selected_source_dirty": false,
+      "selected_source_status": {
+        "argv": [
+          "/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "-C",
+          "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "copilot/agent",
+          "copilot/eval",
+          "copilot/mcp_server",
+          "copilot/retrieval",
+          "copilot/db",
+          "copilot/scripts",
+          "copilot/configs",
+          "copilot/requirements-tools.txt",
+          "copilot/README-tools.md",
+          "copilot/compose.copilot.yml",
+          "serving/model/model.joblib",
+          "serving/model/model_meta.json",
+          "streaming/model/lr_model.json",
+          "gateway/main.py",
+          "gateway/fixtures/manifest.json",
+          "gateway/fixtures/creditcard-prefix-10000.parquet",
+          "ato/datagen.py",
+          "ato/features.py"
+        ],
+        "command": "/usr/bin/git --no-optional-locks -c safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform -C /home/runner/work/sentinel-risk-platform/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- copilot/agent copilot/eval copilot/mcp_server copilot/retrieval copilot/db copilot/scripts copilot/configs copilot/requirements-tools.txt copilot/README-tools.md copilot/compose.copilot.yml serving/model/model.joblib serving/model/model_meta.json streaming/model/lr_model.json gateway/main.py gateway/fixtures/manifest.json gateway/fixtures/creditcard-prefix-10000.parquet ato/datagen.py ato/features.py",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "whole_worktree_dirty": false,
+      "whole_worktree_status": {
+        "argv": [
+          "/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "-C",
+          "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/usr/bin/git --no-optional-locks -c safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform -C /home/runner/work/sentinel-risk-platform/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_before": {
+        "argv": [
+          "/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "-C",
+          "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/usr/bin/git --no-optional-locks -c safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform -C /home/runner/work/sentinel-risk-platform/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_after": {
+        "argv": [
+          "/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "-C",
+          "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/usr/bin/git --no-optional-locks -c safe.directory=/home/runner/work/sentinel-risk-platform/sentinel-risk-platform -C /home/runner/work/sentinel-risk-platform/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "task_environment": {
+        "COPILOT_GIT": null,
+        "FINETUNE_GIT": null,
+        "HF_HOME": null,
+        "PIP_CACHE_DIR": null,
+        "TMPDIR": null,
+        "TEMP": null,
+        "TMP": null,
+        "XDG_CACHE_HOME": null,
+        "TORCH_HOME": null,
+        "HF_HUB_OFFLINE": null,
+        "HF_HUB_DISABLE_IMPLICIT_TOKEN": null,
+        "PYTHONPATH": null,
+        "PYTHONHASHSEED": null,
+        "CUBLAS_WORKSPACE_CONFIG": null,
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      }
+    },
+    "git_status": "",
+    "selected_source_dirty": false,
+    "whole_worktree_dirty": false,
+    "source_hashes": {
+      "sha256": {
+        "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+        "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+        "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+        "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+        "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+        "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+        "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+        "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+        "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+        "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+        "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+        "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+        "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+        "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+        "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+        "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+        "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+        "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+        "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+        "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+        "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+        "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+        "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+        "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+        "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+        "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+        "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+        "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+        "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+        "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+        "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+        "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+        "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+        "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+        "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+        "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+        "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+        "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+        "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+        "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+        "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+        "copilot/db/reader.py": "98c1df62c91f31f81b7705866dbb24e775aa22c81f5d7acb863fee986d2a3b69",
+        "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+        "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+        "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+        "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+        "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+        "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+        "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+        "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+        "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+        "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+        "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+        "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+        "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+        "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+        "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+        "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+        "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+        "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+        "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+        "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+        "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+        "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+        "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+        "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+        "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+        "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+        "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+        "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+        "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+        "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+        "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+        "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+        "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+        "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+        "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+        "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+      },
+      "missing_paths": []
+    },
+    "runner_source": {
+      "path": "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform/copilot/scripts/provenance.py",
+      "sha256": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a"
+    },
+    "config_sha256": "6280a37a51483a4c8fb082c883bb7649ef5225a6fc666cf92055da9413a358c1",
+    "packages": {
+      "mcp": "2.3.0",
+      "mcp-types": "2.3.0",
+      "psycopg": "3.3.6",
+      "pgvector": null,
+      "sentence-transformers": null,
+      "transformers": null,
+      "torch": null,
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "pandas": null,
+      "joblib": "1.6.0",
+      "pyarrow": null,
+      "langgraph": null,
+      "jsonschema": "4.26.0",
+      "httpx": null,
+      "httpx2": "2.16.0",
+      "uvicorn": "0.54.0"
+    },
+    "environment": "GitHub-hosted runner",
+    "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "gpu_driver": null,
+    "cuda": null,
+    "python": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+    "python_executable": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python",
+    "python_import_paths": [
+      "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+      "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python312.zip",
+      "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12",
+      "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/lib-dynload",
+      "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages"
+    ],
+    "command": [
+      "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform/copilot/scripts/verify_model.py",
+      "--config",
+      "/home/runner/work/_temp/copilot-tools-private/configs/model-parity.json"
+    ],
+    "timestamp": "2026-11-02T08:30:38.203197+00:00",
+    "wall_seconds": 1.3777466669999967,
+    "recorded_at": "2026-11-02T08:30:39.399910+00:00",
+    "device": {
+      "runner": "cpu orchestration",
+      "configured_model_device": "not specified by this runner",
+      "observed_cpu": "x86_64",
+      "observed_gpu_driver": "not available in this runner",
+      "cuda": "not queried by this runner"
+    },
+    "interpretation": "provenance of this artifact; raw observations are evidence, not an acceptance claim"
+  }
+}

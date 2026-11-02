@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-11-02T11:25:46.3744541Z",
+  "kind": "operator_partition_identity_receipt_from_closed_stage_mirrors",
+  "same_partition_identity": true,
+  "seeds": [
+    {
+      "seed": 42,
+      "partition_identity_sha256": "4f5f10a098d45051757c225a55bde52c580942aa4bd64d4d99b8b1f155d0801d",
+      "method": "train-only largest-remainder stratification; SHA256(seed:message_id) rank",
+      "validation_seed": 1729,
+      "training_source_order": "original deduplicated corpus order; original split membership",
+      "train_rows": 3722,
+      "validation_rows": 414,
+      "train_scam": 470,
+      "validation_scam": 52,
+      "train_ids_count": 3722,
+      "validation_ids_count": 414,
+      "train_unique_ids": 3722,
+      "validation_unique_ids": 414,
+      "disjoint": true
+    },
+    {
+      "seed": 43,
+      "partition_identity_sha256": "4f5f10a098d45051757c225a55bde52c580942aa4bd64d4d99b8b1f155d0801d",
+      "method": "train-only largest-remainder stratification; SHA256(seed:message_id) rank",
+      "validation_seed": 1729,
+      "training_source_order": "original deduplicated corpus order; original split membership",
+      "train_rows": 3722,
+      "validation_rows": 414,
+      "train_scam": 470,
+      "validation_scam": 52,
+      "train_ids_count": 3722,
+      "validation_ids_count": 414,
+      "train_unique_ids": 3722,
+      "validation_unique_ids": 414,
+      "disjoint": true
+    },
+    {
+      "seed": 44,
+      "partition_identity_sha256": "4f5f10a098d45051757c225a55bde52c580942aa4bd64d4d99b8b1f155d0801d",
+      "method": "train-only largest-remainder stratification; SHA256(seed:message_id) rank",
+      "validation_seed": 1729,
+      "training_source_order": "original deduplicated corpus order; original split membership",
+      "train_rows": 3722,
+      "validation_rows": 414,
+      "train_scam": 470,
+      "validation_scam": 52,
+      "train_ids_count": 3722,
+      "validation_ids_count": 414,
+      "train_unique_ids": 3722,
+      "validation_unique_ids": 414,
+      "disjoint": true
+    }
+  ],
+  "identity_hash_serialization": "UTF8 PowerShell compact JSON of listed identity fields, preserve array order",
+  "explains_previous_file_hash_check": "partition.json whole-file hashes differ because each includes per-stage provenance, command seed, time, process and wall fields; actual partition identity verified here",
+  "prior_training_receipt_sha256": "9f078257056583f9822d02f426b4874647599f10a5b426e2ac66983996876550"
+}

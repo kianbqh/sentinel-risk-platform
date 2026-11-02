@@ -1,0 +1,29 @@
+{
+  "accepted_seed_training_evidence": true,
+  "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "seed": 42,
+  "small_files_verified": 13,
+  "fit_rows": 3722,
+  "validation_rows": 414,
+  "heldout_overlap": 0,
+  "optimizer_steps": 699,
+  "epochs": 3,
+  "selected_step": 466,
+  "validation_loss": 0.0062991357408463955,
+  "train_wall_seconds": 2631.8238685609977,
+  "train_wall_scope": "Trainer.train including scheduled validation/checkpoint saves/best reload; excludes model load, tokenization and final evaluate/save",
+  "memory": {
+    "peak_allocated_bytes": 3529354240,
+    "peak_reserved_bytes": 7967080448,
+    "end_allocated_bytes": 1841924608,
+    "end_reserved_bytes": 7967080448,
+    "scope": "PyTorch allocator on device 0; not whole-system or nvidia-smi peak"
+  },
+  "adapter_manifest": {
+    "path": "adapter_model.safetensors",
+    "bytes": 73911112,
+    "sha256": "2899f8e373dcaccadf7ae8dd3765bb35cb20aa6edba4b5c386e60377f2a37b8d",
+    "keep_out_of_git": true
+  },
+  "scope": "Independent small-file hash, split exclusion and raw validation selection reconciliation. Adapter actual bytes will be rehashed before release; held-out quality is not yet evaluated."
+}

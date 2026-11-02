@@ -1,0 +1,663 @@
+{
+  "status": "passed",
+  "scope": "dependency resolution, import/API inspection and readonly CUDA availability query only; no model loading or GPU kernel workload",
+  "started_at": "2026-11-02T07:02:16.147157+00:00",
+  "finished_at": "2026-11-02T07:02:36.809114+00:00",
+  "wall_seconds": 20.66336696399958,
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "executable": "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "imports": {
+    "torch": {
+      "file": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages/torch/__init__.py",
+      "version": "2.15.0+cu132",
+      "cuda_build": "13.2",
+      "cuda_available_readonly_query": true
+    },
+    "transformers": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/transformers/__init__.py",
+      "version": "5.22.1"
+    },
+    "peft": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/peft/__init__.py",
+      "version": "0.21.2"
+    },
+    "bitsandbytes": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/bitsandbytes/__init__.py",
+      "version": "0.50.2"
+    },
+    "accelerate": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/accelerate/__init__.py",
+      "version": "1.15.0"
+    },
+    "numpy": {
+      "file": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages/numpy/__init__.py",
+      "version": "2.5.4"
+    },
+    "sklearn": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/sklearn/__init__.py",
+      "version": "1.9.1"
+    },
+    "joblib": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/joblib/__init__.py",
+      "version": "1.6.0"
+    },
+    "pydantic": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/pydantic/__init__.py",
+      "version": "2.14.2"
+    },
+    "safetensors": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/safetensors/__init__.py",
+      "version": "0.8.0"
+    },
+    "huggingface_hub": {
+      "file": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages/huggingface_hub/__init__.py",
+      "version": "1.33.0"
+    }
+  },
+  "apis": {
+    "Trainer_parameters": [
+      "model",
+      "args",
+      "data_collator",
+      "train_dataset",
+      "eval_dataset",
+      "processing_class",
+      "model_init",
+      "compute_loss_func",
+      "compute_metrics",
+      "callbacks",
+      "optimizers",
+      "optimizer_cls_and_kwargs",
+      "preprocess_logits_for_metrics"
+    ],
+    "TrainingArguments_parameters": [
+      "output_dir",
+      "per_device_train_batch_size",
+      "num_train_epochs",
+      "max_steps",
+      "learning_rate",
+      "lr_scheduler_type",
+      "lr_scheduler_kwargs",
+      "warmup_steps",
+      "optim",
+      "optim_args",
+      "weight_decay",
+      "adam_beta1",
+      "adam_beta2",
+      "adam_epsilon",
+      "optim_target_modules",
+      "gradient_accumulation_steps",
+      "average_tokens_across_devices",
+      "max_grad_norm",
+      "label_smoothing_factor",
+      "bf16",
+      "fp16",
+      "bf16_full_eval",
+      "fp16_full_eval",
+      "tf32",
+      "gradient_checkpointing",
+      "gradient_checkpointing_kwargs",
+      "torch_compile",
+      "torch_compile_backend",
+      "torch_compile_mode",
+      "use_liger_kernel",
+      "liger_kernel_config",
+      "use_cache",
+      "neftune_noise_alpha",
+      "torch_empty_cache_steps",
+      "auto_find_batch_size",
+      "logging_strategy",
+      "logging_steps",
+      "logging_first_step",
+      "log_on_each_node",
+      "logging_nan_inf_filter",
+      "include_num_input_tokens_seen",
+      "log_level",
+      "log_level_replica",
+      "disable_tqdm",
+      "report_to",
+      "run_name",
+      "project",
+      "trackio_space_id",
+      "trackio_bucket_id",
+      "trackio_static_space_id",
+      "eval_strategy",
+      "eval_steps",
+      "eval_delay",
+      "per_device_eval_batch_size",
+      "prediction_loss_only",
+      "eval_on_start",
+      "eval_do_concat_batches",
+      "eval_use_gather_object",
+      "eval_accumulation_steps",
+      "include_for_metrics",
+      "batch_eval_metrics",
+      "save_only_model",
+      "save_strategy",
+      "save_steps",
+      "save_on_each_node",
+      "save_total_limit",
+      "enable_jit_checkpoint",
+      "push_to_hub",
+      "hub_token",
+      "hub_private_repo",
+      "hub_model_id",
+      "hub_strategy",
+      "hub_always_push",
+      "hub_revision",
+      "load_best_model_at_end",
+      "metric_for_best_model",
+      "greater_is_better",
+      "ignore_data_skip",
+      "restore_callback_states_from_checkpoint",
+      "full_determinism",
+      "seed",
+      "data_seed",
+      "use_cpu",
+      "accelerator_config",
+      "parallelism_config",
+      "dataloader_drop_last",
+      "dataloader_num_workers",
+      "dataloader_pin_memory",
+      "dataloader_persistent_workers",
+      "dataloader_prefetch_factor",
+      "dataloader_multiprocessing_context",
+      "dataloader_in_order",
+      "remove_unused_columns",
+      "label_names",
+      "train_sampling_strategy",
+      "length_column_name",
+      "ddp_find_unused_parameters",
+      "ddp_bucket_cap_mb",
+      "ddp_broadcast_buffers",
+      "ddp_static_graph",
+      "ddp_backend",
+      "ddp_timeout",
+      "fsdp",
+      "fsdp_config",
+      "deepspeed",
+      "debug",
+      "skip_memory_metrics",
+      "do_train",
+      "do_eval",
+      "do_predict",
+      "resume_from_checkpoint",
+      "local_rank"
+    ],
+    "prepare_model_for_kbit_training_signature": "(model, use_gradient_checkpointing=True, gradient_checkpointing_kwargs=None, auto_clear_cache=True)"
+  },
+  "errors": [],
+  "resolved_package_origins": {
+    "pip": {
+      "version": "24.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "anyio": {
+      "version": "4.16.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "joblib": {
+      "version": "1.6.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "safetensors": {
+      "version": "0.8.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "transformers": {
+      "version": "5.22.1",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "pydantic-core": {
+      "version": "2.50.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "narwhals": {
+      "version": "2.28.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "accelerate": {
+      "version": "1.15.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "idna": {
+      "version": "3.20",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "httpcore": {
+      "version": "1.0.9",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "pydantic": {
+      "version": "2.14.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "psutil": {
+      "version": "7.2.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "annotated-doc": {
+      "version": "0.0.5",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "mdurl": {
+      "version": "0.1.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "scikit-learn": {
+      "version": "1.9.1",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "hf-xet": {
+      "version": "1.8.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "shellingham": {
+      "version": "1.5.4",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "regex": {
+      "version": "2026.9.29",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "annotated-types": {
+      "version": "0.8.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "tqdm": {
+      "version": "4.70.1",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "bitsandbytes": {
+      "version": "0.50.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "scipy": {
+      "version": "1.18.1",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "tokenizers": {
+      "version": "0.23.3",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "pyyaml": {
+      "version": "6.0.3",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "markdown-it-py": {
+      "version": "4.2.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "rich": {
+      "version": "15.0.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "peft": {
+      "version": "0.21.2",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "click": {
+      "version": "8.5.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "h11": {
+      "version": "0.16.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "certifi": {
+      "version": "2026.10.23",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "httpx": {
+      "version": "0.28.1",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "huggingface-hub": {
+      "version": "1.33.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "typing-inspection": {
+      "version": "0.4.4",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "typer": {
+      "version": "0.27.3",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "threadpoolctl": {
+      "version": "3.7.0",
+      "location": "/opt/codex-resume/all-modules-v2/m1a/train-venv/lib/python3.12/site-packages",
+      "source": "private_train_venv"
+    },
+    "fonttools": {
+      "version": "4.68.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cublas": {
+      "version": "13.4.1.3",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "gymnasium": {
+      "version": "1.4.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "matplotlib": {
+      "version": "3.11.2",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cuda-pathfinder": {
+      "version": "1.8.5",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "contourpy": {
+      "version": "1.4.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pyparsing": {
+      "version": "3.3.3",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "ninja": {
+      "version": "1.13.2",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "jinja2": {
+      "version": "3.1.6",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-nvshmem-cu13": {
+      "version": "3.7.2",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "kiwisolver": {
+      "version": "1.5.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "typing-extensions": {
+      "version": "4.16.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cusparse": {
+      "version": "12.7.10.12",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cuda-runtime": {
+      "version": "13.2.86",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cufile": {
+      "version": "1.17.1.22",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "filelock": {
+      "version": "4.2.6",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cudnn-cu13": {
+      "version": "9.26.0.51",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "mpmath": {
+      "version": "1.3.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "iniconfig": {
+      "version": "2.3.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "networkx": {
+      "version": "3.7",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pytest": {
+      "version": "9.2.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cuda-cupti": {
+      "version": "13.2.86",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cufft": {
+      "version": "12.2.0.57",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "markupsafe": {
+      "version": "3.0.4",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cmake": {
+      "version": "4.4.4",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pybind11": {
+      "version": "3.1.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cuda-toolkit": {
+      "version": "13.2.2",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "setuptools": {
+      "version": "84.2.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cloudpickle": {
+      "version": "3.1.2",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "numpy": {
+      "version": "2.5.4",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "farama-notifications": {
+      "version": "0.0.6",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-nccl-cu13": {
+      "version": "2.30.7",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cusolver": {
+      "version": "12.2.0.11",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-nvjitlink": {
+      "version": "13.4.92",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pluggy": {
+      "version": "1.7.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cuda-cccl": {
+      "version": "13.3.4.3.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "sympy": {
+      "version": "1.14.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "python-dateutil": {
+      "version": "3.0.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cycler": {
+      "version": "0.12.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pygments": {
+      "version": "2.21.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "packaging": {
+      "version": "26.3",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cusparselt-cu13": {
+      "version": "0.8.1",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "cuda-bindings": {
+      "version": "13.4.4",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "torch": {
+      "version": "2.15.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "pillow": {
+      "version": "13.0.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "triton": {
+      "version": "3.9.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "six": {
+      "version": "1.17.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-cuda-nvrtc": {
+      "version": "13.2.86",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "tzdata": {
+      "version": "2026.6",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "fsspec": {
+      "version": "2026.9.0",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    },
+    "nvidia-nvtx": {
+      "version": "13.2.86",
+      "location": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages",
+      "source": "shared_readonly"
+    }
+  },
+  "shared_distribution_inventory_unchanged": true,
+  "pip_check": {
+    "returncode": 0,
+    "stdout": "No broken requirements found.\n",
+    "stderr": ""
+  },
+  "files": {
+    "install-plan.json": {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/preparation/install-plan.json",
+      "bytes": 656812,
+      "sha256": "613e5492b3ace0540621a8ff92f88657eec1a9adc3b2acd67b2623717dc5c8fd"
+    },
+    "install-report.json": {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/preparation/install-report.json",
+      "bytes": 656812,
+      "sha256": "613e5492b3ace0540621a8ff92f88657eec1a9adc3b2acd67b2623717dc5c8fd"
+    },
+    "pip-inspect.json": {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/preparation/pip-inspect.json",
+      "bytes": 1150024,
+      "sha256": "ac9a823f5bf6ff6c0dc6b2df64e57d43c522bfd3b142284b83f7f0c1665cb4c7"
+    },
+    "requirements-resolved.txt": {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/preparation/requirements-resolved.txt",
+      "bytes": 1604,
+      "sha256": "7e25e3bfd47a99438fe6ed4424f2dd38cd2fcd81dedebca22199e84a1910eb90"
+    }
+  },
+  "staged_lock": {
+    "path": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/staging/text-risk/finetune/requirements-lock.txt",
+    "bytes": 2101,
+    "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+  },
+  "cache_environment": {
+    "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+    "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+    "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+    "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+    "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch"
+  }
+}

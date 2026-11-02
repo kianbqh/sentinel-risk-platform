@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/opt/codex-resume/all-modules-v2/m1a/agent-venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "copilot/tests/agent",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "started_at": "2026-11-02T13:22:44.455225+00:00",
+  "finished_at": "2026-11-02T13:22:46.275598+00:00",
+  "returncode": 0,
+  "wall_seconds": 1.8203716529969824,
+  "log_sha256": "ad06a5e89511381646bc637ae102e6b5478bc95df3794d8f106e7fdfb7ed407e",
+  "prior_attempt": "49 tests OK in original log; outer Bash exit-variable wrapper failed, retained original recording-integrated-tests-20261102.log"
+}

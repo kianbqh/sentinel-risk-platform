@@ -27,6 +27,12 @@ flowchart LR
     O --> V[Grafana + alert rules]
     G -. W3C trace .-> J[Jaeger]
     C -. consumer + DB spans .-> J
+    Analyst[Analyst via draft API] --> CP[Optional analyst copilot<br/>local Qwen + LangGraph]
+    CP --> MCP[Five scoped MCP tools]
+    MCP --> P
+    MCP --> G
+    CP --> DR[Review drafts + conversation memory]
+    DR --> P
 ```
 
 ## Run locally
@@ -55,11 +61,15 @@ I also added an [optional operations setup](ops/README.md) to follow a request a
 |---|---:|---|
 | Credit-card logistic regression, later holdout | PR-AUC **0.728** | [raw batch metrics](results/model-quality/batch.json) |
 | SMS TF-IDF + LR, paired 400-message evaluation | F1 **0.9388** | [paired metrics](results/model-quality/sms-qwen15.json) |
+| SMS TF-IDF + LR, full 1,035-message test set | F1 **0.9575** | [November 2 comparison](text-risk/results/qlora/20261102-5465aae5/comparison/summary.json) |
+| SMS QLoRA, same full test set, three training seeds | F1 **0.9783 ± 0.0034** | [training and evaluation](text-risk/results/qlora/20261102-5465aae5/RESULTS.md) |
 | Hybrid SMS routing to Qwen 0.5B / 1.5B, same messages | F1 **0.8190 / 0.8491** | [0.5B](results/model-quality/sms-qwen05.json), [1.5B](results/model-quality/sms-qwen15.json) |
 | Elliptic, all 165 features, new three-seed GraphSAGE / GAT run | PR-AUC **0.559 / 0.407** | [fresh graph metrics](results/model-quality/graph.json) |
 | Elliptic, same split/features, three-seed LightGBM | PR-AUC **0.793** | [full graph metrics](results/model-quality/graph.json) |
 
 The small LLM hybrids did not improve F1 over TF-IDF on these paired SMS messages, so Compose serves TF-IDF by default. The GNNs also did not beat LightGBM on this fixed-graph protocol. The graph study uses a temporal label split on the full graph, with train-only preprocessing and validation-only threshold selection; its full feature set already contains neighborhood aggregates.
+
+The separate QLoRA experiment improved the SMS point estimates. Its three-seed spread above is a population standard deviation; paired test-message intervals include or touch zero for the gains over TF-IDF. TF-IDF remains the default, with measured p50 latency of 0.901 ms versus 472–486 ms for the adapters. The [module report](text-risk/README.md) keeps strict-format failures, rules fallback and a separate posthoc format check visible.
 
 The batch and paired SMS evaluations are retained source measurements; the [quality manifest](results/model-quality/manifest.json) records their original paths and SHA-256 hashes. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
 
@@ -120,6 +130,7 @@ The ATO data is entirely synthetic. Its supervised signal classifies completed I
 | [security](security/README.md) | Service scans and intentionally vulnerable test fixtures | `results/security/` |
 | [deployment](deploy/README.md) | Kubernetes and AWS Terraform recipes | formatting and validation only |
 | [operations](ops/README.md) | Service metrics, traces, readiness, database outage and single-node kind | new runs under `results/ops/` |
+| [analyst copilot](copilot/README.md) | Repository-derived transaction cases and synthetic login windows; MCP tools, retrieval and review drafts | `copilot/results/` |
 
 The [single root workflow](.github/workflows/platform.yml) runs Python, real-PostgreSQL Go integration/race tests, frontend interactions/build, Scala parity/state tests, graph unit tests, Terraform validation, service scans and the Compose flow. Console load runners validate every GraphQL body and retain per-request read/write latencies. The bounded console ZAP scan includes authenticated GraphQL exploration on the owned localhost origin.
 

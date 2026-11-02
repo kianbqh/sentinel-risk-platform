@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-11-02T12:45:19.760668+00:00",
+  "accepted": true,
+  "stage": "eval-43",
+  "summary_sha256": "d0792e4a309f7b34a6741f22c419a2241416141c3fc270fbba3b0ccc7198bad5",
+  "mirror_files_verified": 14,
+  "prediction_rows": 1035,
+  "timed_rows": 3105,
+  "sets": {
+    "full1035": {
+      "n": 1035,
+      "tp": 128,
+      "tn": 900,
+      "fp": 4,
+      "fn": 3,
+      "accuracy": 0.9932367149758454,
+      "precision": 0.9696969696969697,
+      "recall": 0.9770992366412213,
+      "f1": 0.973384030418251,
+      "schema_failures": 0,
+      "json_failures": 0,
+      "valid_rate": 1.0,
+      "valid_only_metrics": {
+        "n": 1035,
+        "tp": 128,
+        "tn": 900,
+        "fp": 4,
+        "fn": 3,
+        "accuracy": 0.9932367149758454,
+        "precision": 0.9696969696969697,
+        "recall": 0.9770992366412213,
+        "f1": 0.973384030418251
+      }
+    },
+    "paired400": {
+      "n": 400,
+      "tp": 49,
+      "tn": 348,
+      "fp": 1,
+      "fn": 2,
+      "accuracy": 0.9925,
+      "precision": 0.98,
+      "recall": 0.9607843137254902,
+      "f1": 0.9702970297029703,
+      "schema_failures": 0,
+      "json_failures": 0,
+      "valid_rate": 1.0,
+      "valid_only_metrics": {
+        "n": 400,
+        "tp": 49,
+        "tn": 348,
+        "fp": 1,
+        "fn": 2,
+        "accuracy": 0.9925,
+        "precision": 0.98,
+        "recall": 0.9607843137254902,
+        "f1": 0.9702970297029703
+      }
+    }
+  },
+  "benchmark": {
+    "warmup_messages": 3,
+    "repeats": 3,
+    "concurrency": 1,
+    "batch_size": 1,
+    "n_samples": 3105,
+    "p50_ms": 472.4406280001858,
+    "p95_ms": 637.5837267987661,
+    "quantile_method": "linear interpolation",
+    "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+    "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+    "quality_repeat": 0
+  },
+  "failures_all_repeats": {},
+  "repeat_disagreements": 0,
+  "truncations": 0,
+  "scope": "Recomputed primary metrics, strict parser/fallback flags, ordered IDs/labels, all timed samples and hashes. No fence normalization, new inference or claim of independently replaying fallback text classification."
+}

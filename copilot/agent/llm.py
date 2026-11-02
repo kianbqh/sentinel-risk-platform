@@ -84,15 +84,38 @@ class LocalChatModel:
 
 class RecordedChatModel:
     """Only replay a cassette exported from a completed actual-model run."""
-    def __init__(self, turns):
-        self.turns = list(turns)
+    def __init__(self, turns=None, *, events=None):
+        if events is None:
+            events = [{"kind": "response", "request_sha256": row["request_sha256"], "turn": row} for row in (turns or [])]
+        self.events = list(events)
+        self.turns = [row["turn"] for row in self.events if row.get("kind") == "response"]
         self.position = 0
+        self.violations = []
 
     async def complete(self, messages, schema):
-        if self.position >= len(self.turns):
+        if self.position >= len(self.events):
+            self.violations.append("recorded_model_events_exhausted")
             raise AssertionError("Recorded model turn exhausted")
-        row = self.turns[self.position]
-        self.position += 1
-        if request_hash(redact(messages), schema) != row["request_sha256"]:
+        event = self.events[self.position]
+        if request_hash(redact(messages), schema) != event["request_sha256"]:
+            self.violations.append("recorded_request_hash_mismatch")
             raise AssertionError("Recorded prompt/schema differs from actual-model request")
+        if "schema" in event and canonical(event["schema"]) != canonical(schema):
+            self.violations.append("recorded_schema_mismatch")
+            raise AssertionError("Recorded schema differs from actual-model request")
+        self.position += 1
+        if event["kind"] == "transport_error":
+            # Reproduce the actual exception's *type name* at the same boundary.
+            # No HTTP response, content, usage or model output is invented.
+            import re
+            name = event["actual_error"]["type"]
+            if not isinstance(name, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,99}", name):
+                self.violations.append("invalid_recorded_error_type")
+                raise AssertionError("Invalid recorded model exception type")
+            error_type = type(name, (RuntimeError,), {"recorded_model_error": True})
+            raise error_type("Replay of recorded actual model adapter exception")
+        if event["kind"] != "response":
+            self.violations.append("unknown_recorded_model_event")
+            raise AssertionError("Unknown recorded model event")
+        row = event["turn"]
         return ModelTurn(row["content"], row["raw_response"], row["usage"], 0.0, row["request_sha256"], row["messages"])

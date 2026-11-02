@@ -1,0 +1,987 @@
+{
+  "value": [
+    {
+      "case_id": 1000001,
+      "alert_id": "b62fd094-9d36-528d-8e93-615212a897d9",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000002,
+      "alert_id": "81c1d7a4-2077-5df7-b23a-612c9756b91d",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000003,
+      "alert_id": "f45dc602-f656-5162-aa5f-215d58876f48",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000004,
+      "alert_id": "3f873953-6d58-5266-9f1e-2a007d45a177",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000005,
+      "alert_id": "a847f512-d5b9-5d77-b197-3d3485e77c9a",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000006,
+      "alert_id": "9aaf3a46-4347-5484-958c-c1cd768a55ff",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000007,
+      "alert_id": "ebe5b36c-760e-5ed4-b4d8-d00e7b36ea35",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000008,
+      "alert_id": "773199c2-3250-57e9-ba80-31f14c6625d3",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000009,
+      "alert_id": "9d7c256b-cd13-5701-810e-b4d7041f51ee",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000010,
+      "alert_id": "8c9f1093-85cd-54a5-8119-37819b4fed8a",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000011,
+      "alert_id": "516a088e-7c15-5de8-87a9-eabdaa1d6d8f",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000012,
+      "alert_id": "b3c9f3d4-0bee-5202-8330-e059c6fb4a4f",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000013,
+      "alert_id": "92023811-bb64-5ec1-b0f6-93afd71aa8bb",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000014,
+      "alert_id": "8948c001-fb98-57d1-a135-4f37b4515078",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000015,
+      "alert_id": "f14b7441-0958-51ba-bac9-ff3fdc24c05b",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000016,
+      "alert_id": "fa5c4873-9483-512b-bd67-51f00b5b3adb",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000017,
+      "alert_id": "db2346e4-ad37-50f6-80bd-dfb23b987cb1",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000018,
+      "alert_id": "16d07238-b293-50a5-be77-968bef3227d1",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000019,
+      "alert_id": "c3296fb0-95f2-55c0-b67d-f60f15d27576",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000020,
+      "alert_id": "ddbfabda-22c6-597c-bd4e-4bcbd928a08e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000021,
+      "alert_id": "606d1d50-0042-5d55-84ff-ac096e4de071",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000022,
+      "alert_id": "35e1e1e3-5410-5119-ab76-ef260f1e896c",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000023,
+      "alert_id": "dc88f479-7239-504e-be5a-5b6ec6acff18",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000024,
+      "alert_id": "121d25d5-d5dc-5e19-8574-29d8c53448f0",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000025,
+      "alert_id": "720f8633-0054-5ca9-919d-b6ef11491d8a",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000026,
+      "alert_id": "611d3ba8-e66e-595f-ba26-8011f9a1df7c",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000027,
+      "alert_id": "ce249670-2781-5fbf-bf88-dffb587edb00",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000028,
+      "alert_id": "9746b709-0553-51fd-9e07-56bfc6cf96ec",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000029,
+      "alert_id": "96dca6de-8188-55a7-ac78-26f3e5191004",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000030,
+      "alert_id": "8a664fce-1af8-51b8-aa35-6c6b9b3aa3c4",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000031,
+      "alert_id": "8b274ff6-e1cb-5b32-a83c-f8ee135b84ae",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000032,
+      "alert_id": "81a1359d-7e4b-586f-a6ff-7bdaff53a445",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000033,
+      "alert_id": "9459c944-23ba-57ba-8980-d002116ac76e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000034,
+      "alert_id": "e83468d3-4931-5633-8857-f289f6e143bb",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000035,
+      "alert_id": "c9ea327f-3063-56e4-9422-0eec2f95d533",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000036,
+      "alert_id": "439d0b91-618c-5e31-b4c3-9f4a48aab818",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000037,
+      "alert_id": "e6dd3caf-99dc-59c9-8f32-492a8c1deeae",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000038,
+      "alert_id": "3c401fb1-f177-5440-bd60-00a7538fc5af",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000039,
+      "alert_id": "a8d6ba1d-6306-55d9-8085-66690b988fac",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000040,
+      "alert_id": "504861ca-470a-5491-8a9d-13bd28a9ebbb",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000041,
+      "alert_id": "3f5b15fd-445a-5029-864b-7dc0ba7bdafd",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000042,
+      "alert_id": "dce70ae5-66c7-58ef-ab9a-09c69497d2fc",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000043,
+      "alert_id": "42e71784-8dc6-56d4-8b25-a9e2db7e3d86",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000044,
+      "alert_id": "32ea7d4a-be94-5155-ac5d-09a23f1c371e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000045,
+      "alert_id": "9ab3b38c-9bd4-52c3-b65e-3f1032268e3b",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000046,
+      "alert_id": "1e99f24e-4e71-5a6f-bef1-c5729dea57de",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000047,
+      "alert_id": "1c3fd5ff-4174-51e3-aad5-6f3002fabd6d",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000048,
+      "alert_id": "93e5cce2-ca43-54ce-8d7f-901dc821d893",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000049,
+      "alert_id": "7705ac55-cc1d-5b2b-be9e-d7280d443f50",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000050,
+      "alert_id": "375060c6-a4cf-564b-9b97-f074a1e2d029",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000051,
+      "alert_id": "ee3c6824-5dd9-5b87-89bf-16ad3772e8cb",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000052,
+      "alert_id": "a29522cc-815d-5b96-bac7-b74c3c737b6b",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000053,
+      "alert_id": "7f5f7543-377c-5f25-ba31-28c222099470",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000054,
+      "alert_id": "a5326c11-5965-5457-9b40-d3bb173eea28",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000055,
+      "alert_id": "e5702048-b4c4-572d-8e47-9ce1282d4f6d",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000056,
+      "alert_id": "3dc92861-e356-5650-a0dd-5a013d27b21b",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000057,
+      "alert_id": "7db5d658-a465-5128-8b0b-2accb8b187a3",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000058,
+      "alert_id": "d540e272-3d49-52c6-a278-30fb344f15e1",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000059,
+      "alert_id": "5b141cfa-d4e7-59ec-a77b-87ced7073482",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000060,
+      "alert_id": "c1d51230-07b1-5a70-9361-fdb43f0e29d1",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000061,
+      "alert_id": "300f3636-6e9d-5852-9c51-9a096ea6052f",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000062,
+      "alert_id": "840ca30d-3931-567d-941e-86a04dd688c3",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000063,
+      "alert_id": "cb37df72-a878-5ec6-bf58-c22cfbc91f46",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000064,
+      "alert_id": "cdc1ae96-f18c-503a-9ce8-e56b67d33fcc",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000065,
+      "alert_id": "8fada795-8dcc-50e3-8bd4-a2f24ee6abad",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000066,
+      "alert_id": "bca72250-9f3f-5f7e-8c46-8fdcc4e81da5",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000067,
+      "alert_id": "166923d5-2892-54e2-b870-287d25feb354",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000068,
+      "alert_id": "0bc8660e-13a8-54cc-9896-7d51235fed8d",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000069,
+      "alert_id": "e3f6adea-1519-5d2e-b5b4-40359ef6422c",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000070,
+      "alert_id": "21be1a67-8ba4-5ef5-9d4b-cbb3f46df279",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000071,
+      "alert_id": "58cb6501-9074-5fb9-948d-77e1f13809a4",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000072,
+      "alert_id": "8254cddd-31ec-5a46-8279-336f573c3a69",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000073,
+      "alert_id": "fe1fbf94-c4e8-55be-8897-5c698be18f1d",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000074,
+      "alert_id": "093512a4-62c4-5eb0-8ad7-39cf67182d11",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000075,
+      "alert_id": "b0bcf6a5-6e86-5cf8-9e0c-013f43cccc39",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000076,
+      "alert_id": "bc237f00-654a-534b-af30-6efd4685f6ca",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000077,
+      "alert_id": "4d09722d-7b8a-54d5-a6cc-f5d4da28a69e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000078,
+      "alert_id": "1dcddc0d-e161-57c8-ad3f-e005807be9c4",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000079,
+      "alert_id": "46fbce80-c7d9-5c31-9fac-6fc9370f7d2e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000080,
+      "alert_id": "ca24c8e3-c2ce-58eb-9c19-2dcd034bfa29",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000081,
+      "alert_id": "0d63c64e-400d-50cb-810d-9665b5db22a6",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000082,
+      "alert_id": "b261bf47-561d-5dda-a545-2410b1f5810a",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000083,
+      "alert_id": "bac5ac51-c4b9-5c18-8020-706c2bc232b0",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000084,
+      "alert_id": "4a015306-fc0e-59e8-9973-204b427ad1b6",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000085,
+      "alert_id": "2151dc76-937d-5e55-82a3-8adebaf519ff",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000086,
+      "alert_id": "5cf2944a-b499-57dd-9db1-ff463406cd49",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000087,
+      "alert_id": "7f8a605e-d8dc-5ae8-a6b4-f3c2f607a403",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000088,
+      "alert_id": "428f481e-fab0-5bfb-950c-1927f1d9a2c8",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000089,
+      "alert_id": "3dc465cb-8bcb-52f6-95ee-7668841ac97f",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000090,
+      "alert_id": "881fdc68-59ea-5ea2-a204-25f23188e56f",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000091,
+      "alert_id": "dcad598a-3965-5f72-8d3e-cdd5c38dec61",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000092,
+      "alert_id": "a8d9c0ae-eb54-596a-a946-61bda97d16e2",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000093,
+      "alert_id": "25e86df8-08bd-5a1c-978a-866f25642d47",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000094,
+      "alert_id": "49ef2806-7545-53a4-a17c-aba85a6402ad",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000095,
+      "alert_id": "97ec7539-ff98-554b-80e6-9dd2d6497057",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000096,
+      "alert_id": "c9b572a8-9d08-51c1-bc41-b4aa1270b6a8",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000097,
+      "alert_id": "ae578d74-44b9-5f18-83d9-30bd52ab5c14",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000098,
+      "alert_id": "c413d76b-00d0-5692-9cac-8951bae92488",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000099,
+      "alert_id": "c49eb1a1-f360-5548-a3eb-c596dc3e03f4",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000100,
+      "alert_id": "f00d9bd3-b1ce-5a0b-aad0-3bd6fabb2237",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000101,
+      "alert_id": "46844b45-b1e7-5daa-bab7-a1f69ede6dc8",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000102,
+      "alert_id": "2f21cbf0-a264-5014-b5bf-79c0024dc847",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000103,
+      "alert_id": "b5a87a66-1f02-52d3-8e58-aa97138a72fa",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000104,
+      "alert_id": "f753f3a8-2c54-599b-987f-54f61002ffa9",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000105,
+      "alert_id": "5213372f-a18e-5b17-a7a7-2c7f91d31234",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000106,
+      "alert_id": "98a87c33-e953-587a-9321-e719998b3eb6",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000107,
+      "alert_id": "d703d138-cfd9-5ef6-9c71-ae9229da85ca",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000108,
+      "alert_id": "853e4c8c-0fe4-58b1-8ecc-f71136ec2322",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000109,
+      "alert_id": "87cf7d26-027b-5bbe-885f-08f05c0c20d7",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000110,
+      "alert_id": "49e84ff5-c86c-551c-81be-03fac92ebf00",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000111,
+      "alert_id": "65f52d08-b35c-5eb9-843a-c712f50545a8",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000112,
+      "alert_id": "57f697e1-f3cb-5ce9-9ae6-38830d3ee1ac",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000113,
+      "alert_id": "f8346c92-1a06-5de0-b197-b1fc995ebe76",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000114,
+      "alert_id": "e05f065f-130a-5353-9de2-0e1ed5b25abc",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000115,
+      "alert_id": "0d2500f1-ce8c-5b5f-b653-1051fb24107e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000116,
+      "alert_id": "9fa25db3-fa17-5f85-b03f-e56a0d52609e",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000117,
+      "alert_id": "6c2d37dd-ae27-57a1-b46c-8ee6acc60a65",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000118,
+      "alert_id": "e81afb42-6f68-5e52-9a4f-e28fe2ee6cf4",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000119,
+      "alert_id": "2e3cda5b-28ce-52ad-809d-ca0f1967c111",
+      "events_imported": 1
+    },
+    {
+      "case_id": 1000120,
+      "alert_id": "97a9b0d2-7cb9-55dd-b59b-a1b6713174b4",
+      "events_imported": 1
+    }
+  ],
+  "run_context": {
+    "git_sha": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+    "git": {
+      "git_sha": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "selected_source_scope": [
+        "copilot/agent",
+        "copilot/eval",
+        "copilot/mcp_server",
+        "copilot/retrieval",
+        "copilot/db",
+        "copilot/scripts",
+        "copilot/configs",
+        "copilot/requirements-tools.txt",
+        "copilot/README-tools.md",
+        "copilot/compose.copilot.yml",
+        "serving/model/model.joblib",
+        "serving/model/model_meta.json",
+        "streaming/model/lr_model.json",
+        "gateway/main.py",
+        "gateway/fixtures/manifest.json",
+        "gateway/fixtures/creditcard-prefix-10000.parquet",
+        "ato/datagen.py",
+        "ato/features.py"
+      ],
+      "source_hashes": {
+        "sha256": {
+          "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+          "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+          "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+          "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+          "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+          "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+          "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+          "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+          "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+          "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+          "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+          "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+          "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+          "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+          "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+          "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+          "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+          "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+          "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+          "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+          "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+          "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+          "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+          "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+          "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+          "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+          "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+          "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+          "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+          "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+          "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+          "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+          "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+          "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+          "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+          "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+          "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+          "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+          "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+          "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+          "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+          "copilot/db/reader.py": "29b439c1d5f38b0bee515ef22920e0bcac8f568df8c3fe15c481632ed7e0c902",
+          "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+          "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+          "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+          "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+          "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+          "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+          "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+          "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+          "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+          "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+          "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+          "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+          "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+          "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+          "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+          "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+          "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+          "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+          "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+          "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+          "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+          "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+          "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+          "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+          "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+          "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+          "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+          "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+          "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+          "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+          "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+          "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+          "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+          "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+          "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+          "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+        },
+        "missing_paths": []
+      },
+      "selected_source_dirty": false,
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "copilot/agent",
+          "copilot/eval",
+          "copilot/mcp_server",
+          "copilot/retrieval",
+          "copilot/db",
+          "copilot/scripts",
+          "copilot/configs",
+          "copilot/requirements-tools.txt",
+          "copilot/README-tools.md",
+          "copilot/compose.copilot.yml",
+          "serving/model/model.joblib",
+          "serving/model/model_meta.json",
+          "streaming/model/lr_model.json",
+          "gateway/main.py",
+          "gateway/fixtures/manifest.json",
+          "gateway/fixtures/creditcard-prefix-10000.parquet",
+          "ato/datagen.py",
+          "ato/features.py"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- copilot/agent copilot/eval copilot/mcp_server copilot/retrieval copilot/db copilot/scripts copilot/configs copilot/requirements-tools.txt copilot/README-tools.md copilot/compose.copilot.yml serving/model/model.joblib serving/model/model_meta.json streaming/model/lr_model.json gateway/main.py gateway/fixtures/manifest.json gateway/fixtures/creditcard-prefix-10000.parquet ato/datagen.py ato/features.py",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "task_environment": {
+        "COPILOT_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+        "FINETUNE_GIT": null,
+        "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+        "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+        "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+        "TEMP": null,
+        "TMP": null,
+        "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+        "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+        "HF_HUB_OFFLINE": null,
+        "HF_HUB_DISABLE_IMPLICIT_TOKEN": null,
+        "PYTHONPATH": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+        "PYTHONHASHSEED": null,
+        "CUBLAS_WORKSPACE_CONFIG": null,
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      }
+    },
+    "git_status": "?? copilot/results/",
+    "selected_source_dirty": false,
+    "whole_worktree_dirty": true,
+    "source_hashes": {
+      "sha256": {
+        "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+        "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+        "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+        "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+        "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+        "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+        "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+        "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+        "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+        "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+        "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+        "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+        "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+        "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+        "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+        "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+        "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+        "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+        "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+        "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+        "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+        "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+        "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+        "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+        "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+        "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+        "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+        "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+        "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+        "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+        "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+        "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+        "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+        "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+        "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+        "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+        "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+        "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+        "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+        "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+        "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+        "copilot/db/reader.py": "29b439c1d5f38b0bee515ef22920e0bcac8f568df8c3fe15c481632ed7e0c902",
+        "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+        "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+        "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+        "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+        "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+        "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+        "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+        "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+        "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+        "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+        "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+        "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+        "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+        "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+        "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+        "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+        "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+        "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+        "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+        "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+        "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+        "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+        "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+        "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+        "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+        "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+        "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+        "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+        "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+        "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+        "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+        "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+        "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+        "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+        "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+        "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+      },
+      "missing_paths": []
+    },
+    "runner_source": {
+      "path": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/scripts/provenance.py",
+      "sha256": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a"
+    },
+    "config_sha256": "759fa6202f47d916b63e47226c9cec809ab1a1ba717b6fbc38ed9b13cd112977",
+    "packages": {
+      "mcp": "2.3.0",
+      "mcp-types": "2.3.0",
+      "psycopg": "3.3.6",
+      "pgvector": "0.5.1",
+      "sentence-transformers": "6.2.0",
+      "transformers": "5.22.1",
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "pandas": "3.1.0",
+      "joblib": "1.6.0",
+      "pyarrow": "26.0.0",
+      "langgraph": "1.2.19",
+      "jsonschema": "4.26.0",
+      "httpx": "0.28.1",
+      "httpx2": "2.16.0",
+      "uvicorn": "0.54.0"
+    },
+    "environment": "WSL2 with Docker Desktop services",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+    "cuda": null,
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "python_executable": "/opt/codex-resume/all-modules-v2/m1a/agent-venv/bin/python",
+    "python_import_paths": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "/opt/codex-resume/all-modules-v2/m1a/agent-venv/lib/python3.12/site-packages",
+      "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages"
+    ],
+    "command": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/scripts/import_eval_cases.py",
+      "--config",
+      "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/tools/runtime/runs/functional-dcb8436-01/configs/import-eval.json"
+    ],
+    "timestamp": "2026-11-02T08:03:02.368966+00:00",
+    "wall_seconds": 4.2612192789965775,
+    "recorded_at": "2026-11-02T08:03:02.629384+00:00",
+    "device": {
+      "runner": "cpu orchestration",
+      "configured_model_device": "not specified by this runner",
+      "observed_cpu": "x86_64",
+      "observed_gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+      "cuda": "not queried by this runner"
+    },
+    "interpretation": "provenance of this artifact; raw observations are evidence, not an acceptance claim"
+  }
+}

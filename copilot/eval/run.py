@@ -61,6 +61,8 @@ async def run_async(config_path):
                 run_id = ("warmup-" if warmup else "eval-")+config["run_id"]+f"-{row['case']['case_id']}"
                 try:
                     state = await agent.run(row["case"]["case_id"], run_id=run_id, task=row["task"], persist=not warmup, require_empty_memory=True)
+                    if traced_store.errors or (not warmup and not state.get("receipt")):
+                        raise RuntimeError("A real database read/write boundary failed or no committed draft receipt was returned")
                     if state.get("error") == "evaluation_memory_not_empty":
                         raise ValueError("Evaluation case memory is not empty")
                     if tools.violations:
@@ -80,6 +82,8 @@ async def run_async(config_path):
                               "run_id": run_id, "wall_seconds": state["wall_seconds"] if state is not None else time.perf_counter()-started, "failure_type": type(exc).__name__,
                               "tool_trace": tools.records, "memory_loads": traced_store.loads, "memory_saves": traced_store.saves}
                 record["raw_completed_model_turns"] = traced_model.turns
+                record["model_events"] = traced_model.events
+                record["store_errors"] = traced_store.errors
                 record["source_drift_calls"] = tools.violations
                 return record
             for row in protocol["cases"][:config["warmups"]]:

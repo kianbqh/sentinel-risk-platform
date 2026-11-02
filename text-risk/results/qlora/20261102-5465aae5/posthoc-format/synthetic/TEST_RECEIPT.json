@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "kind": "synthetic preparation verification only; no actual model diagnostic",
+  "started_utc": "2026-11-02T12:28:45.562102+00:00",
+  "finished_utc": "2026-11-02T12:28:46.546735+00:00",
+  "interpreter": "G:\\Python3.10\\python.exe",
+  "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "unexpected_ml_modules": [],
+  "fixture_scope": "Four invented IDs, two paired IDs, four fake systems and three fake repeats; no real-run prediction inputs.",
+  "source_manifest_sha256": "cda39fd122514debed6a570003bf35d94e8c46ecbde914b21da3b635d27d2d17",
+  "tool_source_sha256": "b64385818c3cff7c3824df675a81b1bc44371bc6be9a56c963a4049794514004",
+  "test_source_sha256": "f202348b858664d34143fd347e88879bb300aef212dce260c4b72333491818bb",
+  "runner_source_sha256": "f419fd674a73584f34c886fd3deae2558a9ab0a61befbf6de6909a0168d24257",
+  "test_log_sha256": "93a579bac6a59a2a1f99fbfba6ae2bd06a83ce466f3190383c2df57bfc1a9c89"
+}

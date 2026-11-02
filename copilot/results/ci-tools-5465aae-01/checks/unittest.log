@@ -1,0 +1,31 @@
+test_atomic_idempotent_copilot_event_and_unchanged_decisions (test_database.RealDatabaseTest.test_atomic_idempotent_copilot_event_and_unchanged_decisions) ... ok
+test_real_roles_are_distinct_and_cannot_mutate_human_decisions (test_database.RealDatabaseTest.test_real_roles_are_distinct_and_cannot_mutate_human_decisions) ... ok
+test_authorized_tool_and_per_tool_scope_over_http (test_http.RealHTTPTest.test_authorized_tool_and_per_tool_scope_over_http) ... ok
+test_mcp_reads_and_rejected_writes_leave_database_unchanged (test_http.RealHTTPTest.test_mcp_reads_and_rejected_writes_leave_database_unchanged) ... ok
+test_missing_invalid_expired_and_audience_rejected_over_http (test_http.RealHTTPTest.test_missing_invalid_expired_and_audience_rejected_over_http) ... ok
+test_server_allowlist_and_raw_extra_arguments (test_http.RealHTTPTest.test_server_allowlist_and_raw_extra_arguments) ... ok
+test_exact_allowlist (test_unit.ContractsTest.test_exact_allowlist) ... ok
+test_exact_structured_envelope_rejects_null_wrapped_and_malformed (test_unit.ContractsTest.test_exact_structured_envelope_rejects_null_wrapped_and_malformed) ... ok
+test_per_tool_scopes_and_no_auth_bypass (test_unit.ContractsTest.test_per_tool_scopes_and_no_auth_bypass) ... ok
+test_strict_schema (test_unit.ContractsTest.test_strict_schema) ... ok
+test_actual_stream_identity_with_missing_vector (test_unit.ExplanationTest.test_actual_stream_identity_with_missing_vector) ... ok
+test_exact_logodds_and_sigmoid (test_unit.ExplanationTest.test_exact_logodds_and_sigmoid) ... ok
+test_missing_source_version_and_score_reject (test_unit.ExplanationTest.test_missing_source_version_and_score_reject) ... ok
+test_publish_false_and_fixed_origin (test_unit.GatewayTest.test_publish_false_and_fixed_origin) ... ok
+test_redacted_memory_and_draft_only (test_unit.PersistenceTest.test_redacted_memory_and_draft_only) ... ok
+test_each_result_preserves_facts_and_adds_context (test_unit.ProvenanceTest.test_each_result_preserves_facts_and_adds_context) ... ok
+test_end_source_check_allows_unrelated_outputs_and_rejects_drift (test_unit.ProvenanceTest.test_end_source_check_allows_unrelated_outputs_and_rejects_drift) ... ok
+test_git_failure_raises_instead_of_null (test_unit.ProvenanceTest.test_git_failure_raises_instead_of_null) ... ok
+test_snapshot_rejects_missing_sha_and_head_race (test_unit.ProvenanceTest.test_snapshot_rejects_missing_sha_and_head_race) ... ok
+test_snapshot_separates_selected_source_and_whole_tree (test_unit.ProvenanceTest.test_snapshot_separates_selected_source_and_whole_tree) ... ok
+test_balanced_unique_fixed_split (test_unit.RetrievalTest.test_balanced_unique_fixed_split) ... ok
+test_no_outcomes_ids_or_predictions_in_embedding (test_unit.RetrievalTest.test_no_outcomes_ids_or_predictions_in_embedding) ... ok
+test_reader_scans_beyond_duplicate_prefix_before_k_selection (test_unit.RetrievalTest.test_reader_scans_beyond_duplicate_prefix_before_k_selection) ... ok
+test_unique_entities_and_evidence_after_nearest_first_selection (test_unit.RetrievalTest.test_unique_entities_and_evidence_after_nearest_first_selection) ... ok
+test_vector_rejection (test_unit.RetrievalTest.test_vector_rejection) ... ok
+test_expiry_audience_notbefore_unknown (test_unit.TokenTest.test_expiry_audience_notbefore_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 2.520s
+
+OK

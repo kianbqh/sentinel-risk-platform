@@ -1,0 +1,1432 @@
+{
+  "provenance": {
+    "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+    "git": {
+      "backend": "linux_explicit_task_git",
+      "configured_executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "version": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--version"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --version",
+        "returncode": 0,
+        "stdout": "git version 2.43.0",
+        "stderr": ""
+      },
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "read_only_flags": {
+        "argv": "--no-optional-locks",
+        "GIT_OPTIONAL_LOCKS": "0"
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "selected_source_scope": [
+        "text-risk/finetune",
+        "text-risk/riskclf",
+        "text-risk/data/SMSSpamCollection",
+        "text-risk/models/tfidf_lr.joblib"
+      ],
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "text-risk/finetune",
+          "text-risk/riskclf",
+          "text-risk/data/SMSSpamCollection",
+          "text-risk/models/tfidf_lr.joblib"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- text-risk/finetune text-risk/riskclf text-risk/data/SMSSpamCollection text-risk/models/tfidf_lr.joblib",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+        "stderr": ""
+      },
+      "whole_worktree_dirty": true
+    },
+    "selected_source_dirty": false,
+    "selected_source_scope": [
+      "text-risk/finetune",
+      "text-risk/riskclf",
+      "text-risk/data/SMSSpamCollection",
+      "text-risk/models/tfidf_lr.joblib"
+    ],
+    "selected_source_status": "",
+    "whole_worktree_dirty": true,
+    "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+    "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+    "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+    "source_files": [
+      {
+        "path": "text-risk/finetune/.gitignore",
+        "bytes": 84,
+        "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+      },
+      {
+        "path": "text-risk/finetune/README.md",
+        "bytes": 11434,
+        "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+      },
+      {
+        "path": "text-risk/finetune/__init__.py",
+        "bytes": 66,
+        "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+      },
+      {
+        "path": "text-risk/finetune/artifacts.py",
+        "bytes": 14083,
+        "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+      },
+      {
+        "path": "text-risk/finetune/comparison.py",
+        "bytes": 12737,
+        "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+      },
+      {
+        "path": "text-risk/finetune/configs/qwen15_nf4.json",
+        "bytes": 2098,
+        "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+      },
+      {
+        "path": "text-risk/finetune/experiment.py",
+        "bytes": 17791,
+        "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+      },
+      {
+        "path": "text-risk/finetune/metrics.py",
+        "bytes": 4425,
+        "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+      },
+      {
+        "path": "text-risk/finetune/modeling.py",
+        "bytes": 9123,
+        "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+      },
+      {
+        "path": "text-risk/finetune/protocol.py",
+        "bytes": 5658,
+        "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+      },
+      {
+        "path": "text-risk/finetune/protocol/qwen_reference.json",
+        "bytes": 2204,
+        "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+      },
+      {
+        "path": "text-risk/finetune/protocol/sms_split.json",
+        "bytes": 124068,
+        "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+      },
+      {
+        "path": "text-risk/finetune/requirements-lock.txt",
+        "bytes": 2101,
+        "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+      },
+      {
+        "path": "text-risk/finetune/requirements.candidate.txt",
+        "bytes": 410,
+        "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+      },
+      {
+        "path": "text-risk/finetune/run.py",
+        "bytes": 3397,
+        "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+      },
+      {
+        "path": "text-risk/finetune/tests/test_protocol.py",
+        "bytes": 14512,
+        "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+      },
+      {
+        "path": "text-risk/riskclf/__init__.py",
+        "bytes": 100,
+        "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+      },
+      {
+        "path": "text-risk/riskclf/baseline.py",
+        "bytes": 1089,
+        "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+      },
+      {
+        "path": "text-risk/riskclf/cache.py",
+        "bytes": 1213,
+        "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+      },
+      {
+        "path": "text-risk/riskclf/data.py",
+        "bytes": 1594,
+        "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+      },
+      {
+        "path": "text-risk/riskclf/llm.py",
+        "bytes": 5689,
+        "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+      },
+      {
+        "path": "text-risk/riskclf/rules.py",
+        "bytes": 1470,
+        "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+      },
+      {
+        "path": "text-risk/riskclf/schema.py",
+        "bytes": 1217,
+        "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+      },
+      {
+        "path": "text-risk/riskclf/service.py",
+        "bytes": 4628,
+        "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+      }
+    ],
+    "versions": {
+      "torch": "2.15.0",
+      "transformers": "5.22.1",
+      "peft": "0.21.2",
+      "bitsandbytes": "0.50.2",
+      "accelerate": "1.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "pydantic": "2.14.2",
+      "safetensors": "0.8.0",
+      "huggingface-hub": "1.33.0"
+    },
+    "environment": "WSL2",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "exact_command": "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python text-risk/finetune/run.py compare --config text-risk/finetune/configs/qwen15_nf4.json --run-dir /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/comparison --prompt-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42 --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43 --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44",
+    "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+    "nvidia_smi": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,memory.total,compute_cap",
+        "--format=csv,noheader"
+      ],
+      "command": "nvidia-smi --query-gpu=name,driver_version,memory.total,compute_cap --format=csv,noheader",
+      "returncode": 0,
+      "stdout": "NVIDIA GeForce RTX 3080, 621.01, 12288 MiB, 8.6",
+      "stderr": ""
+    },
+    "configured_model": {
+      "id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "license": "Apache-2.0",
+      "local_path": "/opt/codex-resume/all-modules-v2/m1a/weights/qwen25-15b-instruct",
+      "compute_dtype": "bfloat16",
+      "quant_type": "nf4",
+      "double_quant": true,
+      "attn_implementation": "sdpa"
+    },
+    "timestamp_utc": "2026-11-02T13:10:10.721688+00:00",
+    "process_timezone": "PST",
+    "pid": 299908,
+    "task_environment": {
+      "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+      "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+      "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+      "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+      "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+      "HF_HUB_OFFLINE": "1",
+      "PYTHONHASHSEED": "42",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "FINETUNE_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git"
+    },
+    "timestamp_America_Los_Angeles": "2026-11-02T05:10:10.721822-08:00"
+  },
+  "wall_time_seconds": 34.373612334995414,
+  "finished_at": "2026-11-02T13:10:45.094380+00:00",
+  "status": "compared",
+  "kind": "comparison",
+  "served_default": "tfidf_lr",
+  "sets": {
+    "paired400": {
+      "scores": {
+        "tfidf_lr": {
+          "n": 400,
+          "tp": 46,
+          "fp": 1,
+          "fn": 5,
+          "tn": 348,
+          "accuracy": 0.985,
+          "precision": 0.9787234042553191,
+          "recall": 0.9019607843137255,
+          "f1": 0.9387755102040817,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": 0.0,
+            "paired_f1_difference_ci": [
+              0.0,
+              0.0
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 0,
+            "reference_wrong_candidate_correct": 0,
+            "discordant": 0,
+            "p_value_two_sided_exact": 1.0,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "historical_llm_qwen2.5-0.5b-q4": {
+          "n": 400,
+          "tp": 30,
+          "fp": 100,
+          "fn": 21,
+          "tn": 249,
+          "accuracy": 0.6975,
+          "precision": 0.23076923076923078,
+          "recall": 0.5882352941176471,
+          "f1": 0.3314917127071823,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.24,
+              0.41759483454398694
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": -0.6072837974968994,
+            "paired_f1_difference_ci": [
+              -0.7019076156401738,
+              -0.5167932622253307
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 117,
+            "reference_wrong_candidate_correct": 2,
+            "discordant": 119,
+            "p_value_two_sided_exact": 2.1489165207608205e-32,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "historical_hybrid_qwen2.5-0.5b-q4": {
+          "n": 400,
+          "tp": 43,
+          "fp": 11,
+          "fn": 8,
+          "tn": 338,
+          "accuracy": 0.9525,
+          "precision": 0.7962962962962963,
+          "recall": 0.8431372549019608,
+          "f1": 0.819047619047619,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.7294056372549019,
+              0.8923076923076924
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": -0.11972789115646265,
+            "paired_f1_difference_ci": [
+              -0.1962879472759364,
+              -0.05514616013071899
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 14,
+            "reference_wrong_candidate_correct": 1,
+            "discordant": 15,
+            "p_value_two_sided_exact": 0.0009765625,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "historical_llm_qwen2.5-1.5b-q4": {
+          "n": 400,
+          "tp": 42,
+          "fp": 68,
+          "fn": 9,
+          "tn": 281,
+          "accuracy": 0.8075,
+          "precision": 0.38181818181818183,
+          "recall": 0.8235294117647058,
+          "f1": 0.5217391304347826,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.42105263157894735,
+              0.6097560975609756
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": -0.4170363797692991,
+            "paired_f1_difference_ci": [
+              -0.518814903786002,
+              -0.3237639553429027
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 74,
+            "reference_wrong_candidate_correct": 3,
+            "discordant": 77,
+            "p_value_two_sided_exact": 1.0078897978938123e-18,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "historical_hybrid_qwen2.5-1.5b-q4": {
+          "n": 400,
+          "tp": 45,
+          "fp": 10,
+          "fn": 6,
+          "tn": 339,
+          "accuracy": 0.96,
+          "precision": 0.8181818181818182,
+          "recall": 0.8823529411764706,
+          "f1": 0.8490566037735849,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.7652046035805627,
+              0.9154929577464789
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": -0.08971890643049674,
+            "paired_f1_difference_ci": [
+              -0.16407961530891516,
+              -0.025335876142400668
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 12,
+            "reference_wrong_candidate_correct": 2,
+            "discordant": 14,
+            "p_value_two_sided_exact": 0.012939453125,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "prompt_only_nf4": {
+          "n": 400,
+          "tp": 34,
+          "fp": 1,
+          "fn": 17,
+          "tn": 348,
+          "accuracy": 0.955,
+          "precision": 0.9714285714285714,
+          "recall": 0.6666666666666666,
+          "f1": 0.7906976744186046,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.6842105263157895,
+              0.8767123287671232
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": -0.14807783578547706,
+            "paired_f1_difference_ci": [
+              -0.24316357379644707,
+              -0.06735269102157204
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 13,
+            "reference_wrong_candidate_correct": 1,
+            "discordant": 14,
+            "p_value_two_sided_exact": 0.0018310546875,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "qlora_seed_42": {
+          "n": 400,
+          "tp": 48,
+          "fp": 0,
+          "fn": 3,
+          "tn": 349,
+          "accuracy": 0.9925,
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9298183839881394,
+              1.0
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": 0.030921459492888048,
+            "paired_f1_difference_ci": [
+              -0.011995126830098747,
+              0.08171109033112307
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 1,
+            "reference_wrong_candidate_correct": 4,
+            "discordant": 5,
+            "p_value_two_sided_exact": 0.375,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9298183839881394,
+                1.0
+              ],
+              "reference_f1_ci": [
+                0.6842105263157895,
+                0.8767123287671232
+              ],
+              "f1_difference_candidate_minus_reference": 0.1789992952783651,
+              "paired_f1_difference_ci": [
+                0.09803715039839403,
+                0.2786123429416112
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 0,
+              "reference_wrong_candidate_correct": 15,
+              "discordant": 15,
+              "p_value_two_sided_exact": 6.103515625e-05,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        },
+        "qlora_seed_43": {
+          "n": 400,
+          "tp": 49,
+          "fp": 1,
+          "fn": 2,
+          "tn": 348,
+          "accuracy": 0.9925,
+          "precision": 0.98,
+          "recall": 0.9607843137254902,
+          "f1": 0.9702970297029703,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9318181818181818,
+              1.0
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": 0.031521519498888595,
+            "paired_f1_difference_ci": [
+              -0.009712698430731567,
+              0.08138611388611394
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 1,
+            "reference_wrong_candidate_correct": 4,
+            "discordant": 5,
+            "p_value_two_sided_exact": 0.375,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9318181818181818,
+                1.0
+              ],
+              "reference_f1_ci": [
+                0.6842105263157895,
+                0.8767123287671232
+              ],
+              "f1_difference_candidate_minus_reference": 0.17959935528436566,
+              "paired_f1_difference_ci": [
+                0.09339731729879738,
+                0.2844508478362652
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 1,
+              "reference_wrong_candidate_correct": 16,
+              "discordant": 17,
+              "p_value_two_sided_exact": 0.000274658203125,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        },
+        "qlora_seed_44": {
+          "n": 400,
+          "tp": 49,
+          "fp": 0,
+          "fn": 2,
+          "tn": 349,
+          "accuracy": 0.995,
+          "precision": 1.0,
+          "recall": 0.9607843137254902,
+          "f1": 0.98,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9473684210526315,
+              1.0
+            ],
+            "reference_f1_ci": [
+              0.8837209302325582,
+              0.9807692307692307
+            ],
+            "f1_difference_candidate_minus_reference": 0.04122448979591831,
+            "paired_f1_difference_ci": [
+              0.009008973417159278,
+              0.08815188768354461
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 0,
+            "reference_wrong_candidate_correct": 4,
+            "discordant": 4,
+            "p_value_two_sided_exact": 0.125,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9473684210526315,
+                1.0
+              ],
+              "reference_f1_ci": [
+                0.6842105263157895,
+                0.8767123287671232
+              ],
+              "f1_difference_candidate_minus_reference": 0.18930232558139537,
+              "paired_f1_difference_ci": [
+                0.10655019236696034,
+                0.29222664931967257
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 0,
+              "reference_wrong_candidate_correct": 16,
+              "discordant": 16,
+              "p_value_two_sided_exact": 3.0517578125e-05,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        }
+      },
+      "qlora_training_seed_variation": {
+        "n_seeds": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "std_ddof": 0,
+        "scope": "between-training-seed variation, not a confidence interval",
+        "f1": {
+          "mean": 0.9733313331333133,
+          "std": 0.004721818599991157,
+          "raw": [
+            0.9696969696969697,
+            0.9702970297029703,
+            0.98
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9933333333333334,
+          "std": 0.001178511301977554,
+          "raw": [
+            0.9925,
+            0.9925,
+            0.995
+          ]
+        },
+        "precision": {
+          "mean": 0.9933333333333333,
+          "std": 0.009428090415820642,
+          "raw": [
+            1.0,
+            0.98,
+            1.0
+          ]
+        },
+        "recall": {
+          "mean": 0.954248366013072,
+          "std": 0.009243225897863385,
+          "raw": [
+            0.9411764705882353,
+            0.9607843137254902,
+            0.9607843137254902
+          ]
+        }
+      }
+    },
+    "full1035": {
+      "scores": {
+        "tfidf_lr": {
+          "n": 1035,
+          "tp": 124,
+          "fp": 4,
+          "fn": 7,
+          "tn": 900,
+          "accuracy": 0.9893719806763285,
+          "precision": 0.96875,
+          "recall": 0.9465648854961832,
+          "f1": 0.9575289575289575,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "reference_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "f1_difference_candidate_minus_reference": 0.0,
+            "paired_f1_difference_ci": [
+              0.0,
+              0.0
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 0,
+            "reference_wrong_candidate_correct": 0,
+            "discordant": 0,
+            "p_value_two_sided_exact": 1.0,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "prompt_only_nf4": {
+          "n": 1035,
+          "tp": 84,
+          "fp": 1,
+          "fn": 47,
+          "tn": 903,
+          "accuracy": 0.9536231884057971,
+          "precision": 0.9882352941176471,
+          "recall": 0.6412213740458015,
+          "f1": 0.7777777777777778,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.7128712871287128,
+              0.8359810044236273
+            ],
+            "reference_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "f1_difference_candidate_minus_reference": -0.1797511797511797,
+            "paired_f1_difference_ci": [
+              -0.24280780888144926,
+              -0.12309103195827918
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 41,
+            "reference_wrong_candidate_correct": 4,
+            "discordant": 45,
+            "p_value_two_sided_exact": 9.334883088740753e-09,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          }
+        },
+        "qlora_seed_42": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9615384615384616,
+              0.9960474308300395
+            ],
+            "reference_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "f1_difference_candidate_minus_reference": 0.02316602316602323,
+            "paired_f1_difference_ci": [
+              -0.00365683655659194,
+              0.05048457551550128
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 3,
+            "reference_wrong_candidate_correct": 9,
+            "discordant": 12,
+            "p_value_two_sided_exact": 0.14599609375,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9615384615384616,
+                0.9960474308300395
+              ],
+              "reference_f1_ci": [
+                0.7128712871287128,
+                0.8359810044236273
+              ],
+              "f1_difference_candidate_minus_reference": 0.20291720291720294,
+              "paired_f1_difference_ci": [
+                0.14660460552464233,
+                0.26659356059407724
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 1,
+              "reference_wrong_candidate_correct": 44,
+              "discordant": 45,
+              "p_value_two_sided_exact": 2.6147972675971687e-12,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        },
+        "qlora_seed_43": {
+          "n": 1035,
+          "tp": 128,
+          "fp": 4,
+          "fn": 3,
+          "tn": 900,
+          "accuracy": 0.9932367149758454,
+          "precision": 0.9696969696969697,
+          "recall": 0.9770992366412213,
+          "f1": 0.973384030418251,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9516728624535316,
+              0.9918049446887911
+            ],
+            "reference_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "f1_difference_candidate_minus_reference": 0.015855072889293442,
+            "paired_f1_difference_ci": [
+              -0.007162214479287665,
+              0.0402578705850733
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 3,
+            "reference_wrong_candidate_correct": 7,
+            "discordant": 10,
+            "p_value_two_sided_exact": 0.34375,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9516728624535316,
+                0.9918049446887911
+              ],
+              "reference_f1_ci": [
+                0.7128712871287128,
+                0.8359810044236273
+              ],
+              "f1_difference_candidate_minus_reference": 0.19560625264047315,
+              "paired_f1_difference_ci": [
+                0.13717891278375147,
+                0.2611280315541891
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 4,
+              "reference_wrong_candidate_correct": 45,
+              "discordant": 49,
+              "p_value_two_sided_exact": 8.225455871979648e-10,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        },
+        "qlora_seed_44": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807,
+          "sampling_uncertainty": {
+            "candidate_f1_ci": [
+              0.9618288127334742,
+              0.9960474308300395
+            ],
+            "reference_f1_ci": [
+              0.9303986710963456,
+              0.9806949806949807
+            ],
+            "f1_difference_candidate_minus_reference": 0.02316602316602323,
+            "paired_f1_difference_ci": [
+              0.0,
+              0.048417294985289246
+            ],
+            "resamples": 10000,
+            "seed": 20261102,
+            "confidence_level": 0.95,
+            "method": "paired row bootstrap, percentile, linear quantiles",
+            "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+          },
+          "mcnemar_vs_tfidf": {
+            "reference_correct_candidate_wrong": 2,
+            "reference_wrong_candidate_correct": 8,
+            "discordant": 10,
+            "p_value_two_sided_exact": 0.109375,
+            "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+          },
+          "vs_matched_prompt_only": {
+            "sampling_uncertainty": {
+              "candidate_f1_ci": [
+                0.9618288127334742,
+                0.9960474308300395
+              ],
+              "reference_f1_ci": [
+                0.7128712871287128,
+                0.8359810044236273
+              ],
+              "f1_difference_candidate_minus_reference": 0.20291720291720294,
+              "paired_f1_difference_ci": [
+                0.14608010445539704,
+                0.2671476012049785
+              ],
+              "resamples": 10000,
+              "seed": 20261102,
+              "confidence_level": 0.95,
+              "method": "paired row bootstrap, percentile, linear quantiles",
+              "scope": "held-out sampling uncertainty conditional on this trained model, not seed uncertainty"
+            },
+            "mcnemar": {
+              "reference_correct_candidate_wrong": 1,
+              "reference_wrong_candidate_correct": 44,
+              "discordant": 45,
+              "p_value_two_sided_exact": 2.6147972675971687e-12,
+              "method": "2 * Binomial(n, 0.5) lower tail at min(b,c), capped at 1; no continuity correction"
+            }
+          }
+        }
+      },
+      "qlora_training_seed_variation": {
+        "n_seeds": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "std_ddof": 0,
+        "scope": "between-training-seed variation, not a confidence interval",
+        "f1": {
+          "mean": 0.9782579972694041,
+          "std": 0.0034464150117288666,
+          "raw": [
+            0.9806949806949807,
+            0.973384030418251,
+            0.9806949806949807
+          ]
+        },
+        "accuracy": {
+          "mean": 0.994524959742351,
+          "std": 0.0009109266102241989,
+          "raw": [
+            0.9951690821256038,
+            0.9932367149758454,
+            0.9951690821256038
+          ]
+        },
+        "precision": {
+          "mean": 0.9846906565656566,
+          "std": 0.010602137659836164,
+          "raw": [
+            0.9921875,
+            0.9696969696969697,
+            0.9921875
+          ]
+        },
+        "recall": {
+          "mean": 0.9720101781170483,
+          "std": 0.0035985077922979576,
+          "raw": [
+            0.9694656488549618,
+            0.9770992366412213,
+            0.9694656488549618
+          ]
+        }
+      }
+    }
+  },
+  "tfidf_benchmark": {
+    "model_sha256": "f5c55856e55f2104d3f95fc78a4a1e548217bd69733ca1b409370e15ecff321c",
+    "warmup_messages": 3,
+    "repeats": 3,
+    "concurrency": 1,
+    "batch_size": 1,
+    "n_samples": 3105,
+    "p50_ms": 0.9007019980344921,
+    "p95_ms": 1.1436152009991924,
+    "quantile_method": "linear interpolation",
+    "raw_sha256": "26216352507c7b77e7204553ac22c26e4f9141cb01c67e6a1bc5c086a585ba24",
+    "timer": "sequential client wall including one-message vectorization and predict_proba; excludes joblib model load/warmups"
+  },
+  "model_evaluations": [
+    {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only",
+      "summary_sha256": "3e990294a16671344c40871caa225f5546d11d4cb5a3394b5b7c66e8c01b45c4",
+      "benchmark": {
+        "warmup_messages": 3,
+        "repeats": 3,
+        "concurrency": 1,
+        "batch_size": 1,
+        "n_samples": 3105,
+        "p50_ms": 563.2090370054357,
+        "p95_ms": 636.5780579973942,
+        "quantile_method": "linear interpolation",
+        "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+        "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+        "quality_repeat": 0
+      },
+      "sets": {
+        "full1035": {
+          "n": 1035,
+          "tp": 84,
+          "fp": 1,
+          "fn": 47,
+          "tn": 903,
+          "accuracy": 0.9536231884057971,
+          "precision": 0.9882352941176471,
+          "recall": 0.6412213740458015,
+          "f1": 0.7777777777777778,
+          "schema_failures": 0,
+          "json_failures": 1035,
+          "valid_rate": 0.0,
+          "valid_only_metrics": null
+        },
+        "paired400": {
+          "n": 400,
+          "tp": 34,
+          "fp": 1,
+          "fn": 17,
+          "tn": 348,
+          "accuracy": 0.955,
+          "precision": 0.9714285714285714,
+          "recall": 0.6666666666666666,
+          "f1": 0.7906976744186046,
+          "schema_failures": 0,
+          "json_failures": 400,
+          "valid_rate": 0.0,
+          "valid_only_metrics": null
+        }
+      }
+    },
+    {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42",
+      "training_seed": 42,
+      "summary_sha256": "48a939c61c296fb21dcec485d0dd82a3932791802187b6af06867404f331e233",
+      "benchmark": {
+        "warmup_messages": 3,
+        "repeats": 3,
+        "concurrency": 1,
+        "batch_size": 1,
+        "n_samples": 3105,
+        "p50_ms": 486.2238490022719,
+        "p95_ms": 642.255195407779,
+        "quantile_method": "linear interpolation",
+        "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+        "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+        "quality_repeat": 0
+      },
+      "sets": {
+        "full1035": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807,
+          "schema_failures": 1,
+          "json_failures": 0,
+          "valid_rate": 0.9990338164251208,
+          "valid_only_metrics": {
+            "n": 1034,
+            "tp": 127,
+            "fp": 1,
+            "fn": 3,
+            "tn": 903,
+            "accuracy": 0.9961315280464217,
+            "precision": 0.9921875,
+            "recall": 0.9769230769230769,
+            "f1": 0.9844961240310077
+          }
+        },
+        "paired400": {
+          "n": 400,
+          "tp": 48,
+          "fp": 0,
+          "fn": 3,
+          "tn": 349,
+          "accuracy": 0.9925,
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "schema_failures": 1,
+          "json_failures": 0,
+          "valid_rate": 0.9975,
+          "valid_only_metrics": {
+            "n": 399,
+            "tp": 48,
+            "fp": 0,
+            "fn": 2,
+            "tn": 349,
+            "accuracy": 0.9949874686716792,
+            "precision": 1.0,
+            "recall": 0.96,
+            "f1": 0.9795918367346939
+          }
+        }
+      }
+    },
+    {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43",
+      "training_seed": 43,
+      "summary_sha256": "d0792e4a309f7b34a6741f22c419a2241416141c3fc270fbba3b0ccc7198bad5",
+      "benchmark": {
+        "warmup_messages": 3,
+        "repeats": 3,
+        "concurrency": 1,
+        "batch_size": 1,
+        "n_samples": 3105,
+        "p50_ms": 472.4406280001858,
+        "p95_ms": 637.5837267987661,
+        "quantile_method": "linear interpolation",
+        "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+        "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+        "quality_repeat": 0
+      },
+      "sets": {
+        "full1035": {
+          "n": 1035,
+          "tp": 128,
+          "fp": 4,
+          "fn": 3,
+          "tn": 900,
+          "accuracy": 0.9932367149758454,
+          "precision": 0.9696969696969697,
+          "recall": 0.9770992366412213,
+          "f1": 0.973384030418251,
+          "schema_failures": 0,
+          "json_failures": 0,
+          "valid_rate": 1.0,
+          "valid_only_metrics": {
+            "n": 1035,
+            "tp": 128,
+            "fp": 4,
+            "fn": 3,
+            "tn": 900,
+            "accuracy": 0.9932367149758454,
+            "precision": 0.9696969696969697,
+            "recall": 0.9770992366412213,
+            "f1": 0.973384030418251
+          }
+        },
+        "paired400": {
+          "n": 400,
+          "tp": 49,
+          "fp": 1,
+          "fn": 2,
+          "tn": 348,
+          "accuracy": 0.9925,
+          "precision": 0.98,
+          "recall": 0.9607843137254902,
+          "f1": 0.9702970297029703,
+          "schema_failures": 0,
+          "json_failures": 0,
+          "valid_rate": 1.0,
+          "valid_only_metrics": {
+            "n": 400,
+            "tp": 49,
+            "fp": 1,
+            "fn": 2,
+            "tn": 348,
+            "accuracy": 0.9925,
+            "precision": 0.98,
+            "recall": 0.9607843137254902,
+            "f1": 0.9702970297029703
+          }
+        }
+      }
+    },
+    {
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44",
+      "training_seed": 44,
+      "summary_sha256": "807cfaef9a3b14f54b70beed6ade7102571398ebf7e2f6882d3daee6878cbcff",
+      "benchmark": {
+        "warmup_messages": 3,
+        "repeats": 3,
+        "concurrency": 1,
+        "batch_size": 1,
+        "n_samples": 3105,
+        "p50_ms": 481.896327008144,
+        "p95_ms": 640.4206724080722,
+        "quantile_method": "linear interpolation",
+        "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+        "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+        "quality_repeat": 0
+      },
+      "sets": {
+        "full1035": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807,
+          "schema_failures": 0,
+          "json_failures": 0,
+          "valid_rate": 1.0,
+          "valid_only_metrics": {
+            "n": 1035,
+            "tp": 127,
+            "fp": 1,
+            "fn": 4,
+            "tn": 903,
+            "accuracy": 0.9951690821256038,
+            "precision": 0.9921875,
+            "recall": 0.9694656488549618,
+            "f1": 0.9806949806949807
+          }
+        },
+        "paired400": {
+          "n": 400,
+          "tp": 49,
+          "fp": 0,
+          "fn": 2,
+          "tn": 349,
+          "accuracy": 0.995,
+          "precision": 1.0,
+          "recall": 0.9607843137254902,
+          "f1": 0.98,
+          "schema_failures": 0,
+          "json_failures": 0,
+          "valid_rate": 1.0,
+          "valid_only_metrics": {
+            "n": 400,
+            "tp": 49,
+            "fp": 0,
+            "fn": 2,
+            "tn": 349,
+            "accuracy": 0.995,
+            "precision": 1.0,
+            "recall": 0.9607843137254902,
+            "f1": 0.98
+          }
+        }
+      }
+    }
+  ],
+  "historical_sources": [
+    {
+      "predictions": "text-risk/results/eval_qwen0.5b_predictions.csv",
+      "predictions_sha256": "36f7a1b1aab05a695c18fa4bd46117e93663cee15685884159a5aa3ee8bd1e93",
+      "metadata": "text-risk/results/eval_qwen0.5b.json",
+      "metadata_sha256": "a1a788f810fbce9e74acb0a5a84f36d2d78e9244476c60546313b43cae038237",
+      "original_machine": {
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "processor": "x86_64"
+      },
+      "original_method": {
+        "split_seed": 42,
+        "prompt_version": "v1",
+        "temperature": 0,
+        "max_tokens": 80,
+        "quantiles": "numpy percentile, linear interpolation",
+        "elapsed_time_scope": "sequential client wall time; includes local HTTP, decoding and validation",
+        "hybrid_scope": "replayed decisions; latency derived from paired TF-IDF and LLM measurements"
+      },
+      "scope": "paired400 only; raw historical predictions may already contain rules fallback; historical prompt/runtime differ",
+      "hybrid_thresholds": [
+        0.05,
+        0.95
+      ],
+      "latency": "retained historical observations, never reclassified as new timing"
+    },
+    {
+      "predictions": "text-risk/results/eval_qwen1.5b_predictions.csv",
+      "predictions_sha256": "163aebdfe8bce99cbdd4ff792857818efc3954c85d911cca85a2aed8ae805be5",
+      "metadata": "text-risk/results/eval_qwen1.5b.json",
+      "metadata_sha256": "88ee0402843cc7b6cad763b2f38491e58ad6eaa14ac4a9e0d3fa825cc48e9bc6",
+      "original_machine": {
+        "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "processor": "x86_64"
+      },
+      "original_method": {
+        "split_seed": 42,
+        "prompt_version": "v1",
+        "temperature": 0,
+        "max_tokens": 80,
+        "quantiles": "numpy percentile, linear interpolation",
+        "elapsed_time_scope": "sequential client wall time; includes local HTTP, decoding and validation",
+        "hybrid_scope": "replayed decisions; latency derived from paired TF-IDF and LLM measurements"
+      },
+      "scope": "paired400 only; raw historical predictions may already contain rules fallback; historical prompt/runtime differ",
+      "hybrid_thresholds": [
+        0.05,
+        0.95
+      ],
+      "latency": "retained historical observations, never reclassified as new timing"
+    }
+  ],
+  "policy": "both matched NF4 systems use strict single-label JSON; existing rules replace invalid/schema outputs; counts and valid-only metrics remain in each input summary",
+  "uncertainty": "95% paired row-bootstrap sampling intervals for each model; population std over exactly 3 training seeds reported separately; unadjusted per-comparison exact two-sided McNemar",
+  "not_available": {
+    "historical_full1035_llm_or_hybrid_predictions": "not run; retained CSVs contain only paired400"
+  },
+  "predictions_sha256": "2bd456c782d00877ec434bee37adaa60666d12496b8ba6418699231df8927f8e"
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "pip-check",
+  "argv": [
+    "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+    "-m",
+    "pip",
+    "check"
+  ],
+  "started_at": "2026-11-02T08:39:24.304449+00:00",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+  "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "launcher_pid": 270205
+}

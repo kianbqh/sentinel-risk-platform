@@ -2,7 +2,7 @@
 
 I use this experiment to test whether a small local language model benefits from task-specific adaptation on the SMS Spam Collection. TF-IDF remains the served default. The matched prompt-only baseline and each adapter use the same pinned Qwen model, NF4 preparation, binary JSON prompt, truncation, greedy decoding and failure policy.
 
-No QLoRA quality, training-time or inference-speed result has been measured by this implementation yet. The dependency file is a candidate set, not a tested compatibility lock. Results belong in a new `copilot/results/` directory after the actual runs finish.
+The [November 2 run](../results/qlora/20261102-5465aae5/RESULTS.md) completed all three training seeds and the matched evaluation on an RTX 3080. Full-test F1 was 0.9783 ± 0.0034 across seeds, compared with 0.9575 for TF-IDF. The report includes raw predictions, request timings, format failures, paired statistics and the recorded [environment](../results/qlora/20261102-5465aae5/environment/). New runs write to separate directories under `text-risk/results/qlora/` when their small artifacts are collected.
 
 ## Data and protocol
 

@@ -1,0 +1,1162 @@
+{
+  "provenance": {
+    "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+    "git": {
+      "backend": "linux_explicit_task_git",
+      "configured_executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "version": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--version"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --version",
+        "returncode": 0,
+        "stdout": "git version 2.43.0",
+        "stderr": ""
+      },
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "read_only_flags": {
+        "argv": "--no-optional-locks",
+        "GIT_OPTIONAL_LOCKS": "0"
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "selected_source_scope": [
+        "text-risk/finetune",
+        "text-risk/riskclf",
+        "text-risk/data/SMSSpamCollection",
+        "text-risk/models/tfidf_lr.joblib"
+      ],
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "text-risk/finetune",
+          "text-risk/riskclf",
+          "text-risk/data/SMSSpamCollection",
+          "text-risk/models/tfidf_lr.joblib"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- text-risk/finetune text-risk/riskclf text-risk/data/SMSSpamCollection text-risk/models/tfidf_lr.joblib",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+        "stderr": ""
+      },
+      "whole_worktree_dirty": true
+    },
+    "selected_source_dirty": false,
+    "selected_source_scope": [
+      "text-risk/finetune",
+      "text-risk/riskclf",
+      "text-risk/data/SMSSpamCollection",
+      "text-risk/models/tfidf_lr.joblib"
+    ],
+    "selected_source_status": "",
+    "whole_worktree_dirty": true,
+    "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+    "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+    "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+    "source_files": [
+      {
+        "path": "text-risk/finetune/.gitignore",
+        "bytes": 84,
+        "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+      },
+      {
+        "path": "text-risk/finetune/README.md",
+        "bytes": 11434,
+        "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+      },
+      {
+        "path": "text-risk/finetune/__init__.py",
+        "bytes": 66,
+        "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+      },
+      {
+        "path": "text-risk/finetune/artifacts.py",
+        "bytes": 14083,
+        "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+      },
+      {
+        "path": "text-risk/finetune/comparison.py",
+        "bytes": 12737,
+        "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+      },
+      {
+        "path": "text-risk/finetune/configs/qwen15_nf4.json",
+        "bytes": 2098,
+        "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+      },
+      {
+        "path": "text-risk/finetune/experiment.py",
+        "bytes": 17791,
+        "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+      },
+      {
+        "path": "text-risk/finetune/metrics.py",
+        "bytes": 4425,
+        "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+      },
+      {
+        "path": "text-risk/finetune/modeling.py",
+        "bytes": 9123,
+        "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+      },
+      {
+        "path": "text-risk/finetune/protocol.py",
+        "bytes": 5658,
+        "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+      },
+      {
+        "path": "text-risk/finetune/protocol/qwen_reference.json",
+        "bytes": 2204,
+        "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+      },
+      {
+        "path": "text-risk/finetune/protocol/sms_split.json",
+        "bytes": 124068,
+        "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+      },
+      {
+        "path": "text-risk/finetune/requirements-lock.txt",
+        "bytes": 2101,
+        "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+      },
+      {
+        "path": "text-risk/finetune/requirements.candidate.txt",
+        "bytes": 410,
+        "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+      },
+      {
+        "path": "text-risk/finetune/run.py",
+        "bytes": 3397,
+        "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+      },
+      {
+        "path": "text-risk/finetune/tests/test_protocol.py",
+        "bytes": 14512,
+        "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+      },
+      {
+        "path": "text-risk/riskclf/__init__.py",
+        "bytes": 100,
+        "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+      },
+      {
+        "path": "text-risk/riskclf/baseline.py",
+        "bytes": 1089,
+        "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+      },
+      {
+        "path": "text-risk/riskclf/cache.py",
+        "bytes": 1213,
+        "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+      },
+      {
+        "path": "text-risk/riskclf/data.py",
+        "bytes": 1594,
+        "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+      },
+      {
+        "path": "text-risk/riskclf/llm.py",
+        "bytes": 5689,
+        "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+      },
+      {
+        "path": "text-risk/riskclf/rules.py",
+        "bytes": 1470,
+        "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+      },
+      {
+        "path": "text-risk/riskclf/schema.py",
+        "bytes": 1217,
+        "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+      },
+      {
+        "path": "text-risk/riskclf/service.py",
+        "bytes": 4628,
+        "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+      }
+    ],
+    "versions": {
+      "torch": "2.15.0",
+      "transformers": "5.22.1",
+      "peft": "0.21.2",
+      "bitsandbytes": "0.50.2",
+      "accelerate": "1.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "pydantic": "2.14.2",
+      "safetensors": "0.8.0",
+      "huggingface-hub": "1.33.0"
+    },
+    "environment": "WSL2",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "exact_command": "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python text-risk/finetune/run.py train --config text-risk/finetune/configs/qwen15_nf4.json --seed 43 --smoke-run /opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke --run-dir /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-43",
+    "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+    "nvidia_smi": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,memory.total,compute_cap",
+        "--format=csv,noheader"
+      ],
+      "command": "nvidia-smi --query-gpu=name,driver_version,memory.total,compute_cap --format=csv,noheader",
+      "returncode": 0,
+      "stdout": "NVIDIA GeForce RTX 3080, 621.01, 12288 MiB, 8.6",
+      "stderr": ""
+    },
+    "configured_model": {
+      "id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "license": "Apache-2.0",
+      "local_path": "/opt/codex-resume/all-modules-v2/m1a/weights/qwen25-15b-instruct",
+      "compute_dtype": "bfloat16",
+      "quant_type": "nf4",
+      "double_quant": true,
+      "attn_implementation": "sdpa"
+    },
+    "timestamp_utc": "2026-11-02T09:30:40.943937+00:00",
+    "process_timezone": "PST",
+    "pid": 275016,
+    "task_environment": {
+      "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+      "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+      "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+      "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+      "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+      "HF_HUB_OFFLINE": "1",
+      "PYTHONHASHSEED": "43",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "FINETUNE_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git"
+    },
+    "timestamp_America_Los_Angeles": "2026-11-02T01:30:40.944220-08:00",
+    "torch": {
+      "version": "2.15.0+cu132",
+      "cuda_build": "13.2",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 3080",
+      "total_memory_bytes": 12884377600,
+      "capability": [
+        8,
+        6
+      ],
+      "bf16_supported": true
+    }
+  },
+  "wall_time_seconds": 3864.7149415199965,
+  "finished_at": "2026-11-02T10:35:11.769754+00:00",
+  "status": "trained",
+  "kind": "train",
+  "seed": 43,
+  "smoke": {
+    "summary_sha256": "ca1f9ee4f67a89a2d25aa37b60058e87c9f5b42bc95bbe4fd52c5c2ea5c4c481",
+    "path": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke"
+  },
+  "model_files": [
+    {
+      "name": "LICENSE",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "name": "config.json",
+      "bytes": 660,
+      "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 242,
+      "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6"
+    },
+    {
+      "name": "merges.txt",
+      "bytes": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 3087467144,
+      "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 7305,
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    },
+    {
+      "name": "vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+  ],
+  "model": {
+    "linear4bit_layers": 196,
+    "trainable_parameters": 18464768,
+    "total_parameters_numel": 907081216,
+    "quant_type": "nf4",
+    "compute_dtype": "bfloat16",
+    "device_map": {
+      "": 0
+    }
+  },
+  "train_wall_seconds_this_attempt": 3249.7871706279984,
+  "train_wall_seconds_all_attempts": 3249.7871706279984,
+  "train_wall_scope": "Trainer.train including scheduled validation/checkpoint saves/best reload; excludes model load, tokenization and final evaluate/save",
+  "resumed": false,
+  "trainer_metrics": {
+    "train_runtime": 3249.3301,
+    "train_samples_per_second": 3.436,
+    "train_steps_per_second": 0.215,
+    "total_flos": 1.0004852067422208e+16,
+    "train_loss": 0.009513027897988644,
+    "epoch": 3.0
+  },
+  "validation_metrics": {
+    "eval_loss": 0.006185560487210751,
+    "eval_runtime": 42.6746,
+    "eval_samples_per_second": 9.701,
+    "eval_steps_per_second": 4.851,
+    "epoch": 3.0
+  },
+  "best_checkpoint": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-43/checkpoints/checkpoint-466",
+  "best_validation_loss": 0.006185560487210751,
+  "selection": "minimum_train_only_validation_loss",
+  "log_history": [
+    {
+      "loss": 0.40445632934570314,
+      "grad_norm": 0.9721195101737976,
+      "learning_rate": 0.00018,
+      "epoch": 0.042987641053197204,
+      "step": 10
+    },
+    {
+      "loss": 0.024999085068702697,
+      "grad_norm": 0.08276184648275375,
+      "learning_rate": 0.00019738751814223513,
+      "epoch": 0.08597528210639441,
+      "step": 20
+    },
+    {
+      "loss": 0.01412636786699295,
+      "grad_norm": 0.019269831478595734,
+      "learning_rate": 0.00019448476052249638,
+      "epoch": 0.12896292315959162,
+      "step": 30
+    },
+    {
+      "loss": 0.008554960042238236,
+      "grad_norm": 0.04389176145195961,
+      "learning_rate": 0.00019158200290275763,
+      "epoch": 0.17195056421278881,
+      "step": 40
+    },
+    {
+      "loss": 0.00745207816362381,
+      "grad_norm": 0.016129454597830772,
+      "learning_rate": 0.00018867924528301889,
+      "epoch": 0.21493820526598603,
+      "step": 50
+    },
+    {
+      "loss": 0.007113154232501984,
+      "grad_norm": 0.15091630816459656,
+      "learning_rate": 0.00018577648766328014,
+      "epoch": 0.25792584631918325,
+      "step": 60
+    },
+    {
+      "loss": 0.01222631186246872,
+      "grad_norm": 0.37334349751472473,
+      "learning_rate": 0.0001828737300435414,
+      "epoch": 0.30091348737238044,
+      "step": 70
+    },
+    {
+      "loss": 0.013764996826648713,
+      "grad_norm": 0.1052924320101738,
+      "learning_rate": 0.00017997097242380264,
+      "epoch": 0.34390112842557763,
+      "step": 80
+    },
+    {
+      "loss": 0.0016478227451443672,
+      "grad_norm": 0.004967984277755022,
+      "learning_rate": 0.00017706821480406387,
+      "epoch": 0.3868887694787749,
+      "step": 90
+    },
+    {
+      "loss": 0.00955352783203125,
+      "grad_norm": 0.4122594892978668,
+      "learning_rate": 0.00017416545718432512,
+      "epoch": 0.42987641053197206,
+      "step": 100
+    },
+    {
+      "loss": 0.00593736618757248,
+      "grad_norm": 0.691347599029541,
+      "learning_rate": 0.00017126269956458637,
+      "epoch": 0.47286405158516925,
+      "step": 110
+    },
+    {
+      "loss": 0.006512776017189026,
+      "grad_norm": 0.13365426659584045,
+      "learning_rate": 0.00016835994194484762,
+      "epoch": 0.5158516926383665,
+      "step": 120
+    },
+    {
+      "loss": 0.008002679049968719,
+      "grad_norm": 0.059405457228422165,
+      "learning_rate": 0.00016545718432510887,
+      "epoch": 0.5588393336915637,
+      "step": 130
+    },
+    {
+      "loss": 0.0036650143563747408,
+      "grad_norm": 0.009216451086103916,
+      "learning_rate": 0.00016255442670537012,
+      "epoch": 0.6018269747447609,
+      "step": 140
+    },
+    {
+      "loss": 0.00012825301382690668,
+      "grad_norm": 0.0009466386400163174,
+      "learning_rate": 0.00015965166908563135,
+      "epoch": 0.6448146157979581,
+      "step": 150
+    },
+    {
+      "loss": 0.006393704563379288,
+      "grad_norm": 0.49586156010627747,
+      "learning_rate": 0.0001567489114658926,
+      "epoch": 0.6878022568511553,
+      "step": 160
+    },
+    {
+      "loss": 0.009340129047632217,
+      "grad_norm": 0.021536244079470634,
+      "learning_rate": 0.00015384615384615385,
+      "epoch": 0.7307898979043524,
+      "step": 170
+    },
+    {
+      "loss": 0.004711383581161499,
+      "grad_norm": 0.04189247265458107,
+      "learning_rate": 0.0001509433962264151,
+      "epoch": 0.7737775389575497,
+      "step": 180
+    },
+    {
+      "loss": 0.002202126756310463,
+      "grad_norm": 0.05658945441246033,
+      "learning_rate": 0.00014804063860667633,
+      "epoch": 0.8167651800107469,
+      "step": 190
+    },
+    {
+      "loss": 0.032527107000350955,
+      "grad_norm": 0.7048997282981873,
+      "learning_rate": 0.00014513788098693758,
+      "epoch": 0.8597528210639441,
+      "step": 200
+    },
+    {
+      "loss": 0.005299923196434975,
+      "grad_norm": 0.03482051566243172,
+      "learning_rate": 0.00014223512336719883,
+      "epoch": 0.9027404621171413,
+      "step": 210
+    },
+    {
+      "loss": 0.0003664970397949219,
+      "grad_norm": 0.0008328350959345698,
+      "learning_rate": 0.00013933236574746008,
+      "epoch": 0.9457281031703385,
+      "step": 220
+    },
+    {
+      "loss": 0.007316897064447403,
+      "grad_norm": 0.05004690960049629,
+      "learning_rate": 0.00013642960812772133,
+      "epoch": 0.9887157442235357,
+      "step": 230
+    },
+    {
+      "eval_loss": 0.009194638580083847,
+      "eval_runtime": 24.9842,
+      "eval_samples_per_second": 16.57,
+      "eval_steps_per_second": 8.285,
+      "epoch": 1.0,
+      "step": 233
+    },
+    {
+      "loss": 0.003041708655655384,
+      "grad_norm": 0.3855171799659729,
+      "learning_rate": 0.00013352685050798259,
+      "epoch": 1.030091348737238,
+      "step": 240
+    },
+    {
+      "loss": 0.0037142921239137648,
+      "grad_norm": 0.1228855699300766,
+      "learning_rate": 0.00013062409288824384,
+      "epoch": 1.0730789897904351,
+      "step": 250
+    },
+    {
+      "loss": 0.0023342590779066087,
+      "grad_norm": 0.001702194451354444,
+      "learning_rate": 0.0001277213352685051,
+      "epoch": 1.1160666308436324,
+      "step": 260
+    },
+    {
+      "loss": 0.00023934494238346814,
+      "grad_norm": 0.0011753253638744354,
+      "learning_rate": 0.00012481857764876634,
+      "epoch": 1.1590542718968297,
+      "step": 270
+    },
+    {
+      "loss": 0.00039100111462175846,
+      "grad_norm": 0.00033018647809512913,
+      "learning_rate": 0.00012191582002902757,
+      "epoch": 1.2020419129500268,
+      "step": 280
+    },
+    {
+      "loss": 0.008827165514230729,
+      "grad_norm": 0.342727392911911,
+      "learning_rate": 0.00011901306240928882,
+      "epoch": 1.2450295540032241,
+      "step": 290
+    },
+    {
+      "loss": 0.0022740717977285385,
+      "grad_norm": 0.030603813007473946,
+      "learning_rate": 0.00011611030478955007,
+      "epoch": 1.2880171950564212,
+      "step": 300
+    },
+    {
+      "loss": 0.0006533342879265547,
+      "grad_norm": 0.023921286687254906,
+      "learning_rate": 0.00011320754716981132,
+      "epoch": 1.3310048361096185,
+      "step": 310
+    },
+    {
+      "loss": 0.0035022150725126265,
+      "grad_norm": 0.00734291598200798,
+      "learning_rate": 0.00011030478955007257,
+      "epoch": 1.3739924771628158,
+      "step": 320
+    },
+    {
+      "loss": 0.0011410770006477834,
+      "grad_norm": 0.002806826727464795,
+      "learning_rate": 0.00010740203193033382,
+      "epoch": 1.4169801182160129,
+      "step": 330
+    },
+    {
+      "loss": 0.003446926176548004,
+      "grad_norm": 0.003078690031543374,
+      "learning_rate": 0.00010449927431059508,
+      "epoch": 1.45996775926921,
+      "step": 340
+    },
+    {
+      "loss": 0.0052848484367132185,
+      "grad_norm": 0.0027901469729840755,
+      "learning_rate": 0.00010159651669085633,
+      "epoch": 1.5029554003224073,
+      "step": 350
+    },
+    {
+      "loss": 0.001385374739766121,
+      "grad_norm": 0.023259472101926804,
+      "learning_rate": 9.869375907111757e-05,
+      "epoch": 1.5459430413756046,
+      "step": 360
+    },
+    {
+      "loss": 0.0010760757140815258,
+      "grad_norm": 0.0012697556521743536,
+      "learning_rate": 9.579100145137882e-05,
+      "epoch": 1.5889306824288019,
+      "step": 370
+    },
+    {
+      "loss": 9.483229368925094e-05,
+      "grad_norm": 0.0014663017354905605,
+      "learning_rate": 9.288824383164007e-05,
+      "epoch": 1.631918323481999,
+      "step": 380
+    },
+    {
+      "loss": 0.00037109176628291607,
+      "grad_norm": 0.00031760719139128923,
+      "learning_rate": 8.998548621190132e-05,
+      "epoch": 1.674905964535196,
+      "step": 390
+    },
+    {
+      "loss": 0.0029265211895108225,
+      "grad_norm": 0.0021584369242191315,
+      "learning_rate": 8.708272859216256e-05,
+      "epoch": 1.7178936055883933,
+      "step": 400
+    },
+    {
+      "loss": 0.00553494542837143,
+      "grad_norm": 0.011966461315751076,
+      "learning_rate": 8.417997097242381e-05,
+      "epoch": 1.7608812466415906,
+      "step": 410
+    },
+    {
+      "loss": 0.002085552737116814,
+      "grad_norm": 0.007368091493844986,
+      "learning_rate": 8.127721335268506e-05,
+      "epoch": 1.8038688876947877,
+      "step": 420
+    },
+    {
+      "loss": 0.0002508880104869604,
+      "grad_norm": 0.002733952132984996,
+      "learning_rate": 7.83744557329463e-05,
+      "epoch": 1.846856528747985,
+      "step": 430
+    },
+    {
+      "loss": 0.000892629660665989,
+      "grad_norm": 0.0007440802874043584,
+      "learning_rate": 7.547169811320755e-05,
+      "epoch": 1.889844169801182,
+      "step": 440
+    },
+    {
+      "loss": 0.002363785170018673,
+      "grad_norm": 0.003459727857261896,
+      "learning_rate": 7.256894049346879e-05,
+      "epoch": 1.9328318108543794,
+      "step": 450
+    },
+    {
+      "loss": 0.00044786101207137106,
+      "grad_norm": 0.019225314259529114,
+      "learning_rate": 6.966618287373004e-05,
+      "epoch": 1.9758194519075767,
+      "step": 460
+    },
+    {
+      "eval_loss": 0.006185560487210751,
+      "eval_runtime": 59.5926,
+      "eval_samples_per_second": 6.947,
+      "eval_steps_per_second": 3.474,
+      "epoch": 2.0,
+      "step": 466
+    },
+    {
+      "loss": 0.0034703802317380904,
+      "grad_norm": 0.002674615476280451,
+      "learning_rate": 6.676342525399129e-05,
+      "epoch": 2.017195056421279,
+      "step": 470
+    },
+    {
+      "loss": 0.00027472360525280235,
+      "grad_norm": 0.001106948941014707,
+      "learning_rate": 6.386066763425254e-05,
+      "epoch": 2.060182697474476,
+      "step": 480
+    },
+    {
+      "loss": 0.00012474622344598173,
+      "grad_norm": 0.006932402029633522,
+      "learning_rate": 6.095791001451378e-05,
+      "epoch": 2.1031703385276734,
+      "step": 490
+    },
+    {
+      "loss": 0.006016359478235245,
+      "grad_norm": 0.0012820545816794038,
+      "learning_rate": 5.8055152394775034e-05,
+      "epoch": 2.1461579795808703,
+      "step": 500
+    },
+    {
+      "loss": 0.00015702517703175545,
+      "grad_norm": 0.0023939262609928846,
+      "learning_rate": 5.5152394775036286e-05,
+      "epoch": 2.1891456206340676,
+      "step": 510
+    },
+    {
+      "loss": 0.0005734910722821951,
+      "grad_norm": 0.004830151796340942,
+      "learning_rate": 5.224963715529754e-05,
+      "epoch": 2.232133261687265,
+      "step": 520
+    },
+    {
+      "loss": 0.003428175300359726,
+      "grad_norm": 0.01555362343788147,
+      "learning_rate": 4.934687953555878e-05,
+      "epoch": 2.275120902740462,
+      "step": 530
+    },
+    {
+      "loss": 0.00044891140423715116,
+      "grad_norm": 0.005779732950031757,
+      "learning_rate": 4.6444121915820034e-05,
+      "epoch": 2.3181085437936595,
+      "step": 540
+    },
+    {
+      "loss": 0.00035351752303540706,
+      "grad_norm": 0.006319925654679537,
+      "learning_rate": 4.354136429608128e-05,
+      "epoch": 2.3610961848468563,
+      "step": 550
+    },
+    {
+      "loss": 0.00020428509451448918,
+      "grad_norm": 0.0023650687653571367,
+      "learning_rate": 4.063860667634253e-05,
+      "epoch": 2.4040838259000537,
+      "step": 560
+    },
+    {
+      "loss": 0.00012768054148182273,
+      "grad_norm": 0.0013596132630482316,
+      "learning_rate": 3.7735849056603776e-05,
+      "epoch": 2.447071466953251,
+      "step": 570
+    },
+    {
+      "loss": 0.00010390387615188956,
+      "grad_norm": 0.0014022171963006258,
+      "learning_rate": 3.483309143686502e-05,
+      "epoch": 2.4900591080064483,
+      "step": 580
+    },
+    {
+      "loss": 6.746443104930223e-05,
+      "grad_norm": 0.000846383860334754,
+      "learning_rate": 3.193033381712627e-05,
+      "epoch": 2.533046749059645,
+      "step": 590
+    },
+    {
+      "loss": 0.00012065178016200662,
+      "grad_norm": 0.0009155713487416506,
+      "learning_rate": 2.9027576197387517e-05,
+      "epoch": 2.5760343901128424,
+      "step": 600
+    },
+    {
+      "loss": 7.811099640093744e-05,
+      "grad_norm": 0.0008514125947840512,
+      "learning_rate": 2.612481857764877e-05,
+      "epoch": 2.6190220311660397,
+      "step": 610
+    },
+    {
+      "loss": 5.210317322053015e-05,
+      "grad_norm": 0.0019486735109239817,
+      "learning_rate": 2.3222060957910017e-05,
+      "epoch": 2.662009672219237,
+      "step": 620
+    },
+    {
+      "loss": 3.553534916136414e-05,
+      "grad_norm": 0.0005175515543669462,
+      "learning_rate": 2.0319303338171265e-05,
+      "epoch": 2.7049973132724343,
+      "step": 630
+    },
+    {
+      "loss": 3.61202226486057e-05,
+      "grad_norm": 0.00046148986439220607,
+      "learning_rate": 1.741654571843251e-05,
+      "epoch": 2.7479849543256316,
+      "step": 640
+    },
+    {
+      "loss": 3.487303911242634e-05,
+      "grad_norm": 0.0007790361414663494,
+      "learning_rate": 1.4513788098693759e-05,
+      "epoch": 2.7909725953788285,
+      "step": 650
+    },
+    {
+      "loss": 0.0004065833520144224,
+      "grad_norm": 0.06910150498151779,
+      "learning_rate": 1.1611030478955009e-05,
+      "epoch": 2.8339602364320258,
+      "step": 660
+    },
+    {
+      "loss": 6.832164945080876e-05,
+      "grad_norm": 0.0002873860066756606,
+      "learning_rate": 8.708272859216255e-06,
+      "epoch": 2.876947877485223,
+      "step": 670
+    },
+    {
+      "loss": 4.869656404480338e-05,
+      "grad_norm": 0.0009159952169284225,
+      "learning_rate": 5.805515239477504e-06,
+      "epoch": 2.91993551853842,
+      "step": 680
+    },
+    {
+      "loss": 7.559043588116765e-05,
+      "grad_norm": 0.0009232298471033573,
+      "learning_rate": 2.902757619738752e-06,
+      "epoch": 2.9629231595916172,
+      "step": 690
+    },
+    {
+      "eval_loss": 0.007269166875630617,
+      "eval_runtime": 44.2882,
+      "eval_samples_per_second": 9.348,
+      "eval_steps_per_second": 4.674,
+      "epoch": 3.0,
+      "step": 699
+    },
+    {
+      "train_runtime": 3249.3301,
+      "train_samples_per_second": 3.436,
+      "train_steps_per_second": 0.215,
+      "total_flos": 1.0004852067422208e+16,
+      "train_loss": 0.009513027897988644,
+      "epoch": 3.0,
+      "step": 699
+    },
+    {
+      "eval_loss": 0.006185560487210751,
+      "eval_runtime": 42.6746,
+      "eval_samples_per_second": 9.701,
+      "eval_steps_per_second": 4.851,
+      "epoch": 3.0,
+      "step": 699
+    }
+  ],
+  "truncated_train_messages": 0,
+  "truncated_validation_messages": 0,
+  "memory": {
+    "peak_allocated_bytes": 3529349632,
+    "peak_reserved_bytes": 10846470144,
+    "end_allocated_bytes": 1841924608,
+    "end_reserved_bytes": 10846470144,
+    "scope": "PyTorch allocator on device 0; not whole-system or nvidia-smi peak"
+  },
+  "determinism": "seeds fixed; deterministic algorithms warn_only=True; inspect captured warnings",
+  "adapter_files": [
+    {
+      "path": "README.md",
+      "bytes": 5282,
+      "sha256": "15f49111014d23833687fed8a4ba5de87375d312989215299ec9c283f3401e2d",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "adapter_config.json",
+      "bytes": 1220,
+      "sha256": "89f665afd578f52dcd55e44eeaea89a1a9fa9710afa687298b972029aa082bd9",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "adapter_model.safetensors",
+      "bytes": 73911112,
+      "sha256": "75a92756673bcca0a3de889d46c19c18ad0e689b14559e0392e71bda89c4e03b",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "chat_template.jinja",
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "training_args.bin",
+      "bytes": 5329,
+      "sha256": "0b050924f82c3911b12fd358bc42f9a81becbc3d9451ccc560be682226ff2536",
+      "keep_out_of_git": true
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "checkpoint-233/README.md",
+      "bytes": 5282,
+      "sha256": "15f49111014d23833687fed8a4ba5de87375d312989215299ec9c283f3401e2d",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/adapter_config.json",
+      "bytes": 1220,
+      "sha256": "89f665afd578f52dcd55e44eeaea89a1a9fa9710afa687298b972029aa082bd9",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/adapter_model.safetensors",
+      "bytes": 73911112,
+      "sha256": "06f33a842482cbedeba67e4d6c7b23a1f88ba2bc6ef959be973266e00c7ccb1a",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-233/chat_template.jinja",
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/optimizer.pt",
+      "bytes": 148048187,
+      "sha256": "21e04e122b3e2fede8af81e682f2433dc3bd8516fadc08b6a4279b4b4a65d9c4",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-233/rng_state.pth",
+      "bytes": 14645,
+      "sha256": "d527a1d19adfb2e1d92c087cafbde004578c213166f4fbf8b31c84c28bc5c5e6",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/scheduler.pt",
+      "bytes": 1465,
+      "sha256": "2b32bdf2ac7a90d13d35d144f043f746de37f390dbb9586ec2a14506da77ac44",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-233/tokenizer.json",
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/trainer_state.json",
+      "bytes": 5434,
+      "sha256": "5082707324a689f4ddf31013fdcf08a0f603fb59d47bf5fce6fbc1c8e8180bf7",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-233/training_args.bin",
+      "bytes": 5329,
+      "sha256": "0b050924f82c3911b12fd358bc42f9a81becbc3d9451ccc560be682226ff2536",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-466/README.md",
+      "bytes": 5282,
+      "sha256": "15f49111014d23833687fed8a4ba5de87375d312989215299ec9c283f3401e2d",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/adapter_config.json",
+      "bytes": 1220,
+      "sha256": "89f665afd578f52dcd55e44eeaea89a1a9fa9710afa687298b972029aa082bd9",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/adapter_model.safetensors",
+      "bytes": 73911112,
+      "sha256": "75a92756673bcca0a3de889d46c19c18ad0e689b14559e0392e71bda89c4e03b",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-466/chat_template.jinja",
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/optimizer.pt",
+      "bytes": 148048187,
+      "sha256": "bdf8cf6abd47e308151c3f64030595f97d1eeb0f2726160eb6fdd5108c5ab655",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-466/rng_state.pth",
+      "bytes": 14645,
+      "sha256": "b6d7f6fb215cc142212315beeb34c687163b5e092f9db9ecd0b012e5d9c90472",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/scheduler.pt",
+      "bytes": 1465,
+      "sha256": "a7a37bf750e1473496e7ddd4d198b6e8f16fd749e9076047145f78530fc25d36",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-466/tokenizer.json",
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/trainer_state.json",
+      "bytes": 10005,
+      "sha256": "3a2ea6ae9359334e31ab8e3af69a2c69d7d85d1053c4dfdb131ebcfa1a4d2c7d",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-466/training_args.bin",
+      "bytes": 5329,
+      "sha256": "0b050924f82c3911b12fd358bc42f9a81becbc3d9451ccc560be682226ff2536",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-699/README.md",
+      "bytes": 5282,
+      "sha256": "15f49111014d23833687fed8a4ba5de87375d312989215299ec9c283f3401e2d",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/adapter_config.json",
+      "bytes": 1220,
+      "sha256": "89f665afd578f52dcd55e44eeaea89a1a9fa9710afa687298b972029aa082bd9",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/adapter_model.safetensors",
+      "bytes": 73911112,
+      "sha256": "4170e65a5b0228c16084f15273a4fca42ce70e2d1f80043cb72e057888ba37ac",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-699/chat_template.jinja",
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/optimizer.pt",
+      "bytes": 148048187,
+      "sha256": "57ddb1e44e22fc397b8b64c16a7bcabfaa27dc5c4ab440ab003a91e18d7c3422",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-699/rng_state.pth",
+      "bytes": 14645,
+      "sha256": "dc01bbb5630f64f0e0060053d0f8ee0b23a8265854af84a4511c30480b54ff37",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/scheduler.pt",
+      "bytes": 1465,
+      "sha256": "5d7056d6a7dffb6d4dfab74bfabd322c69f1208f2c15d32e4574135acefa476a",
+      "keep_out_of_git": true
+    },
+    {
+      "path": "checkpoint-699/tokenizer.json",
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/trainer_state.json",
+      "bytes": 14597,
+      "sha256": "ab83cc337e6265570ae9c28d716cfd674fd197d4aa18fdf40e6cc7b9395ba8ce",
+      "keep_out_of_git": false
+    },
+    {
+      "path": "checkpoint-699/training_args.bin",
+      "bytes": 5329,
+      "sha256": "0b050924f82c3911b12fd358bc42f9a81becbc3d9451ccc560be682226ff2536",
+      "keep_out_of_git": true
+    }
+  ]
+}

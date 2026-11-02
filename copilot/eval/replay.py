@@ -29,7 +29,7 @@ async def replay_async(config_path):
                 raise ValueError("Recorded case path/hash mismatch")
             payload = json.loads(gzip.decompress(path.read_bytes()))
             fixture, original = payload["fixture"], payload["record"]
-            model = RecordedChatModel(original["raw_completed_model_turns"])
+            model = RecordedChatModel(events=original["model_events"])
             tools = RecordedTools(original["tool_trace"])
             store = RecordedStore(original["memory_loads"], original["memory_saves"])
             agent = AnalystCopilot(tools, model, store, AgentConfig(**manifest["agent_config"]))
@@ -39,7 +39,7 @@ async def replay_async(config_path):
             observed = {key:value for key,value in metrics.items() if key != "wall_seconds"}
             if canonical(expected) != canonical(observed) or canonical(original["draft"]) != canonical(state["draft"]):
                 raise AssertionError(f"Recorded case {entry['case_id']} guard or metric regression")
-            if model.position != len(model.turns) or tools.position != len(tools.records) or store.load_position != len(store.loads) or store.save_position != len(store.saves):
+            if model.violations or tools.violations or store.violations or model.position != len(model.events) or tools.position != len(tools.records) or store.load_position != len(store.loads) or store.save_position != len(store.saves):
                 raise AssertionError("Recorded input was not consumed exactly")
             rows.append({"status": "complete", "metrics": metrics, "wall_seconds": state["wall_seconds"]})
         aggregate = summarize(rows)
@@ -52,6 +52,7 @@ async def replay_async(config_path):
         aggregate.pop("latency_seconds")
         run.finish({"status": "complete", "evaluation_mode": "deterministic-recorded-replay-no-live-model",
                     "metrics": aggregate, "source_result_sha256": manifest["source_result_sha256"],
+                    "source_event_counts": manifest["event_counts"],
                     "model_latency": "not measured in replay; use the original actual-model run"})
     except Exception as exc:
         run.fail(type(exc).__name__); raise

@@ -1,0 +1,1282 @@
+{
+  "created_utc": "2026-11-02T13:15:04.7752259Z",
+  "kind": "operator_identity_check_from_closed_stage_mirrors",
+  "checks": {
+    "same_git_sha": true,
+    "same_config": true,
+    "same_protocol": true,
+    "same_source_files": true,
+    "same_versions": true,
+    "selected_sources_clean": true,
+    "stages": 8,
+    "actual_torch_cuda132_all_seven_gpu_stages": true,
+    "cpu_comparison_omits_torch_probe": true
+  },
+  "stage_summaries": [
+    {
+      "stage": "train-42",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\train-42-20261102T092744Z-785ccb\\train-42\\summary.json",
+      "summary_sha256": "ae69ee24636ac8e0a403924dbe199d76f7e5fa23c817794b55d31705ac75c231",
+      "status": "trained",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/"
+    },
+    {
+      "stage": "train-43",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\train-43-20261102T103637Z-947985\\train-43\\summary.json",
+      "summary_sha256": "f7eb9f3a17a2dd9c3b37db2d9150cb98500578251120ccf7324fc1f2f3213a3e",
+      "status": "trained",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "train-44",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\train-44-20261102T112219Z-e573ba\\train-44\\summary.json",
+      "summary_sha256": "922d0f2c055ed1a6aaa0b68460b597cf8e9736fea6e3ff730a847309459cd764",
+      "status": "trained",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "prompt-only",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\prompt-only-20261102T115248Z-da9431\\prompt-only\\summary.json",
+      "summary_sha256": "3e990294a16671344c40871caa225f5546d11d4cb5a3394b5b7c66e8c01b45c4",
+      "status": "evaluated",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "eval-42",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-42-20261102T121846Z-2e632d\\eval-42\\summary.json",
+      "summary_sha256": "48a939c61c296fb21dcec485d0dd82a3932791802187b6af06867404f331e233",
+      "status": "evaluated",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "eval-43",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-43-20261102T124451Z-3608dd\\eval-43\\summary.json",
+      "summary_sha256": "d0792e4a309f7b34a6741f22c419a2241416141c3fc270fbba3b0ccc7198bad5",
+      "status": "evaluated",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "eval-44",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\eval-44-20261102T131054Z-0bde94\\eval-44\\summary.json",
+      "summary_sha256": "807cfaef9a3b14f54b70beed6ade7102571398ebf7e2f6882d3daee6878cbcff",
+      "status": "evaluated",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": {
+        "version": "2.15.0+cu132",
+        "cuda_build": "13.2",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 3080",
+        "total_memory_bytes": 12884377600,
+        "capability": [
+          8,
+          6
+        ],
+        "bf16_supported": true
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    },
+    {
+      "stage": "comparison",
+      "summary_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\actual-continuation-20261102T083924Z-d41d86d6\\comparison-20261102T131304Z-9fa241\\comparison\\summary.json",
+      "summary_sha256": "34c26cc49bd11ae520a1031fe48361602d36ec56ec8b8186cfad77c5baca5e9f",
+      "status": "compared",
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+      "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+      "source_files": [
+        {
+          "path": "text-risk/finetune/.gitignore",
+          "bytes": 84,
+          "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+        },
+        {
+          "path": "text-risk/finetune/README.md",
+          "bytes": 11434,
+          "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+        },
+        {
+          "path": "text-risk/finetune/__init__.py",
+          "bytes": 66,
+          "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+        },
+        {
+          "path": "text-risk/finetune/artifacts.py",
+          "bytes": 14083,
+          "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+        },
+        {
+          "path": "text-risk/finetune/comparison.py",
+          "bytes": 12737,
+          "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+        },
+        {
+          "path": "text-risk/finetune/configs/qwen15_nf4.json",
+          "bytes": 2098,
+          "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+        },
+        {
+          "path": "text-risk/finetune/experiment.py",
+          "bytes": 17791,
+          "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+        },
+        {
+          "path": "text-risk/finetune/metrics.py",
+          "bytes": 4425,
+          "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+        },
+        {
+          "path": "text-risk/finetune/modeling.py",
+          "bytes": 9123,
+          "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+        },
+        {
+          "path": "text-risk/finetune/protocol.py",
+          "bytes": 5658,
+          "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+        },
+        {
+          "path": "text-risk/finetune/protocol/qwen_reference.json",
+          "bytes": 2204,
+          "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+        },
+        {
+          "path": "text-risk/finetune/protocol/sms_split.json",
+          "bytes": 124068,
+          "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+        },
+        {
+          "path": "text-risk/finetune/requirements-lock.txt",
+          "bytes": 2101,
+          "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+        },
+        {
+          "path": "text-risk/finetune/requirements.candidate.txt",
+          "bytes": 410,
+          "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+        },
+        {
+          "path": "text-risk/finetune/run.py",
+          "bytes": 3397,
+          "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+        },
+        {
+          "path": "text-risk/finetune/tests/test_protocol.py",
+          "bytes": 14512,
+          "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+        },
+        {
+          "path": "text-risk/riskclf/__init__.py",
+          "bytes": 100,
+          "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+        },
+        {
+          "path": "text-risk/riskclf/baseline.py",
+          "bytes": 1089,
+          "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+        },
+        {
+          "path": "text-risk/riskclf/cache.py",
+          "bytes": 1213,
+          "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+        },
+        {
+          "path": "text-risk/riskclf/data.py",
+          "bytes": 1594,
+          "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+        },
+        {
+          "path": "text-risk/riskclf/llm.py",
+          "bytes": 5689,
+          "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+        },
+        {
+          "path": "text-risk/riskclf/rules.py",
+          "bytes": 1470,
+          "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+        },
+        {
+          "path": "text-risk/riskclf/schema.py",
+          "bytes": 1217,
+          "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+        },
+        {
+          "path": "text-risk/riskclf/service.py",
+          "bytes": 4628,
+          "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+        }
+      ],
+      "versions": {
+        "torch": "2.15.0",
+        "transformers": "5.22.1",
+        "peft": "0.21.2",
+        "bitsandbytes": "0.50.2",
+        "accelerate": "1.15.0",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "joblib": "1.6.0",
+        "pydantic": "2.14.2",
+        "safetensors": "0.8.0",
+        "huggingface-hub": "1.33.0"
+      },
+      "torch": null,
+      "selected_source_dirty": false,
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/"
+    }
+  ],
+  "notes": "All8actualsummary snapshots share source/config/protocol/version identities. Torch CUDA probe is present and cu132 in all7GPU stages; CPU-only comparison intentionally omits that runtime probe. Initial all8 GPU predicate was overbroad, preserved unchanged at previous_snapshot_path. PYTHONHASHSEED differs as prescribed. Whole-worktree status is separate. No ML imports/binary model IO.",
+  "operator_receipt_revision": 2,
+  "previous_snapshot_sha256": "5d143bbba46d93d0abe029da37c9798884844f1633488489292450a74694c871",
+  "previous_snapshot_path": "G:\\ResumeProject\\.runtime\\all-modules-v2\\m1a\\training\\all-stage-identity-receipt-continuation-20261102T083924Z-d41d86d6.initial-all-eight-probe.json"
+}

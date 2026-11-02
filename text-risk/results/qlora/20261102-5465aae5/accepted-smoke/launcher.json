@@ -1,0 +1,21 @@
+{
+  "scope": "smoke only; no training/evaluation",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "run_context": "Exclusive GPU smoke window after root-confirmed CPU PG/MCP functional services stopped; KITTI paused; compatibility smoke timing is not a benchmark.",
+  "started_at": "2026-11-02T08:34:54.495440+00:00",
+  "environment": "WSL2 CodexResearchATTAlf01",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "planned_smoke_argv": [
+    "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+    "text-risk/finetune/run.py",
+    "smoke",
+    "--config",
+    "text-risk/finetune/configs/qwen15_nf4.json",
+    "--run-dir",
+    "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke"
+  ],
+  "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+  "dependency_lock_sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061",
+  "wrapper_sha256": "d551732593d665e88ea23b6447a2496c15c81a60d7dde4d36f28a5083bbc3863"
+}

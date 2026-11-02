@@ -1,0 +1,74 @@
+"""Independent row/count audit of the separate diagnostic, without model execution."""
+import collections
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+
+base = Path(__file__).resolve().parent
+run = base/'actual-20261102T1319Z'
+report = json.loads((run/'diagnostic-summary.json').read_text())
+rows = [json.loads(s) for s in (run/'diagnostic-predictions.jsonl').read_text().splitlines()]
+assert len(rows) == 4140 and report['status'] == 'posthoc_diagnostic_complete'
+split = json.loads((base.parents[3]/'platforms/sentinel-risk-platform/text-risk/finetune/protocol/sms_split.json').read_text())['identifiers']
+
+def unique(items):
+    result = {}
+    for key, value in items:
+        if key in result:
+            raise ValueError('duplicate')
+        result[key] = value
+    return result
+
+def parse(raw):
+    try:
+        value = json.loads(raw, object_pairs_hook=unique)
+    except (ValueError, TypeError):
+        return None, 'invalid_json'
+    if not isinstance(value, dict) or set(value) != {'label'} or value['label'] not in ('scam', 'legit'):
+        return None, 'schema'
+    return int(value['label'] == 'scam'), None
+
+def metrics(items):
+    counts = collections.Counter((r['y'], r['prediction']) for r in items)
+    tp, fp, fn, tn = (counts[k] for k in ((1,1),(0,1),(1,0),(0,0)))
+    return dict(n=len(items), tp=tp, fp=fp, fn=fn, tn=tn,
+                f1=2*tp/(2*tp+fp+fn) if 2*tp+fp+fn else 0.)
+
+accepted = {}
+for system, expected in report['systems'].items():
+    source = [r for r in rows if r['system'] == system]
+    assert [r['id'] for r in source] == split['full1035_ids']
+    assert [r['y'] for r in source] == split['full1035_labels']
+    for row in source:
+        original = row['original']; raw = original['raw'].strip()
+        parts = raw.splitlines()
+        removed = len(parts) >= 2 and parts[0] in ('```', '```json') and parts[-1] == '```'
+        normalized = '\n'.join(parts[1:-1]) if removed else raw
+        assert normalized == row['diagnostic_raw'] and removed == row['outer_fence_removed']
+        prediction, failure = parse(normalized)
+        assert failure == row['failure'] and row['fallback_retained'] == (failure is not None)
+        assert row['prediction'] == (original['prediction'] if failure is not None else prediction)
+    accepted[system] = {}
+    by_id = {r['id']: r for r in source}
+    for name in ('full1035', 'paired400'):
+        selected = [by_id[i] for i in split[name+'_ids']]
+        wanted = expected['sets'][name]['posthoc_format_diagnostic']
+        for key, value in metrics(selected).items():
+            assert wanted[key] == value
+        valid = [r for r in selected if r['failure'] is None]
+        assert len(valid) == wanted['valid_count']
+        assert len(selected)-len(valid) == wanted['retained_fallback_count']
+        assert collections.Counter(r['failure'] for r in selected if r['failure']) == wanted['failure_counts']
+        for key, value in metrics(valid).items():
+            assert wanted['valid_only_metrics'][key] == value
+        accepted[system][name] = metrics(selected)
+for item in json.loads((run/'output-manifest.json').read_text())['files']:
+    path = run/item['path']
+    assert path.stat().st_size == item['bytes'] and hashlib.sha256(path.read_bytes()).hexdigest() == item['sha256']
+receipt = {'accepted': True, 'utc': datetime.now(timezone.utc).isoformat(),
+           'scope': 'separate descriptive normalization; every original row, normalized value, fallback and full/paired confusion verified',
+           'source_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), 'systems': accepted}
+with (run/'root-acceptance.json').open('x', encoding='utf-8') as stream:
+    json.dump(receipt, stream, indent=2)
+print(json.dumps({'accepted': True, 'rows': len(rows), 'systems': len(accepted)}))

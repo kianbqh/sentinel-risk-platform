@@ -1,0 +1,36 @@
+"""Run only the tiny stdlib fixture suite and create an immutable receipt."""
+from datetime import datetime, timezone
+import json
+from pathlib import Path
+import sys
+import unittest
+import uuid
+
+sys.dont_write_bytecode = True
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+import posthoc_format_diagnostic as diagnostic
+
+started = datetime.now(timezone.utc)
+output = ROOT / ("synthetic-verification-" + started.strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex[:8])
+output.mkdir(exist_ok=False)
+with (output / "unittest.log").open("x", encoding="utf-8") as log:
+    suite = unittest.defaultTestLoader.discover(str(ROOT), pattern="test_posthoc_format_diagnostic.py")
+    result = unittest.TextTestRunner(stream=log, verbosity=2).run(suite)
+heavy = sorted(diagnostic.HEAVY_MODULES.intersection(sys.modules))
+receipt = {"schema_version": 1, "status": "passed" if result.wasSuccessful() and not heavy else "failed",
+           "kind": "synthetic preparation verification only; no actual model diagnostic",
+           "started_utc": started.isoformat(), "finished_utc": datetime.now(timezone.utc).isoformat(),
+           "interpreter": sys.executable, "python_version": sys.version,
+           "tests_run": result.testsRun, "failures": len(result.failures), "errors": len(result.errors),
+           "skipped": len(result.skipped), "unexpected_ml_modules": heavy,
+           "fixture_scope": "Four invented IDs, two paired IDs, four fake systems and three fake repeats; no real-run prediction inputs.",
+           "source_manifest_sha256": diagnostic.sha256(ROOT / "SOURCE_HASHES.json"),
+           "tool_source_sha256": diagnostic.sha256(ROOT / "posthoc_format_diagnostic.py"),
+           "test_source_sha256": diagnostic.sha256(ROOT / "test_posthoc_format_diagnostic.py"),
+           "runner_source_sha256": diagnostic.sha256(__file__),
+           "test_log_sha256": diagnostic.sha256(output / "unittest.log")}
+diagnostic.write_json(output / "TEST_RECEIPT.json", receipt)
+print(json.dumps({"status": receipt["status"], "tests_run": receipt["tests_run"], "receipt": str(output / "TEST_RECEIPT.json")}))
+if receipt["status"] != "passed":
+    raise SystemExit(1)

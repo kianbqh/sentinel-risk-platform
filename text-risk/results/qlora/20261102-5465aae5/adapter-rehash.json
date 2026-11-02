@@ -1,0 +1,57 @@
+{
+  "kind": "one-time actual final-adapter rehash, not a new ML experiment",
+  "status": "verified",
+  "started_utc": "2026-11-02T13:21:42.403158+00:00",
+  "finished_utc": "2026-11-02T13:21:46.033196+00:00",
+  "wall_seconds": 3.6300267500046175,
+  "maximum_concurrent_streams": 1,
+  "buffer_bytes": 1048576,
+  "total_bytes_read": 221733336,
+  "coordination": "root authorized once during bounded M2 build; M2 owner confirmed environment stage19792 exited0 before starting codec small build",
+  "exact_command": "/usr/bin/python3 /mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/publication-candidate/rehash_three_adapters_once.py",
+  "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+  "tool_source_sha256": "d569ab38284ef98ea4290283a944b51bfcf36d4895d94c78a4ccdc3317cb973f",
+  "records": [
+    {
+      "seed": 42,
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-42/adapter/adapter_model.safetensors",
+      "started_utc": "2026-11-02T13:21:42.403472+00:00",
+      "finished_utc": "2026-11-02T13:21:43.624869+00:00",
+      "wall_seconds": 1.221407631994225,
+      "bytes_read": 73911112,
+      "sha256": "2899f8e373dcaccadf7ae8dd3765bb35cb20aa6edba4b5c386e60377f2a37b8d",
+      "expected_bytes": 73911112,
+      "expected_sha256": "2899f8e373dcaccadf7ae8dd3765bb35cb20aa6edba4b5c386e60377f2a37b8d",
+      "summary_sha256": "ae69ee24636ac8e0a403924dbe199d76f7e5fa23c817794b55d31705ac75c231",
+      "matches": true
+    },
+    {
+      "seed": 43,
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-43/adapter/adapter_model.safetensors",
+      "started_utc": "2026-11-02T13:21:43.625324+00:00",
+      "finished_utc": "2026-11-02T13:21:44.638346+00:00",
+      "wall_seconds": 1.0130300000018906,
+      "bytes_read": 73911112,
+      "sha256": "75a92756673bcca0a3de889d46c19c18ad0e689b14559e0392e71bda89c4e03b",
+      "expected_bytes": 73911112,
+      "expected_sha256": "75a92756673bcca0a3de889d46c19c18ad0e689b14559e0392e71bda89c4e03b",
+      "summary_sha256": "f7eb9f3a17a2dd9c3b37db2d9150cb98500578251120ccf7324fc1f2f3213a3e",
+      "matches": true
+    },
+    {
+      "seed": 44,
+      "path": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-44/adapter/adapter_model.safetensors",
+      "started_utc": "2026-11-02T13:21:44.638709+00:00",
+      "finished_utc": "2026-11-02T13:21:46.033114+00:00",
+      "wall_seconds": 1.394414135007537,
+      "bytes_read": 73911112,
+      "sha256": "e1380a1180d0d43cea2a54005e06cbe4da3017f7bfcdbe7a9b8321002c546f52",
+      "expected_bytes": 73911112,
+      "expected_sha256": "e1380a1180d0d43cea2a54005e06cbe4da3017f7bfcdbe7a9b8321002c546f52",
+      "summary_sha256": "922d0f2c055ed1a6aaa0b68460b597cf8e9736fea6e3ff730a847309459cd764",
+      "matches": true
+    }
+  ],
+  "error": null,
+  "scope": "three final adapter files only, sequential; no base/checkpoint reads, ML imports, GPU calls, installation or service/process control"
+}

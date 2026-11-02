@@ -1,0 +1,22 @@
+{
+  "stage": "train-44",
+  "argv": [
+    "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+    "-u",
+    "text-risk/finetune/run.py",
+    "train",
+    "--config",
+    "text-risk/finetune/configs/qwen15_nf4.json",
+    "--seed",
+    "44",
+    "--smoke-run",
+    "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+    "--run-dir",
+    "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-44"
+  ],
+  "started_at": "2026-11-02T10:35:42.187364+00:00",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+  "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "launcher_pid": 282653
+}

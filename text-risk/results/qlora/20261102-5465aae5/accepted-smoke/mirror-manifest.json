@@ -1,0 +1,73 @@
+{
+  "scope": "exact small private smoke receipts/logs; no adapter weights/checkpoints copied",
+  "source_group": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b",
+  "timestamp": "2026-11-02T08:38:10.412848+00:00",
+  "completion_marker_present": true,
+  "files": [
+    {
+      "path": "SMOKE_ONLY_COMPLETE.json",
+      "bytes": 3217,
+      "sha256": "bc835da14d998755120e306a02d279803594ba7c6e0b3cae74e90686495442dc"
+    },
+    {
+      "path": "launcher.json",
+      "bytes": 1113,
+      "sha256": "ad02d45eb25ce07d931a5bf440df64b4c034f425d82449dc4c53b2ab99b4774a"
+    },
+    {
+      "path": "logs/cuda-import-check.json",
+      "bytes": 321,
+      "sha256": "ca628b6fc772c1c821d1fc744e6f02fcc372092982412d55600e57329aadaff6"
+    },
+    {
+      "path": "logs/gpu-after.csv",
+      "bytes": 161,
+      "sha256": "e77e455f6448d34a8cae387c94c594fceb5d27ced22d96f6c0f0c2fdcc24d18e"
+    },
+    {
+      "path": "logs/gpu-before.csv",
+      "bytes": 161,
+      "sha256": "3f02b654dca96f276236cd82520b700bf33e75cac57257ab18f9ac6739261320"
+    },
+    {
+      "path": "logs/pip-check.log",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "logs/smoke.log",
+      "bytes": 1562,
+      "sha256": "e8214b2e36f7d2b41fc841a48ea59ddb806aac36ca0b37b67c6dfc1175c2934b"
+    },
+    {
+      "path": "run-group.txt",
+      "bytes": 74,
+      "sha256": "91be0c03317b1baac9b2c9132309a45d677faf1e06b93ed081fc6fa9ef601d2e"
+    },
+    {
+      "path": "smoke/attempt-0001-end.json",
+      "bytes": 11656,
+      "sha256": "2ee3bc6842c2468bd89d4db72fb82a59ea06ae2e1aa22255db506606015c5e5b"
+    },
+    {
+      "path": "smoke/attempt-0001-start.json",
+      "bytes": 11575,
+      "sha256": "af23a35905a23244bd0b4223fbec515c8e5a6c888d2857bd5bd7f187f9333f61"
+    },
+    {
+      "path": "smoke/config.json",
+      "bytes": 2122,
+      "sha256": "12c2bc247fe4b042311d2188467a084ca8bc816484456ecd77c3db834e6ad4c5"
+    },
+    {
+      "path": "smoke/owner.json",
+      "bytes": 4898,
+      "sha256": "02b5c6f01e2bcfa5a98c398c1768a3ec4afd2f64199cc38d4d3b0958ff747fac"
+    },
+    {
+      "path": "smoke/summary.json",
+      "bytes": 386960,
+      "sha256": "ca1f9ee4f67a89a2d25aa37b60058e87c9f5b42bc95bbe4fd52c5c2ea5c4c481"
+    }
+  ]
+}

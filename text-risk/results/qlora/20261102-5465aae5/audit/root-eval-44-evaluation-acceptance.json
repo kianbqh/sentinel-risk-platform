@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-11-02T13:16:36.935211+00:00",
+  "accepted": true,
+  "stage": "eval-44",
+  "summary_sha256": "807cfaef9a3b14f54b70beed6ade7102571398ebf7e2f6882d3daee6878cbcff",
+  "mirror_files_verified": 14,
+  "prediction_rows": 1035,
+  "timed_rows": 3105,
+  "sets": {
+    "full1035": {
+      "n": 1035,
+      "tp": 127,
+      "tn": 903,
+      "fp": 1,
+      "fn": 4,
+      "accuracy": 0.9951690821256038,
+      "precision": 0.9921875,
+      "recall": 0.9694656488549618,
+      "f1": 0.9806949806949807,
+      "schema_failures": 0,
+      "json_failures": 0,
+      "valid_rate": 1.0,
+      "valid_only_metrics": {
+        "n": 1035,
+        "tp": 127,
+        "tn": 903,
+        "fp": 1,
+        "fn": 4,
+        "accuracy": 0.9951690821256038,
+        "precision": 0.9921875,
+        "recall": 0.9694656488549618,
+        "f1": 0.9806949806949807
+      }
+    },
+    "paired400": {
+      "n": 400,
+      "tp": 49,
+      "tn": 349,
+      "fp": 0,
+      "fn": 2,
+      "accuracy": 0.995,
+      "precision": 1.0,
+      "recall": 0.9607843137254902,
+      "f1": 0.98,
+      "schema_failures": 0,
+      "json_failures": 0,
+      "valid_rate": 1.0,
+      "valid_only_metrics": {
+        "n": 400,
+        "tp": 49,
+        "tn": 349,
+        "fp": 0,
+        "fn": 2,
+        "accuracy": 0.995,
+        "precision": 1.0,
+        "recall": 0.9607843137254902,
+        "f1": 0.98
+      }
+    }
+  },
+  "benchmark": {
+    "warmup_messages": 3,
+    "repeats": 3,
+    "concurrency": 1,
+    "batch_size": 1,
+    "n_samples": 3105,
+    "p50_ms": 481.896327008144,
+    "p95_ms": 640.4206724080722,
+    "quantile_method": "linear interpolation",
+    "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+    "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+    "quality_repeat": 0
+  },
+  "failures_all_repeats": {},
+  "repeat_disagreements": 0,
+  "truncations": 0,
+  "scope": "Recomputed primary metrics, strict parser/fallback flags, ordered IDs/labels, all timed samples and hashes. No fence normalization, new inference or claim of independently replaying fallback text classification."
+}

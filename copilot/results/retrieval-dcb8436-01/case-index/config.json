@@ -1,0 +1,13 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 CPU-only retrieval with actual Docker Desktop PG17vector",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "device": "cpu",
+  "embedding_reference": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/configs/bge-reference.json",
+  "embedding_snapshot": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface/hub/models--BAAI--bge-small-en-v1.5/snapshots/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "embedding_batch_size": 16,
+  "seed": 42,
+  "indexer_dsn_env": "COPILOT_INDEXER_DSN",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/retrieval-dcb8436-01/case-index"
+}
