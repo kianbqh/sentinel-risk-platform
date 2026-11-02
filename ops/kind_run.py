@@ -22,6 +22,40 @@ def percentile(values, fraction):
     return values[lower] + (values[upper] - values[lower]) * (index - lower)
 
 
+def validate_serving_state(deployment, all_pods, endpoint_slices, expected_tag):
+    """Accept controller-observed desired replicas and their actual ready endpoints."""
+    desired = deployment["spec"]["replicas"]
+    status = deployment.get("status", {})
+    if status.get("observedGeneration", 0) < deployment["metadata"]["generation"]:
+        raise AssertionError("Deployment controller has not observed this generation")
+    for field in ("updatedReplicas", "readyReplicas", "availableReplicas"):
+        if status.get(field, 0) != desired:
+            raise AssertionError(f"Deployment {field} is not the desired replica count")
+    ready = [pod for pod in all_pods if not pod["metadata"].get("deletionTimestamp")
+             and pod["status"].get("phase") == "Running"
+             and any(condition["type"] == "Ready" and condition["status"] == "True"
+                     for condition in pod["status"].get("conditions", []))]
+    if len(ready) != desired:
+        raise AssertionError("Non-deleting Ready pod count does not match desired replicas")
+    endpoint_uids = set()
+    for endpoint_slice in endpoint_slices:
+        for endpoint in endpoint_slice.get("endpoints", []):
+            conditions = endpoint.get("conditions", {})
+            if conditions.get("ready") is True:
+                if conditions.get("terminating") is True:
+                    raise AssertionError("A ready Service endpoint is still terminating")
+                target = endpoint.get("targetRef", {})
+                if target.get("kind") != "Pod" or not target.get("uid"):
+                    raise AssertionError("Ready Service endpoint has no Pod UID")
+                endpoint_uids.add(target["uid"])
+    if endpoint_uids != {pod["metadata"]["uid"] for pod in ready}:
+        raise AssertionError("Ready Service endpoints do not exactly match non-deleting Ready pods")
+    for pod in ready:
+        if any(not container["image"].endswith(":" + expected_tag) for container in pod["spec"]["containers"]):
+            raise AssertionError("An actual serving Pod has the wrong image tag")
+    return ready
+
+
 LOAD_SOURCE = r'''
 import concurrent.futures, json, pathlib, sys, threading, time, urllib.request
 cfg=json.loads(sys.argv[1]); body=json.loads(sys.argv[2]); url=sys.argv[3]
@@ -65,11 +99,29 @@ def run(config, values_path, journal):
     def pods(component):
         return json.loads(kubectl("get", "pods", "-l", f"app.kubernetes.io/instance={release},app.kubernetes.io/component={component}", "-o", "json"))["items"]
 
-    def versions():
-        return {name: [{"name": pod["metadata"]["name"], "uid": pod["metadata"]["uid"],
-                        "images": [c["image"] for c in pod["spec"]["containers"]],
-                        "container_status": pod["status"].get("containerStatuses", [])}
-                       for pod in pods(name)] for name in ("gateway", "backend", "frontend")}
+    def versions(expected_tag):
+        snapshot = {"serving_pods": {}, "all_pods": {}, "deployment_state": {}, "endpoint_slices": {}}
+        for name in ("gateway", "backend", "frontend"):
+            all_pods = pods(name)
+            deployment = json.loads(kubectl("get", "deployment", base + "-" + name, "-o", "json"))
+            slices = json.loads(kubectl("get", "endpointslices", "-l", "kubernetes.io/service-name=" + base + "-" + name, "-o", "json"))["items"]
+            # Persist the exact pre-assert observation, including deleting old pods.
+            journal.record("serving_snapshot_observed", component=name, expected_tag=expected_tag,
+                           all_pods=all_pods, deployment=deployment, endpoint_slices=slices)
+            try:
+                ready = validate_serving_state(deployment, all_pods, slices, expected_tag)
+            except AssertionError as error:
+                journal.record("serving_snapshot_not_converged", component=name, reason=str(error))
+                raise
+            snapshot["serving_pods"][name] = ready
+            snapshot["all_pods"][name] = all_pods
+            snapshot["deployment_state"][name] = deployment
+            snapshot["endpoint_slices"][name] = slices
+        return snapshot
+
+    def stable_versions(expected_tag):
+        return wait_for(lambda: versions(expected_tag), cfg["rollout_timeout_seconds"],
+                        interval=.5, description="observed desired Deployment and ready Service endpoints on " + expected_tag)
 
     def smoke():
         # Reach Kubernetes Services from a running gateway pod; no port-forward artifact.
@@ -90,7 +142,7 @@ print(json.dumps({"service_status":{name:200 for name in cfg}}))
     install_output = helm("install", release, "deploy/helm/sentinel", "--create-namespace", "--values", str(values_path),
                           "--set-string", tags_a, "--wait", "--timeout", "5m")
     installed = {"duration_seconds": time.perf_counter() - install_start, "helm_output": install_output,
-                 "smoke": smoke(), "pods": versions()}
+                 "smoke": smoke(), "pods": stable_versions(cfg["initial_tag"])}
     journal.record("helm_install_completed", **installed)
     load_name = "sentinel-m1b-load"
     body = {"features": synthetic_features(), "transaction_id": "ops-kind-load", "publish": False}
@@ -137,10 +189,7 @@ print(json.dumps({"service_status":{name:200 for name in cfg}}))
             raise RuntimeError(f"Helm upgrade failed with {process.returncode}: {upgrade_errors}")
         rollout_seconds = time.perf_counter() - upgrade_start
         rolled = {"duration_seconds": rollout_seconds, "start_unix_ns": upgrade_start_ns, "end_unix_ns": upgrade_end_ns,
-                  "helm_output": upgrade_output, "pods": versions(), "smoke": smoke()}
-        if any(not all(image.endswith(":" + cfg["upgrade_tag"]) for image in row["images"])
-               for rows in rolled["pods"].values() for row in rows):
-            raise AssertionError("An upgraded serving pod has the old image tag")
+                  "helm_output": upgrade_output, "pods": stable_versions(cfg["upgrade_tag"]), "smoke": smoke()}
     finally:
         kubectl("exec", load_name, "--", "python", "-c", "from pathlib import Path;Path('/tmp/sentinel-stop').touch()", check=False)
         capture_load()
@@ -167,16 +216,13 @@ print(json.dumps({"service_status":{name:200 for name in cfg}}))
     rollback_start = time.perf_counter()
     journal.record("helm_rollback_started", revision=1)
     rollback_output = helm("rollback", release, "1", "--wait", "--timeout", "5m")
-    previous = versions()
-    if any(not all(image.endswith(":" + cfg["initial_tag"]) for image in row["images"])
-           for rows in previous.values() for row in rows):
-        raise AssertionError("Rollback did not restore initial serving image tags")
+    previous = stable_versions(cfg["initial_tag"])
     rollback = {"success": True, "duration_seconds": time.perf_counter() - rollback_start,
                 "helm_output": rollback_output, "smoke": smoke(), "pods": previous,
                 "history": json.loads(helm("history", release, "--output", "json"))}
     journal.record("helm_rollback_completed", **rollback)
     before = pods("gateway")
-    victim = before[0]
+    victim = previous["serving_pods"]["gateway"][0]
     known = {pod["metadata"]["uid"] for pod in before}
     recovery_start = time.perf_counter()
     journal.record("gateway_pod_delete_started", pod=victim["metadata"]["name"], uid=victim["metadata"]["uid"])
@@ -193,6 +239,7 @@ print(json.dumps({"service_status":{name:200 for name in cfg}}))
     new_pod = wait_for(recovered, 120, interval=.25, description="new replacement gateway Pod Ready")
     recovery = {"duration_seconds": time.perf_counter() - recovery_start, "deleted_pod": victim["metadata"]["name"],
                 "deleted_uid": victim["metadata"]["uid"], "replacement": new_pod, "smoke": smoke(),
+                "serving_state": stable_versions(cfg["initial_tag"]),
                 "timer_includes": "delete API call through observing replacement Pod Ready; 250 ms polling"}
     journal.record("replacement_pod_ready", **recovery)
     return {"scope": "single-node kind, local/CI; the two image tags refer to the same measured source build",
