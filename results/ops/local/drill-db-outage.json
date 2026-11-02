@@ -1,0 +1,967 @@
+{
+  "status": "passed",
+  "mode": "drill",
+  "result": {
+    "protocol": "real project-scoped DB stop; real OffsetFetch and Prometheus API; synthetic predictions",
+    "postgres_container_id": "407a00ef0af3f9c4dd18bd69e867b059922e45fe16b081e45921d66656e9d3b5",
+    "project": "sentinel-m1b-ops",
+    "prefix": "ops-drill-3deebbd44c594151a05175ea0b781423-",
+    "unique_messages": 20,
+    "wire_records": 21,
+    "alert_time_to_fire_seconds": 32.48267450698768,
+    "backlog_drain_seconds": 5.228761434002081,
+    "duplicate_cases": 0,
+    "database_counts": {
+      "alerts": 20,
+      "cases": 20,
+      "unique_case_alert_ids": 20,
+      "ingestion_events": 20
+    },
+    "initial_offsets": {
+      "committed": 1,
+      "end": 1
+    },
+    "final_offsets": {
+      "committed": 22,
+      "end": 22
+    },
+    "offsets_during_outage": [
+      {
+        "seconds": 9.924308371992083,
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": []
+      },
+      {
+        "seconds": 17.473105472992756,
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 24.9655432219879,
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelHighP95Latency",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway p95 request duration exceeds half a second"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.9613350111575785e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelConsumerLagGrowing",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Alert consumer lag is positive and growing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.1e+01"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 32.481009686991456,
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelHigh5xxRate",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway 5xx fraction exceeds five percent"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:30.453174534Z",
+            "value": "5.132246564558699e-02"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelHighP95Latency",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway p95 request duration exceeds half a second"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "3.939798504833878e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelConsumerLagGrowing",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Alert consumer lag is positive and growing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.1e+01"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      }
+    ],
+    "timeline": [
+      {
+        "seconds": 2.714463127995259,
+        "event": "postgres_stopped",
+        "container_id": "407a00ef0af3f9c4dd18bd69e867b059922e45fe16b081e45921d66656e9d3b5",
+        "initial_offsets": {
+          "committed": 1,
+          "end": 1
+        }
+      },
+      {
+        "seconds": 8.742405303986743,
+        "event": "health_observation",
+        "ready": {
+          "gateway": 503,
+          "backend": 503
+        },
+        "live": {
+          "gateway": 200,
+          "backend": 200
+        }
+      },
+      {
+        "seconds": 9.384050565990037,
+        "event": "backlog_published",
+        "unique_messages": 20,
+        "wire_records": 21,
+        "end": 22
+      },
+      {
+        "seconds": 9.924310448986944,
+        "event": "outage_offset_alert_sample",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": []
+      },
+      {
+        "seconds": 15.88500229899364,
+        "event": "health_observation",
+        "ready": {
+          "gateway": 503,
+          "backend": 503
+        },
+        "live": {
+          "gateway": 200,
+          "backend": 200
+        }
+      },
+      {
+        "seconds": 17.473107556987088,
+        "event": "outage_offset_alert_sample",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 23.422010732989293,
+        "event": "health_observation",
+        "ready": {
+          "gateway": 503,
+          "backend": 503
+        },
+        "live": {
+          "gateway": 200,
+          "backend": 200
+        }
+      },
+      {
+        "seconds": 24.965545438986737,
+        "event": "outage_offset_alert_sample",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelHighP95Latency",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway p95 request duration exceeds half a second"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.9613350111575785e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelConsumerLagGrowing",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Alert consumer lag is positive and growing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.1e+01"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 30.93679289499414,
+        "event": "health_observation",
+        "ready": {
+          "gateway": 503,
+          "backend": 503
+        },
+        "live": {
+          "gateway": 200,
+          "backend": 200
+        }
+      },
+      {
+        "seconds": 32.481012264994206,
+        "event": "outage_offset_alert_sample",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        },
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelHigh5xxRate",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway 5xx fraction exceeds five percent"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:30.453174534Z",
+            "value": "5.132246564558699e-02"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelHighP95Latency",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Gateway p95 request duration exceeds half a second"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "3.939798504833878e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelConsumerLagGrowing",
+              "severity": "warning"
+            },
+            "annotations": {
+              "summary": "Alert consumer lag is positive and growing"
+            },
+            "state": "pending",
+            "activeAt": "2026-11-02T06:42:20.453174534Z",
+            "value": "2.1e+01"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 32.48174507099611,
+        "event": "prometheus_alert_firing",
+        "alerts": [
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "backend:18041",
+              "job": "console-backend",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          },
+          {
+            "labels": {
+              "alertname": "SentinelServiceNotReady",
+              "instance": "gateway:18040",
+              "job": "gateway",
+              "severity": "critical"
+            },
+            "annotations": {
+              "summary": "Sentinel service dependency check is failing"
+            },
+            "state": "firing",
+            "activeAt": "2026-11-02T06:42:10.453174534Z",
+            "value": "0e+00"
+          }
+        ]
+      },
+      {
+        "seconds": 34.271638527992764,
+        "event": "postgres_restored"
+      },
+      {
+        "seconds": 34.818326270993566,
+        "event": "offset_recovery",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        }
+      },
+      {
+        "seconds": 36.34630110098806,
+        "event": "offset_recovery",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        }
+      },
+      {
+        "seconds": 37.94518949899066,
+        "event": "offset_recovery",
+        "offsets": {
+          "committed": 1,
+          "end": 22
+        }
+      },
+      {
+        "seconds": 39.49969443399459,
+        "event": "offset_recovery",
+        "offsets": {
+          "committed": 22,
+          "end": 22
+        }
+      },
+      {
+        "seconds": 39.657364877988584,
+        "event": "database_reconciled",
+        "counts": {
+          "alerts": 20,
+          "cases": 20,
+          "unique_case_alert_ids": 20,
+          "ingestion_events": 20
+        }
+      }
+    ],
+    "all_assertions_passed": true
+  },
+  "provenance": {
+    "timestamp": "2026-11-02T06:42:43.870618+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "caller supplied from native Git",
+    "git_worktree_dirty": true,
+    "config_path": "results/ops/local/config.json",
+    "config_sha256": "4a2773acbfec51fd72865be79ad3cf90943733d7cd113806069c310e7bbd415d",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "WSL2 CodexResearchATTAlf01 on Windows; targets run in Docker Desktop 29.3.1",
+    "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "logical_cpus": 20,
+    "gpu_driver_cuda": "Sun Nov  1 22:42:43 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   42C    P3             79W /  350W |    2029MiB /  12288MiB |     20%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.3",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "/opt/codex-resume/portfolio-ml/venv/bin/python ops/verify.py drill --config results/ops/local/config.json --output results/ops/local/drill-db-outage.json",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 40.798811183005455
+  },
+  "raw_event_log": "results/ops/local/drill-db-outage.events.jsonl",
+  "progress_events": [
+    {
+      "timestamp": "2026-11-02T06:42:03.480168+00:00",
+      "elapsed_seconds": 0.252492653002264,
+      "event": "run_started",
+      "mode": "drill",
+      "provenance": {
+        "timestamp": "2026-11-02T06:42:03.334410+00:00",
+        "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+        "git_sha_source": "caller supplied from native Git",
+        "git_worktree_dirty": true,
+        "config_path": "results/ops/local/config.json",
+        "config_sha256": "4a2773acbfec51fd72865be79ad3cf90943733d7cd113806069c310e7bbd415d",
+        "source_sha256": {
+          "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+          "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+          "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+          "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+          "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+          "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+          "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+          "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+          "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+          "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+          "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+          "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+        },
+        "environment": "WSL2 CodexResearchATTAlf01 on Windows; targets run in Docker Desktop 29.3.1",
+        "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "python": "3.12.3",
+        "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+        "logical_cpus": 20,
+        "gpu_driver_cuda": "Sun Nov  1 22:42:03 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   43C    P3             82W /  350W |    2029MiB /  12288MiB |     22%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+        "gpu_used": false,
+        "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+        "package_versions": {
+          "python": "3.12.3",
+          "pytest": "9.2.0"
+        },
+        "exact_command": "/opt/codex-resume/portfolio-ml/venv/bin/python ops/verify.py drill --config results/ops/local/config.json --output results/ops/local/drill-db-outage.json",
+        "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+        "wall_seconds": 0.26717820500198286
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:06.836658+00:00",
+      "elapsed_seconds": 3.608988655003486,
+      "event": "postgres_stopped",
+      "container_id": "407a00ef0af3f9c4dd18bd69e867b059922e45fe16b081e45921d66656e9d3b5",
+      "initial_offsets": {
+        "committed": 1,
+        "end": 1
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:12.864599+00:00",
+      "elapsed_seconds": 9.636923994999961,
+      "event": "health_observation",
+      "ready": {
+        "gateway": 503,
+        "backend": 503
+      },
+      "live": {
+        "gateway": 200,
+        "backend": 200
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:13.506245+00:00",
+      "elapsed_seconds": 10.278571350994753,
+      "event": "backlog_published",
+      "unique_messages": 20,
+      "wire_records": 21,
+      "end": 22
+    },
+    {
+      "timestamp": "2026-11-02T06:42:14.046504+00:00",
+      "elapsed_seconds": 10.81882926900289,
+      "event": "outage_offset_alert_sample",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      },
+      "alerts": []
+    },
+    {
+      "timestamp": "2026-11-02T06:42:20.006025+00:00",
+      "elapsed_seconds": 16.779526169004384,
+      "event": "health_observation",
+      "ready": {
+        "gateway": 503,
+        "backend": 503
+      },
+      "live": {
+        "gateway": 200,
+        "backend": 200
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:21.594129+00:00",
+      "elapsed_seconds": 18.367626391001977,
+      "event": "outage_offset_alert_sample",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      },
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "gateway:18040",
+            "job": "gateway",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "backend:18041",
+            "job": "console-backend",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:42:27.543032+00:00",
+      "elapsed_seconds": 24.31652840100287,
+      "event": "health_observation",
+      "ready": {
+        "gateway": 503,
+        "backend": 503
+      },
+      "live": {
+        "gateway": 200,
+        "backend": 200
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:29.086567+00:00",
+      "elapsed_seconds": 25.86006839000038,
+      "event": "outage_offset_alert_sample",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      },
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "SentinelHighP95Latency",
+            "severity": "warning"
+          },
+          "annotations": {
+            "summary": "Gateway p95 request duration exceeds half a second"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:20.453174534Z",
+          "value": "2.9613350111575785e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelConsumerLagGrowing",
+            "severity": "warning"
+          },
+          "annotations": {
+            "summary": "Alert consumer lag is positive and growing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:20.453174534Z",
+          "value": "2.1e+01"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "backend:18041",
+            "job": "console-backend",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "gateway:18040",
+            "job": "gateway",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:42:35.057814+00:00",
+      "elapsed_seconds": 31.83131023000169,
+      "event": "health_observation",
+      "ready": {
+        "gateway": 503,
+        "backend": 503
+      },
+      "live": {
+        "gateway": 200,
+        "backend": 200
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:36.602035+00:00",
+      "elapsed_seconds": 33.37553852700512,
+      "event": "outage_offset_alert_sample",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      },
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "SentinelHigh5xxRate",
+            "severity": "warning"
+          },
+          "annotations": {
+            "summary": "Gateway 5xx fraction exceeds five percent"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:30.453174534Z",
+          "value": "5.132246564558699e-02"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelHighP95Latency",
+            "severity": "warning"
+          },
+          "annotations": {
+            "summary": "Gateway p95 request duration exceeds half a second"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:20.453174534Z",
+          "value": "3.939798504833878e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelConsumerLagGrowing",
+            "severity": "warning"
+          },
+          "annotations": {
+            "summary": "Alert consumer lag is positive and growing"
+          },
+          "state": "pending",
+          "activeAt": "2026-11-02T06:42:20.453174534Z",
+          "value": "2.1e+01"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "backend:18041",
+            "job": "console-backend",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "gateway:18040",
+            "job": "gateway",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:42:36.602768+00:00",
+      "elapsed_seconds": 33.37627064400294,
+      "event": "prometheus_alert_firing",
+      "alerts": [
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "backend:18041",
+            "job": "console-backend",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        },
+        {
+          "labels": {
+            "alertname": "SentinelServiceNotReady",
+            "instance": "gateway:18040",
+            "job": "gateway",
+            "severity": "critical"
+          },
+          "annotations": {
+            "summary": "Sentinel service dependency check is failing"
+          },
+          "state": "firing",
+          "activeAt": "2026-11-02T06:42:10.453174534Z",
+          "value": "0e+00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-02T06:42:38.392662+00:00",
+      "elapsed_seconds": 35.166164740992826,
+      "event": "postgres_restored"
+    },
+    {
+      "timestamp": "2026-11-02T06:42:38.939349+00:00",
+      "elapsed_seconds": 35.71284806600306,
+      "event": "offset_recovery",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:40.467324+00:00",
+      "elapsed_seconds": 37.24082803700003,
+      "event": "offset_recovery",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:42.066211+00:00",
+      "elapsed_seconds": 38.83970978099387,
+      "event": "offset_recovery",
+      "offsets": {
+        "committed": 1,
+        "end": 22
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:43.620719+00:00",
+      "elapsed_seconds": 40.394218639994506,
+      "event": "offset_recovery",
+      "offsets": {
+        "committed": 22,
+        "end": 22
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:42:43.778386+00:00",
+      "elapsed_seconds": 40.55188529100269,
+      "event": "database_reconciled",
+      "counts": {
+        "alerts": 20,
+        "cases": 20,
+        "unique_case_alert_ids": 20,
+        "ingestion_events": 20
+      }
+    }
+  ]
+}

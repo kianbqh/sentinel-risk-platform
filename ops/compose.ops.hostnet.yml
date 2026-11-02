@@ -1,0 +1,27 @@
+# Last override when the existing engine intentionally has bridge networking off.
+services:
+  postgres:
+    healthcheck:
+      test: [CMD, pg_isready, -h, 127.0.0.1, -p, '15440', -U, sentinel, -d, sentinel]
+  gateway:
+    environment:
+      DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@127.0.0.1:15440/sentinel?sslmode=disable
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://127.0.0.1:4318/v1/traces
+  backend:
+    environment:
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://127.0.0.1:4318/v1/traces
+  prometheus:
+    network_mode: host
+    ports: !reset []
+    command: ['--config.file=/etc/prometheus/prometheus.hostnet.yml', '--storage.tsdb.path=/prometheus', '--web.listen-address=127.0.0.1:19090', '--storage.tsdb.retention.time=2d']
+  grafana:
+    network_mode: host
+    ports: !reset []
+    environment:
+      GF_SERVER_HTTP_ADDR: 127.0.0.1
+      GF_SERVER_HTTP_PORT: '13041'
+      PROMETHEUS_URL: http://127.0.0.1:19090
+  jaeger:
+    network_mode: host
+    ports: !reset []
+    command: ['--query.http-server.host-port=127.0.0.1:16686', '--collector.otlp.http.host-port=127.0.0.1:4318', '--collector.otlp.grpc.host-port=127.0.0.1:4317', '--admin.http.host-port=127.0.0.1:14269']

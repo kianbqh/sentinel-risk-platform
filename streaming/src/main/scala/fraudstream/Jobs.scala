@@ -141,13 +141,15 @@ object StreamJob {
     .add("txn_id", LongType).add("time", DoubleType).add("amount", DoubleType)
     .add("label", IntegerType).add("produce_ts_ms", LongType).add("v", ArrayType(DoubleType))
 
-  def score(spark: SparkSession, txns: Dataset[Txn], model: LrModel): Dataset[Scored] = {
+  def score(spark: SparkSession, txns: Dataset[Txn], model: LrModel,
+            scoringLatency: Option[ScoringLatencyAccumulator] = None): Dataset[Scored] = {
     import spark.implicits._
     txns
       .groupByKey(_ => 0) // single global stream: the dataset has no card/merchant id to partition by
       .flatMapGroupsWithState[StreamState, Scored](OutputMode.Append(), GroupStateTimeout.NoTimeout()) {
         (_: Int, rows: Iterator[Txn], state: GroupState[StreamState]) =>
-          val (next, out) = FeatureLogic.process(state.getOption.getOrElse(StreamState.empty), rows, model)
+          val (next, out) = FeatureLogic.process(state.getOption.getOrElse(StreamState.empty), rows, model,
+            scoringLatency = scoringLatency)
           state.update(next)
           out.iterator
       }
@@ -163,6 +165,16 @@ object StreamJob {
   def run(spark: SparkSession, model: LrModel, bootstrap: String, topics: Topics, checkpoint: String,
           startingOffsets: String, maxOffsetsPerTrigger: Long, expected: Long, progressLog: String,
           idleTimeoutSec: Int): String = {
+    val metrics = StreamMetricsConfig.fromEnv(sys.env).map(config =>
+      StreamMetrics.start(spark, s"fraud-stream-${topics.runId}", config))
+    try runWithMetrics(spark, model, bootstrap, topics, checkpoint, startingOffsets, maxOffsetsPerTrigger,
+      expected, progressLog, idleTimeoutSec, metrics.map(_.scoring))
+    finally metrics.foreach(_.close())
+  }
+
+  private def runWithMetrics(spark: SparkSession, model: LrModel, bootstrap: String, topics: Topics, checkpoint: String,
+          startingOffsets: String, maxOffsetsPerTrigger: Long, expected: Long, progressLog: String,
+          idleTimeoutSec: Int, scoringLatency: Option[ScoringLatencyAccumulator]): String = {
     val raw = {
       val r = spark.readStream.format("kafka")
         .option("kafka.bootstrap.servers", bootstrap)
@@ -171,7 +183,7 @@ object StreamJob {
         .option("failOnDataLoss", "false")
       (if (maxOffsetsPerTrigger > 0) r.option("maxOffsetsPerTrigger", maxOffsetsPerTrigger) else r).load()
     }
-    val scored = score(spark, parseKafka(spark, raw), model)
+    val scored = score(spark, parseKafka(spark, raw), model, scoringLatency)
     val total = new AtomicLong(0)
     val alerts = new AtomicLong(0)
     val canonical = sys.env.getOrElse("ALERT_FORMAT", "scored") == "sentinel-v1"

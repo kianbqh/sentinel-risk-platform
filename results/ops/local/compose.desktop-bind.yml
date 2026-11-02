@@ -1,0 +1,30 @@
+# Local adapter for the portable WSL client connected directly to Desktop's socket.
+services:
+  prometheus:
+    volumes: !override
+      - type: bind
+        source: /run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/prometheus
+        target: /etc/prometheus
+        read_only: true
+        bind: {create_host_path: false}
+      - prometheus-data:/prometheus
+  grafana:
+    volumes: !override
+      - type: bind
+        source: /run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/grafana/provisioning
+        target: /etc/grafana/provisioning
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: /run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/ops/grafana/dashboards
+        target: /var/lib/grafana/dashboards
+        read_only: true
+        bind: {create_host_path: false}
+      - grafana-data:/var/lib/grafana
+  streaming:
+    volumes: !override
+      - spark-state:/state
+      - type: bind
+        source: /run/desktop/mnt/host/g/ResumeProject/platforms/sentinel-risk-platform/.runtime/ops/spark
+        target: /results
+        bind: {create_host_path: false}

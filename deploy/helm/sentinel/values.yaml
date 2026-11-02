@@ -1,0 +1,49 @@
+nameOverride: ""
+images:
+  gateway: {repository: sentinel-risk-gateway, tag: local, pullPolicy: IfNotPresent}
+  backend: {repository: sentinel-risk-console-api, tag: local, pullPolicy: IfNotPresent}
+  frontend: {repository: sentinel-risk-console, tag: local, pullPolicy: IfNotPresent}
+replicas: 2
+termination:
+  # Let Service endpoint changes propagate before the application receives TERM.
+  preStopSeconds: 5
+  graceSeconds: 20
+auth:
+  # Supply with an ignored --values file. Never commit live credentials.
+  postgresPassword: ""
+  jwtSecret: ""
+postgres:
+  image: postgres:17-alpine
+  persistence: {enabled: false, size: 1Gi, storageClass: ""}
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: '1', memory: 512Mi}
+kafka:
+  enabled: true
+  image: redpandadata/redpanda:v25.2.9
+  # Required when enabled=false. Include the broker's reachable advertised port.
+  bootstrapServers: ""
+  topic: sentinel.alerts.v1
+  group: sentinel-console-v1
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: '1', memory: 768Mi}
+tracing:
+  endpoint: ""
+resources:
+  gateway:
+    requests: {cpu: 100m, memory: 192Mi}
+    limits: {cpu: '1', memory: 768Mi}
+  backend:
+    requests: {cpu: 50m, memory: 64Mi}
+    limits: {cpu: '1', memory: 256Mi}
+  frontend:
+    requests: {cpu: 25m, memory: 32Mi}
+    limits: {cpu: 500m, memory: 128Mi}
+service:
+  type: ClusterIP
+  gatewayPort: 18040
+  backendPort: 18041
+  frontendPort: 13040
+pdb:
+  minAvailable: 1

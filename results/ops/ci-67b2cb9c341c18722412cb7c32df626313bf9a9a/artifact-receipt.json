@@ -1,0 +1,335 @@
+{
+  "run_id": 41396026409,
+  "head_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "artifacts": [
+    {
+      "id": 13119806217,
+      "name": "ops-integration",
+      "size_in_bytes": 111399,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13119806217",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13119806217/zip",
+      "expired": false,
+      "created_at": "2026-11-02T05:51:26Z",
+      "expires_at": "2027-01-31T05:47:07Z",
+      "updated_at": "2026-11-02T05:51:26Z",
+      "digest": "sha256:5b9ff6fe8c6c5dbddddf2c9d90271a8684a3849d72f369c886bdfc5a21f3e416",
+      "workflow_run": {
+        "id": 41396026409,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a"
+      }
+    },
+    {
+      "id": 13118903017,
+      "name": "ops-static",
+      "size_in_bytes": 2754,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118903017",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118903017/zip",
+      "expired": false,
+      "created_at": "2026-11-02T05:47:25Z",
+      "expires_at": "2027-01-31T05:47:07Z",
+      "updated_at": "2026-11-02T05:47:25Z",
+      "digest": "sha256:c85235f4bbc4cfed67f5c9b3d33278323263e69ac6b80e943017095e8c4c051c",
+      "workflow_run": {
+        "id": 41396026409,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a"
+      }
+    },
+    {
+      "id": 13118834707,
+      "name": "production-security",
+      "size_in_bytes": 2565949,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118834707",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118834707/zip",
+      "expired": false,
+      "created_at": "2026-11-02T05:47:48Z",
+      "expires_at": "2027-01-31T05:47:07Z",
+      "updated_at": "2026-11-02T05:47:48Z",
+      "digest": "sha256:229af398cf331e7541ee71fadd65ef927b74a57ea007e9834901faae074d0786",
+      "workflow_run": {
+        "id": 41396026409,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a"
+      }
+    },
+    {
+      "id": 13118374883,
+      "name": "kind-helm",
+      "size_in_bytes": 432508,
+      "url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118374883",
+      "archive_download_url": "https://api.github.com/repos/kianbqh/sentinel-risk-platform/actions/artifacts/13118374883/zip",
+      "expired": false,
+      "created_at": "2026-11-02T05:51:18Z",
+      "expires_at": "2027-01-31T05:47:07Z",
+      "updated_at": "2026-11-02T05:51:18Z",
+      "digest": "sha256:bdf34c90f8ca1178cbe15f9131f6de3538a9297d8d18f1372614ee5ba745ba3c",
+      "workflow_run": {
+        "id": 41396026409,
+        "repository_id": 1441358174,
+        "head_repository_id": 1441358174,
+        "head_branch": "m1b-ops",
+        "head_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a"
+      }
+    }
+  ],
+  "scope": "Original files produced by the linked CI jobs; copied without content changes into new paths.",
+  "files": [
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/compose.log",
+      "bytes": 527008,
+      "sha256": "e9e5d24c1d089cd2976944ace021c2d57913010692d75cf288902a924bae78dc"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/drill-db-outage.events.jsonl",
+      "bytes": 18682,
+      "sha256": "56b7bf8302cce1b5be8075d586853d78bd3d51a6ac5ac17cd7bc77808f18a61e"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/drill-db-outage.json",
+      "bytes": 69265,
+      "sha256": "e208f54a002cf58dfe6c190712fb3f932f949d690cbbf9058246f944ae82a50d"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/smoke.events.jsonl",
+      "bytes": 13196,
+      "sha256": "550d1a8b06233bef9834daabb2b9664a555f888c72b26c80b3d33839af443a04"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/smoke.json",
+      "bytes": 35121,
+      "sha256": "352e4eff80d4a5f0ce50d5af4554ebcf0cca5f45e3ddedce0b6c9d375a1fc7e5"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/spark.events.jsonl",
+      "bytes": 16165,
+      "sha256": "b64ff202263f3d160d27a4a188ea31b0c08eadc550728761498b97c0c66fab10"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/spark.json",
+      "bytes": 37254,
+      "sha256": "f025e341dcc1bab597b87ab205eebfb8fb52f2c31d37c28ea22f4b5b8fe3b5e7"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/trace.events.jsonl",
+      "bytes": 13818,
+      "sha256": "332499d64454c343f3cba9091d8a1ed5d778e7438a73c2c5c31c8e0a19e29734"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/trace.json",
+      "bytes": 35011,
+      "sha256": "e88f1deb610e061d0a77a9c5f0b73002d9766b53b6787899ffe61a6884c3f2e9"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/static.json",
+      "bytes": 6723,
+      "sha256": "de28d56edf1fba44b21a7444a7691b10529c42d71566323aef472347ed69bbda"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy-pull.log",
+      "bytes": 603,
+      "sha256": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy.json",
+      "bytes": 38251,
+      "sha256": "3e194b97b790289a5e94ade32811505031e46fbd7b56f00dae4f65e5e843ca45"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/trivy.log",
+      "bytes": 3168,
+      "sha256": "f4efaa708ab172d31c7391766351947cec2583254f0b09f2e1d90159f1322159"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy-pull.log",
+      "bytes": 603,
+      "sha256": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy.json",
+      "bytes": 26210,
+      "sha256": "ddee4ed151c06fa312831d40ee55c9b3173e5b1133ba3578d12922a55d18f916"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/ci/trivy.log",
+      "bytes": 3668,
+      "sha256": "f76400587dfb3eedd6293c650c2d4ec35302a6113dbc7eb6cd8a6e9396b44a14"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy-pull.log",
+      "bytes": 603,
+      "sha256": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy.json",
+      "bytes": 26207,
+      "sha256": "e5b15087b2fd4cb78514bc333c5724fc7a33b1a00595bc2011c25c47755f6fda"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/security/history/41299200564/production-security/trivy.log",
+      "bytes": 3368,
+      "sha256": "9454f832b5a0405b39bf76caddb600e6d1f2fdf528794beca0799b8f81acd0cd"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/kind-lifecycle.events.jsonl",
+      "bytes": 1239015,
+      "sha256": "86761c9eac4e868150277aa74d689d6dd57266f794137bb2767c366baa1b88b8"
+    },
+    {
+      "path": "results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/kind-lifecycle.json",
+      "bytes": 4007950,
+      "sha256": "064a64215eeea4183be254793fde5a191a4e8c4069e917707c58267fb45baee6"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/kind/ci-880275a83a6541d3ba3cb3cfe5d10dac7621a2db/kind-lifecycle.events.jsonl",
+      "bytes": 1600984,
+      "sha256": "1b2232268efedc6d54fe0b7531eef2078398372b11d95fe233646f934cbd4273"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/kind/ci-880275a83a6541d3ba3cb3cfe5d10dac7621a2db/kind-lifecycle.json",
+      "bytes": 1888286,
+      "sha256": "43857a91ab009703737bdc168c27cb7a37efe286fd7d867fb748e45637877218"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy-pull.log",
+      "bytes": 570,
+      "sha256": "6db7e6c281b169d5cadaf80aad4ecc8666451b6b3802b74a307f173ca66da3e1"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy-summary.json",
+      "bytes": 3087,
+      "sha256": "987efa1d8e725272ab8634f4db4001a9bd2de57f3d916b17019c1544fee5ede6"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy.json",
+      "bytes": 68398,
+      "sha256": "891ae7e03060b084384522da95de57f915a11c90815c2d35b2c0f46d51ec22ff"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/trivy.log",
+      "bytes": 3368,
+      "sha256": "f7e16b759d6d886fe42c431fcc6289e61af5691179f66dfd80f9d194b76edf41"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy-pull.log",
+      "bytes": 603,
+      "sha256": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy.json",
+      "bytes": 26210,
+      "sha256": "ddee4ed151c06fa312831d40ee55c9b3173e5b1133ba3578d12922a55d18f916"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/ci/trivy.log",
+      "bytes": 3668,
+      "sha256": "f76400587dfb3eedd6293c650c2d4ec35302a6113dbc7eb6cd8a6e9396b44a14"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy-image.json",
+      "bytes": 90,
+      "sha256": "5e5adf25f62fc6653a22546d2f1d98b8c0b65f95d3204a1ac9dfe59d878d11ba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy-pull.log",
+      "bytes": 603,
+      "sha256": "1549bea95fa5085000b84007322d977c66f325a3cc4e6086cb31f1db8235d21e"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy-summary.json",
+      "bytes": 327,
+      "sha256": "eaa236038f23139b7c105b6929ec83267c5b7124b318c85a5210147da8515b32"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy-version.txt",
+      "bytes": 16,
+      "sha256": "84e54b2d02a5de1ad8dff546f152fb3aa252379d25a3a8d0f982d6d3a1fe4cba"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy.json",
+      "bytes": 26207,
+      "sha256": "e5b15087b2fd4cb78514bc333c5724fc7a33b1a00595bc2011c25c47755f6fda"
+    },
+    {
+      "path": "results/ops/history/ci-880275a/security/history/41299200564/production-security/trivy.log",
+      "bytes": 3368,
+      "sha256": "9454f832b5a0405b39bf76caddb600e6d1f2fdf528794beca0799b8f81acd0cd"
+    }
+  ]
+}

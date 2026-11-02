@@ -1,0 +1,10 @@
+{
+  "rows": 48,
+  "seed": 91,
+  "first_batch_rows": 17,
+  "listener_timeout_seconds": 20,
+  "warmups": 0,
+  "repeats": 1,
+  "concurrency": 1,
+  "scope": "synthetic MemoryStream, local[2], no Kafka or external services"
+}

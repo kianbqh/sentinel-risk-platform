@@ -21,6 +21,12 @@ flowchart LR
     P --> H[JWT GraphQL + dataloaders]
     H --> U[React analyst workspace]
     R[Elliptic graph research<br/>GNN vs LightGBM]
+    G -. metrics .-> O[Prometheus]
+    C -. metrics .-> O
+    S -. listener metrics .-> O
+    O --> V[Grafana + alert rules]
+    G -. W3C trace .-> J[Jaeger]
+    C -. consumer + DB spans .-> J
 ```
 
 ## Run locally
@@ -40,6 +46,8 @@ The demo uses a [bundled, SHA-256-checked prefix](gateway/fixtures/README.md) of
 The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash scripts/up.sh` uses the Linux host-network override for an engine with bridge networking disabled. Generated credentials and downloaded data stay in ignored local files.
 
 Containers write to ignored `.runtime/results/`. After the demo's checks pass, the host runner collects the evidence into `results/`, so reruns can update a fresh checkout's recorded results while the services remain non-root.
+
+I also added an [optional operations setup](ops/README.md) to follow a request across the gateway, Kafka and Postgres. `OPS_BUILD=1 bash ops/scripts/up.sh` starts its separate Compose project with Prometheus, Grafana and Jaeger. The [Helm chart](deploy/helm/sentinel/README.md) exercises updates, rollback and pod recovery on local/CI kind; the [runbook](ops/RUNBOOK.md) covers a database outage. These runners write new evidence under `results/ops/` and refuse to replace an existing run.
 
 ## What the models found
 
@@ -75,6 +83,21 @@ These are bounded request batches. Each read phase excludes ten warm-up requests
 
 The [security reports and triage](results/security/TRIAGE.md) retain the observations as well as the passing gates: Semgrep had no findings; Bandit flagged one medium-severity fixed-URL downloader call; Trivy retained one UNKNOWN, unfixed Go advisory and no secrets. Both authenticated ZAP scans reported **0 high, 0 medium, 4 low and 5 informational alert types**. The full scan used a five-minute active limit; the runner accounted for all 80,028 active responses, with no observed HTTP502 or nginx upstream address-exhaustion errors. Earlier findings and the connection-reuse fix remain in the [scan history](results/security/history/README.md).
 
+## Watching failures and recovery
+
+I added metrics and tracing, then stopped the database and updated the application under load. The [operations report](results/M1B_DELIVERY_REPORT.md) keeps the failed attempts alongside the fixes, with separate local and CI measurements.
+
+| Check | Observed result | Evidence |
+|---|---|---|
+| Local Prometheus / Grafana | 3 scraped endpoints; 8 dashboard panels checked | [service checks](results/ops/local/smoke.json) |
+| Alert rules | 9 test groups; 15 assertions passed | [rule tests](results/ops/local/static.json) |
+| Gateway → Kafka → consumer → database | 4 spans with verified parent relationships | [local trace](results/ops/local/trace.json) |
+| Local database outage and recovery | 21 Kafka records; 20 unique cases; 0 duplicate cases | [offsets and recovery timeline](results/ops/local/drill-db-outage.json) |
+| Local rolling update, rollback and pod recovery | 10919 requests; 9943 overlapping the update; 0 failures; rollback and recovery passed | [raw local kind run](results/ops/local/kind-lifecycle.json) |
+| CI rolling update after termination draining | 2815 requests; 2561 overlapping the update; 0 failures | [raw kind run](results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/kind-lifecycle.json) |
+
+An earlier update had [36 connection failures](results/ops/ci-67b2cb9c341c18722412cb7c32df626313bf9a9a/kind-lifecycle.json). I kept those samples and added an exit delay so endpoint updates can reach clients before the process stops. These are bounded single-node kind runs. The [Helm chart](deploy/helm/sentinel/README.md), [Bash commands](ops/README.md) and [database runbook](ops/RUNBOOK.md) reproduce the exercises; AWS remains validation-only.
+
 ## Following a signal
 
 All producers use [alert v1](contracts/README.md). An alert has a stable ID, source, entity, model version, evidence and trace ID. Numeric models attach a probability and decision threshold. An LLM label can have no probability; hybrid text routing identifies its TF-IDF probability separately from the label decision.
@@ -96,7 +119,10 @@ The ATO data is entirely synthetic. Its supervised signal classifies completed I
 | [graph research](research/graph/README.md) | Elliptic, all/local features, temporal labels on a fixed graph | `research/graph/results/` |
 | [security](security/README.md) | Service scans and intentionally vulnerable test fixtures | `results/security/` |
 | [deployment](deploy/README.md) | Kubernetes and AWS Terraform recipes | formatting and validation only |
+| [operations](ops/README.md) | Service metrics, traces, readiness, database outage and single-node kind | new runs under `results/ops/` |
 
 The [single root workflow](.github/workflows/platform.yml) runs Python, real-PostgreSQL Go integration/race tests, frontend interactions/build, Scala parity/state tests, graph unit tests, Terraform validation, service scans and the Compose flow. Console load runners validate every GraphQL body and retain per-request read/write latencies. The bounded console ZAP scan includes authenticated GraphQL exploration on the owned localhost origin.
+
+Three additional jobs validate the operations scripts and alert rules, check the instrumented Compose flow, and exercise the Helm lifecycle under load in kind. AWS Terraform remains validation-only.
 
 Each imported source history remains reachable through unsquashed subtree merges. [History imports](results/history-imports.json) records the source commits and exact commands.

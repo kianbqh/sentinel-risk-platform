@@ -1,0 +1,103 @@
+{
+  "timestamp_utc": "2026-11-02T06:23:06.008628+00:00",
+  "app_build_git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "measurement_git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+  "components": [
+    {
+      "path": "gateway",
+      "build_git_object": "f913e7e3f27350f54ce4837397eef45dbbb7e086",
+      "measurement_git_object": "f913e7e3f27350f54ce4837397eef45dbbb7e086",
+      "identical": true
+    },
+    {
+      "path": "console/backend",
+      "build_git_object": "a1613f83cb77ba5a7b72c7db4d6466b5394ad403",
+      "measurement_git_object": "a1613f83cb77ba5a7b72c7db4d6466b5394ad403",
+      "identical": true
+    },
+    {
+      "path": "console/frontend",
+      "build_git_object": "f08747f050ad312c0db09de9c0d31d7364888cac",
+      "measurement_git_object": "f08747f050ad312c0db09de9c0d31d7364888cac",
+      "identical": true
+    },
+    {
+      "path": "streaming",
+      "build_git_object": "5801deae5f961fac9b16933f506ac5bcaafccc39",
+      "measurement_git_object": "5801deae5f961fac9b16933f506ac5bcaafccc39",
+      "identical": true
+    },
+    {
+      "path": "serving/model",
+      "build_git_object": "247975ba6fe470e358f4241259e0fea509afe5d4",
+      "measurement_git_object": "247975ba6fe470e358f4241259e0fea509afe5d4",
+      "identical": true
+    },
+    {
+      "path": "text-risk/riskclf",
+      "build_git_object": "e3d09a5711e288f27ca32bb5c670626cd13c3e61",
+      "measurement_git_object": "e3d09a5711e288f27ca32bb5c670626cd13c3e61",
+      "identical": true
+    },
+    {
+      "path": "text-risk/models",
+      "build_git_object": "bc6fd2db2907fb60dfffc495c76c16f2d7c5815d",
+      "measurement_git_object": "bc6fd2db2907fb60dfffc495c76c16f2d7c5815d",
+      "identical": true
+    },
+    {
+      "path": "ato",
+      "build_git_object": "7b745620ae0ecffe9d18d0a18a61c47f3bb3fcd0",
+      "measurement_git_object": "7b745620ae0ecffe9d18d0a18a61c47f3bb3fcd0",
+      "identical": true
+    },
+    {
+      "path": "compose.yml",
+      "build_git_object": "addd33afcd57ddb3d69b77cf29bafd048d7d6d23",
+      "measurement_git_object": "addd33afcd57ddb3d69b77cf29bafd048d7d6d23",
+      "identical": true
+    },
+    {
+      "path": "ops/verify.py",
+      "build_git_object": "6b118ef1da54f8f052e1e7855234d29a63d439c0",
+      "measurement_git_object": "6b118ef1da54f8f052e1e7855234d29a63d439c0",
+      "identical": true
+    },
+    {
+      "path": "ops/kind_run.py",
+      "build_git_object": "ffb134f3f8eec69f05c199031d09c37acc14a172",
+      "measurement_git_object": "ffb134f3f8eec69f05c199031d09c37acc14a172",
+      "identical": true
+    },
+    {
+      "path": "ops/scripts/up.sh",
+      "build_git_object": "aeb94677db8085121ae8e23cf3d3e2d66c9b57ac",
+      "measurement_git_object": "aeb94677db8085121ae8e23cf3d3e2d66c9b57ac",
+      "identical": true
+    }
+  ],
+  "diff_command": [
+    "git",
+    "-C",
+    "G:\\ResumeProject\\platforms\\sentinel-risk-platform",
+    "diff",
+    "--stat",
+    "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+    "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "--",
+    "gateway",
+    "console/backend",
+    "console/frontend",
+    "streaming",
+    "serving/model",
+    "text-risk/riskclf",
+    "text-risk/models",
+    "ato",
+    "compose.yml",
+    "ops/verify.py",
+    "ops/kind_run.py",
+    "ops/scripts/up.sh"
+  ],
+  "diff_stat_stdout": "",
+  "note": "Helm termination and PostgreSQL TCP startup gating changed and is measured at the new SHA; these application and runner components are byte-identical."
+}

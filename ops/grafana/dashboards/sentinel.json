@@ -1,0 +1,24 @@
+{
+  "uid": "sentinel-ops",
+  "title": "Sentinel request and stream health",
+  "tags": ["sentinel", "local-ops"],
+  "schemaVersion": 41,
+  "version": 1,
+  "timezone": "utc",
+  "refresh": "5s",
+  "time": {"from": "now-15m", "to": "now"},
+  "panels": [
+    {"id": 1, "title": "Gateway requests per second", "type": "timeseries", "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "reqps"}}, "targets": [{"refId": "A", "expr": "sum by (route) (rate(sentinel_gateway_http_requests_total[1m]))", "legendFormat": "{{route}}"}]},
+    {"id": 2, "title": "Gateway 5xx fraction", "type": "timeseries", "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "percentunit"}}, "targets": [{"refId": "A", "expr": "sum(rate(sentinel_gateway_http_requests_total{status=~\"5..\"}[1m])) / clamp_min(sum(rate(sentinel_gateway_http_requests_total[1m])), 0.001)", "legendFormat": "5xx fraction"}]},
+    {"id": 3, "title": "Gateway request latency", "type": "timeseries", "gridPos": {"x": 0, "y": 8, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "s"}}, "targets": [
+      {"refId": "A", "expr": "histogram_quantile(0.5, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))", "legendFormat": "p50"},
+      {"refId": "B", "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))", "legendFormat": "p95"},
+      {"refId": "C", "expr": "histogram_quantile(0.99, sum by(le)(rate(sentinel_gateway_http_request_seconds_bucket[1m])))", "legendFormat": "p99"}
+    ]},
+    {"id": 4, "title": "Alert consumer lag", "type": "timeseries", "gridPos": {"x": 12, "y": 8, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "short"}}, "targets": [{"refId": "A", "expr": "sentinel_consumer_lag", "legendFormat": "{{topic}} p{{partition}}"}]},
+    {"id": 5, "title": "Spark batch duration", "type": "timeseries", "gridPos": {"x": 0, "y": 16, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "s"}}, "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_spark_batch_duration_seconds_bucket[1m])))", "legendFormat": "batch p95"}, {"refId": "B", "expr": "rate(sentinel_spark_batch_duration_seconds_sum[1m]) / clamp_min(rate(sentinel_spark_batch_duration_seconds_count[1m]), 0.001)", "legendFormat": "batch mean"}]},
+    {"id": 6, "title": "Dependency readiness", "type": "timeseries", "gridPos": {"x": 12, "y": 16, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"min": 0, "max": 1}}, "targets": [{"refId": "A", "expr": "sentinel_dependency_ready", "legendFormat": "{{job}} {{dependency}}"}]},
+    {"id": 7, "title": "Consumer messages and duplicates per second", "type": "timeseries", "gridPos": {"x": 0, "y": 24, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "targets": [{"refId": "A", "expr": "sum(rate(sentinel_consumer_messages_total[1m]))", "legendFormat": "messages"}, {"refId": "B", "expr": "sum(rate(sentinel_consumer_duplicates_total[1m]))", "legendFormat": "duplicates suppressed"}]},
+    {"id": 8, "title": "Model and DB transaction p95", "type": "timeseries", "gridPos": {"x": 12, "y": 24, "w": 12, "h": 8}, "datasource": {"type": "prometheus", "uid": "sentinel-prometheus"}, "fieldConfig": {"defaults": {"unit": "s"}}, "targets": [{"refId": "A", "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_gateway_model_score_seconds_bucket[1m])))", "legendFormat": "model score p95"}, {"refId": "B", "expr": "histogram_quantile(0.95, sum by(le)(rate(sentinel_db_transaction_seconds_bucket[1m])))", "legendFormat": "DB transaction p95"}]}
+  ]
+}

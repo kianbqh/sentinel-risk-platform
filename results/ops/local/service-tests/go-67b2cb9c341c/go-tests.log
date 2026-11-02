@@ -1,0 +1,66 @@
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/cmd/server	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/graph	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/graph/model	[no test files]
+=== RUN   TestFailedPersistenceNeverCommits
+2026/11/02 05:52:25 alert persistence failed; offset retained: database unavailable
+--- PASS: TestFailedPersistenceNeverCommits (0.02s)
+=== RUN   TestConsumerExtractsW3CParent
+--- PASS: TestConsumerExtractsW3CParent (0.00s)
+=== RUN   TestSharedProducerFixture
+--- PASS: TestSharedProducerFixture (0.01s)
+=== RUN   TestConsumerContractRejectsInvalidEvents
+=== RUN   TestConsumerContractRejectsInvalidEvents/version
+=== RUN   TestConsumerContractRejectsInvalidEvents/entity
+=== RUN   TestConsumerContractRejectsInvalidEvents/synthetic
+=== RUN   TestConsumerContractRejectsInvalidEvents/score
+=== RUN   TestConsumerContractRejectsInvalidEvents/unknown
+--- PASS: TestConsumerContractRejectsInvalidEvents (0.01s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/version (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/entity (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/synthetic (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/score (0.00s)
+    --- PASS: TestConsumerContractRejectsInvalidEvents/unknown (0.00s)
+=== RUN   TestTextLabelWithoutProbability
+--- PASS: TestTextLabelWithoutProbability (0.00s)
+=== RUN   TestTrailingJSONRejected
+--- PASS: TestTrailingJSONRejected (0.01s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/alerts	1.071s
+=== RUN   TestHashAndCheck
+--- PASS: TestHashAndCheck (0.03s)
+=== RUN   TestIssueParseRoundTrip
+--- PASS: TestIssueParseRoundTrip (0.00s)
+=== RUN   TestRejectsExpiredAndForeignTokens
+--- PASS: TestRejectsExpiredAndForeignTokens (0.00s)
+=== RUN   TestMiddleware
+--- PASS: TestMiddleware (0.00s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/auth	1.041s
+=== RUN   TestDependencyTransitionsDoNotAffectLiveness
+--- PASS: TestDependencyTransitionsDoNotAffectLiveness (0.01s)
+=== RUN   TestSlowDependencyDoesNotEraseHealthyResult
+--- PASS: TestSlowDependencyDoesNotEraseHealthyResult (2.00s)
+=== RUN   TestProbePropagatesRequestCancellation
+--- PASS: TestProbePropagatesRequestCancellation (0.00s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/health	3.026s
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/loaders	[no test files]
+=== RUN   TestSerialMutationAliasesSeeFreshHistoryAndLabels
+--- PASS: TestSerialMutationAliasesSeeFreshHistoryAndLabels (0.65s)
+=== RUN   TestPostgresTransactionInheritsConsumerContext
+--- PASS: TestPostgresTransactionInheritsConsumerContext (0.22s)
+=== RUN   TestAuthenticationAndInputValidation
+--- PASS: TestAuthenticationAndInputValidation (0.27s)
+=== RUN   TestConcurrentIngestionIsIdempotent
+--- PASS: TestConcurrentIngestionIsIdempotent (0.25s)
+=== RUN   TestSharedAnalystLifecycleAndFilters
+--- PASS: TestSharedAnalystLifecycleAndFilters (1.13s)
+=== RUN   TestDataloaderBatchesHistoryForEightCases
+--- PASS: TestDataloaderBatchesHistoryForEightCases (1.00s)
+=== RUN   TestNullableTextProbabilityPersists
+--- PASS: TestNullableTextProbabilityPersists (0.17s)
+PASS
+ok  	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/server	10.435s
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/store	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/internal/telemetry	[no test files]
+?   	github.com/kianbqh/sentinel-risk-platform/console/backend/migrations	[no test files]

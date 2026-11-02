@@ -25,6 +25,7 @@ class Models:
     version = "fixture-v1"
     def __init__(self, source="tfidf", score=.9): self.text = Text(source, score)
     def score(self, rows): return np.array([row.features["p"] for row in rows])
+    def ready(self): return True
 
 class Publisher:
     def __init__(self): self.events = []

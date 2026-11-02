@@ -1,0 +1,825 @@
+{
+  "status": "passed",
+  "mode": "trace",
+  "result": {
+    "trace_id": "9de6acf924eb490d950aabc95a4b2c06",
+    "prediction": {
+      "transaction_id": "ops-trace-d12374714cb347588f8e0b67d7efb86c",
+      "fraud_score": 1.0,
+      "flagged": true,
+      "threshold": 0.9999722811772073,
+      "alert_published": true
+    },
+    "span_count": 4,
+    "span_names": [
+      "gateway.request",
+      "kafka.consume",
+      "kafka.publish",
+      "postgres.transaction"
+    ],
+    "services": [
+      "sentinel-console",
+      "sentinel-gateway"
+    ],
+    "parent_chain_verified": [
+      "gateway.request",
+      "kafka.publish",
+      "kafka.consume",
+      "postgres.transaction"
+    ],
+    "raw_trace": {
+      "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+      "spans": [
+        {
+          "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+          "spanID": "ddbf9dabb7a3d986",
+          "operationName": "postgres.transaction",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+              "spanID": "9aeb306c8e3d9398"
+            }
+          ],
+          "startTime": 1793600736428628,
+          "duration": 9913,
+          "tags": [
+            {
+              "key": "db.operation.name",
+              "type": "string",
+              "value": "ingest"
+            },
+            {
+              "key": "db.system.name",
+              "type": "string",
+              "value": "postgresql"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "sentinel.store"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "client"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+          "spanID": "9aeb306c8e3d9398",
+          "operationName": "kafka.consume",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+              "spanID": "0cb2c9d73bd11b56"
+            }
+          ],
+          "startTime": 1793600736428615,
+          "duration": 10571,
+          "tags": [
+            {
+              "key": "messaging.destination.name",
+              "type": "string",
+              "value": "sentinel.alerts.v1"
+            },
+            {
+              "key": "messaging.system",
+              "type": "string",
+              "value": "kafka"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "sentinel.consumer"
+            },
+            {
+              "key": "sentinel.correlation_id",
+              "type": "string",
+              "value": "ops-trace-d12374714cb347588f8e0b67d7efb86c"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "consumer"
+            }
+          ],
+          "logs": [],
+          "processID": "p1",
+          "warnings": null
+        },
+        {
+          "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+          "spanID": "0cb2c9d73bd11b56",
+          "operationName": "kafka.publish",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+              "spanID": "4b8d9dd6a282c3bf"
+            }
+          ],
+          "startTime": 1793600736424266,
+          "duration": 4213,
+          "tags": [
+            {
+              "key": "messaging.destination.name",
+              "type": "string",
+              "value": "sentinel.alerts.v1"
+            },
+            {
+              "key": "messaging.system",
+              "type": "string",
+              "value": "kafka"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "sentinel.gateway"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "producer"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": null
+        },
+        {
+          "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+          "spanID": "4b8d9dd6a282c3bf",
+          "operationName": "gateway.request",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+              "spanID": "0123456789abcdef"
+            }
+          ],
+          "startTime": 1793600736417696,
+          "duration": 11347,
+          "tags": [
+            {
+              "key": "http.request.method",
+              "type": "string",
+              "value": "POST"
+            },
+            {
+              "key": "http.response.status_code",
+              "type": "int64",
+              "value": 200
+            },
+            {
+              "key": "http.route",
+              "type": "string",
+              "value": "/v1/transactions/score"
+            },
+            {
+              "key": "otel.scope.name",
+              "type": "string",
+              "value": "sentinel.gateway"
+            },
+            {
+              "key": "span.kind",
+              "type": "string",
+              "value": "server"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": [
+            "invalid parent span IDs=0123456789abcdef; skipping clock skew adjustment"
+          ]
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "sentinel-console",
+          "tags": []
+        },
+        "p2": {
+          "serviceName": "sentinel-gateway",
+          "tags": [
+            {
+              "key": "service.instance.id",
+              "type": "string",
+              "value": "08668041-9d5a-459d-a77a-d199bc933ca5"
+            },
+            {
+              "key": "telemetry.sdk.language",
+              "type": "string",
+              "value": "python"
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "type": "string",
+              "value": "opentelemetry"
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "type": "string",
+              "value": "1.45.2"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  },
+  "provenance": {
+    "timestamp": "2026-11-02T06:25:41.451209+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "git rev-parse HEAD",
+    "git_worktree_dirty": true,
+    "config_path": ".runtime/ops/ci-config.json",
+    "config_sha256": "d96ece55b62bf19e40f3c76c9f26282c248cb123e7a70ab1c6b5fac7a337aadd",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "GitHub-hosted Linux runner with Docker containers",
+    "kernel": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+    "python": "3.12.15",
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "logical_cpus": 4,
+    "gpu_driver_cuda": "not available",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"DefaultAPIVersion\":\"1.48\",\"GitCommit\":\"b8034c0\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Components\":[{\"Name\":\"Engine\",\"Version\":\"28.0.4\",\"Details\":{\"ApiVersion\":\"1.48\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Experimental\":\"false\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"KernelVersion\":\"7.0.0-1017-azure\",\"MinAPIVersion\":\"1.24\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.4.2\",\"Details\":{\"GitCommit\":\"b7a25261e029d68978bbf290df0a62fc819b3c51\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"v1.5.2-0-g29dd3dc2\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"MinAPIVersion\":\"1.24\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"KernelVersion\":\"7.0.0-1017-azure\",\"BuildTime\":\"2025-03-25T15:07:16.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.15"
+    },
+    "exact_command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python ops/verify.py trace --config .runtime/ops/ci-config.json --output results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.json",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 5.121754871000007
+  },
+  "raw_event_log": "results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.events.jsonl",
+  "progress_events": [
+    {
+      "timestamp": "2026-11-02T06:25:36.393001+00:00",
+      "elapsed_seconds": 0.03865573199999517,
+      "event": "run_started",
+      "mode": "trace",
+      "provenance": {
+        "timestamp": "2026-11-02T06:25:36.367860+00:00",
+        "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+        "git_sha_source": "git rev-parse HEAD",
+        "git_worktree_dirty": true,
+        "config_path": ".runtime/ops/ci-config.json",
+        "config_sha256": "d96ece55b62bf19e40f3c76c9f26282c248cb123e7a70ab1c6b5fac7a337aadd",
+        "source_sha256": {
+          "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+          "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+          "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+          "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+          "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+          "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+          "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+          "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+          "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+          "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+          "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+          "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+        },
+        "environment": "GitHub-hosted Linux runner with Docker containers",
+        "kernel": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+        "python": "3.12.15",
+        "cpu_model": "AMD EPYC 7763 64-Core Processor",
+        "logical_cpus": 4,
+        "gpu_driver_cuda": "not available",
+        "gpu_used": false,
+        "docker": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"DefaultAPIVersion\":\"1.48\",\"GitCommit\":\"b8034c0\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Components\":[{\"Name\":\"Engine\",\"Version\":\"28.0.4\",\"Details\":{\"ApiVersion\":\"1.48\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Mar 25 15:07:16 2025\",\"Experimental\":\"false\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"KernelVersion\":\"7.0.0-1017-azure\",\"MinAPIVersion\":\"1.24\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.4.2\",\"Details\":{\"GitCommit\":\"b7a25261e029d68978bbf290df0a62fc819b3c51\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"v1.5.2-0-g29dd3dc2\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"Version\":\"28.0.4\",\"ApiVersion\":\"1.48\",\"MinAPIVersion\":\"1.24\",\"GitCommit\":\"6430e49\",\"GoVersion\":\"go1.23.7\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"KernelVersion\":\"7.0.0-1017-azure\",\"BuildTime\":\"2025-03-25T15:07:16.000000000+00:00\"}}",
+        "package_versions": {
+          "python": "3.12.15"
+        },
+        "exact_command": "/opt/hostedtoolcache/Python/3.12.15/x64/bin/python ops/verify.py trace --config .runtime/ops/ci-config.json --output results/ops/ci-d2a66ce38d6e1d7caf343924e2a0295632ecee7f/trace.json",
+        "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+        "wall_seconds": 0.038980148000007375
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:36.431328+00:00",
+      "elapsed_seconds": 0.0769941769999889,
+      "event": "trace_prediction_published",
+      "trace_id": "9de6acf924eb490d950aabc95a4b2c06",
+      "prediction": {
+        "transaction_id": "ops-trace-d12374714cb347588f8e0b67d7efb86c",
+        "fraud_score": 1.0,
+        "flagged": true,
+        "threshold": 0.9999722811772073,
+        "alert_published": true
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:36.433418+00:00",
+      "elapsed_seconds": 0.07906884499999478,
+      "event": "jaeger_query",
+      "status": 404,
+      "response": {
+        "data": null,
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": [
+          {
+            "code": 404,
+            "msg": "trace not found"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:37.435090+00:00",
+      "elapsed_seconds": 1.0807510129999969,
+      "event": "jaeger_query",
+      "status": 404,
+      "response": {
+        "data": null,
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": [
+          {
+            "code": 404,
+            "msg": "trace not found"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:38.436593+00:00",
+      "elapsed_seconds": 2.082255898999989,
+      "event": "jaeger_query",
+      "status": 404,
+      "response": {
+        "data": null,
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": [
+          {
+            "code": 404,
+            "msg": "trace not found"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:39.438541+00:00",
+      "elapsed_seconds": 3.0841993820000084,
+      "event": "jaeger_query",
+      "status": 200,
+      "response": {
+        "data": [
+          {
+            "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+            "spans": [
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "ddbf9dabb7a3d986",
+                "operationName": "postgres.transaction",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "9aeb306c8e3d9398"
+                  }
+                ],
+                "startTime": 1793600736428628,
+                "duration": 9913,
+                "tags": [
+                  {
+                    "key": "db.operation.name",
+                    "type": "string",
+                    "value": "ingest"
+                  },
+                  {
+                    "key": "db.system.name",
+                    "type": "string",
+                    "value": "postgresql"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.store"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "client"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": null
+              },
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "9aeb306c8e3d9398",
+                "operationName": "kafka.consume",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "0cb2c9d73bd11b56"
+                  }
+                ],
+                "startTime": 1793600736428615,
+                "duration": 10571,
+                "tags": [
+                  {
+                    "key": "messaging.destination.name",
+                    "type": "string",
+                    "value": "sentinel.alerts.v1"
+                  },
+                  {
+                    "key": "messaging.system",
+                    "type": "string",
+                    "value": "kafka"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.consumer"
+                  },
+                  {
+                    "key": "sentinel.correlation_id",
+                    "type": "string",
+                    "value": "ops-trace-d12374714cb347588f8e0b67d7efb86c"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "consumer"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": [
+                  "invalid parent span IDs=0cb2c9d73bd11b56; skipping clock skew adjustment"
+                ]
+              }
+            ],
+            "processes": {
+              "p1": {
+                "serviceName": "sentinel-console",
+                "tags": []
+              }
+            },
+            "warnings": null
+          }
+        ],
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": null
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:40.440620+00:00",
+      "elapsed_seconds": 4.0862808880000046,
+      "event": "jaeger_query",
+      "status": 200,
+      "response": {
+        "data": [
+          {
+            "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+            "spans": [
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "ddbf9dabb7a3d986",
+                "operationName": "postgres.transaction",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "9aeb306c8e3d9398"
+                  }
+                ],
+                "startTime": 1793600736428628,
+                "duration": 9913,
+                "tags": [
+                  {
+                    "key": "db.operation.name",
+                    "type": "string",
+                    "value": "ingest"
+                  },
+                  {
+                    "key": "db.system.name",
+                    "type": "string",
+                    "value": "postgresql"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.store"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "client"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": null
+              },
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "9aeb306c8e3d9398",
+                "operationName": "kafka.consume",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "0cb2c9d73bd11b56"
+                  }
+                ],
+                "startTime": 1793600736428615,
+                "duration": 10571,
+                "tags": [
+                  {
+                    "key": "messaging.destination.name",
+                    "type": "string",
+                    "value": "sentinel.alerts.v1"
+                  },
+                  {
+                    "key": "messaging.system",
+                    "type": "string",
+                    "value": "kafka"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.consumer"
+                  },
+                  {
+                    "key": "sentinel.correlation_id",
+                    "type": "string",
+                    "value": "ops-trace-d12374714cb347588f8e0b67d7efb86c"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "consumer"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": [
+                  "invalid parent span IDs=0cb2c9d73bd11b56; skipping clock skew adjustment"
+                ]
+              }
+            ],
+            "processes": {
+              "p1": {
+                "serviceName": "sentinel-console",
+                "tags": []
+              }
+            },
+            "warnings": null
+          }
+        ],
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": null
+      }
+    },
+    {
+      "timestamp": "2026-11-02T06:25:41.442701+00:00",
+      "elapsed_seconds": 5.088357569999999,
+      "event": "jaeger_query",
+      "status": 200,
+      "response": {
+        "data": [
+          {
+            "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+            "spans": [
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "ddbf9dabb7a3d986",
+                "operationName": "postgres.transaction",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "9aeb306c8e3d9398"
+                  }
+                ],
+                "startTime": 1793600736428628,
+                "duration": 9913,
+                "tags": [
+                  {
+                    "key": "db.operation.name",
+                    "type": "string",
+                    "value": "ingest"
+                  },
+                  {
+                    "key": "db.system.name",
+                    "type": "string",
+                    "value": "postgresql"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.store"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "client"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": null
+              },
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "9aeb306c8e3d9398",
+                "operationName": "kafka.consume",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "0cb2c9d73bd11b56"
+                  }
+                ],
+                "startTime": 1793600736428615,
+                "duration": 10571,
+                "tags": [
+                  {
+                    "key": "messaging.destination.name",
+                    "type": "string",
+                    "value": "sentinel.alerts.v1"
+                  },
+                  {
+                    "key": "messaging.system",
+                    "type": "string",
+                    "value": "kafka"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.consumer"
+                  },
+                  {
+                    "key": "sentinel.correlation_id",
+                    "type": "string",
+                    "value": "ops-trace-d12374714cb347588f8e0b67d7efb86c"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "consumer"
+                  }
+                ],
+                "logs": [],
+                "processID": "p1",
+                "warnings": null
+              },
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "0cb2c9d73bd11b56",
+                "operationName": "kafka.publish",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "4b8d9dd6a282c3bf"
+                  }
+                ],
+                "startTime": 1793600736424266,
+                "duration": 4213,
+                "tags": [
+                  {
+                    "key": "messaging.destination.name",
+                    "type": "string",
+                    "value": "sentinel.alerts.v1"
+                  },
+                  {
+                    "key": "messaging.system",
+                    "type": "string",
+                    "value": "kafka"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.gateway"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "producer"
+                  }
+                ],
+                "logs": [],
+                "processID": "p2",
+                "warnings": null
+              },
+              {
+                "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                "spanID": "4b8d9dd6a282c3bf",
+                "operationName": "gateway.request",
+                "references": [
+                  {
+                    "refType": "CHILD_OF",
+                    "traceID": "9de6acf924eb490d950aabc95a4b2c06",
+                    "spanID": "0123456789abcdef"
+                  }
+                ],
+                "startTime": 1793600736417696,
+                "duration": 11347,
+                "tags": [
+                  {
+                    "key": "http.request.method",
+                    "type": "string",
+                    "value": "POST"
+                  },
+                  {
+                    "key": "http.response.status_code",
+                    "type": "int64",
+                    "value": 200
+                  },
+                  {
+                    "key": "http.route",
+                    "type": "string",
+                    "value": "/v1/transactions/score"
+                  },
+                  {
+                    "key": "otel.scope.name",
+                    "type": "string",
+                    "value": "sentinel.gateway"
+                  },
+                  {
+                    "key": "span.kind",
+                    "type": "string",
+                    "value": "server"
+                  }
+                ],
+                "logs": [],
+                "processID": "p2",
+                "warnings": [
+                  "invalid parent span IDs=0123456789abcdef; skipping clock skew adjustment"
+                ]
+              }
+            ],
+            "processes": {
+              "p1": {
+                "serviceName": "sentinel-console",
+                "tags": []
+              },
+              "p2": {
+                "serviceName": "sentinel-gateway",
+                "tags": [
+                  {
+                    "key": "service.instance.id",
+                    "type": "string",
+                    "value": "08668041-9d5a-459d-a77a-d199bc933ca5"
+                  },
+                  {
+                    "key": "telemetry.sdk.language",
+                    "type": "string",
+                    "value": "python"
+                  },
+                  {
+                    "key": "telemetry.sdk.name",
+                    "type": "string",
+                    "value": "opentelemetry"
+                  },
+                  {
+                    "key": "telemetry.sdk.version",
+                    "type": "string",
+                    "value": "1.45.2"
+                  }
+                ]
+              }
+            },
+            "warnings": null
+          }
+        ],
+        "total": 0,
+        "limit": 0,
+        "offset": 0,
+        "errors": null
+      }
+    }
+  ]
+}

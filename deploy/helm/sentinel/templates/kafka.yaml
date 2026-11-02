@@ -1,0 +1,40 @@
+{{- if .Values.kafka.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "sentinel.fullname" . }}-kafka
+spec:
+  selector: {app.kubernetes.io/instance: {{ .Release.Name }}, app.kubernetes.io/component: kafka}
+  ports: [{name: kafka, port: 9092, targetPort: 9092}]
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "sentinel.fullname" . }}-kafka
+spec:
+  serviceName: {{ include "sentinel.fullname" . }}-kafka
+  replicas: 1
+  selector:
+    matchLabels: {app.kubernetes.io/instance: {{ .Release.Name }}, app.kubernetes.io/component: kafka}
+  template:
+    metadata:
+      labels: {app.kubernetes.io/instance: {{ .Release.Name }}, app.kubernetes.io/component: kafka}
+    spec:
+      containers:
+        - name: kafka
+          image: {{ .Values.kafka.image | quote }}
+          args: [redpanda, start, --mode=dev-container, --smp=1, --memory=512M, '--kafka-addr=0.0.0.0:9092', {{ printf "--advertise-kafka-addr=%s-kafka:9092" (include "sentinel.fullname" .) | quote }}]
+          ports: [{name: kafka, containerPort: 9092}]
+          readinessProbe:
+            exec: {command: [rpk, cluster, info, -X, 'brokers=127.0.0.1:9092']}
+            periodSeconds: 3
+            timeoutSeconds: 2
+          livenessProbe:
+            tcpSocket: {port: kafka}
+            initialDelaySeconds: 20
+            periodSeconds: 5
+          resources:
+            {{- toYaml .Values.kafka.resources | nindent 12 }}
+          volumeMounts: [{name: data, mountPath: /var/lib/redpanda/data}]
+      volumes: [{name: data, emptyDir: {}}]
+{{- end }}

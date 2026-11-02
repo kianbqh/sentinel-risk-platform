@@ -1,0 +1,26 @@
+# Sentinel Helm chart
+
+This chart runs the transaction/SMS gateway, Go consumer/GraphQL API, React/nginx console and PostgreSQL on local/CI Kubernetes. It includes optional single-node Redpanda; set `kafka.enabled=false` and `kafka.bootstrapServers` to use a reachable external broker instead.
+
+Create an ignored values file with `auth.postgresPassword` and a `auth.jwtSecret` of at least 32 bytes. Never put live credentials in Git or on a command line saved to public logs. The runner creates this file automatically.
+
+```bash
+helm lint deploy/helm/sentinel -f .runtime/ops/kind-secret-values.json
+helm template m1b deploy/helm/sentinel -f .runtime/ops/kind-secret-values.json | kubeconform -strict -summary -kubernetes-version 1.34.0
+helm install m1b deploy/helm/sentinel -n sentinel-m1b --create-namespace \
+  -f .runtime/ops/kind-secret-values.json --wait --timeout 5m
+# The full install/upgrade/rollback/recovery exercise:
+bash ops/scripts/kind.sh
+```
+
+The three application Deployments default to two replicas, `maxUnavailable: 0`, one surge pod, resource requests/limits and a PDB retaining one replica. Gateway/backend probes use dependency-free `/healthz` and dependency-aware `/readyz`. Frontend probes use `/`. ConfigMap and Secret checksums trigger a rolling update when settings change. Postgres is a simple StatefulSet; enable `postgres.persistence.enabled` for a PVC. `tracing.endpoint` optionally supplies an existing OTLP HTTP traces endpoint.
+
+Postgres startup, readiness and liveness probes check TCP, so its temporary Unix-socket-only initialization server cannot appear ready. The startup probe allows two minutes before liveness becomes active. The backend's init container also waits for the database Service's TCP readiness before running migrations; its install is bounded by the runner's five-minute Helm timeout. Gateway liveness remains available while a configured database is not ready.
+
+Application pods also use a kubelet-native `preStop.sleep` hook. `termination.preStopSeconds` defaults to 5, leaving time for Service endpoint updates before TERM reaches the process; `termination.graceSeconds` defaults to 20 and includes this sleep. The chart requires at least ten seconds of remaining application shutdown time. The exercised target is Kubernetes 1.34, as used by the pinned kind image; the hook also works for the distroless Go image without a shell. Set the sleep to zero to omit the hook when reproducing the earlier behavior. A readiness/replica policy alone does not guarantee that every request succeeds during termination; the raw rollout measurements remain the evidence.
+
+The [ops report](../../../results/M1B_DELIVERY_REPORT.md) links measured results. The [ops protocol](../../../ops/README.md) explains timers and raw samples. The old `deploy/k8s/` files remain unchanged.
+
+## Limitations
+
+The accepted deployment is single-node kind on a desktop/CI runner. Redpanda storage is ephemeral and neither Postgres nor Kafka is highly available. This chart does not deploy Spark, Prometheus, Grafana or Jaeger. It does not claim managed-cloud deployment, autoscaling behavior, production traffic or a production availability SLO. Resource limits and PDB settings are examples exercised in this local scope.

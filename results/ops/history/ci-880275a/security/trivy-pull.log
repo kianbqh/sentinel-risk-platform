@@ -1,0 +1,16 @@
+latest: Pulling from aquasec/trivy
+e2de96513ba9: Already exists
+6b85eccf6d37: Pulling fs layer
+2e51b4bff2eb: Pulling fs layer
+7982da00fb0e: Pulling fs layer
+7982da00fb0e: Download complete
+6b85eccf6d37: Verifying Checksum
+6b85eccf6d37: Download complete
+2e51b4bff2eb: Verifying Checksum
+2e51b4bff2eb: Download complete
+6b85eccf6d37: Pull complete
+2e51b4bff2eb: Pull complete
+7982da00fb0e: Pull complete
+Digest: sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c
+Status: Downloaded newer image for aquasec/trivy:latest
+docker.io/aquasec/trivy:latest

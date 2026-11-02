@@ -18,7 +18,12 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/kianbqh/sentinel-risk-platform/console/backend/graph/model"
 	"github.com/kianbqh/sentinel-risk-platform/console/backend/internal/alerts"
+	"github.com/kianbqh/sentinel-risk-platform/console/backend/internal/telemetry"
 	"github.com/kianbqh/sentinel-risk-platform/console/backend/migrations"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
+	"go.opentelemetry.io/otel/trace"
 )
 
 var ErrNotFound = errors.New("not found")
@@ -115,7 +120,20 @@ func (s *Store) Analysts(ctx context.Context) ([]*model.User, error) {
 }
 
 // Ingest is atomic and idempotent: Kafka offsets are committed only after this transaction.
-func (s *Store) Ingest(ctx context.Context, e alerts.Envelope) (bool, error) {
+func (s *Store) Ingest(ctx context.Context, e alerts.Envelope) (added bool, resultErr error) {
+	started := time.Now()
+	ctx, span := otel.Tracer("sentinel.store").Start(ctx, "postgres.transaction", trace.WithSpanKind(trace.SpanKindClient),
+		trace.WithAttributes(attribute.String("db.system.name", "postgresql"), attribute.String("db.operation.name", "ingest")))
+	defer func() {
+		outcome := "success"
+		if resultErr != nil {
+			outcome = "error"
+			span.RecordError(resultErr)
+			span.SetStatus(codes.Error, "PostgreSQL transaction failed")
+		}
+		telemetry.DBTransactions.WithLabelValues("ingest", outcome).Observe(time.Since(started).Seconds())
+		span.End()
+	}()
 	if err := e.Validate(); err != nil {
 		return false, err
 	}

@@ -1,0 +1,38 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 67 files tracked by git with 208 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      37      67          Community     203                                                                
+  python           22      22          Custom          5                                                                
+  go               17      14                                                                                           
+  ts               17       7                                                                                           
+  scala             8       6                                                                                           
+  dockerfile        2       2                                                                                           
+  yaml             12       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 114
+ • Targets scanned: 67
+ • Parsed lines: ~100.0%
+ • Scan skipped: 
+   ◦ Matching --exclude patterns: 10
+   ◦ Files larger than  files 1.0 MB: 1
+   ◦ Files matching .semgrepignore patterns: 7
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 114 rules on 67 files: 0 findings.
+(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+
+If Semgrep missed a finding, please send us feedback to let us know!
+See https://semgrep.dev/docs/reporting-false-negatives/

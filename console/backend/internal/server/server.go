@@ -2,6 +2,7 @@
 package server
 
 import (
+	"context"
 	"net/http"
 
 	"github.com/99designs/gqlgen/graphql/handler"
@@ -9,10 +10,11 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 
 	"github.com/kianbqh/sentinel-risk-platform/console/backend/graph"
+	"github.com/kianbqh/sentinel-risk-platform/console/backend/internal/health"
 	"github.com/kianbqh/sentinel-risk-platform/console/backend/internal/loaders"
 )
 
-func New(res *graph.Resolver, corsOrigin string) http.Handler {
+func New(res *graph.Resolver, corsOrigin string, readiness ...map[string]health.Check) http.Handler {
 	gql := handler.New(graph.NewExecutableSchema(graph.Config{Resolvers: res}))
 	gql.AddTransport(transport.POST{})
 	gql.AddTransport(transport.GET{})
@@ -22,13 +24,16 @@ func New(res *graph.Resolver, corsOrigin string) http.Handler {
 	mux := http.NewServeMux()
 	var query http.Handler = loaders.Middleware(res.Store, gql)
 	mux.Handle("/graphql", http.MaxBytesHandler(res.Auth.Middleware(query), 1<<20))
-	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
-		if err := res.Store.DB.Ping(r.Context()); err != nil {
-			http.Error(w, "db down", http.StatusServiceUnavailable)
-			return
+	checks := map[string]health.Check{"database": func(ctx context.Context) error { return res.Store.DB.Ping(ctx) }}
+	for _, extra := range readiness {
+		for name, check := range extra {
+			checks[name] = check
 		}
-		w.Write([]byte("ok"))
-	})
+	}
+	probes := health.Handler{Checks: checks}
+	mux.HandleFunc("/healthz", probes.Live)
+	mux.HandleFunc("/readyz", probes.Ready)
+	mux.HandleFunc("/metrics", probes.Metrics)
 	return cors(corsOrigin, mux)
 }
 

@@ -1,0 +1,185 @@
+{
+  "status": "failed",
+  "mode": "desktop_runtime_preparation",
+  "canonical_measurement": false,
+  "app_build_git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "cause": "Direct Desktop socket did not map WSL /mnt/g bind sources; the previously exited/restarted backend also had no actual published host-port entry.",
+  "diagnostics": {
+    "empty_bind_and_prometheus_config_failure": [
+      {
+        "command": [
+          "docker",
+          "compose",
+          "--env-file",
+          ".runtime/ops/.env",
+          "--project-name",
+          "sentinel-m1b-ops",
+          "-f",
+          "compose.yml",
+          "-f",
+          "ops/compose.ops.yml",
+          "--profile",
+          "ops",
+          "logs",
+          "--no-color",
+          "prometheus",
+          "backend",
+          "console"
+        ],
+        "exit_code": 0,
+        "stdout": "console-1     | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\nconsole-1     | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh\nconsole-1     | 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf is not a file or does not exist\nconsole-1     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh\nconsole-1     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/19-backend-upstream.envsh\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh\nconsole-1     | 20-envsubst-on-templates.sh: Running envsubst on /etc/nginx/templates/default.conf.template to /etc/nginx/conf.d/default.conf\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh\nconsole-1     | /docker-entrypoint.sh: Configuration complete; ready for start up\nconsole-1     | 2026/11/02 06:08:10 [warn] 1#1: the \"user\" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2\nconsole-1     | nginx: [warn] the \"user\" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2\nconsole-1     | 2026/11/02 06:08:10 [emerg] 1#1: host not found in upstream \"backend:18041\" in /etc/nginx/conf.d/default.conf:2\nconsole-1     | nginx: [emerg] host not found in upstream \"backend:18041\" in /etc/nginx/conf.d/default.conf:2\nconsole-1     | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\nconsole-1     | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh\nconsole-1     | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf\nconsole-1     | 10-listen-on-ipv6-by-default.sh: info: /etc/nginx/conf.d/default.conf differs from the packaged version\nconsole-1     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh\nconsole-1     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/19-backend-upstream.envsh\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh\nconsole-1     | 20-envsubst-on-templates.sh: Running envsubst on /etc/nginx/templates/default.conf.template to /etc/nginx/conf.d/default.conf\nconsole-1     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh\nconsole-1     | /docker-entrypoint.sh: Configuration complete; ready for start up\nconsole-1     | 2026/11/02 06:23:16 [warn] 1#1: the \"user\" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2\nconsole-1     | nginx: [warn] the \"user\" directive makes sense only if the master process runs with super-user privileges, ignored in /etc/nginx/nginx.conf:2\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: using the \"epoll\" event method\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: nginx/1.29.8\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) \nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: OS: Linux 6.18.54.1-microsoft-standard-WSL2\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker processes\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 37\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 38\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 39\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 40\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 41\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 42\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 43\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 44\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 45\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 46\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 47\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 48\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 49\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 50\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 51\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 52\nprometheus-1  | time=2026-11-02T06:06:56.488Z level=ERROR source=main.go:642 msg=\"Error loading config (--config.file=/etc/prometheus/prometheus.yml)\" file=/etc/prometheus/prometheus.yml err=\"open /etc/prometheus/prometheus.yml: no such file or directory\"\nprometheus-1  | time=2026-11-02T06:23:08.193Z level=ERROR source=main.go:642 msg=\"Error loading config (--config.file=/etc/prometheus/prometheus.yml)\" file=/etc/prometheus/prometheus.yml err=\"open /etc/prometheus/prometheus.yml: no such file or directory\"\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 53\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 54\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 55\nconsole-1     | 2026/11/02 06:23:16 [notice] 1#1: start worker process 56\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:21 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:26 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:31 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:36 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:41 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:46 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:51 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:23:56 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:02 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:07 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:12 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:17 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:22 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:27 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:32 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:37 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:42 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:47 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:52 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:24:57 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:02 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:07 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:12 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:17 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:22 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:27 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:32 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:37 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:43 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:48 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:53 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:25:58 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:03 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:08 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:13 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:18 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:23 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nconsole-1     | 127.0.0.1 - - [02/Nov/2026:06:26:28 +0000] \"GET / HTTP/1.1\" 200 384 \"-\" \"Wget\" \"-\"\nbackend-1     | 2026/11/02 06:08:03 migrate: failed to open database: failed to connect to `user=sentinel database=sentinel`: 172.18.0.4:5432 (postgres): dial error: dial tcp 172.18.0.4:5432: connect: connection refused\nbackend-1     | 2026/11/02 06:23:14 listening on :18041 (GraphQL at /graphql)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "inspect",
+          "--format",
+          "{{json .State}}",
+          "sentinel-m1b-ops-prometheus-1"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":2,\"Error\":\"\",\"StartedAt\":\"2026-11-02T06:23:05.309834725Z\",\"FinishedAt\":\"2026-11-02T06:23:08.195357044Z\"}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "inspect",
+          "--format",
+          "{{json .Mounts}}",
+          "sentinel-m1b-ops-prometheus-1"
+        ],
+        "exit_code": 0,
+        "stdout": "[{\"Type\":\"volume\",\"Name\":\"sentinel-m1b-ops_prometheus-data\",\"Source\":\"/var/lib/docker/volumes/sentinel-m1b-ops_prometheus-data/_data\",\"Destination\":\"/prometheus\",\"Driver\":\"local\",\"Mode\":\"rw\",\"RW\":true,\"Propagation\":\"\"},{\"Type\":\"bind\",\"Source\":\"/mnt/g/ResumeProject/platforms/sentinel-risk-platform/ops/prometheus\",\"Destination\":\"/etc/prometheus\",\"Mode\":\"ro\",\"RW\":false,\"Propagation\":\"rprivate\"}]\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--network",
+          "none",
+          "--mount",
+          "type=bind,src=/mnt/g/ResumeProject/platforms/sentinel-risk-platform/ops/prometheus,dst=/check,readonly",
+          "--entrypoint",
+          "ls",
+          "postgres:17-alpine",
+          "-al",
+          "/check"
+        ],
+        "exit_code": 0,
+        "stdout": "total 5\ndrwxr-xr-x    2 root     root          1024 Nov  2 06:06 .\ndrwxr-xr-x    1 root     root          4096 Nov  2 06:26 ..\n",
+        "stderr": ""
+      }
+    ],
+    "running_backend_without_actual_port_mapping": [
+      {
+        "command": [
+          "docker",
+          "inspect",
+          "--format",
+          "{\"state\":{{json .State}},\"ports\":{{json .NetworkSettings.Ports}},\"bindings\":{{json .HostConfig.PortBindings}}}",
+          "sentinel-m1b-ops-backend-1"
+        ],
+        "returncode": 0,
+        "stdout": "{\"state\":{\"Status\":\"running\",\"Running\":true,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":24372,\"ExitCode\":0,\"Error\":\"\",\"StartedAt\":\"2026-11-02T06:23:12.931929237Z\",\"FinishedAt\":\"2026-11-02T06:08:03.661838124Z\"},\"ports\":{\"18041/tcp\":[]},\"bindings\":{\"18041/tcp\":[{\"HostIp\":\"127.0.0.1\",\"HostPort\":\"18041\"}]}}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "compose",
+          "--env-file",
+          ".runtime/ops/.env",
+          "--project-name",
+          "sentinel-m1b-ops",
+          "-f",
+          "compose.yml",
+          "-f",
+          "ops/compose.ops.yml",
+          "--profile",
+          "ops",
+          "logs",
+          "--no-color",
+          "--tail",
+          "15",
+          "backend"
+        ],
+        "returncode": 0,
+        "stdout": "backend-1  | 2026/11/02 06:08:03 migrate: failed to open database: failed to connect to `user=sentinel database=sentinel`: 172.18.0.4:5432 (postgres): dial error: dial tcp 172.18.0.4:5432: connect: connection refused\nbackend-1  | 2026/11/02 06:23:14 listening on :18041 (GraphQL at /graphql)\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "docker",
+          "compose",
+          "--env-file",
+          ".runtime/ops/.env",
+          "--project-name",
+          "sentinel-m1b-ops",
+          "-f",
+          "compose.yml",
+          "-f",
+          "ops/compose.ops.yml",
+          "--profile",
+          "ops",
+          "exec",
+          "-T",
+          "gateway",
+          "python",
+          "-c",
+          "import urllib.request;print(urllib.request.urlopen(\"http://backend:18041/healthz\",timeout=5).read().decode())"
+        ],
+        "returncode": 0,
+        "stdout": "{\"status\":\"alive\"}\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "correction": "Verified Desktop /run/desktop/mnt/host/g content hashes, applied the retained runtime-only compose override, and recreated only the stateless backend before restarting its console upstream.",
+  "credential_or_data_volume_reset": false,
+  "subsequent_success_evidence": [
+    "../runtime-mounts.json",
+    "../startup-health.json",
+    "../smoke.json"
+  ],
+  "provenance": {
+    "timestamp": "2026-11-02T06:59:10.375980+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "caller supplied from native Git",
+    "git_worktree_dirty": true,
+    "config_path": "results/ops/local/config.json",
+    "config_sha256": "4a2773acbfec51fd72865be79ad3cf90943733d7cd113806069c310e7bbd415d",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "WSL2 CodexResearchATTAlf01 on Windows; targets run in Docker Desktop 29.3.1",
+    "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "logical_cpus": 20,
+    "gpu_driver_cuda": "Sun Nov  1 22:59:10 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   41C    P3             58W /  350W |    2042MiB /  12288MiB |     25%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.3",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "read-only previously redacted diagnostic archive; executed Docker commands are retained in diagnostics",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 1.2337291479925625
+  }
+}

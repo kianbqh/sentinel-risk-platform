@@ -1,0 +1,15 @@
+{
+  "environment": "WSL2 CodexResearchATTAlf01; Python native Linux; CPU only",
+  "scope": "python",
+  "source_checkpoint": "880275a83a6541d3ba3cb3cfe5d10dac7621a2db",
+  "python_tests": ["gateway/tests", "text-risk/tests", "security/tests"],
+  "python_executable": "/opt/codex-resume/all-modules-v2/m1b/services/venv/bin/python",
+  "python_threads": 2,
+  "go_wrapper": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1b/services/go-test.sh",
+  "go_test_command": "go test -mod=readonly -race -count=1 -v ./...",
+  "go_maxprocs": 2,
+  "postgres_loopback_port": 15448,
+  "docker_host": "unix:///opt/codex-resume/ros2-runtime/run/docker.sock",
+  "gpu_used": false,
+  "protocol": "One full Python correctness suite and one separate actual bundled-model readiness probe. Go formal tests are held for a new source checkpoint after the separately authorized security dependency upgrade. No service latency/throughput measurement."
+}

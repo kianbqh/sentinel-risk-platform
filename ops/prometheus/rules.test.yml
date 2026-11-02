@@ -1,0 +1,112 @@
+rule_files: [rules.yml]
+evaluation_interval: 5s
+tests:
+  - name: Healthy gateway and consumer do not alert
+    interval: 5s
+    input_series:
+      - series: 'sentinel_gateway_http_requests_total{method="POST",route="/v1/transactions/score",status="200"}'
+        values: '0+100x60'
+      - series: 'sentinel_consumer_lag{topic="sentinel.alerts.v1",partition="0"}'
+        values: '0+0x60'
+      - series: 'sentinel_service_ready{job="console-backend",instance="backend:18041"}'
+        values: '1+0x60'
+    alert_rule_test:
+      - {eval_time: 5m, alertname: SentinelHigh5xxRate, exp_alerts: []}
+      - {eval_time: 5m, alertname: SentinelConsumerLagGrowing, exp_alerts: []}
+      - {eval_time: 5m, alertname: SentinelServiceNotReady, exp_alerts: []}
+  - name: 5xx fraction fires after its hold period
+    interval: 5s
+    input_series:
+      - series: 'sentinel_gateway_http_requests_total{status="200"}'
+        values: '0+90x24'
+      - series: 'sentinel_gateway_http_requests_total{status="503"}'
+        values: '0+10x24'
+    alert_rule_test:
+      - {eval_time: 20s, alertname: SentinelHigh5xxRate, exp_alerts: []}
+      - eval_time: 1m
+        alertname: SentinelHigh5xxRate
+        exp_alerts:
+          - exp_labels: {severity: warning}
+            exp_annotations: {summary: Gateway 5xx fraction exceeds five percent}
+  - name: Slow histogram p95 fires
+    interval: 5s
+    input_series:
+      - series: 'sentinel_gateway_http_request_seconds_bucket{le="0.5"}'
+        values: '0+80x24'
+      - series: 'sentinel_gateway_http_request_seconds_bucket{le="1.0"}'
+        values: '0+100x24'
+      - series: 'sentinel_gateway_http_request_seconds_bucket{le="+Inf"}'
+        values: '0+100x24'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: SentinelHighP95Latency
+        exp_alerts:
+          - exp_labels: {severity: warning}
+            exp_annotations: {summary: Gateway p95 request duration exceeds half a second}
+  - name: Growing backlog fires while a flat backlog does not
+    interval: 5s
+    input_series:
+      - series: 'sentinel_consumer_lag{topic="sentinel.alerts.v1",partition="0"}'
+        values: '0+5x24'
+    alert_rule_test:
+      - eval_time: 1m
+        alertname: SentinelConsumerLagGrowing
+        exp_alerts:
+          - exp_labels: {severity: warning}
+            exp_annotations: {summary: Alert consumer lag is positive and growing}
+  - name: An inactive query is not a stalled active scorer
+    interval: 5s
+    input_series:
+      - series: sentinel_spark_query_active
+        values: '0+0x60'
+      - series: sentinel_spark_last_activity_timestamp_seconds
+        values: '0+0x60'
+    alert_rule_test:
+      - {eval_time: 5m, alertname: SentinelScorerStalled, exp_alerts: []}
+  - name: Stalled active query fires
+    interval: 5s
+    input_series:
+      - series: 'sentinel_spark_query_active{job="spark-scorer"}'
+        values: '1+0x60'
+      - series: 'sentinel_spark_last_activity_timestamp_seconds{job="spark-scorer"}'
+        values: '1+0x60'
+    alert_rule_test:
+      - {eval_time: 2m, alertname: SentinelScorerStalled, exp_alerts: []}
+      - eval_time: 3m
+        alertname: SentinelScorerStalled
+        exp_alerts:
+          - exp_labels: {severity: warning, job: spark-scorer}
+            exp_annotations: {summary: Active Spark scorer has reported no progress or idle activity for two minutes}
+  - name: A healthy idle query reports activity without progress
+    interval: 5s
+    input_series:
+      - series: 'sentinel_spark_query_active{job="spark-scorer"}'
+        values: '1+0x60'
+      - series: 'sentinel_spark_last_progress_timestamp_seconds{job="spark-scorer"}'
+        values: '1+0x60'
+      - series: 'sentinel_spark_last_activity_timestamp_seconds{job="spark-scorer"}'
+        values: '0+5x60'
+    alert_rule_test:
+      - {eval_time: 5m, alertname: SentinelScorerStalled, exp_alerts: []}
+  - name: An unset activity timestamp is not stale positive activity
+    interval: 5s
+    input_series:
+      - series: sentinel_spark_query_active
+        values: '1+0x60'
+      - series: sentinel_spark_last_activity_timestamp_seconds
+        values: '0+0x60'
+    alert_rule_test:
+      - {eval_time: 5m, alertname: SentinelScorerStalled, exp_alerts: []}
+  - name: Real dependency readiness has a hold and a recovery
+    interval: 5s
+    input_series:
+      - series: 'sentinel_service_ready{job="console-backend",instance="backend:18041"}'
+        values: '1 0+0x10 1+0x10'
+    alert_rule_test:
+      - {eval_time: 10s, alertname: SentinelServiceNotReady, exp_alerts: []}
+      - eval_time: 30s
+        alertname: SentinelServiceNotReady
+        exp_alerts:
+          - exp_labels: {severity: critical, job: console-backend, instance: 'backend:18041'}
+            exp_annotations: {summary: Sentinel service dependency check is failing}
+      - {eval_time: 1m, alertname: SentinelServiceNotReady, exp_alerts: []}

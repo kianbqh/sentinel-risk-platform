@@ -1,0 +1,58 @@
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/opt/codex-resume/all-modules-v2/m1b-scala/tmp -XX:ActiveProcessorCount=2
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/opt/codex-resume/all-modules-v2/m1b-scala/tmp -XX:ActiveProcessorCount=2
+[info] welcome to sbt 1.13.1 (Eclipse Adoptium Java 17.0.21)
+[info] loading settings for project streaming-build from plugins.sbt...
+[info] loading project definition from /mnt/g/ResumeProject/platforms/sentinel-risk-platform/streaming/project
+[info] loading settings for project root from build.sbt...
+[info] set current project to fraud-streaming-scala (in build file:/mnt/g/ResumeProject/platforms/sentinel-risk-platform/streaming/)
+Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=/opt/codex-resume/all-modules-v2/m1b-scala/tmp -XX:ActiveProcessorCount=2
+[info] StreamMetricsSpec:
+[info] - metrics are opt-in and environment configuration is validated
+[info] - executor latency accumulator preserves cumulative buckets across copy, merge and reset
+[info] - timing leaves feature, probability, threshold, state and timestamp semantics unchanged
+[info] - HTTP endpoint serves Prometheus text with bounded labels and rejects other requests
+[info] - start, idle and repeated progress refresh activity without changing distinct progress or accepting other runs
+21:43:35 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+21:43:48 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /opt/codex-resume/all-modules-v2/m1b-scala/tmp/temporary-f0e27630-d30d-40ef-98a0-878aa3e25d95. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+21:43:48 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+21:43:49 WARN MicroBatchExecution: Disabling AQE since AQE is not supported in stateful workloads.
+21:43:59 WARN DAGScheduler: Failed to cancel job group 1eac5844-9776-4202-85f0-bc51f495b9c7. Cannot find active jobs for it.
+21:43:59 WARN DAGScheduler: Failed to cancel job group 1eac5844-9776-4202-85f0-bc51f495b9c7. Cannot find active jobs for it.
+[info] - real Structured Streaming progress and executor scoring measurements reach the pull endpoint
+[info] SparkParitySpec:
+21:44:00 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:00 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:00 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:00 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:00 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+[info] - Spark batch window features (rangeBetween) equal the brute-force definition
+21:44:01 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:01 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:01 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:01 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:01 WARN WindowExec: No Partition Defined for Window operation! Moving all data to a single partition, this can cause serious performance degradation.
+21:44:01 WARN ResolveWriteToStream: Temporary checkpoint location created which is deleted normally when the query didn't fail: /opt/codex-resume/all-modules-v2/m1b-scala/tmp/temporary-21725914-602e-4499-ab84-b7a748366d87. If it's required to delete it under any circumstances, please set spark.sql.streaming.forceDeleteTempCheckpointLocation to true. Important to know deleting temp checkpoint folder is best effort.
+21:44:01 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+21:44:01 WARN MicroBatchExecution: Disabling AQE since AQE is not supported in stateful workloads.
+21:44:03 WARN DAGScheduler: Failed to cancel job group 1b9a467d-22da-4387-85bb-259cb696ce33. Cannot find active jobs for it.
+21:44:03 WARN DAGScheduler: Failed to cancel job group 1b9a467d-22da-4387-85bb-259cb696ce33. Cannot find active jobs for it.
+[info] - Structured Streaming job (flatMapGroupsWithState) reproduces batch scores exactly
+[info] - producer JSON round-trips through the Kafka value parser
+[info] ModelSpec:
+[info] - model JSON has the 34 stripe-fraud-ml features in training order
+[info] - Scala scorer matches sklearn predict_proba on 474 real rows
+[info] - sigmoid is stable at extreme logits
+[info] FeatureLogicSpec:
+[info] - window statistics match the brute-force batch definition (ties and gaps included)
+[info] - results do not depend on how the stream is cut into micro-batches
+[info] - rows of the newest timestamp are held until a later timestamp or the flush marker arrives
+[info] - entries older than one hour are evicted from state
+[info] - featureVector maps names to the right values
+[info] AlertContractSpec:
+[info] - canonical producer uses the shared envelope and excludes evaluation labels
+[info] Run completed in 38 seconds, 439 milliseconds.
+[info] Total number of tests run: 18
+[info] Suites: completed 5, aborted 0
+[info] Tests: succeeded 18, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[success] Total time: 100 s (0:01:40.0), completed Nov 1, 2026, 9:44:04 PM

@@ -1,0 +1,37 @@
+groups:
+  - name: sentinel
+    interval: 5s
+    rules:
+      - alert: SentinelHigh5xxRate
+        expr: |
+          sum(rate(sentinel_gateway_http_requests_total{status=~"5.."}[1m]))
+          / clamp_min(sum(rate(sentinel_gateway_http_requests_total[1m])), 0.001) > 0.05
+        for: 30s
+        labels: {severity: warning}
+        annotations: {summary: Gateway 5xx fraction exceeds five percent}
+      - alert: SentinelHighP95Latency
+        expr: |
+          histogram_quantile(0.95, sum by (le) (rate(sentinel_gateway_http_request_seconds_bucket[1m]))) > 0.5
+        for: 30s
+        labels: {severity: warning}
+        annotations: {summary: Gateway p95 request duration exceeds half a second}
+      - alert: SentinelConsumerLagGrowing
+        expr: |
+          sum(sentinel_consumer_lag) > 0
+          and sum(delta(sentinel_consumer_lag[1m])) > 0
+        for: 15s
+        labels: {severity: warning}
+        annotations: {summary: Alert consumer lag is positive and growing}
+      - alert: SentinelScorerStalled
+        expr: |
+          sentinel_spark_query_active == 1
+          and sentinel_spark_last_activity_timestamp_seconds > 0
+          and (time() - sentinel_spark_last_activity_timestamp_seconds) > 120
+        for: 30s
+        labels: {severity: warning}
+        annotations: {summary: Active Spark scorer has reported no progress or idle activity for two minutes}
+      - alert: SentinelServiceNotReady
+        expr: sentinel_service_ready == 0
+        for: 15s
+        labels: {severity: critical}
+        annotations: {summary: Sentinel service dependency check is failing}

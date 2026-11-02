@@ -1,0 +1,22 @@
+{
+  "head_sha": "5a6147b5b0bc3bf8786ff78b55c1c0f9082a56f7",
+  "run_id": 41397892665,
+  "artifact_id": 13120655903,
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41397892665",
+  "archive_sha256": "8e8f42565cd8ee75df3e1a8f7a16c1a3deecd55127d93ad8f622e3c5f916d01b",
+  "download_digest_verified": true,
+  "import_timestamp_utc": "2026-11-02T06:23:05.271051+00:00",
+  "scope": "Original CI-produced files copied without content changes.",
+  "files": [
+    {
+      "path": "results/ops/ci-5a6147b5b0bc3bf8786ff78b55c1c0f9082a56f7/kind-lifecycle.events.jsonl",
+      "sha256": "9a64ea498e31d79ed7c0fafe85462b733e93e9877d14c8dc8c7c2f02d88b9b81",
+      "bytes": 1351497
+    },
+    {
+      "path": "results/ops/ci-5a6147b5b0bc3bf8786ff78b55c1c0f9082a56f7/kind-lifecycle.json",
+      "sha256": "1cc0c781b3fedef37c1baea7956dfc3fd7d6d9f184a1068bd6ad0ec69aa6609f",
+      "bytes": 4284347
+    }
+  ]
+}

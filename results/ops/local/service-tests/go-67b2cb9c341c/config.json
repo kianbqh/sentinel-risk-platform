@@ -1,0 +1,10 @@
+{
+  "environment": "Go golang:1.26 and real PostgreSQL 17 containers, preserved portable Docker daemon inside WSL2 CodexResearchATTAlf01; CPU only",
+  "source_checkpoint": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "command": "go test -mod=readonly -race -count=1 -v ./...",
+  "wrapper": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1b/services/go-test.sh",
+  "GOMAXPROCS": 2,
+  "postgres_loopback_port": 15448,
+  "docker_host": "unix:///opt/codex-resume/ros2-runtime/run/docker.sock",
+  "protocol": "One full race-enabled correctness run against a fresh disposable PostgreSQL. No service latency/throughput measurement."
+}

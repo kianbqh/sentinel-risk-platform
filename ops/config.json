@@ -1,0 +1,33 @@
+{
+  "environment": "WSL2 with Docker containers",
+  "gateway": "http://127.0.0.1:18040",
+  "backend": "http://127.0.0.1:18041",
+  "console": "http://127.0.0.1:13040",
+  "prometheus": "http://127.0.0.1:19090",
+  "grafana": "http://127.0.0.1:13041",
+  "jaeger": "http://127.0.0.1:16686",
+  "expected_scrape_jobs": ["gateway", "console-backend", "spark-scorer"],
+  "trace_span_names": ["gateway.request", "kafka.publish", "kafka.consume", "postgres.transaction"],
+  "trace_services": ["sentinel-gateway", "sentinel-console"],
+  "timeout_seconds": 180,
+  "poll_seconds": 1,
+  "drill_unique_messages": 20,
+  "drill_alert_timeout_seconds": 90,
+  "spark_probe_rows": 100,
+  "kind": {
+    "cluster": "sentinel-m1b",
+    "namespace": "sentinel-m1b",
+    "release": "m1b",
+    "node_image": "kindest/node:v1.34.0",
+    "initial_tag": "m1b-a",
+    "upgrade_tag": "m1b-b",
+    "load_concurrency": 4,
+    "load_interval_seconds": 0.02,
+    "request_timeout_seconds": 5,
+    "warmup_requests": 10,
+    "gateway_local_port": 18140,
+    "backend_local_port": 18141,
+    "frontend_local_port": 13140,
+    "rollout_timeout_seconds": 300
+  }
+}

@@ -1,0 +1,16 @@
+2026-11-02T05:47:35Z	INFO	[vulndb] Need to update DB
+2026-11-02T05:47:35Z	INFO	[vulndb] Downloading vulnerability DB...
+2026-11-02T05:47:35Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+35.75 MiB / 131.42 MiB [---------------->___________________________________________] 27.20% ? p/s ?86.02 MiB / 131.42 MiB [--------------------------------------->____________________] 65.45% ? p/s ?131.42 MiB / 131.42 MiB [--------------------------------------------------------->] 100.00% ? p/s ?131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 159.29 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 159.29 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 159.29 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 149.02 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 149.02 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 149.02 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 139.40 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 139.40 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 139.40 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 130.41 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 130.41 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [------------------------------------------->] 100.00% 130.41 MiB p/s ETA 0s131.42 MiB / 131.42 MiB [-----------------------------------------------] 100.00% 44.62 MiB p/s 3.1s2026-11-02T05:47:39Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+2026-11-02T05:47:39Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-11-02T05:47:39Z	INFO	[secret] Secret scanning is enabled
+2026-11-02T05:47:39Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-11-02T05:47:39Z	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+2026-11-02T05:47:39Z	INFO	[npm] Run "npm install" to collect the license information of packages	dir="console/frontend/node_modules"
+2026-11-02T05:47:39Z	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="unable to find path to Python executable"
+2026-11-02T05:47:39Z	INFO	Suppressing dependencies for development and testing. To display them, try the '--include-dev-deps' flag.
+2026-11-02T05:47:39Z	INFO	Number of language-specific files	num=6
+2026-11-02T05:47:39Z	INFO	[gomod] Detecting vulnerabilities...
+2026-11-02T05:47:39Z	INFO	[npm] Detecting vulnerabilities...
+2026-11-02T05:47:39Z	INFO	[pip] Detecting vulnerabilities...
+2026-11-02T05:47:39Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.76/guide/scanner/vulnerability#severity-selection for details.

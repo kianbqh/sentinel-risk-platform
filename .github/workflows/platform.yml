@@ -113,3 +113,73 @@ jobs:
         with: {name: compose-integration, path: results}
       - run: docker compose -f compose.yml down -v
         if: always()
+  ops-static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pytest==9.2.0
+      - name: Install isolated validation tools
+        run: python ops/scripts/install_tools.py --directory "$GITHUB_WORKSPACE/.runtime/ops/tools" --tools helm kubeconform promtool shellcheck bats
+      - name: Rules, shell, evidence gates and rendered manifests
+        run: |
+          export PATH="$GITHUB_WORKSPACE/.runtime/ops/tools:$PATH"
+          mkdir -p .runtime/ops
+          python -c 'import json;from pathlib import Path;p=Path("ops/config.json");c=json.loads(p.read_text());c["environment"]="GitHub-hosted Linux runner, CPU validation";Path(".runtime/ops/ci-config.json").write_text(json.dumps(c,indent=2)+"\n")'
+          python ops/static_check.py --config .runtime/ops/ci-config.json --output "results/ops/ci-$GITHUB_SHA/static.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: ops-static, path: 'results/ops/ci-*'}
+  ops-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      COMPOSE_PROJECT_NAME: sentinel-m1b-ci
+      OPS_BUILD: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Build and start opt-in ops project
+        run: bash ops/scripts/up.sh
+      - name: Real scrapes, Spark listener and parented trace
+        run: |
+          python -c 'import json;from pathlib import Path;c=json.loads(Path("ops/config.json").read_text());c["environment"]="GitHub-hosted Linux runner with Docker containers";Path(".runtime/ops/ci-config.json").write_text(json.dumps(c,indent=2)+"\n")'
+          python ops/verify.py smoke --config .runtime/ops/ci-config.json --output "results/ops/ci-$GITHUB_SHA/smoke.json"
+          python ops/verify.py spark --config .runtime/ops/ci-config.json --output "results/ops/ci-$GITHUB_SHA/spark.json"
+          python ops/verify.py trace --config .runtime/ops/ci-config.json --output "results/ops/ci-$GITHUB_SHA/trace.json"
+      - name: Real database outage and offset recovery drill
+        run: python ops/verify.py drill --config .runtime/ops/ci-config.json --output "results/ops/ci-$GITHUB_SHA/drill-db-outage.json"
+      - name: Preserve own service logs
+        if: always()
+        run: |
+          mkdir -p "results/ops/ci-$GITHUB_SHA"
+          docker compose --env-file .runtime/ops/.env --project-name sentinel-m1b-ci -f compose.yml -f ops/compose.ops.yml --profile ops logs --no-color > "results/ops/ci-$GITHUB_SHA/compose.log" 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: ops-integration, path: 'results/ops/ci-*'}
+      - name: Stop only this job's project
+        if: always()
+        run: docker compose --env-file .runtime/ops/.env --project-name sentinel-m1b-ci -f compose.yml -f ops/compose.ops.yml --profile ops down -v
+  kind-helm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Install isolated Kubernetes tools
+        run: python ops/scripts/install_tools.py --directory "$GITHUB_WORKSPACE/.runtime/ops/tools" --tools helm kind kubectl
+      - name: Install, rolling upgrade under load, rollback and pod recovery
+        env:
+          SENTINEL_CONFIG: .runtime/ops/ci-config.json
+          SENTINEL_OUTPUT_DIR: 'results/ops/ci-${{ github.sha }}'
+        run: |
+          export PATH="$GITHUB_WORKSPACE/.runtime/ops/tools:$PATH"
+          python -c 'import json;from pathlib import Path;c=json.loads(Path("ops/config.json").read_text());c["environment"]="GitHub-hosted Linux runner, single-node kind with Docker containers";Path(".runtime/ops/ci-config.json").write_text(json.dumps(c,indent=2)+"\n")'
+          bash ops/scripts/kind.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: kind-helm, path: 'results/ops/ci-*'}

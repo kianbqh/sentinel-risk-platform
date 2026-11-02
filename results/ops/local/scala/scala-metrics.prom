@@ -1,0 +1,50 @@
+# HELP sentinel_spark_batch_duration_seconds Spark triggerExecution wall time, including sinks.
+# TYPE sentinel_spark_batch_duration_seconds histogram
+sentinel_spark_batch_duration_seconds_bucket{le="0.01"} 0
+sentinel_spark_batch_duration_seconds_bucket{le="0.05"} 0
+sentinel_spark_batch_duration_seconds_bucket{le="0.1"} 0
+sentinel_spark_batch_duration_seconds_bucket{le="0.5"} 1
+sentinel_spark_batch_duration_seconds_bucket{le="1.0"} 1
+sentinel_spark_batch_duration_seconds_bucket{le="2.5"} 1
+sentinel_spark_batch_duration_seconds_bucket{le="5.0"} 1
+sentinel_spark_batch_duration_seconds_bucket{le="10.0"} 2
+sentinel_spark_batch_duration_seconds_bucket{le="30.0"} 2
+sentinel_spark_batch_duration_seconds_bucket{le="60.0"} 2
+sentinel_spark_batch_duration_seconds_bucket{le="120.0"} 2
+sentinel_spark_batch_duration_seconds_bucket{le="+Inf"} 2
+sentinel_spark_batch_duration_seconds_sum 5.987
+sentinel_spark_batch_duration_seconds_count 2
+# HELP sentinel_spark_batch_input_rows Input rows in the last completed batch, including flush markers.
+# TYPE sentinel_spark_batch_input_rows gauge
+sentinel_spark_batch_input_rows 32
+# HELP sentinel_spark_input_rows_total Input rows reported by completed batches, including flush markers.
+# TYPE sentinel_spark_input_rows_total counter
+sentinel_spark_input_rows_total 49
+# HELP sentinel_spark_batches_total Distinct completed batch progress events.
+# TYPE sentinel_spark_batches_total counter
+sentinel_spark_batches_total 2
+# HELP sentinel_spark_scoring_duration_seconds Successful feature-vector and model scoring calls; task recomputation may count again.
+# TYPE sentinel_spark_scoring_duration_seconds histogram
+sentinel_spark_scoring_duration_seconds_bucket{le="1.0E-6"} 0
+sentinel_spark_scoring_duration_seconds_bucket{le="5.0E-6"} 24
+sentinel_spark_scoring_duration_seconds_bucket{le="1.0E-5"} 36
+sentinel_spark_scoring_duration_seconds_bucket{le="5.0E-5"} 47
+sentinel_spark_scoring_duration_seconds_bucket{le="1.0E-4"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="5.0E-4"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="0.001"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="0.005"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="0.01"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="0.1"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="1.0"} 48
+sentinel_spark_scoring_duration_seconds_bucket{le="+Inf"} 48
+sentinel_spark_scoring_duration_seconds_sum 5.10858E-4
+sentinel_spark_scoring_duration_seconds_count 48
+# HELP sentinel_spark_last_progress_timestamp_seconds Driver wall clock when the last distinct batch progress event was received.
+# TYPE sentinel_spark_last_progress_timestamp_seconds gauge
+sentinel_spark_last_progress_timestamp_seconds 1.793598238818E9
+# HELP sentinel_spark_last_activity_timestamp_seconds Driver wall clock at monitored query start, progress or idle activity.
+# TYPE sentinel_spark_last_activity_timestamp_seconds gauge
+sentinel_spark_last_activity_timestamp_seconds 1.793598239059E9
+# HELP sentinel_spark_query_active One while the monitored query is active, otherwise zero.
+# TYPE sentinel_spark_query_active gauge
+sentinel_spark_query_active 0

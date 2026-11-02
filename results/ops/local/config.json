@@ -1,0 +1,49 @@
+{
+  "environment": "WSL2 CodexResearchATTAlf01 on Windows; targets run in Docker Desktop 29.3.1",
+  "gateway": "http://127.0.0.1:18040",
+  "backend": "http://127.0.0.1:18041",
+  "console": "http://127.0.0.1:13040",
+  "prometheus": "http://127.0.0.1:19090",
+  "grafana": "http://127.0.0.1:13041",
+  "jaeger": "http://127.0.0.1:16686",
+  "expected_scrape_jobs": [
+    "gateway",
+    "console-backend",
+    "spark-scorer"
+  ],
+  "trace_span_names": [
+    "gateway.request",
+    "kafka.publish",
+    "kafka.consume",
+    "postgres.transaction"
+  ],
+  "trace_services": [
+    "sentinel-gateway",
+    "sentinel-console"
+  ],
+  "timeout_seconds": 180,
+  "poll_seconds": 1,
+  "drill_unique_messages": 20,
+  "drill_alert_timeout_seconds": 90,
+  "spark_probe_rows": 100,
+  "kind": {
+    "cluster": "sentinel-m1b",
+    "namespace": "sentinel-m1b",
+    "release": "m1b",
+    "node_image": "kindest/node:v1.34.0",
+    "initial_tag": "m1b-a",
+    "upgrade_tag": "m1b-b",
+    "load_concurrency": 4,
+    "load_interval_seconds": 0.02,
+    "request_timeout_seconds": 5,
+    "warmup_requests": 10,
+    "gateway_local_port": 18140,
+    "backend_local_port": 18141,
+    "frontend_local_port": 13140,
+    "rollout_timeout_seconds": 300
+  },
+  "app_build_git_sha": "67b2cb9c341c18722412cb7c32df626313bf9a9a",
+  "measurement_source_git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+  "desktop_compose_override": "results/ops/local/compose.desktop-bind.yml",
+  "ops_start_command": "docker compose --env-file .runtime/ops/.env --project-name sentinel-m1b-ops -f compose.yml -f ops/compose.ops.yml -f results/ops/local/compose.desktop-bind.yml --profile ops up -d --wait --wait-timeout 300"
+}

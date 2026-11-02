@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "protocol": "Read the fresh kind installation serving-pod status from the retained raw lifecycle result; no new workload was run.",
+  "initial_backend_pods": [
+    {
+      "pod": "m1b-sentinel-backend-5b4dc8f845-l2p89",
+      "uid": "151f58c0-113f-4e77-a688-61314535f600",
+      "restart_count": 0,
+      "database_init_exit_code": 0,
+      "database_init_finished": "2026-11-02T06:50:41Z",
+      "backend_started": "2026-11-02T06:50:51Z"
+    },
+    {
+      "pod": "m1b-sentinel-backend-5b4dc8f845-zjj99",
+      "uid": "ea474090-ec06-4d9c-bae6-fa227aad31cc",
+      "restart_count": 0,
+      "database_init_exit_code": 0,
+      "database_init_finished": "2026-11-02T06:50:41Z",
+      "backend_started": "2026-11-02T06:50:49Z"
+    }
+  ],
+  "all_database_init_gates_completed_before_backend_start": true,
+  "provenance": {
+    "timestamp": "2026-11-02T06:59:13.816078+00:00",
+    "git_sha": "d2a66ce38d6e1d7caf343924e2a0295632ecee7f",
+    "git_sha_source": "caller supplied from native Git",
+    "git_worktree_dirty": true,
+    "config_path": "results/ops/local/kind-config.json",
+    "config_sha256": "8ae1b98393e53e78c77613fc993ef6dfc4a86b985757a35f1449fab5b8a60e9e",
+    "source_sha256": {
+      "ops/check_frozen.py": "ecf11a9e42bfe978b3a6cd64887852fce5647cdad1dcadfb034e36fef089e5d5",
+      "ops/evidence.py": "ba8ec8ab9473e52b45516a62db8d43d6b546ba6bf45ab006b80460cd178437b6",
+      "ops/kind_run.py": "92349133f420f9c28b226a418780801189ce10412aa112e7dffb4b1d006360d7",
+      "ops/scripts/install_tools.py": "53f657e6c52883707732f0e4c78f1e02f209af7097c40f180a81895b2cbf7f89",
+      "ops/static_check.py": "f6542356739f8f240394da5e784b5250dcfe9b6d8f3789ac7e33ad8f7f9c8815",
+      "ops/tests/test_evidence.py": "e4ba895cd4c54df9d7a11a05f225ae47650ad20c19a2abba4282667b35ab4559",
+      "ops/tests/test_helm_draining.py": "54cb5b68cbb76912d791882eef929ace73268040e0dcdfecdeebc197ace4ac5f",
+      "ops/tests/test_kind_serving.py": "6cae865abc6aa8b0a54c2308946847b4626eac51472180c07dd81244c8d34d36",
+      "ops/verify.py": "aed86a901cab79561aa8e1a8ea34e3885737531d8abc46de492351e0baf70aa6",
+      "ops/scripts/kind.sh": "bfe53306a3db639fdb45f19c444905d2965e7fa5b89212f2243f6d44d6203b96",
+      "ops/scripts/up.sh": "3dfb2b3b456a08a8c2c4b38bfd3bba0100bdd120ffe2ffb86071e15df032592f",
+      "ops/sentinelctl.sh": "02f7f19294844db066e8791e946eb89de182fadb5769e8b7bcc23a36983ed42b"
+    },
+    "environment": "WSL2 CodexResearchATTAlf01 on Windows; single-node kind with Docker Desktop 29.3.1",
+    "kernel": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "cpu_model": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "logical_cpus": 20,
+    "gpu_driver_cuda": "Sun Nov  1 22:59:13 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 620.67.01              KMD Version: 621.01        CUDA UMD Version: 13.5     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 3080        On  |   00000000:01:00.0  On |                  N/A |\n| 53%   42C    P5             75W /  350W |    2042MiB /  12288MiB |     55%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+",
+    "gpu_used": false,
+    "docker": "{\"Client\":{\"Version\":\"29.9.2\",\"ApiVersion\":\"1.54\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528\",\"GoVersion\":\"go1.26.10\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Tue Oct 20 18:44:02 2026\",\"Context\":\"default\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Desktop 4.66.1 (222799)\"},\"Version\":\"29.3.1\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.3.1\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"amd64\",\"BuildTime\":\"Wed Mar 25 16:13:48 2026\",\"Experimental\":\"false\",\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.1\",\"Details\":{\"GitCommit\":\"dea7da592f5d1d2b7755e3a161be07f43fad8f75\"}},{\"Name\":\"runc\",\"Version\":\"1.3.4\",\"Details\":{\"GitCommit\":\"v1.3.4-0-gd6d73eb8\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"f78c987\",\"GoVersion\":\"go1.25.8\",\"KernelVersion\":\"6.18.54.1-microsoft-standard-WSL2\",\"BuildTime\":\"2026-03-25T16:13:48.000000000+00:00\"}}",
+    "package_versions": {
+      "python": "3.12.3",
+      "pytest": "9.2.0"
+    },
+    "exact_command": "read-only kind-lifecycle.json initial serving pod init/container status verification",
+    "wall_timer_scope": "runner entry through assertions and provenance collection; preceding image build and tool download excluded",
+    "wall_seconds": 3.6537964419985656
+  }
+}
