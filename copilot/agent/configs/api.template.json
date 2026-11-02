@@ -1,0 +1,8 @@
+{
+  "api_token_file": "/opt/codex-resume/all-modules-v2/m1a/secrets/agent-api-token",
+  "mcp_token_file": "/opt/codex-resume/all-modules-v2/m1a/secrets/agent-mcp-token",
+  "mcp_endpoint": "http://127.0.0.1:18070/mcp",
+  "writer_dsn_env": "COPILOT_WRITER_DSN",
+  "llm": {"endpoint": "http://127.0.0.1:18069/v1", "model": "sentinel-copilot-qwen15", "max_tokens": 700, "seed": 42, "timeout_seconds": 45, "schema_constrained": true},
+  "agent": {"total_tool_budget": 5, "max_model_calls": 7, "schema_retries": 1, "confidence_threshold": 0.65, "case_timeout_seconds": 180, "max_prompt_chars": 38000, "memory_turns": 4}
+}

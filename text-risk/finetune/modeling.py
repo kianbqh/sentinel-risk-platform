@@ -108,17 +108,26 @@ def prompt_ids(tokenizer, text: str, config: dict):
     if truncated:
         text = tokenizer.decode(tokens[:config["prompt"]["max_user_tokens"]], skip_special_tokens=False)
     messages = [{"role": "system", "content": config["prompt"]["system"]}, {"role": "user", "content": text}]
-    ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True)
+    # Transformers5 defaults return_dict=True; explicitly request the flat token
+    # list used by masking/generation instead of slicing BatchEncoding keys.
+    ids = tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_dict=False)
+    require_flat_token_ids(ids)
     if len(ids) + config["evaluation"]["max_new_tokens"] > config["prompt"]["max_sequence_tokens"]:
         raise ValueError("prompt exceeds fixed sequence budget; revise protocol before fitting")
     return ids, messages, truncated
+
+
+def require_flat_token_ids(ids):
+    if not isinstance(ids, list) or not ids or any(type(token) is not int for token in ids):
+        raise ValueError("chat template tokenize=True, return_dict=False must return a nonempty flat list[int]")
 
 
 def encode_example(tokenizer, row, config):
     prefix, messages, truncated = prompt_ids(tokenizer, row["text"], config)
     target = json.dumps({"label": "scam" if row["y"] else "legit"}, separators=(",", ":"))
     full = tokenizer.apply_chat_template([*messages, {"role": "assistant", "content": target}],
-                                         tokenize=True, add_generation_prompt=False)
+                                         tokenize=True, add_generation_prompt=False, return_dict=False)
+    require_flat_token_ids(full)
     if full[:len(prefix)] != prefix or len(full) <= len(prefix):
         raise ValueError("chat template does not preserve the masked prompt prefix")
     if len(full) > config["prompt"]["max_sequence_tokens"]:

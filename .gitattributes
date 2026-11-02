@@ -1,0 +1,3 @@
+# Frozen evaluation protocols and recorded responses retain their exact bytes.
+copilot/eval/fixtures/*.json -text
+copilot/eval/cassettes/*.gz -text

@@ -1,0 +1,6 @@
+# Exact direct candidates, not a tested transitive lock. Install/freeze only in
+# the coordinated private agent runtime; never mutate a shared environment.
+langgraph==1.2.19
+jsonschema==4.26.0
+httpx==0.28.1
+# API serving uses the tool owner's resolved uvicorn; no FastAPI is required.

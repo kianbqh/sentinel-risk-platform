@@ -1,0 +1,10 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/eval-case-import/run-01",
+  "admin_dsn_env": "COPILOT_ADMIN_DSN",
+  "protocol": "SET_FROZEN_AGENT_PROTOCOL_PATH",
+  "protocol_sha256": "SET_FROZEN_AGENT_PROTOCOL_SHA256",
+  "case_id_min": 1000001,
+  "case_id_max": 1000120
+}

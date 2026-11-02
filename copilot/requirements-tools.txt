@@ -1,0 +1,15 @@
+# Candidate exact direct dependencies. Resolve/freeze transitive versions in the
+# private runtime and run pip check before reporting a tested environment.
+mcp==2.3.0
+psycopg[binary]==3.3.6
+pgvector==0.5.1
+sentence-transformers==6.2.0
+numpy==2.5.4
+pandas==3.1.0
+scikit-learn==1.9.1
+joblib==1.6.0
+langgraph==1.2.19
+jsonschema==4.26.0
+httpx==0.28.1
+transformers==5.22.1
+pyarrow==26.0.0

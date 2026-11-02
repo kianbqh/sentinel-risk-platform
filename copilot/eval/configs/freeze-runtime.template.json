@@ -1,0 +1,8 @@
+{
+  "repo_root": ".", "environment": "WSL2",
+  "output_dir": "copilot/results/agent-protocol/runtime-v1",
+  "source_protocol": "copilot/results/agent-protocol/source-v1/source_protocol.json",
+  "source_protocol_sha256": "FILL_FROM_SOURCE_FREEZE",
+  "mcp_endpoint": "http://127.0.0.1:18070/mcp",
+  "mcp_token_file": "/opt/codex-resume/all-modules-v2/m1a/secrets/agent-mcp-token"
+}

@@ -1,0 +1,7 @@
+# Exact direct pins for the CPU/auth/SQL/parity CI boundary only.
+# Embedding/LLM inference is measured separately on the local runtime.
+mcp==2.3.0
+psycopg[binary]==3.3.6
+numpy==2.5.4
+scikit-learn==1.9.1
+joblib==1.6.0

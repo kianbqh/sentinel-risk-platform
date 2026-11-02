@@ -13,7 +13,7 @@ from finetune.artifacts import (OwnedRun, SELECTED_SOURCE_PATHS, exclusive_json,
                                json_line, load_config, provenance, source_fingerprint)
 from finetune.comparison import import_historical
 from finetune.metrics import binary_metrics, exact_mcnemar, paired_bootstrap, percentile, seed_summary
-from finetune.modeling import encode_example, parse_binary_json
+from finetune.modeling import encode_example, parse_binary_json, require_flat_token_ids
 from finetune.protocol import load_corpus, partition_record, partition_training, training_data
 
 BASE = Path(__file__).resolve().parents[1]
@@ -221,6 +221,12 @@ class MetricsTests(unittest.TestCase):
 
 
 class PromptTests(unittest.TestCase):
+    def test_chat_token_ids_require_flat_integers_not_batch_encoding_or_nested_batches(self):
+        require_flat_token_ids([1, 2, 3])
+        for value in ({"input_ids": [1, 2], "attention_mask": [1, 1]}, [[1, 2]], [], [True, 1]):
+            with self.assertRaisesRegex(ValueError, "flat list"):
+                require_flat_token_ids(value)
+
     def test_strict_json_schema_and_duplicate_keys(self):
         self.assertEqual(parse_binary_json('{"label":"scam"}'), (1, None))
         self.assertEqual(parse_binary_json('{"label":"legit"}'), (0, None))
@@ -236,6 +242,8 @@ class PromptTests(unittest.TestCase):
             def decode(self, tokens, **kwargs):
                 return "x" * len(tokens)
             def apply_chat_template(self, messages, **kwargs):
+                if kwargs.get("return_dict") is not False:
+                    raise AssertionError("Transformers5 contract must explicitly request return_dict=False")
                 prefix = [1, 2, 3, 4]
                 return prefix if messages[-1]["role"] == "user" else prefix + [8, 9, 10]
         value, truncated = encode_example(Tokenizer(), {"text": "hello", "y": 1}, CONFIG)
