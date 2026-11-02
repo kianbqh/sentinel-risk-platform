@@ -21,6 +21,12 @@ flowchart LR
     P --> H[JWT GraphQL + dataloaders]
     H --> U[React analyst workspace]
     R[Elliptic graph research<br/>GNN vs LightGBM]
+    G -. metrics .-> O[Prometheus]
+    C -. metrics .-> O
+    S -. listener metrics .-> O
+    O --> V[Grafana + alert rules]
+    G -. W3C trace .-> J[Jaeger]
+    C -. consumer + DB spans .-> J
 ```
 
 ## Run locally
@@ -40,6 +46,8 @@ The demo uses a [bundled, SHA-256-checked prefix](gateway/fixtures/README.md) of
 The local stack has its own ports and named volumes. `HOST_NETWORK=1 bash scripts/up.sh` uses the Linux host-network override for an engine with bridge networking disabled. Generated credentials and downloaded data stay in ignored local files.
 
 Containers write to ignored `.runtime/results/`. After the demo's checks pass, the host runner collects the evidence into `results/`, so reruns can update a fresh checkout's recorded results while the services remain non-root.
+
+I also added an [optional operations setup](ops/README.md) to follow a request across the gateway, Kafka and Postgres. `OPS_BUILD=1 bash ops/scripts/up.sh` starts its separate Compose project with Prometheus, Grafana and Jaeger. The [Helm chart](deploy/helm/sentinel/README.md) exercises updates, rollback and pod recovery on local/CI kind; the [runbook](ops/RUNBOOK.md) covers a database outage. These runners write new evidence under `results/ops/` and refuse to replace an existing run.
 
 ## What the models found
 
@@ -96,7 +104,10 @@ The ATO data is entirely synthetic. Its supervised signal classifies completed I
 | [graph research](research/graph/README.md) | Elliptic, all/local features, temporal labels on a fixed graph | `research/graph/results/` |
 | [security](security/README.md) | Service scans and intentionally vulnerable test fixtures | `results/security/` |
 | [deployment](deploy/README.md) | Kubernetes and AWS Terraform recipes | formatting and validation only |
+| [operations](ops/README.md) | Service metrics, traces, readiness, database outage and single-node kind | new runs under `results/ops/` |
 
 The [single root workflow](.github/workflows/platform.yml) runs Python, real-PostgreSQL Go integration/race tests, frontend interactions/build, Scala parity/state tests, graph unit tests, Terraform validation, service scans and the Compose flow. Console load runners validate every GraphQL body and retain per-request read/write latencies. The bounded console ZAP scan includes authenticated GraphQL exploration on the owned localhost origin.
+
+Three additional jobs validate the operations scripts and alert rules, check the instrumented Compose flow, and exercise the Helm lifecycle under load in kind. AWS Terraform remains validation-only.
 
 Each imported source history remains reachable through unsquashed subtree merges. [History imports](results/history-imports.json) records the source commits and exact commands.

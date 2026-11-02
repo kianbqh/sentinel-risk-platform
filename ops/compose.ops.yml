@@ -1,0 +1,22 @@
+# Enable alongside compose.yml and --profile ops. Default Compose is unchanged.
+services:
+  gateway:
+    environment:
+      DATABASE_URL: postgres://sentinel:${POSTGRES_PASSWORD}@postgres:5432/sentinel?sslmode=disable
+      OTEL_SERVICE_NAME: sentinel-gateway
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger:4318/v1/traces
+  backend:
+    environment:
+      OTEL_SERVICE_NAME: sentinel-console
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://jaeger:4318/v1/traces
+      BCRYPT_COST: '10'
+  streaming:
+    environment:
+      STREAM_METRICS_ENABLED: 'true'
+      STREAM_METRICS_HOST: 0.0.0.0
+      STREAM_METRICS_PORT: '9108'
+    volumes: !override [spark-state:/state, './.runtime/ops/spark:/results']
+  grafana:
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?Use ops/scripts/up.sh}
+      PROMETHEUS_URL: http://prometheus:9090

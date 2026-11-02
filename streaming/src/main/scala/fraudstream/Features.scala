@@ -97,7 +97,8 @@ object FeatureLogic {
     * This keeps streaming features identical to the batch ones at the cost of holding a row until the
     * next distinct timestamp arrives.
     */
-  def process(state: StreamState, incoming: Iterator[Txn], model: LrModel, clock: () => Long = () => System.currentTimeMillis())
+  def process(state: StreamState, incoming: Iterator[Txn], model: LrModel, clock: () => Long = () => System.currentTimeMillis(),
+              scoringLatency: Option[ScoringLatencyAccumulator] = None)
       : (StreamState, Vector[Scored]) = {
     val in = incoming.toVector
     val flush = in.exists(_.txnId == FlushMarkerId)
@@ -125,7 +126,12 @@ object FeatureLogic {
       g.foreach(r => window.append((r.time, r.amount)))
       val s = stats(window.iterator.map(_._2))
       val now = clock()
-      g.foreach(r => out += score(r, s, model, now))
+      g.foreach { r =>
+        out += (scoringLatency match {
+          case Some(timer) => timer.measure(score(r, s, model, now))
+          case None => score(r, s, model, now)
+        })
+      }
       lastTime = t
     }
     val next = StreamState(
