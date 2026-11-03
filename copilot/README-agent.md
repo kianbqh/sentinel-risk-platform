@@ -5,14 +5,13 @@ triage note. The tools read the same case database as the analyst console.
 Only an analyst can label, assign or resolve a case. The copilot saves a
 validated draft event with actor `copilot` through a restricted writer role.
 
-The graph, protocol and replay code are implemented here. The
-[tool HTTP/database checks and retrieval benchmark](README-tools.md#checks-and-results)
-have run. The fixed 120-case actual-MCP protocol is frozen, and
-[49 CPU agent checks](results/recording-unit-20261102/tests.log) passed after
-the recording changes were integrated. Those checks use synthetic model
-responses. The 120-case real-Qwen evaluation, live draft API check and cassette
-export/replay are **pending**; no model-quality or model-latency result is
-claimed here.
+The [tool HTTP/database checks and retrieval benchmark](README-tools.md#checks-and-results)
+have run. The [first real-Qwen pass](results/agent-llm-live120-f836-20261103T010430Z/FAILED_RUN.md)
+completed 119 of 120 cases and exposed an IPv4 redaction bug at sentence-ending
+punctuation. Its raw records and negative quality results are retained. The
+fix passes [59 CPU checks](results/ipv4-regression-20261103/receipt.json), including
+the recorded failure as a regression fixture. A complete run of the corrected
+version, the live draft API check and cassette export/replay are pending.
 
 ## Setup
 
@@ -172,7 +171,7 @@ contains 120 balanced cases read through actual MCP, with protocol SHA-256
 Its [state check](results/runtime-v2-5465aae-01/state-check/result.json)
 confirmed no labels, memory or turns on those cases at the freeze. This is
 pre-model evidence. Actual Qwen quality/latency, the live draft API and
-whole-run cassette replay still require the pending evaluation.
+whole-run cassette replay still require the corrected-version evaluation.
 
 ## Limitations
 

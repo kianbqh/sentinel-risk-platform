@@ -1,0 +1,13 @@
+{
+  "kind": "integrated-CPU-unit-suite",
+  "command": "python -m unittest discover -s copilot/tests/agent -v",
+  "environment": "WSL Ubuntu 24.04, Python 3.12, existing agent virtual environment",
+  "tests_run": 59,
+  "failures": 0,
+  "errors": 0,
+  "reported_wall_seconds": 2.545,
+  "exit_code": 0,
+  "redaction_sha256": "e65502f4faec23f5f82cada9651cd681dfdc2485ac6401577ea1b135b4e6a403",
+  "persistence_sha256": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+  "scope": "Existing LangGraph and HTTP test boundaries plus ten new IPv4 regressions. External model, database and GPU are not used by this unit suite."
+}

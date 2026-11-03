@@ -8,7 +8,7 @@ import ipaddress
 import re
 
 EMAIL = re.compile(r"(?<![\w.+-])[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}(?!\w)")
-IPV4 = re.compile(r"(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?![\w.])")
+IPV4 = re.compile(r"(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?!\w|\.\d)")
 IPV6 = re.compile(r"(?<![\w:])(?:[0-9A-Fa-f]{0,4}:){2,7}[0-9A-Fa-f]{0,4}(?![\w:])")
 CARD = re.compile(r"(?<![\w.])(?:\d[ -]?){12,18}\d(?![\w.]|[eE][+-]?\d)")
 PHONE = re.compile(r"(?<![\w.])\+?(?:\d[ ()-]*){9,11}\d(?![\w.]|[eE][+-]?\d)")

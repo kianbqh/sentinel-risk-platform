@@ -1,0 +1,1417 @@
+{
+  "schema_version": "1.0",
+  "kind": "failed-primary-run-with-separate-posthoc-diagnostic",
+  "run_id": "live120-f836-20261103T010430Z",
+  "source_commit": "f836a9e8f4c66be109cd9f915e5f0d612ced26cc",
+  "run_path": "copilot/results/agent-llm-live120-f836-20261103T010430Z",
+  "raw_path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval",
+  "evaluation_mode": "real-local-llm-real-http-mcp-postgresql",
+  "primary_status": "completed_with_failures",
+  "accepted_as_completed": false,
+  "fixed_case_ids": {
+    "first": 1000001,
+    "last": 1000120,
+    "count": 120
+  },
+  "execution": {
+    "measured_cases": 120,
+    "completed_persisted_cases": 119,
+    "failed_cases": [
+      {
+        "case_id": 1000105,
+        "failure_type": "ValueError",
+        "boundary": "save_turn",
+        "persisted_draft_events": 0,
+        "persisted_turns": 0,
+        "persisted_memory_rows": 0
+      }
+    ],
+    "model_selected_extra_tool_calls": 0,
+    "actual_mcp_requests": {
+      "get_case": 120
+    },
+    "actual_event_counts": {
+      "actual_model_responses": 124,
+      "recorded_model_errors": 0,
+      "actual_mcp_responses": 120,
+      "recorded_mcp_transport_errors": 0,
+      "model_invoked_cases": 120,
+      "mcp_only_handoff_cases": 0
+    },
+    "protected_human_fields_and_labels_unchanged": true,
+    "cleanup_passed": true,
+    "api_check_completed": false,
+    "cassette_export_completed": false,
+    "local_replay_completed": false,
+    "ci_replay_completed": false
+  },
+  "original_metrics_unchanged": {
+    "cases": 120,
+    "completed_cases": 119,
+    "failed_cases": 1,
+    "tool_exact_accuracy": 0.0,
+    "tool_set_accuracy": 0.0,
+    "pre_guard_schema_valid_rate": 0.9916666666666667,
+    "final_schema_valid_rate": 0.9916666666666667,
+    "first_decision_schema_valid_rate": 0.9583333333333334,
+    "abstain_rate": 0.625,
+    "abstain_expectation_accuracy": 0.55,
+    "pre_guard_lexical_faithful_rate": 0.7166666666666667,
+    "final_lexical_faithful_rate": 0.9916666666666667,
+    "pre_guard_pii_leak_count": 0,
+    "final_pii_leak_count": 0,
+    "schema_retry_count": 4,
+    "decision_schema_valid_rate": 0.967741935483871,
+    "latency_seconds": {
+      "p50": 0.8592803939973237,
+      "p95": 1.7004904374480245,
+      "raw_samples": [
+        1.06731985200895,
+        3.733798375003971,
+        0.8476628799980972,
+        0.8249864759854972,
+        1.0515685259888414,
+        0.7656648049887735,
+        1.1071031059836969,
+        1.0336182049941272,
+        0.7089271759905387,
+        1.0341459439950995,
+        0.7930145640275441,
+        0.7177947729942389,
+        0.9564781159861013,
+        4.106601562991273,
+        0.9069734880176838,
+        0.9831993030093145,
+        1.4967234320065472,
+        0.8182488559978083,
+        0.8799840100109577,
+        0.8761288509995211,
+        0.8554638819769025,
+        0.8325241040147375,
+        3.897877940995386,
+        0.7180096700030845,
+        1.0773664939915761,
+        0.93237634000252,
+        0.7006194480054546,
+        0.8570011329720728,
+        0.9916550269990694,
+        0.7043291330046486,
+        1.0707723439845722,
+        1.5064551289833616,
+        0.8803916639881209,
+        0.8615596550225746,
+        0.8159560520143714,
+        0.7626701960107312,
+        0.8795735320018139,
+        1.2634273360017687,
+        0.9727257699996699,
+        1.1290979170007631,
+        0.9820203910057899,
+        0.809466276987223,
+        1.18592564802384,
+        1.7971164280024823,
+        0.9566163119743578,
+        1.1454909519816283,
+        1.086090069002239,
+        0.8153560679929797,
+        0.9918975699984003,
+        1.6954048589977901,
+        0.8990384690114297,
+        1.2461903050134424,
+        1.1005706069990993,
+        0.8074523999821395,
+        0.8768234440067317,
+        0.952606801991351,
+        0.7125927830056753,
+        2.2795046189858112,
+        1.025655598990852,
+        0.6875099389872048,
+        0.8468481170129962,
+        1.1226135369797703,
+        3.653613550995942,
+        0.708133251988329,
+        0.7594796420016792,
+        0.6810685319942422,
+        0.9136783519934397,
+        1.0794332829827908,
+        1.332228228013264,
+        0.9231401460128836,
+        0.764943159010727,
+        0.812432753999019,
+        0.7548941959976219,
+        0.9476798530085944,
+        1.156188329012366,
+        0.7172515129786916,
+        0.717423674010206,
+        0.7981041290040594,
+        0.8068081389938015,
+        1.1672870129987132,
+        0.7743530709994957,
+        0.8014339329965878,
+        0.7274270769848954,
+        0.7441287660039961,
+        0.7997885000077076,
+        1.0227999560011085,
+        0.9892116739938501,
+        0.6765450990060344,
+        0.7353363619768061,
+        0.7229293960263021,
+        0.887755991978338,
+        0.84720433599432,
+        0.7824800680100452,
+        0.6736212490068283,
+        0.698119823995512,
+        0.710798440995859,
+        0.7943573879892938,
+        0.7427245129947551,
+        1.27014806799707,
+        0.7392751169973053,
+        0.8343244710122235,
+        0.7172198139887769,
+        0.8913090960122645,
+        0.8541610090178438,
+        1.126689616998192,
+        0.7187773080077022,
+        0.7964201430149842,
+        0.7690664489928167,
+        0.9011378130235244,
+        1.2563341500062961,
+        1.3950264109880663,
+        0.7006713150185533,
+        0.6817709879833274,
+        0.6467393609927967,
+        0.8368003790092189,
+        1.551299871003721,
+        1.1076104500098154,
+        0.6424799090018496,
+        0.7406524279795121,
+        0.6743753000046127
+      ]
+    },
+    "tokens_per_case": {
+      "input_tokens": {
+        "mean": 1067.4833333333333,
+        "measured_cases": 120
+      },
+      "output_tokens": {
+        "mean": 219.96666666666667,
+        "measured_cases": 120
+      }
+    }
+  },
+  "primary_pii_metric_interpretation": "Original pre/final pattern counts0 used the old detector; this is not a claim of zero actual IPv4 reachability in prompts or raw outputs.",
+  "posthoc_ipv4": {
+    "scanner": "independent-punctuated-ipv4-v1",
+    "scanner_sha256": "c906657022eee8bc9a7cdc2faa8105270015e6230cfa611d34466214c2985908",
+    "pattern": "(?<![\\w.])(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\w|\\.\\d)",
+    "validation": "Each regex candidate must be a valid IPv4Address. Terminal sentence dot allowed; extra dotted numeric component blocked.",
+    "span_convention": "Zero-based half-open character offsets in the actual recorded string at string_field_path; model content is scanned as its actual JSON text, without reserializing it.",
+    "scope": "Actual recorded request messages, actual completed model content, actual returned drafts only; measured and warmups separated. No /props, endpoint/provenance metadata, localhost, frozen protocol or ground truth scanned.",
+    "denominators": {
+      "measured/request_messages": {
+        "payloads": 124,
+        "string_fields": 496,
+        "characters": 409083,
+        "cases": 120
+      },
+      "measured/actual_model_content": {
+        "payloads": 124,
+        "string_fields": 124,
+        "characters": 82001,
+        "cases": 120
+      },
+      "measured/returned_draft": {
+        "payloads": 119,
+        "string_fields": 683,
+        "characters": 25926,
+        "cases": 119
+      },
+      "warmup/request_messages": {
+        "payloads": 3,
+        "string_fields": 12,
+        "characters": 11123,
+        "cases": 2
+      },
+      "warmup/actual_model_content": {
+        "payloads": 3,
+        "string_fields": 3,
+        "characters": 2062,
+        "cases": 2
+      },
+      "warmup/returned_draft": {
+        "payloads": 2,
+        "string_fields": 10,
+        "characters": 294,
+        "cases": 2
+      }
+    },
+    "missing_actual_returned_drafts": {
+      "measured/returned_draft": 1
+    },
+    "legacy_all_pattern_findings_by_stage": {
+      "measured/request_messages": 0,
+      "measured/actual_model_content": 0,
+      "measured/returned_draft": 0,
+      "warmup/request_messages": 0,
+      "warmup/actual_model_content": 0,
+      "warmup/returned_draft": 0
+    },
+    "stricter_ipv4_hits_by_stage": {
+      "measured/request_messages": 22,
+      "measured/actual_model_content": 5
+    },
+    "affected_case_ids_by_stage": {
+      "measured/request_messages": [
+        1000005,
+        1000011,
+        1000017,
+        1000023,
+        1000029,
+        1000035,
+        1000041,
+        1000047,
+        1000053,
+        1000059,
+        1000063,
+        1000069,
+        1000075,
+        1000081,
+        1000087,
+        1000093,
+        1000099,
+        1000105,
+        1000111,
+        1000117
+      ],
+      "measured/actual_model_content": [
+        1000047,
+        1000053,
+        1000059,
+        1000105
+      ]
+    },
+    "affected_payload_counts_by_stage": {
+      "measured/request_messages": 22,
+      "measured/actual_model_content": 4
+    },
+    "hits": [
+      {
+        "group": "measured",
+        "case_id": 1000005,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1537,
+          1547
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000011,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1534,
+          1544
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000017,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1531,
+          1541
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000023,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1523,
+          1533
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000023,
+        "stage": "request_messages",
+        "model_event_index": 1,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1523,
+          1533
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000029,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1486,
+          1496
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000035,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1512,
+          1522
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000041,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1516,
+          1526
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000047,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1517,
+          1527
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000047,
+        "stage": "actual_model_content",
+        "model_event_index": 0,
+        "string_field_path": "$",
+        "span_characters_half_open": [
+          367,
+          377
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000053,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1518,
+          1528
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000053,
+        "stage": "actual_model_content",
+        "model_event_index": 0,
+        "string_field_path": "$",
+        "span_characters_half_open": [
+          367,
+          377
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000059,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1530,
+          1540
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000059,
+        "stage": "actual_model_content",
+        "model_event_index": 0,
+        "string_field_path": "$",
+        "span_characters_half_open": [
+          367,
+          377
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000063,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          984,
+          994
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000063,
+        "stage": "request_messages",
+        "model_event_index": 1,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          984,
+          994
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000069,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          983,
+          993
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000075,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1015,
+          1025
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000081,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          972,
+          982
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000087,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          973,
+          983
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000093,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1014,
+          1024
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000099,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          983,
+          993
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000105,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          1013,
+          1023
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000105,
+        "stage": "actual_model_content",
+        "model_event_index": 0,
+        "string_field_path": "$",
+        "span_characters_half_open": [
+          398,
+          408
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000105,
+        "stage": "actual_model_content",
+        "model_event_index": 0,
+        "string_field_path": "$",
+        "span_characters_half_open": [
+          735,
+          745
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000111,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          983,
+          993
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      },
+      {
+        "group": "measured",
+        "case_id": 1000117,
+        "stage": "request_messages",
+        "model_event_index": 0,
+        "string_field_path": "$[1].content",
+        "span_characters_half_open": [
+          972,
+          982
+        ],
+        "value_sha256": "1a17a4b9dec75a663e54e523037f05b0e5a5e13d023247a6b0f9774cc80829a2",
+        "known_documentation_range_synthetic_fixture": true,
+        "following_character": ".",
+        "legacy_ipv4_detector_detected_same_span": false
+      }
+    ]
+  },
+  "posthoc_limits": "22 spans in22 requests across20 measured cases;5 spans in4 measured outputs/cases;0 spans in119 returned drafts. All hits are the same known synthetic documentation-range canary in constructed privacy probes. Warmups are separately counted and have no hits. This narrow diagnostic neither rewrites primary metrics nor certifies all PII classes absent.",
+  "gpu_evidence": {
+    "exact_matching_llama_gpu_compute_pid": 419129,
+    "actual_model_alias": "sentinel-copilot-qwen15",
+    "actual_build": "b12024-ddf48f85c",
+    "total_slots": 1,
+    "requested_gpu_layers": 99,
+    "gpu_activity_utilization_percent": 5,
+    "gpu_activity_used_mib": 3342,
+    "gpu_participation_supported": true,
+    "direct_offload_layer_count_recorded": false,
+    "limit": "Pinned server/model plus actual props and matching owned GPU-compute PID support GPU participation. The retained log has no direct layer-count observation."
+  },
+  "source_lineage": {
+    "source_protocol_path": "copilot/eval/fixtures/source-protocol-v2.json",
+    "source_protocol_sha256": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+    "runtime_protocol_path": "copilot/results/runtime-v2-5465aae-01/runtime-protocol/runtime_protocol.json",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb",
+    "old_redaction_path": "copilot/agent/redaction.py",
+    "old_redaction_sha256": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+    "unchanged_storage_validator_path": "copilot/db/persistence.py",
+    "unchanged_storage_validator_sha256": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803"
+  },
+  "mechanical_fix_separate_from_failed_primary": {
+    "base_commit": "f836a9e8f4c66be109cd9f915e5f0d612ced26cc",
+    "status": "reviewed-source-candidate; root owns subsequent source checkpoint",
+    "files": [
+      {
+        "path": "copilot/agent/redaction.py",
+        "candidate_sha256": "e65502f4faec23f5f82cada9651cd681dfdc2485ac6401577ea1b135b4e6a403",
+        "preimage_sha256": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+        "expected_absent": false
+      },
+      {
+        "path": "copilot/tests/agent/fixtures/case_1000105_persistence.json",
+        "candidate_sha256": "403ba02aa9841147fd1af49cb9d936fe5c298ddee2cf26290c28e2b52262a195",
+        "preimage_sha256": null,
+        "expected_absent": true
+      },
+      {
+        "path": "copilot/tests/agent/test_ipv4_persistence.py",
+        "candidate_sha256": "2a6ed425b6d593841faa2201fdee4412a0b0e491dd9aa7cca9d6e99f8e932a0f",
+        "preimage_sha256": null,
+        "expected_absent": true
+      }
+    ],
+    "recorded_offline_cpu_tests": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "database_calls": 0,
+      "new_model_calls": 0,
+      "storage_receipts_created": 0
+    },
+    "limit": "A new source checkpoint or offline boundary check does not change the failed primary run into a success. No quality-driven formal rerun or fabricated old-case success."
+  },
+  "raw_file_lineage": {
+    "count": 127,
+    "files": [
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000001.json",
+        "sha256": "386d3db926d83dea7c6e8ff248f948662127dad4ac76d036786efc5b1743f1b4",
+        "bytes": 70946
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000002.json",
+        "sha256": "bfad602fce6a3542ccf4f7e83a53c931020e53821c8faf15101783983c8de2b7",
+        "bytes": 117284
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000003.json",
+        "sha256": "bc20d7c4d03e1cb8749a814a80c87296d15ec0809fe16a895ecd847d9b64953b",
+        "bytes": 66136
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000004.json",
+        "sha256": "2578902ea2420d821dba75563ade1765299ee83f2d858d7d3a9c4ac188b7a7c8",
+        "bytes": 71478
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000005.json",
+        "sha256": "47aab1bf014d18b53ee9fc979affabbcada1c38620788f14894d34f8c0bacf30",
+        "bytes": 72325
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000006.json",
+        "sha256": "65ffba0890baa8937278ec21e1a880980cda399453cfd8c2ab32f6999bafdc5f",
+        "bytes": 65772
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000007.json",
+        "sha256": "a779341451ba2872ab3a7899a488d78247e6afb220dd1af31df54705740cf39b",
+        "bytes": 71029
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000008.json",
+        "sha256": "fa50d6896d691319b11e923f46e47944d7c432139e84056eac5583ea83ad8bca",
+        "bytes": 72531
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000009.json",
+        "sha256": "f35f0b1e7be94e911592ebc532270bdab72030323ad76d347cec378a2dbab0aa",
+        "bytes": 65850
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000010.json",
+        "sha256": "5cdb62d1e21c308c76e0e41c2df1272d655c356b5ac20992c5a99e579e31aba4",
+        "bytes": 72909
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000011.json",
+        "sha256": "d447b23486430f0f0fc52c0a24a0196179dfbbf138ea24a7ef2ffc53dd62b941",
+        "bytes": 71217
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000012.json",
+        "sha256": "d08e6e24657a201c24fd4e17d9a44518f662df1dbfc2686c80ff3128cf598804",
+        "bytes": 65776
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000013.json",
+        "sha256": "fca20d0872999ae41505ae98dcbc04034c2372d0d6b55bb64082a673362e9e38",
+        "bytes": 70910
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000014.json",
+        "sha256": "096e96216b1244586bea7b42484caaf794fe1597c815f9f6b5f47c297510181a",
+        "bytes": 114066
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000015.json",
+        "sha256": "cb8d3621f95eafe19fa4008e8a21458e67518d390da0c24a75accb4fd0db281a",
+        "bytes": 66536
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000016.json",
+        "sha256": "82780838c95c22c9b7c8f272c5e0923496a33d74ec44dc44ca0be8a48ac46271",
+        "bytes": 72457
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000017.json",
+        "sha256": "2b343eada18d6bc60a31e90a4635dd3c0fa6881fcd276d81aa0995ba81d2e52e",
+        "bytes": 73193
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000018.json",
+        "sha256": "32cefa03890b28e0a307a8cb0fbdde2e34a44c73b42f1b0e5c8e368b65ec998e",
+        "bytes": 65808
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000019.json",
+        "sha256": "1527cd683d4c8442b441626f0b7305452f908ac7a600395df160935fb8196863",
+        "bytes": 70768
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000020.json",
+        "sha256": "c1ea803e2408aee702b1bf59441f42e30fa1c3291d8084870f3466062b896b1d",
+        "bytes": 72505
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000021.json",
+        "sha256": "136d0268ca5f8d7b3a0816c2cade4c6f1a564eac344d0eea404e5878aa23a6db",
+        "bytes": 66455
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000022.json",
+        "sha256": "66116b450acd7961399bc98db0c5ce5058cecf09b41aff3541100019f408b741",
+        "bytes": 71577
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000023.json",
+        "sha256": "65537a36a9ce4a8125847b890163781b35ce317ad2e3f3cd79ea8d7423ed1f09",
+        "bytes": 111166
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000024.json",
+        "sha256": "ed99f62f4fa41b391f1ec813cab2f068d4040a29ae44532eab6df501b327c199",
+        "bytes": 65763
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000025.json",
+        "sha256": "e788fdf119a130e0c4a0885b7df355ce5c6ad9f5c628614638ab27d698fcc6e5",
+        "bytes": 71238
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000026.json",
+        "sha256": "27218a578afa86b5f64c87bee5be378dbcb0bc962454da10171b493fc3bba70c",
+        "bytes": 72421
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000027.json",
+        "sha256": "81b9c42a0274df3eff798f6773f0abf9cf4fe3c7d2df7b12089ffbc6beef67c4",
+        "bytes": 65846
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000028.json",
+        "sha256": "99ed5897114f95aae9dde2bef2e14969815aefa99db3625dea2806745e39b204",
+        "bytes": 71839
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000029.json",
+        "sha256": "071a3330d216e75e28fdd4c1dd3a297a005315eaee5848f24bfce7c78d23d171",
+        "bytes": 72119
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000030.json",
+        "sha256": "c34e97f5c298b99887f3e0571c32090b5e0acf0dae49fbe0eda7573657b07fff",
+        "bytes": 65768
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000031.json",
+        "sha256": "8d57857ce063d79791865f054e74eb3158f511fcd33ab858beca34ac573c15a1",
+        "bytes": 71918
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000032.json",
+        "sha256": "64b74d2885ee14cb5f1d258d3eae27ba9be1d14c8c117632ac20c2b526127953",
+        "bytes": 73945
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000033.json",
+        "sha256": "39665760e2237a78e6fc0abd61f831c58e11eed438708ab55e0f02d541c855ac",
+        "bytes": 66432
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000034.json",
+        "sha256": "998f7bfc6946857c9eccd49b136a82939b4f794941f0924d7418f797dc0686ce",
+        "bytes": 71487
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000035.json",
+        "sha256": "ce87d6a23975a9f41a9722d08787561ebe7b70587d8b84d4024ef567ab904ce3",
+        "bytes": 71217
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000036.json",
+        "sha256": "b30a695e8ddc5aa6859643b474962765fa6ea743533cf4abe5b64c9090ddd1ac",
+        "bytes": 65915
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000037.json",
+        "sha256": "d9c803c87caf049e1e717da81234f01d90953e265759f8ee770db41c614c18f0",
+        "bytes": 70612
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000038.json",
+        "sha256": "ae106419a7eb148ab83ba319a8f02958dc9f4d345945a8e6c0bc6f43e8838fb5",
+        "bytes": 73642
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000039.json",
+        "sha256": "cc52456f5b7889f4e5ab966fd024b1b0d885e64c2a6eb46a8142028912ffcc84",
+        "bytes": 66415
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000040.json",
+        "sha256": "dba1bdec1309f4535452831d465b874fc3c908fbfebcc5319cd7e119066368c5",
+        "bytes": 73261
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000041.json",
+        "sha256": "e58b0b34c763e823938777743a0b9ee06e315af67836387aedfc4d0314938872",
+        "bytes": 72497
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000042.json",
+        "sha256": "23a7c37887e21b03e3156cfdbeeced4a018f8718da9ff01747da82db542c065e",
+        "bytes": 65808
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000043.json",
+        "sha256": "9027c019f99079d8477238e426e4f2989fd37568aa284cae704851941b10ba8e",
+        "bytes": 71617
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000044.json",
+        "sha256": "3408e373482315368ca835a0e0e229883c16359b85f74ae9feebbfd767a1d1ea",
+        "bytes": 76934
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000045.json",
+        "sha256": "8fb8f110c9fde5e5a3fa4c2452c019ac0adab61fdeef762c2ec67e4160a62e67",
+        "bytes": 66453
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000046.json",
+        "sha256": "04b29e67e9c757185db03497fb1932a4c739d055c87171505a97ac6d3ecf5cbd",
+        "bytes": 73052
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000047.json",
+        "sha256": "99e99225776d4ca288d118952e02677811102034381145c338ea9d52f7878245",
+        "bytes": 72135
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000048.json",
+        "sha256": "d73bf71d545347847f7511e12a0fc0c199777a5100d7e02cda20b625d85c0ae1",
+        "bytes": 66263
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000049.json",
+        "sha256": "a760989e6a02f45ed9c1fe56137d794d71fed52964d33c966efbaee5c9cdaece",
+        "bytes": 71625
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000050.json",
+        "sha256": "99fa1a00ed2dfc8fa396ea03fdccfb63b61bdcd8eaa679db1390a19cc3acd43a",
+        "bytes": 74459
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000051.json",
+        "sha256": "cc6bfa08d6421df8382b0ae152eda33e896c7ea925e17bc7912b3ea1d1ee9b63",
+        "bytes": 66215
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000052.json",
+        "sha256": "0ee4327cd951601db282dbd55b6b45ad2e087ab1bbcb3420aeb3f94b1f8518a9",
+        "bytes": 72809
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000053.json",
+        "sha256": "ab03f43a5e2eefd4e02afae5633457cde8b252be47f179bed6c37b8a0b72c8ce",
+        "bytes": 72145
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000054.json",
+        "sha256": "494ad897883c85705adafce4b846a2113b7d1e3be0859fbc0ff24b2fa6ef1846",
+        "bytes": 65788
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000055.json",
+        "sha256": "a80c7cba24b1fcc2ee0d07233c9b3e263dc3646e47a02f84847a8acd0d6b1cb1",
+        "bytes": 70596
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000056.json",
+        "sha256": "acd03defb239f45d620fcac1db41d1e296916f092ed63ad1ce76c846a4573104",
+        "bytes": 72356
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000057.json",
+        "sha256": "7721752ef9855a892efb05c2de17c1508b81a437685669d0add3c81d8035ee6a",
+        "bytes": 65766
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000058.json",
+        "sha256": "eb78d84da6d19a78d3c696e402b235e8decbfbec3b11b52f57dcee3fb96b229a",
+        "bytes": 75087
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000059.json",
+        "sha256": "2249f387228cd9e86c7c3fc34cc1d54c3ee6a7998a54f6a3732429cb6b7d31d4",
+        "bytes": 72197
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000060.json",
+        "sha256": "f5ae256b59f790c30483e0e66e00862ccce3fecb935ba62a890739bc06c83e8f",
+        "bytes": 65678
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000061.json",
+        "sha256": "933cb061165192706902a22729b93ca38039316ac14219f225ce51c0eafd6ac2",
+        "bytes": 68023
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000062.json",
+        "sha256": "258e647e35e649f9cb2ea704efca0995776c64d6f05df9be26eba885eb9bd4b5",
+        "bytes": 70789
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000063.json",
+        "sha256": "7effb192cf7b58bb6a53aa45f4f42e8b5d35a82aaf3329e093e0445960e1e8b5",
+        "bytes": 115028
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000064.json",
+        "sha256": "e1adc5099bb4450090a48bbff1bff41caa07696da967effeac4b958de7b76f82",
+        "bytes": 65590
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000065.json",
+        "sha256": "29d0144c8774e66e0e4eced71fb5706a164eb90eb3da4d189c62c92a49a6402c",
+        "bytes": 68080
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000066.json",
+        "sha256": "48dcf728358ad2012cf700601fa086aca7879124cbe0ebace4df84d5bcb2a15c",
+        "bytes": 67426
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000067.json",
+        "sha256": "d2369081bce74774059602607308f83bdf357bae0aacd9d3c5bd3dffcf96aaef",
+        "bytes": 69112
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000068.json",
+        "sha256": "9bb6ea1d8a3428eade34ee9687179923060936828eb480890b87bd2d6beb2dd8",
+        "bytes": 71716
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000069.json",
+        "sha256": "8451ee990619e74c51f9b9bb14b57fd256829c910bfbb2a0f7fdde4a329b4adc",
+        "bytes": 72038
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000070.json",
+        "sha256": "8dc2c447a3b7283bb967c8a22f0610b1f4a65de425ea062080599c8e4c91550c",
+        "bytes": 65588
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000071.json",
+        "sha256": "c31aa43e53ba5fe52568af4932096f9aa25cab8c6557dd1c40a77126a93a3244",
+        "bytes": 68074
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000072.json",
+        "sha256": "e413d7fb42183e5b2ae34ad83081fa762862f78862fe6b95309e1139785a25d7",
+        "bytes": 68121
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000073.json",
+        "sha256": "3e5d1ab3a267dc7c3780a9eb3d8d414f239ebd1b4bb9860cf475dbae45f996c5",
+        "bytes": 67940
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000074.json",
+        "sha256": "2f8a0ea60a10873c08e47c0a0a9ef0436740ab010b807fbf9a3593c517122c53",
+        "bytes": 71345
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000075.json",
+        "sha256": "52b5b8b77104fd3d694a9c4714bf7bf37c25ebaea616eb0fd94c277669025d30",
+        "bytes": 71256
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000076.json",
+        "sha256": "8a53700a39b9098e17a42e5e6b7514e2d45bb653dca4e8f42378adc3e77d8413",
+        "bytes": 65594
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000077.json",
+        "sha256": "f632de9a2fa8a9a0578fd88ab80737723559bc9f5e3331d90addf20928bee16c",
+        "bytes": 68078
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000078.json",
+        "sha256": "be5a6ccbf53614ba7897ca125fe70de0f25be109f9f1a6fd4934e5af65266483",
+        "bytes": 68120
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000079.json",
+        "sha256": "7efc6ae9fa8d06967f5337b4836dd32a2eb79d7ef5875a916ff894b05f42c799",
+        "bytes": 67826
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000080.json",
+        "sha256": "3955cebc7a30475aa7e9765f3aea0c9874c27b31fdd28a82ef4822ba038fcb59",
+        "bytes": 70435
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000081.json",
+        "sha256": "f718ed1034ee990fabfdc1fc9db87a5a31b9b659c9ceaafc0c2908b252cfcbdf",
+        "bytes": 68304
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000082.json",
+        "sha256": "4214424dd3354dacd227bbded4374dbbe644d15ac9f374785301bcd6bc5c91b4",
+        "bytes": 65588
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000083.json",
+        "sha256": "b6eda9bef1516003f562070653641496d9b7da8346b2678a394294d01928ba0c",
+        "bytes": 68106
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000084.json",
+        "sha256": "331f24e96ffd7cd857bc5a7d97494666ac634dafebbedb614f6b071cfb6c1560",
+        "bytes": 67685
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000085.json",
+        "sha256": "6c09299bdd1ccc50b8bc91c6ad84d51b7ca079355906175978332dde165edb20",
+        "bytes": 67873
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000086.json",
+        "sha256": "eb9485f46781b405b8d33ebeff77f7c1f030e04b8617c414b7027cb64da806f1",
+        "bytes": 70562
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000087.json",
+        "sha256": "0ce7ab91ef45abf0cc14351fb10d0516ab5527d76179b7101ca979fc6bbd4df4",
+        "bytes": 70945
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000088.json",
+        "sha256": "eb8d309d0c50bc08d4c8ed1e748d006a16c62b420c7a2ba30325bf9063c328ba",
+        "bytes": 65568
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000089.json",
+        "sha256": "919e6d32424810ff3e0e380a5355b0a4ac5acafd913d59bbfccf9479c19b1de6",
+        "bytes": 68107
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000090.json",
+        "sha256": "f54c3eece075a497fb1200fb5fb8424a9db3a45fdf9422a80a1dded5bc7e1a9a",
+        "bytes": 67721
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000091.json",
+        "sha256": "464374b46ef35e3f03e4b66db33b18d9cdbeb7d74939f0670b22d41954e11670",
+        "bytes": 69066
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000092.json",
+        "sha256": "a648053ef52c9739dcf97caa90f2ac0dd677a952ed982ced94b48e01dcf26682",
+        "bytes": 69940
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000093.json",
+        "sha256": "0a3d0cfc10ba4b76f28a10fecf964c172d3a128bff20a126d42581c3d2ec38d6",
+        "bytes": 69375
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000094.json",
+        "sha256": "c239f08d228f2dbdca63465183074055a08e484842e7384ccc037a0c3ad842ff",
+        "bytes": 65591
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000095.json",
+        "sha256": "b9f913a53c3c63848c4669e7de97382e4ff63d9f0314032cf2b1006428120f1f",
+        "bytes": 68240
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000096.json",
+        "sha256": "1b57ae2d7ba5f3ceedf6563cb39a9a98d56a6026b07a5453c1a5ed6094ac71de",
+        "bytes": 67773
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000097.json",
+        "sha256": "314fc13d2b74fd9adf01281c3bc4d9d599558ef10e9fd5a19b928f8c444f6331",
+        "bytes": 67972
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000098.json",
+        "sha256": "1d12964284d4c69b0490be50e0e62436f88f26da04634efd82ddeace6dcc819e",
+        "bytes": 68910
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000099.json",
+        "sha256": "05a73b6df8bf3df6993cf75188009861bab85c7a1153744cdef96aaff81a5aaa",
+        "bytes": 71605
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000100.json",
+        "sha256": "39d62d6ed30bf0225a899d2160f3095708aa911059a48c516353283b5ddc7ee0",
+        "bytes": 65592
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000101.json",
+        "sha256": "8c0443de9951bf88f6f647ab931879dace05fe87bc287d22d62d825b70c22d52",
+        "bytes": 68106
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000102.json",
+        "sha256": "7620244bc2dd2aebc1bfc2783512d9d82d1d35781ab852073532062cb1c39628",
+        "bytes": 67605
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000103.json",
+        "sha256": "c4bd7e9c358a76cef9a86f00996c7f80433045a49f5a73b78711b9aafcb575d3",
+        "bytes": 69248
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000104.json",
+        "sha256": "82bb140a889216ce4489167b34c96e0fe4a998e5595be04ac92e35e6784a9de3",
+        "bytes": 69960
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000105.json",
+        "sha256": "aa75a9366d49dea8d4ee608d7f5bee4edaee96a563cf624eef35961e03af6965",
+        "bytes": 59886
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000106.json",
+        "sha256": "14e0764423aec1effbb2d88783ee685f385d6e1ef53b5825f5b8abd50dd19332",
+        "bytes": 65589
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000107.json",
+        "sha256": "a70d9438889b1e22fef0423d0a8ee68019241fa1e4ab5dba70abeeff72caee47",
+        "bytes": 68152
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000108.json",
+        "sha256": "1076497ddb2c8cd83da0b52f6a82ac0468d342b246e7da885f5ac0f2d1a32aa2",
+        "bytes": 68473
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000109.json",
+        "sha256": "acf81032300ebfba388b38956b76992d2e147d78bf279d7ba6980f0cf3f2b44a",
+        "bytes": 69072
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000110.json",
+        "sha256": "a4b6f8e484dfe7a490417a998e56ef290fb802c826738eac87773c6da585bedf",
+        "bytes": 73574
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000111.json",
+        "sha256": "c973400720d133064d2b14d7e1c2088686d4032a072935744595753c4ece03a5",
+        "bytes": 75143
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000112.json",
+        "sha256": "882b2c6cde79fdb94e905f9e5d7f89614f688abb90ade7f90b4e60fe345473e3",
+        "bytes": 65586
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000113.json",
+        "sha256": "58a97581b44cde94608e47f6f158ad4cf4d2e1de7e3f6aca2a94be41dc3d16e1",
+        "bytes": 68151
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000114.json",
+        "sha256": "cade0ab1de20c3f77a92dc128481ade1825608a078b99144f16369b45c3c7705",
+        "bytes": 67411
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000115.json",
+        "sha256": "bdb157a017415d3fe23021510400b020259c6bdf2a165c03944f6d6e27d42568",
+        "bytes": 68645
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000116.json",
+        "sha256": "f547e46c7c0ba2acba7d7fa08b439ba52a03818c28ca636f438d884ca1b9d952",
+        "bytes": 72437
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000117.json",
+        "sha256": "699f874616aa35edde003d72df0bcac88fc4ca0ed0262bc10a8f1522a18e6fdd",
+        "bytes": 71821
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000118.json",
+        "sha256": "bcf237148321d82fdad7abaa988d229e12243b03574c2dee7148064b9d3c98eb",
+        "bytes": 65594
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000119.json",
+        "sha256": "620b88bee2be64e13bce39fca9efab042afd5f80cf4e0a23837f13d54e5cc230",
+        "bytes": 68234
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/case-1000120.json",
+        "sha256": "32cbbe2473b61bc56ba0d75f4a8c04d87517cfd9edc994e28656ff3202a1ffea",
+        "bytes": 67374
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/config.json",
+        "sha256": "701c85f20acdb3357379b1fb42570f4ff63bc15089a6978bcc6c2a0b08ed52f3",
+        "bytes": 1854
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/llama-server-props.json",
+        "sha256": "9da7593061e6521d175c9463a8eb1112f50b490fc34f46b6cb38643d1674a3d7",
+        "bytes": 32386
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/metrics.json",
+        "sha256": "8240475b1b97e6ddcd09fc455dba04a0007397351cc58a99ae2b592ca83268ef",
+        "bytes": 31246
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/result.json",
+        "sha256": "d3876bf6148662cdd27aa129e5e25257d39219052ff858f58040f01aea1659ce",
+        "bytes": 84671
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/started.json",
+        "sha256": "876d71d4969c164102a46fa91bf7a07b7de9ef5d52f98d73abd1a55986417d20",
+        "bytes": 53227
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/warmup-1000001.json",
+        "sha256": "908487cd158ead310b0c3cb1c7ae99ed3d78b778cab348709cd7106ad038e6f2",
+        "bytes": 69427
+      },
+      {
+        "path": "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/warmup-1000002.json",
+        "sha256": "d80f752f2cf4193e002ecaf1026e3cb62df4123db96cdf4017ae2272b96d2c2c",
+        "bytes": 110442
+      }
+    ],
+    "files_reconciled_to_prior_independent_audit": 126,
+    "first_hashed_in_this_packaging": [
+      "copilot/results/agent-llm-live120-f836-20261103T010430Z/real-eval/started.json"
+    ],
+    "preservation": "Packaging writes only private candidate files; it does not alter any of the127 original raw files. Earlier independent hashes are available for126; started.json is first hashed here."
+  },
+  "provenance": {
+    "independent_failure_audit_sha256": "4eb8264c2dac690ab0077e9b0d49980686105b61108b94117c450f12e5a77c69",
+    "independent_posthoc_diagnostic_sha256": "8c7b53f6498fa5ff9e5101a2f1f878715302a5bbad1797b4f04214beda241fc1",
+    "independent_gpu_supplement_sha256": "21d08c390036e88f38555e64c42dc298deb91a0ee609a62c06a700814fe12fbc"
+  },
+  "limits": [
+    "All positive case-quality rates retain the failed case in the120 denominator.",
+    "No API, whole-cassette or replay completion is claimed.",
+    "Lexical membership is not semantic reasoning quality; final guards can produce valid handoff drafts.",
+    "Raw latency includes the unsuccessful persistence attempt and is from actual local inference, not CPU replay."
+  ]
+}
