@@ -1,0 +1,457 @@
+"""Private, offline, create-only posthoc diagnostic. No inference or ML imports.
+
+The CLI accepts only closed production inputs. Tests call the same validation
+and reporting functions with a visibly synthetic, four-row context.
+"""
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+from dataclasses import dataclass
+from datetime import datetime, timezone
+import hashlib
+import importlib
+import json
+import math
+from pathlib import Path, PurePosixPath
+import statistics
+import sys
+
+sys.dont_write_bytecode = True
+HOME = Path(__file__).resolve().parent
+SYSTEMS = ("prompt_only_nf4", "qlora_seed_42", "qlora_seed_43", "qlora_seed_44")
+RUN_NAMES = ("prompt-only", "eval-42", "eval-43", "eval-44")
+SEEDS = (None, 42, 43, 44)
+PROVENANCE_KEYS = ("git_sha", "config_sha256", "protocol_sha256", "versions", "source_files")
+HEAVY_MODULES = {"torch", "numpy", "transformers", "peft", "bitsandbytes", "sklearn", "joblib"}
+METRIC_KEYS = ("n", "tp", "fp", "fn", "tn", "accuracy", "precision", "recall", "f1")
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def unique_object(pairs):
+    value = {}
+    for key, item in pairs:
+        require(key not in value, "duplicate JSON object key")
+        value[key] = item
+    return value
+
+
+def json_loads(text):
+    return json.loads(text, object_pairs_hook=unique_object,
+                      parse_constant=lambda value: (_ for _ in ()).throw(ValueError("non-finite JSON constant")))
+
+
+def read_json(path):
+    return json_loads(Path(path).read_text(encoding="utf-8"))
+
+
+def binary(value):
+    return type(value) is int and value in (0, 1)
+
+
+def metrics(rows, prediction_key="prediction"):
+    if not rows:
+        return None
+    require(all(binary(row["y"]) and binary(row[prediction_key]) for row in rows), "binary labels required")
+    tp = sum(row["y"] == row[prediction_key] == 1 for row in rows)
+    fp = sum(row["y"] == 0 and row[prediction_key] == 1 for row in rows)
+    fn = sum(row["y"] == 1 and row[prediction_key] == 0 for row in rows)
+    tn = len(rows) - tp - fp - fn
+    return {"n": len(rows), "tp": tp, "fp": fp, "fn": fn, "tn": tn,
+            "accuracy": (tp + tn) / len(rows), "precision": tp / (tp + fp) if tp + fp else 0.0,
+            "recall": tp / (tp + fn) if tp + fn else 0.0,
+            "f1": 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else 0.0}
+
+
+def primary_metrics(rows):
+    valid = [row for row in rows if row["failure"] is None]
+    return {**metrics(rows), "schema_failures": sum(row["failure"] == "schema" for row in rows),
+            "json_failures": sum(row["failure"] == "invalid_json" for row in rows),
+            "valid_rate": len(valid) / len(rows), "valid_only_metrics": metrics(valid)}
+
+
+def remove_one_outer_fence(raw):
+    """Strip whitespace, then remove at most one exact complete outer fence.
+
+    Delimiters are inspected without rewriting the body or line endings. No
+    extraction, recursive fence handling, schema coercion or JSON repair occurs.
+    """
+    require(isinstance(raw, str), "raw output must be a string")
+    stripped = raw.strip()
+    boundaries = [index for index in (stripped.find("\r"), stripped.find("\n")) if index >= 0]
+    if boundaries:
+        opening_end = min(boundaries)
+        opening = stripped[:opening_end]
+        separator_size = 2 if stripped[opening_end:opening_end + 2] == "\r\n" else 1
+        rest = stripped[opening_end + separator_size:]
+        if opening in ("```json", "```"):
+            if rest == "```":
+                return "", True
+            closing_start = max(rest.rfind("\r"), rest.rfind("\n"))
+            if closing_start >= 0 and rest[closing_start + 1:] == "```":
+                body_end = closing_start
+                if rest[closing_start] == "\n" and closing_start and rest[closing_start - 1] == "\r":
+                    body_end -= 1
+                return rest[:body_end], True
+    return stripped, False
+
+
+@dataclass(frozen=True)
+class Context:
+    parser: object
+    identifiers: dict
+    git_sha: str
+    config_sha256: str
+    split_sha256: str
+    parser_sha256: str
+    protocol_sha256: str
+    source_manifest_sha256: str
+    source_records: tuple
+    synthetic: bool = False
+
+
+def load_context():
+    """Verify prepared source hashes and import the original stdlib parser."""
+    source_manifest_path = HOME / "SOURCE_HASHES.json"
+    source_manifest = read_json(source_manifest_path)
+    workspace = HOME.parents[3]
+    records = source_manifest["files"]
+    indexed = {}
+    for item in records:
+        path = (workspace / item["path"]).resolve()
+        require(path.is_relative_to(workspace), "source manifest path escapes workspace")
+        require(path.stat().st_size == item["bytes"] and sha256(path) == item["sha256"],
+                f"prepared source changed: {item['path']}")
+        require(item["role"] not in indexed, "duplicate prepared source role")
+        indexed[item["role"]] = (path, item["sha256"])
+    protocol = read_json(indexed["posthoc_protocol"][0])
+    require(protocol["systems"] == list(SYSTEMS), "posthoc system contract changed")
+    require(protocol["parser_source_sha256"] == indexed["parser"][1], "posthoc parser hash mismatch")
+    require(protocol["schema_version"] == 1, "unsupported posthoc protocol")
+    parser_path = indexed["parser"][0]
+    text_risk = parser_path.parents[1]
+    sys.path.insert(0, str(text_risk))
+    module = importlib.import_module("finetune.modeling")
+    require(Path(module.__file__).resolve() == parser_path, "imported parser is not the pinned source")
+    require(not HEAVY_MODULES.intersection(sys.modules), "unexpected ML dependency import")
+    identifiers = read_json(indexed["split"][0])["identifiers"]
+    validate_identifiers(identifiers, 1035, 400)
+    return Context(module.parse_binary_json, identifiers, source_manifest["expected_git_sha"],
+                   indexed["config"][1], indexed["split"][1], indexed["parser"][1],
+                   indexed["posthoc_protocol"][1], sha256(source_manifest_path), tuple(records))
+
+
+def validate_identifiers(identifiers, full_count, paired_count):
+    full = identifiers["full1035_ids"]
+    paired = identifiers["paired400_ids"]
+    require(len(full) == full_count and len(set(full)) == full_count, "frozen full IDs mismatch")
+    require(len(paired) == paired_count and len(set(paired)) == paired_count, "frozen paired IDs mismatch")
+    require(all(isinstance(item, str) for item in full + paired), "IDs must be strings")
+    require(set(paired) <= set(full), "paired subset escapes frozen full IDs")
+    full_labels = identifiers["full1035_labels"]
+    paired_labels = identifiers["paired400_labels"]
+    require(len(full_labels) == len(full) and len(paired_labels) == len(paired), "label counts mismatch")
+    require(all(binary(value) for value in full_labels + paired_labels), "frozen labels must be binary integers")
+    labels = dict(zip(full, full_labels))
+    require([labels[item] for item in paired] == paired_labels, "paired labels disagree with full labels")
+
+
+def artifact(reference, base, seen):
+    require(set(reference) == {"path", "sha256"}, "artifact requires explicit path and SHA256")
+    path = Path(reference["path"])
+    path = (base / path).resolve() if not path.is_absolute() else path.resolve()
+    require(path.is_file() and path.stat().st_size <= 32 * 1024 * 1024, "missing or oversized small artifact")
+    actual = sha256(path)
+    require(actual == reference["sha256"], f"artifact SHA256 mismatch: {path}")
+    record = {"path": str(path), "bytes": path.stat().st_size, "sha256": actual}
+    seen[str(path)] = record
+    return path
+
+
+def read_jsonl(path, expected_count):
+    rows = []
+    with path.open(encoding="utf-8") as stream:
+        for line in stream:
+            require(bool(line.strip()), "blank JSONL row")
+            rows.append(json_loads(line))
+            require(len(rows) <= expected_count, "too many JSONL rows")
+    require(len(rows) == expected_count, "JSONL row count mismatch")
+    return rows
+
+
+def validate_provenance(summary, context, reference=None):
+    proof = summary["provenance"]
+    require(proof["git_sha"] == context.git_sha, "frozen Git SHA mismatch")
+    require(proof["config_sha256"] == context.config_sha256, "configuration SHA mismatch")
+    require(proof["protocol_sha256"] == context.split_sha256, "frozen split/protocol SHA mismatch")
+    require(proof["selected_source_dirty"] is False, "selected experiment source was dirty")
+    files = {item["path"]: item["sha256"] for item in proof["source_files"]}
+    require(len(files) == len(proof["source_files"]), "duplicate provenance source path")
+    require(files.get("text-risk/finetune/modeling.py") == context.parser_sha256, "evaluation strict parser differs")
+    if reference is not None:
+        for key in PROVENANCE_KEYS:
+            require(proof[key] == reference[key], f"cross-run provenance mismatch: {key}")
+    return proof
+
+
+def validate_timed_rows(predictions, timed, summary, context):
+    ids = context.identifiers["full1035_ids"]
+    labels = context.identifiers["full1035_labels"]
+    count = len(ids)
+    require(timed[:count] == predictions, "first timed repeat differs from raw quality predictions")
+    failures = Counter()
+    changes = []
+    for index, row in enumerate(timed):
+        repeat, position = divmod(index, count)
+        require(type(row["repeat"]) is int and row["repeat"] == repeat, "timed repeat/order mismatch")
+        require(row["id"] == ids[position] and binary(row["y"]) and row["y"] == labels[position],
+                "timed ordered ID/label mismatch")
+        require(binary(row["prediction"]), "prediction must be a binary integer")
+        require(isinstance(row["raw"], str), "raw output must be a string")
+        parsed, failure = context.parser(row["raw"])
+        require(row["failure"] == failure, "recorded strict parser failure differs")
+        require(type(row["fallback_used"]) is bool and row["fallback_used"] == (failure is not None),
+                "original fallback flag differs")
+        if failure is None:
+            require(row["prediction"] == parsed, "strict-valid original prediction differs")
+        else:
+            failures[failure] += 1
+        require(type(row["latency_ms"]) in (int, float) and math.isfinite(row["latency_ms"])
+                and row["latency_ms"] > 0, "invalid original timing field")
+        first = predictions[position]
+        if repeat and (row["prediction"], failure) != (first["prediction"], first["failure"]):
+            changes.append({"id": row["id"], "repeat": repeat, "first_prediction": first["prediction"],
+                            "prediction": row["prediction"], "first_failure": first["failure"], "failure": failure})
+    require(dict(failures) == summary["failure_counts_all_timed_calls"], "original timed failure counts differ")
+    require(changes == summary["repeat_disagreements"], "original repeat disagreement journal differs")
+    by_id = {row["id"]: row for row in predictions}
+    for name in ("full1035", "paired400"):
+        selected = [by_id[item] for item in context.identifiers[name + "_ids"]]
+        require(primary_metrics(selected) == summary["sets"][name], f"original {name} summary metrics differ")
+
+
+def validate_bundle(spec, base, context):
+    """Gate every completion/status/reference before reading prediction contents."""
+    require(spec["schema_version"] == 1, "unsupported input manifest")
+    expected_kind = "synthetic_fixture" if context.synthetic else "closed_m1a_posthoc_inputs"
+    require(spec["kind"] == expected_kind, "synthetic/production input scope mismatch")
+    require(set(spec["systems"]) == set(SYSTEMS), "require exactly four fixed systems")
+    seen = {}
+    completion_path = artifact(spec["continuation_complete"], base, seen)
+    completion = read_json(completion_path)
+    require(completion["status"] == "completed" and completion["expected_git_sha"] == context.git_sha,
+            "original continuation has not completed at the frozen SHA")
+    completion_files = {item["path"]: item for item in completion["files"]}
+    require(len(completion_files) == len(completion["files"]), "duplicate completion manifest path")
+    comparison_spec = spec["comparison"]
+    comparison_path = artifact(comparison_spec["summary"], base, seen)
+    comparison = read_json(comparison_path)
+    require(comparison["status"] == "compared" and comparison["kind"] == "comparison", "comparison is incomplete")
+    proof = validate_provenance(comparison, context)
+    comparison_run = PurePosixPath(comparison_spec["run_path"])
+    group = comparison_run.parent
+    require(comparison_run.name == "comparison" and group.name.startswith("continuation-"), "unexpected original group")
+    require(str(group.parent) == "/opt/codex-resume/all-modules-v2/m1a/runs", "original group root mismatch")
+    summaries = {}
+    paths = {}
+
+    def completion_binding(local, relative):
+        item = completion_files.get(relative)
+        require(item is not None, f"completion does not reference {relative}")
+        require(item["bytes"] == local.stat().st_size and item["sha256"] == sha256(local),
+                f"completion reference mismatch: {relative}")
+
+    completion_binding(comparison_path, "comparison/summary.json")
+    for name, run_name, seed in zip(SYSTEMS, RUN_NAMES, SEEDS):
+        entry = spec["systems"][name]
+        require(PurePosixPath(entry["run_path"]) == group / run_name, "mixed evaluation run group/path")
+        summary_path = artifact(entry["summary"], base, seen)
+        summary = read_json(summary_path)
+        require(summary["status"] == "evaluated" and summary["kind"] == "evaluation", f"{name} evaluation is incomplete")
+        validate_provenance(summary, context, proof)
+        require(summary["training_seed"] == seed and type(summary["training_seed"]) is (type(None) if seed is None else int),
+                "evaluation seed identity mismatch")
+        expected_system = "prompt_only_nf4+rules_on_invalid_json" if seed is None else "qlora_nf4+rules_on_invalid_json"
+        require(summary["system"] == expected_system and summary["first_repeat_quality_only"] is True,
+                "evaluation system/quality policy mismatch")
+        b = summary["benchmark"]
+        benchmark_keys = ("repeats", "concurrency", "batch_size", "quality_repeat", "warmup_messages", "n_samples")
+        require(all(type(b[key]) is int for key in benchmark_keys), "benchmark counts must be integers")
+        require(tuple(b[key] for key in benchmark_keys)
+                == (3, 1, 1, 0, 3, 3 * len(context.identifiers["full1035_ids"])), "frozen benchmark/repeat contract mismatch")
+        completion_binding(summary_path, run_name + "/summary.json")
+        summaries[name] = summary
+        paths[name] = {"summary": summary_path}
+    references = comparison["model_evaluations"]
+    require(len(references) == 4, "comparison must reference all four model evaluations")
+    for reference, name, run_name, seed in zip(references, SYSTEMS, RUN_NAMES, SEEDS):
+        require(reference["path"] == str(group / run_name), "comparison evaluation path/order mismatch")
+        require(reference["summary_sha256"] == sha256(paths[name]["summary"]), "comparison summary SHA reference differs")
+        require(reference.get("training_seed") == seed, "comparison training seed reference differs")
+        require(reference["sets"] == summaries[name]["sets"] and reference["benchmark"] == summaries[name]["benchmark"],
+                "comparison copied primary metrics/benchmark differ")
+
+    # No actual prediction contents are read until all completion gates above pass.
+    for name, run_name in zip(SYSTEMS, RUN_NAMES):
+        for key, filename, summary_key in (("predictions", "predictions.jsonl", "prediction_sha256"),
+                                           ("latency", "latency.jsonl", "latency_sha256")):
+            path = artifact(spec["systems"][name][key], base, seen)
+            require(sha256(path) == summaries[name][summary_key], f"evaluation {key} SHA reference differs")
+            completion_binding(path, run_name + "/" + filename)
+            paths[name][key] = path
+    comparison_predictions = artifact(comparison_spec["predictions"], base, seen)
+    require(sha256(comparison_predictions) == comparison["predictions_sha256"], "comparison prediction SHA differs")
+    completion_binding(comparison_predictions, "comparison/comparison-predictions.jsonl")
+    count = len(context.identifiers["full1035_ids"])
+    records = {}
+    for name in SYSTEMS:
+        records[name] = read_jsonl(paths[name]["predictions"], count)
+        timed = read_jsonl(paths[name]["latency"], 3 * count)
+        validate_timed_rows(records[name], timed, summaries[name], context)
+    comparison_rows = read_jsonl(comparison_predictions, count)
+    for index, row in enumerate(comparison_rows):
+        require(row["id"] == context.identifiers["full1035_ids"][index]
+                and binary(row["y"]) and row["y"] == context.identifiers["full1035_labels"][index],
+                "comparison ordered ID/label mismatch")
+        for name in SYSTEMS:
+            require(binary(row["systems"][name]) and row["systems"][name] == records[name][index]["prediction"],
+                    "comparison original predictions differ")
+    for set_name in ("full1035", "paired400"):
+        for name in SYSTEMS:
+            expected = summaries[name]["sets"][set_name]
+            actual = comparison["sets"][set_name]["scores"][name]
+            require(all(actual[key] == expected[key] for key in METRIC_KEYS), "comparison original scores differ")
+    return records, summaries, list(seen.values()), proof
+
+
+def diagnose_records(records, context):
+    results = []
+    for row in records:
+        normalized, removed = remove_one_outer_fence(row["raw"])
+        parsed, failure = context.parser(normalized)
+        prediction = row["prediction"] if failure is not None else parsed
+        results.append({"id": row["id"], "y": row["y"], "prediction": prediction,
+                        "original": row, "diagnostic_raw": normalized, "failure": failure,
+                        "outer_fence_removed": removed, "fallback_retained": failure is not None})
+    return results
+
+
+def diagnostic_metrics(rows):
+    valid = [row for row in rows if row["failure"] is None]
+    return {**metrics(rows), "valid_count": len(valid), "invalid_count": len(rows) - len(valid),
+            "valid_rate": len(valid) / len(rows), "valid_only_metrics": metrics(valid),
+            "failure_counts": dict(Counter(row["failure"] for row in rows if row["failure"] is not None)),
+            "outer_fence_removed_count": sum(row["outer_fence_removed"] for row in rows),
+            "newly_valid_count": sum(row["original"]["failure"] is not None and row["failure"] is None for row in rows),
+            "original_strict_valid_count": sum(row["original"]["failure"] is None for row in rows),
+            "retained_fallback_count": sum(row["fallback_retained"] for row in rows),
+            "prediction_changed_count": sum(row["prediction"] != row["original"]["prediction"] for row in rows)}
+
+
+def seed_variation(systems, set_name, mode, valid_only=False):
+    values = []
+    for name in SYSTEMS[1:]:
+        value = systems[name]["sets"][set_name][mode]
+        values.append(value["valid_only_metrics"] if valid_only else value)
+    result = {"seeds": [42, 43, 44], "n_seeds": 3, "std_ddof": 0,
+              "scope": "descriptive between-training-seed variation; not an interval or formal posthoc test"}
+    if any(value is None for value in values):
+        return {**result, "metrics": None, "reason": "one or more seeds have no valid rows"}
+    result["metrics"] = {}
+    for key in ("f1", "accuracy", "precision", "recall"):
+        raw = [value[key] for value in values]
+        result["metrics"][key] = {"raw": raw, "mean": statistics.mean(raw), "std": statistics.pstdev(raw)}
+    return result
+
+
+def write_json(path, value):
+    with path.open("x", encoding="utf-8", newline="\n") as stream:
+        json.dump(value, stream, indent=2, ensure_ascii=False, allow_nan=False)
+        stream.write("\n")
+
+
+def run_diagnostic(input_path, output_path, context):
+    input_path, output_path = Path(input_path).resolve(), Path(output_path).resolve()
+    require(output_path.is_relative_to(HOME) and output_path != HOME, "output must be a new child of the private tool directory")
+    require(not output_path.exists(), "create-only output already exists")
+    input_sha = sha256(input_path)
+    tool_sha = sha256(Path(__file__))
+    spec = read_json(input_path)
+    records, summaries, inputs, proof = validate_bundle(spec, input_path.parent, context)
+    systems, output_rows = {}, []
+    for name in SYSTEMS:
+        diagnosed = diagnose_records(records[name], context)
+        by_id = {row["id"]: row for row in diagnosed}
+        sets = {}
+        for set_name in ("full1035", "paired400"):
+            selected = [by_id[item] for item in context.identifiers[set_name + "_ids"]]
+            sets[set_name] = {"strict_primary": summaries[name]["sets"][set_name],
+                              "posthoc_format_diagnostic": diagnostic_metrics(selected)}
+        systems[name] = {"sets": sets}
+        output_rows.extend({"system": name, **row} for row in diagnosed)
+    variation = {}
+    for set_name in ("full1035", "paired400"):
+        variation[set_name] = {}
+        for mode in ("strict_primary", "posthoc_format_diagnostic"):
+            variation[set_name][mode] = seed_variation(systems, set_name, mode)
+            variation[set_name][mode + "_valid_only"] = seed_variation(systems, set_name, mode, valid_only=True)
+    # Refuse changing live inputs. The original block must already be closed.
+    require(sha256(input_path) == input_sha and sha256(Path(__file__)) == tool_sha, "manifest/tool changed during diagnostic")
+    for item in inputs:
+        require(Path(item["path"]).stat().st_size == item["bytes"] and sha256(item["path"]) == item["sha256"],
+                "input changed during diagnostic")
+    require(not HEAVY_MODULES.intersection(sys.modules), "unexpected ML import")
+    report = {"schema_version": 1, "status": "synthetic_test_only" if context.synthetic else "posthoc_diagnostic_complete",
+              "synthetic": context.synthetic, "created_utc": datetime.now(timezone.utc).isoformat(),
+              "kind": "separate descriptive posthoc format diagnostic; primary protocol/results unchanged",
+              "scope": "first-repeat quality only; full frozen set and fixed paired subset; identical rule for all four systems",
+              "limitations": ["Protocol was declared after prompt-only raw format and primary fallback F1 were observed, before normalized F1.",
+                              "Format compliance and semantic classification quality are distinct; fallback-only primary F1 is not native model quality.",
+                              "Original invalid rows still invalid after optional outer-fence removal retain their recorded rules fallback; rules are not rerun.",
+                              "No new inference, normalized latency, formal posthoc p-value, sampling interval or model/configuration selection."],
+              "normalization": "strip surrounding whitespace; remove at most one complete outer fence opened exactly by ```json or ``` and closed exactly by ```; unchanged strict parser",
+              "provenance": {"input_manifest": {"path": str(input_path), "sha256": input_sha},
+                             "inputs": inputs, "posthoc_protocol_sha256": context.protocol_sha256,
+                             "source_manifest_sha256": context.source_manifest_sha256,
+                             "tool_source_sha256": tool_sha, "parser_source_sha256": context.parser_sha256,
+                             "split_sha256": context.split_sha256, "config_sha256": context.config_sha256,
+                             "original_git_sha": context.git_sha, "original_source_files": proof["source_files"],
+                             "prepared_sources": list(context.source_records)},
+              "systems": systems, "qlora_training_seed_variation": variation}
+    output_path.mkdir(parents=False, exist_ok=False)
+    rows_path = output_path / "diagnostic-predictions.jsonl"
+    with rows_path.open("x", encoding="utf-8", newline="\n") as stream:
+        for row in output_rows:
+            stream.write(json.dumps(row, ensure_ascii=False, allow_nan=False, separators=(",", ":")) + "\n")
+    report["diagnostic_predictions_sha256"] = sha256(rows_path)
+    write_json(output_path / "diagnostic-summary.json", report)
+    write_json(output_path / "output-manifest.json", {"status": report["status"], "synthetic": context.synthetic,
+               "files": [{"path": path.name, "bytes": path.stat().st_size, "sha256": sha256(path)}
+                         for path in (rows_path, output_path / "diagnostic-summary.json")]})
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--inputs", required=True, type=Path)
+    parser.add_argument("--out", required=True, type=Path)
+    args = parser.parse_args()
+    report = run_diagnostic(args.inputs, args.out, load_context())
+    print(json.dumps({"status": report["status"], "output": str(args.out.resolve()),
+                      "tool_source_sha256": report["provenance"]["tool_source_sha256"]}))
+
+
+if __name__ == "__main__":
+    main()

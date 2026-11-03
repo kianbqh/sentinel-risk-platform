@@ -1,0 +1,7 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 orchestration with Docker Desktop 29.3.1 services; source checkpoint pinned",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/retrieval-dcb8436-01/state-check"
+}

@@ -1,0 +1,50 @@
+{
+  "accepted": true,
+  "utc": "2026-11-02T13:21:52.000449+00:00",
+  "base": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "paths": [
+    {
+      "path": "copilot/agent/llm.py",
+      "base_sha256": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+      "candidate_sha256": "65c9db0a32a5624cf570f83bda78cee6ab1d4bea9aba632cc0d69cf9830eb63e",
+      "new": false
+    },
+    {
+      "path": "copilot/eval/export_cassette.py",
+      "base_sha256": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+      "candidate_sha256": "af1d5305ffa9bb2e67d3b406da6c9f64501db0ab15a115c7964202d4d5a363ac",
+      "new": false
+    },
+    {
+      "path": "copilot/eval/model_events.py",
+      "base_sha256": null,
+      "candidate_sha256": "19fcf39e610e78bdb773abbda6cd8a7b703d00bac744ae7fa6eb1c8eec3572ff",
+      "new": true
+    },
+    {
+      "path": "copilot/eval/recording.py",
+      "base_sha256": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+      "candidate_sha256": "c288d382dfea9aa8dbe9c3465b6075693332478634ad7a4a3428f671bffb6a7c",
+      "new": false
+    },
+    {
+      "path": "copilot/eval/replay.py",
+      "base_sha256": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+      "candidate_sha256": "f842aa82ffc6ab584e70cde562ffe16223fc98f806a50084c58a5918957df52f",
+      "new": false
+    },
+    {
+      "path": "copilot/eval/run.py",
+      "base_sha256": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+      "candidate_sha256": "51e969379d306f643630857d40f3ce652196e083c20261ce90912270c44deb52",
+      "new": false
+    },
+    {
+      "path": "copilot/tests/agent/test_recording_events.py",
+      "base_sha256": null,
+      "candidate_sha256": "1fd1da41f9d797d461047745d9ee38ab18108ac52e4d0ac1b2423dc8c1b6ab1a",
+      "new": true
+    }
+  ],
+  "review": "ordered actual response/error records, permanent mismatch violations, whole-cassette failure and persistence checks; policy/protocol/thresholds unchanged"
+}

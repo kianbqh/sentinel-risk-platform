@@ -1,0 +1,82 @@
+"""Reconcile closed first-repeat quality and every timed row, without ML imports."""
+import argparse
+from collections import Counter
+from datetime import datetime,timezone
+import hashlib
+import json
+import math
+from pathlib import Path
+import sys
+
+base=Path(__file__).resolve().parent
+repo=base.parents[2]/'platforms/sentinel-risk-platform'
+sys.path.insert(0,str(repo/'text-risk'))
+from finetune.modeling import parse_binary_json
+
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def scores(rows):
+    n=len(rows);tp=sum(r['y']==r['prediction']==1 for r in rows)
+    tn=sum(r['y']==r['prediction']==0 for r in rows)
+    fp=sum(r['y']==0 and r['prediction']==1 for r in rows)
+    fn=n-tp-tn-fp
+    return dict(n=n,tp=tp,tn=tn,fp=fp,fn=fn,accuracy=(tp+tn)/n,
+                precision=tp/(tp+fp) if tp+fp else 0.,recall=tp/(tp+fn) if tp+fn else 0.,
+                f1=2*tp/(2*tp+fp+fn) if 2*tp+fp+fn else 0.)
+def quantile(values,q):
+    x=sorted(values);at=(len(x)-1)*q;lo=math.floor(at);hi=math.ceil(at)
+    return x[lo]+(x[hi]-x[lo])*(at-lo)
+def rows(path):return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
+
+p=argparse.ArgumentParser();p.add_argument('--mirror',required=True);p.add_argument('--stage',required=True)
+a=p.parse_args();mirror=(base/a.mirror).resolve();assert mirror.is_relative_to(base/'training')
+inventory=json.loads((mirror/'mirror-manifest.json').read_text())
+for item in inventory['files']:
+    path=mirror/item['path'];assert path.stat().st_size==item['bytes'] and sha(path)==item['sha256']
+run=mirror/a.stage;s=json.loads((run/'summary.json').read_text())
+assert s['status']=='evaluated' and s['provenance']['git_sha']=='5465aae5af963879f6cfcb83230e962ca0cf9ee0'
+assert not s['provenance']['selected_source_dirty']
+assert sha(run/'predictions.jsonl')==s['prediction_sha256']
+assert sha(run/'latency.jsonl')==s['latency_sha256']
+pred=rows(run/'predictions.jsonl');timed=rows(run/'latency.jsonl')
+fixed=json.loads((repo/'text-risk/finetune/protocol/sms_split.json').read_text())['identifiers']
+ids=fixed['full1035_ids'];labels=dict(zip(ids,fixed['full1035_labels']))
+assert [r['id'] for r in pred]==ids and len(timed)==3*len(ids)==3105
+assert timed[:len(ids)]==pred
+failures=Counter();changes=[]
+for index,row in enumerate(timed):
+    repeat,position=divmod(index,len(ids));first=pred[position]
+    assert row['repeat']==repeat and row['id']==ids[position] and row['y']==labels[row['id']]
+    assert type(row['prediction']) is int and row['prediction'] in (0,1)
+    parsed,failure=parse_binary_json(row['raw'])
+    assert failure==row['failure'] and row['fallback_used']==(failure is not None)
+    if failure is None:assert row['prediction']==parsed
+    else:failures[failure]+=1
+    assert math.isfinite(row['latency_ms']) and row['latency_ms']>0
+    if repeat and (row['prediction'],failure)!=(first['prediction'],first['failure']):
+        changes.append(dict(id=row['id'],repeat=repeat,first_prediction=first['prediction'],
+                            prediction=row['prediction'],first_failure=first['failure'],failure=failure))
+assert dict(failures)==s['failure_counts_all_timed_calls'] and changes==s['repeat_disagreements']
+by_id={r['id']:r for r in pred};verified={}
+for name in ('full1035','paired400'):
+    selected=[by_id[i] for i in fixed[name+'_ids']];valid=[r for r in selected if r['failure'] is None]
+    result={**scores(selected),'schema_failures':sum(r['failure']=='schema' for r in selected),
+            'json_failures':sum(r['failure']=='invalid_json' for r in selected),'valid_rate':len(valid)/len(selected),
+            'valid_only_metrics':scores(valid) if valid else None}
+    assert result==s['sets'][name],(name,result,s['sets'][name]);verified[name]=result
+b=s['benchmark'];assert (b['repeats'],b['concurrency'],b['batch_size'],b['quality_repeat'],b['warmup_messages'])==(3,1,1,0,3)
+assert len(rows(run/'warmup.jsonl'))==3 and b['n_samples']==3105
+latencies=[r['latency_ms'] for r in timed]
+assert quantile(latencies,.5)==b['p50_ms'] and quantile(latencies,.95)==b['p95_ms']
+assert s['memory']['peak_reserved_bytes']>=s['memory']['peak_allocated_bytes']>0
+assert not {'torch','numpy','transformers','peft','bitsandbytes'}&set(sys.modules)
+record=dict(timestamp=datetime.now(timezone.utc).isoformat(),accepted=True,stage=a.stage,
+            summary_sha256=sha(run/'summary.json'),mirror_files_verified=len(inventory['files']),
+            prediction_rows=len(pred),timed_rows=len(timed),sets=verified,benchmark=b,
+            failures_all_repeats=dict(failures),repeat_disagreements=len(changes),
+            truncations=sum(bool(r['truncated']) for r in timed),
+            scope='Recomputed primary metrics, strict parser/fallback flags, ordered IDs/labels, all timed samples and hashes. No fence normalization, new inference or claim of independently replaying fallback text classification.')
+out=base/'training'/('root-'+a.stage+'-evaluation-acceptance.json')
+with out.open('x',encoding='utf-8') as stream:json.dump(record,stream,indent=2);stream.write('\n')
+print(json.dumps({'accepted':True,'stage':a.stage,'full_f1':verified['full1035']['f1'],
+                  'paired_f1':verified['paired400']['f1'],'valid_rate':verified['full1035']['valid_rate'],
+                  'timed_rows':len(timed),'p50_ms':b['p50_ms'],'p95_ms':b['p95_ms']}))

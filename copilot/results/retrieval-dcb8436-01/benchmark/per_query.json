@@ -1,0 +1,1827 @@
+{
+  "value": [
+    {
+      "query_id": "ato:13fa056c0034c9b12f803c91b24489a0f2448d56a8341a6c59dc58521294fbf0:36",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12"
+      ],
+      "pgvector_query_wall_seconds": 0.0016284150042338297
+    },
+    {
+      "query_id": "ato:13fa056c0034c9b12f803c91b24489a0f2448d56a8341a6c59dc58521294fbf0:36",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "card:6680",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40",
+        "card:6932"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:13fa056c0034c9b12f803c91b24489a0f2448d56a8341a6c59dc58521294fbf0:36",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:32f90ee1067a5535189f2089251d5c375108105aaeec15f55e8b8d373301f862:30",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": 0.0006408580084098503
+    },
+    {
+      "query_id": "ato:32f90ee1067a5535189f2089251d5c375108105aaeec15f55e8b8d373301f862:30",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:ce26e37a497320425b7cc07baca9765b557cd09794a1c63a234fb8695740dacc:42",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:32f90ee1067a5535189f2089251d5c375108105aaeec15f55e8b8d373301f862:30",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:3ee48cd6efe4e3b005568d548dcf637a2170bca859b63b27fb32336a0e530050:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:29b56ae47c8d1b26579b14b02edac50361ba7c710fe03bc0a769017921534302:37",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:44508e885194afdb7c3e8df46d46183411a79900f2b5af6c448463f39f9c599a:24",
+        "ato:c899f3f2bdbca834f5d5c83970b07732fc6d822f9572bcc50f5d1a90c46eccc2:9"
+      ],
+      "pgvector_query_wall_seconds": 0.000582267006393522
+    },
+    {
+      "query_id": "ato:3ee48cd6efe4e3b005568d548dcf637a2170bca859b63b27fb32336a0e530050:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "card:5998",
+        "card:6602",
+        "card:9467",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:3ee48cd6efe4e3b005568d548dcf637a2170bca859b63b27fb32336a0e530050:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:754aeb7c2a3b4a6d8f4c53bcc71c1330a45cdb15588dc2a738886427c86d9cf2:9",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24",
+        "ato:c899f3f2bdbca834f5d5c83970b07732fc6d822f9572bcc50f5d1a90c46eccc2:9",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:f5806f423c68bd0c23f81f19349e813a432ef8052f2096c25d8e2b54ff91b901:38",
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27"
+      ],
+      "pgvector_query_wall_seconds": 0.0005744379886891693
+    },
+    {
+      "query_id": "ato:754aeb7c2a3b4a6d8f4c53bcc71c1330a45cdb15588dc2a738886427c86d9cf2:9",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:9d25694444a3daa2c97110510f27c40cf5d090e96ea9c2b52d7d35062e5309ba:39",
+        "ato:be7905df07de92b17e12739b04d83618b2657e20a974561579130ea22cc24461:24",
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "card:6859",
+        "ato:c4fb838ab6677c07d0182a80e06fa99ddd4a598db4c5458bcebcb88a00836a36:25"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:754aeb7c2a3b4a6d8f4c53bcc71c1330a45cdb15588dc2a738886427c86d9cf2:9",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:796753317a90ed81f2524f221eba070985d7ed1df9fb61acb8f33255ace2b498:47",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:44508e885194afdb7c3e8df46d46183411a79900f2b5af6c448463f39f9c599a:24"
+      ],
+      "pgvector_query_wall_seconds": 0.0005526229942915961
+    },
+    {
+      "query_id": "ato:796753317a90ed81f2524f221eba070985d7ed1df9fb61acb8f33255ace2b498:47",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:f5806f423c68bd0c23f81f19349e813a432ef8052f2096c25d8e2b54ff91b901:38",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:796753317a90ed81f2524f221eba070985d7ed1df9fb61acb8f33255ace2b498:47",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a7059a609ba024d1ba5a7e263af85fcac5547617a153a6c500ccf3b8af153ef7:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27",
+        "ato:be7905df07de92b17e12739b04d83618b2657e20a974561579130ea22cc24461:24",
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10"
+      ],
+      "pgvector_query_wall_seconds": 0.0007560049998573959
+    },
+    {
+      "query_id": "ato:a7059a609ba024d1ba5a7e263af85fcac5547617a153a6c500ccf3b8af153ef7:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:6680",
+        "card:7621",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:be7905df07de92b17e12739b04d83618b2657e20a974561579130ea22cc24461:24",
+        "card:5543"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a7059a609ba024d1ba5a7e263af85fcac5547617a153a6c500ccf3b8af153ef7:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a72187725832d810bce2e3f7fa032fb402231c790fa0b3396c58ada88cf07217:24",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24",
+        "ato:c899f3f2bdbca834f5d5c83970b07732fc6d822f9572bcc50f5d1a90c46eccc2:9",
+        "ato:44508e885194afdb7c3e8df46d46183411a79900f2b5af6c448463f39f9c599a:24",
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27"
+      ],
+      "pgvector_query_wall_seconds": 0.0004676710086641833
+    },
+    {
+      "query_id": "ato:a72187725832d810bce2e3f7fa032fb402231c790fa0b3396c58ada88cf07217:24",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:5998",
+        "card:7875",
+        "ato:e64dd2433734c6ef896933a88618b1ee94bc338ab937418024179406104e9920:42",
+        "card:5470",
+        "card:6768"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a72187725832d810bce2e3f7fa032fb402231c790fa0b3396c58ada88cf07217:24",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a933fe734a1bcc0dc6a12e4024be198ea90dff94c954d302a159492f84659127:32",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14"
+      ],
+      "pgvector_query_wall_seconds": 0.00047016999451443553
+    },
+    {
+      "query_id": "ato:a933fe734a1bcc0dc6a12e4024be198ea90dff94c954d302a159492f84659127:32",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "ato:c899f3f2bdbca834f5d5c83970b07732fc6d822f9572bcc50f5d1a90c46eccc2:9",
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "card:9102",
+        "card:533",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:a933fe734a1bcc0dc6a12e4024be198ea90dff94c954d302a159492f84659127:32",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:bbc07c403c1e041f15e334fbae86ccf1fce7b9b98b8919c42cc82032b81897bc:29",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27",
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34"
+      ],
+      "pgvector_query_wall_seconds": 0.0004326189955463633
+    },
+    {
+      "query_id": "ato:bbc07c403c1e041f15e334fbae86ccf1fce7b9b98b8919c42cc82032b81897bc:29",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:5470",
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "card:8578",
+        "card:6602",
+        "card:5887"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:bbc07c403c1e041f15e334fbae86ccf1fce7b9b98b8919c42cc82032b81897bc:29",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:c38612030ca9b404a81f4fc118c6bdb39bd5ac819f1e9039a71a291896b0cfd3:33",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "ato:c899f3f2bdbca834f5d5c83970b07732fc6d822f9572bcc50f5d1a90c46eccc2:9",
+        "ato:f5806f423c68bd0c23f81f19349e813a432ef8052f2096c25d8e2b54ff91b901:38",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24",
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10"
+      ],
+      "pgvector_query_wall_seconds": 0.00047665300371591
+    },
+    {
+      "query_id": "ato:c38612030ca9b404a81f4fc118c6bdb39bd5ac819f1e9039a71a291896b0cfd3:33",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "card:7621",
+        "card:35",
+        "card:6300",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "card:7884"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:c38612030ca9b404a81f4fc118c6bdb39bd5ac819f1e9039a71a291896b0cfd3:33",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:c81acda7a2876343239edac550d5092b8e187abee3c89af5ab5b52d114273b78:26",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:fc9c3a59e2f4a781e121c2bdb904cdbafc90c43f1eedb8d143af3a00ee865389:26",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:9d25694444a3daa2c97110510f27c40cf5d090e96ea9c2b52d7d35062e5309ba:39",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39"
+      ],
+      "pgvector_query_wall_seconds": 0.00047156898654066026
+    },
+    {
+      "query_id": "ato:c81acda7a2876343239edac550d5092b8e187abee3c89af5ab5b52d114273b78:26",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "card:6680",
+        "ato:fc9c3a59e2f4a781e121c2bdb904cdbafc90c43f1eedb8d143af3a00ee865389:26",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27",
+        "card:7209"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:c81acda7a2876343239edac550d5092b8e187abee3c89af5ab5b52d114273b78:26",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:fc9c3a59e2f4a781e121c2bdb904cdbafc90c43f1eedb8d143af3a00ee865389:26",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27",
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:cf0e9ad55327b3eb3e9425c6cb36de59bb213ce5a492eb747eed9937cd5e465b:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34",
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27"
+      ],
+      "pgvector_query_wall_seconds": 0.0005632170068565756
+    },
+    {
+      "query_id": "ato:cf0e9ad55327b3eb3e9425c6cb36de59bb213ce5a492eb747eed9937cd5e465b:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "ato:9d25694444a3daa2c97110510f27c40cf5d090e96ea9c2b52d7d35062e5309ba:39",
+        "card:6570",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:cf0e9ad55327b3eb3e9425c6cb36de59bb213ce5a492eb747eed9937cd5e465b:12",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:d4056ee845baa462de2725b3fd68719d1bd0c78e295b544fac99addd05374406:43",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": 0.00045999500434845686
+    },
+    {
+      "query_id": "ato:d4056ee845baa462de2725b3fd68719d1bd0c78e295b544fac99addd05374406:43",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:f5806f423c68bd0c23f81f19349e813a432ef8052f2096c25d8e2b54ff91b901:38",
+        "card:8803",
+        "ato:9d25694444a3daa2c97110510f27c40cf5d090e96ea9c2b52d7d35062e5309ba:39",
+        "card:9467"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:d4056ee845baa462de2725b3fd68719d1bd0c78e295b544fac99addd05374406:43",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:ddf3bad4b21610f2cfb1238a8fcdf2cfb1282bfb60ec58065fa449a404a1184e:38",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34",
+        "ato:40cc9c1061d8bca5ce0959e38748e51b11a67a421c78f66de16dedc7f3e8889f:10",
+        "ato:39ce925067ad2785133af140cefe5f4b782d9b6180e7e790852106bc6c994d81:31",
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10"
+      ],
+      "pgvector_query_wall_seconds": 0.0004524649993982166
+    },
+    {
+      "query_id": "ato:ddf3bad4b21610f2cfb1238a8fcdf2cfb1282bfb60ec58065fa449a404a1184e:38",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:5470",
+        "ato:29b56ae47c8d1b26579b14b02edac50361ba7c710fe03bc0a769017921534302:37",
+        "card:8578",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "card:6388"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:ddf3bad4b21610f2cfb1238a8fcdf2cfb1282bfb60ec58065fa449a404a1184e:38",
+      "domain": "ato",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34",
+        "ato:ce26e37a497320425b7cc07baca9765b557cd09794a1c63a234fb8695740dacc:42",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:e167636107cdf0155f01e240792241d19fb3f08048c2c50b9f9aeec1da8135c0:33",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:798fdd6212045e6412bb5211e216e1db3f9e08b9b384eeaeaf4ecc9a92a0a2fc:12",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": 0.0004212970088701695
+    },
+    {
+      "query_id": "ato:e167636107cdf0155f01e240792241d19fb3f08048c2c50b9f9aeec1da8135c0:33",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "card:6843",
+        "card:6298",
+        "card:5998"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:e167636107cdf0155f01e240792241d19fb3f08048c2c50b9f9aeec1da8135c0:33",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:e2469033a7866cfc3f60c88e87141abd67d3b380d42a19906df9236f7f86abb7:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:fc9c3a59e2f4a781e121c2bdb904cdbafc90c43f1eedb8d143af3a00ee865389:26",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": 0.0005613329994957894
+    },
+    {
+      "query_id": "ato:e2469033a7866cfc3f60c88e87141abd67d3b380d42a19906df9236f7f86abb7:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:29b56ae47c8d1b26579b14b02edac50361ba7c710fe03bc0a769017921534302:37",
+        "ato:f2f2d62008bf375b93750f40b258fbaa635576d7fdf6592fbd38b432e37beff5:41",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "ato:e2469033a7866cfc3f60c88e87141abd67d3b380d42a19906df9236f7f86abb7:40",
+      "domain": "ato",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "ato:9c277434874da29108227b36aec574771c47386e601e4d7adf627f909d7caaa8:40"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:3393",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:7209",
+        "card:115",
+        "card:6843",
+        "card:6781",
+        "card:8295"
+      ],
+      "pgvector_query_wall_seconds": 0.0005587579944403842
+    },
+    {
+      "query_id": "card:3393",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "ato:da42346b01a9037379c362fc12211c6d5edcd03c149215a0b51bbeabd591b39f:10",
+        "card:6298",
+        "ato:44508e885194afdb7c3e8df46d46183411a79900f2b5af6c448463f39f9c599a:24",
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:3393",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:3836",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:115",
+        "card:5288",
+        "card:7209",
+        "card:6295",
+        "card:6859"
+      ],
+      "pgvector_query_wall_seconds": 0.00056894299632404
+    },
+    {
+      "query_id": "card:3836",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:8803",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "card:115",
+        "card:7621"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:3836",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:4362",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:7209",
+        "card:6843",
+        "card:8295",
+        "card:5470",
+        "card:7621"
+      ],
+      "pgvector_query_wall_seconds": 0.0005055030051153153
+    },
+    {
+      "query_id": "card:4362",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:7621",
+        "card:6768",
+        "card:533",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:4362",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:614",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:115",
+        "card:6570",
+        "card:6843",
+        "card:6388",
+        "card:8295"
+      ],
+      "pgvector_query_wall_seconds": 0.00046443699102383107
+    },
+    {
+      "query_id": "card:614",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "card:440",
+        "card:6300",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "card:6298"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:614",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6293",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:7621",
+        "card:6781",
+        "card:6300",
+        "card:7209",
+        "card:6295"
+      ],
+      "pgvector_query_wall_seconds": 0.0004956060001859441
+    },
+    {
+      "query_id": "card:6293",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:f5806f423c68bd0c23f81f19349e813a432ef8052f2096c25d8e2b54ff91b901:38",
+        "card:6768",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:3db7ba88dae1226e218618f222510871218fb3dfeef0be5cd0f799094288e86a:13",
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6293",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6302",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:6300",
+        "card:8295",
+        "card:7621",
+        "card:6781",
+        "card:6843"
+      ],
+      "pgvector_query_wall_seconds": 0.00046206799743231386
+    },
+    {
+      "query_id": "card:6302",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:9467",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "card:6680"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6302",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6433",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:6300",
+        "card:8295",
+        "card:6570",
+        "card:7621",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": 0.0005141209985595196
+    },
+    {
+      "query_id": "card:6433",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "ato:c7dee2c4826361bd2c06d5550bb4e4bde6f9de9e0c47a62b5dbfc42ea9b1a102:27",
+        "ato:051dd7dafb9aae39932d82f6ae7f1cd5b63ddf64c8038c1d9bfc9026e7021518:39",
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24",
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "card:8295"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6433",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6678",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:6570",
+        "card:6843",
+        "card:115",
+        "card:8295",
+        "card:6859"
+      ],
+      "pgvector_query_wall_seconds": 0.0005552919901674613
+    },
+    {
+      "query_id": "card:6678",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "card:5887",
+        "card:7875",
+        "ato:fc9c3a59e2f4a781e121c2bdb904cdbafc90c43f1eedb8d143af3a00ee865389:26",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6678",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:6680",
+        "card:9467",
+        "card:8295",
+        "card:6295",
+        "card:6298"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6695",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:6570",
+        "card:5998",
+        "card:6300",
+        "card:6388",
+        "card:115"
+      ],
+      "pgvector_query_wall_seconds": 0.00043564500811044127
+    },
+    {
+      "query_id": "card:6695",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:8578",
+        "card:7621",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:4f640683e49c5d40b45243bef2a7be759b787233fff060c45eade32f333e93d5:40",
+        "card:533"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:6695",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7150",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:5887",
+        "card:7209",
+        "card:6680",
+        "card:6859",
+        "card:6295"
+      ],
+      "pgvector_query_wall_seconds": 0.00041291701199952513
+    },
+    {
+      "query_id": "card:7150",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "card:1348",
+        "card:5470",
+        "ato:b3c33b376da24e7c7d3b91cd5c39e791cc7ae72b629fca5982ebdc3528e353e7:10",
+        "ato:c4fb838ab6677c07d0182a80e06fa99ddd4a598db4c5458bcebcb88a00836a36:25"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7150",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.2,
+      "neighbors": [
+        "card:35",
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7341",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:7884",
+        "card:440",
+        "card:5887",
+        "card:5543",
+        "card:35"
+      ],
+      "pgvector_query_wall_seconds": 0.00047871199785731733
+    },
+    {
+      "query_id": "card:7341",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:7884",
+        "ato:94740bb0d0573ebf0f3650502e4d9d3e01391534fe8c8560207bd877d945967f:27",
+        "ato:71f116b894e23ea0de19e9176b3d243673b084267617001ad5adc02e3845fb51:14",
+        "ato:1b4faa088367a7a26102a91159cc1e4bba4e4a1bd665070bdf5711f04023733a:10",
+        "card:6781"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7341",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7386",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:5887",
+        "card:7190",
+        "card:5998",
+        "card:9102",
+        "card:6298"
+      ],
+      "pgvector_query_wall_seconds": 0.00042438399395905435
+    },
+    {
+      "query_id": "card:7386",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "ato:25fb7451449cc329a305517ebcd3a41028a37f77239eb8f135b4a4e65d7504d5:21",
+        "card:7190",
+        "card:533",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:351bed756bb9bf23126164f94bf8b9d4ffb836600ea3bbb99467da110386fcc3:24"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7386",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:7884",
+        "card:7875",
+        "card:8295",
+        "card:533",
+        "card:6300"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7841",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:7621",
+        "card:6781",
+        "card:6295",
+        "card:6859",
+        "card:7209"
+      ],
+      "pgvector_query_wall_seconds": 0.0004955820040777326
+    },
+    {
+      "query_id": "card:7841",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "ato:a9cebe24b1c74be9ba36524065d9e8080f50af19e4cf8ee5004498372d8c94a9:12",
+        "ato:3db7ba88dae1226e218618f222510871218fb3dfeef0be5cd0f799094288e86a:13",
+        "card:6295",
+        "card:6300",
+        "card:5470"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7841",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7947",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:7621",
+        "card:6295",
+        "card:6859",
+        "card:6298",
+        "card:5998"
+      ],
+      "pgvector_query_wall_seconds": 0.0005209929950069636
+    },
+    {
+      "query_id": "card:7947",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:7209",
+        "card:9102",
+        "ato:e4ca90417d6dd2fcae09c33072c841ff63349292a1d7559c1dc8121c788e606e:31",
+        "ato:c1e28c1734bedda40d15863904dea11daa7b6e24995d578ca3593ae130e12865:32",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:7947",
+      "domain": "card",
+      "gold_label": 0,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.0,
+      "neighbors": [
+        "card:533",
+        "card:6300",
+        "card:6388",
+        "card:6570",
+        "card:6602"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:8806",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:6843",
+        "card:6859",
+        "card:5887",
+        "card:7209",
+        "card:5470"
+      ],
+      "pgvector_query_wall_seconds": 0.0004931340081384405
+    },
+    {
+      "query_id": "card:8806",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.4,
+      "neighbors": [
+        "card:6298",
+        "ato:34c90b4198ba6f76fce79bc2d983d9bedbf0d9ef373b86d746fb1876e814baf4:12",
+        "ato:d6b678a20d20d3e943ba8d33aa084855437514a1925cb762aef2cde1741b0fea:34",
+        "card:5887",
+        "card:7884"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:8806",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:35",
+        "card:8803",
+        "card:9467",
+        "card:6680",
+        "card:115"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:9445",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "pgvector_bge_cosine",
+      "precision_at_5": 0.8,
+      "neighbors": [
+        "card:9467",
+        "card:8578",
+        "card:6570",
+        "card:115",
+        "card:6388"
+      ],
+      "pgvector_query_wall_seconds": 0.00043191299482714385
+    },
+    {
+      "query_id": "card:9445",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "random",
+      "precision_at_5": 0.6,
+      "neighbors": [
+        "card:5470",
+        "ato:64d2da9b50d7898d214fe941f7a8217169c6045f89761a97bdea5f0df4420a6c:17",
+        "card:6295",
+        "ato:3db7ba88dae1226e218618f222510871218fb3dfeef0be5cd0f799094288e86a:13",
+        "ato:c4fb838ab6677c07d0182a80e06fa99ddd4a598db4c5458bcebcb88a00836a36:25"
+      ],
+      "pgvector_query_wall_seconds": null
+    },
+    {
+      "query_id": "card:9445",
+      "domain": "card",
+      "gold_label": 1,
+      "method": "tfidf_cosine",
+      "precision_at_5": 1.0,
+      "neighbors": [
+        "card:9467",
+        "card:8295",
+        "card:6680",
+        "card:8803",
+        "card:6295"
+      ],
+      "pgvector_query_wall_seconds": null
+    }
+  ],
+  "run_context": {
+    "git_sha": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+    "git": {
+      "git_sha": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "selected_source_scope": [
+        "copilot/agent",
+        "copilot/eval",
+        "copilot/mcp_server",
+        "copilot/retrieval",
+        "copilot/db",
+        "copilot/scripts",
+        "copilot/configs",
+        "copilot/requirements-tools.txt",
+        "copilot/README-tools.md",
+        "copilot/compose.copilot.yml",
+        "serving/model/model.joblib",
+        "serving/model/model_meta.json",
+        "streaming/model/lr_model.json",
+        "gateway/main.py",
+        "gateway/fixtures/manifest.json",
+        "gateway/fixtures/creditcard-prefix-10000.parquet",
+        "ato/datagen.py",
+        "ato/features.py"
+      ],
+      "source_hashes": {
+        "sha256": {
+          "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+          "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+          "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+          "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+          "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+          "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+          "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+          "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+          "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+          "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+          "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+          "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+          "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+          "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+          "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+          "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+          "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+          "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+          "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+          "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+          "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+          "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+          "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+          "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+          "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+          "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+          "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+          "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+          "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+          "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+          "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+          "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+          "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+          "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+          "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+          "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+          "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+          "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+          "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+          "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+          "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+          "copilot/db/reader.py": "29b439c1d5f38b0bee515ef22920e0bcac8f568df8c3fe15c481632ed7e0c902",
+          "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+          "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+          "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+          "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+          "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+          "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+          "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+          "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+          "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+          "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+          "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+          "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+          "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+          "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+          "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+          "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+          "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+          "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+          "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+          "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+          "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+          "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+          "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+          "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+          "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+          "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+          "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+          "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+          "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+          "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+          "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+          "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+          "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+          "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+          "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+          "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+        },
+        "missing_paths": []
+      },
+      "selected_source_dirty": false,
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "copilot/agent",
+          "copilot/eval",
+          "copilot/mcp_server",
+          "copilot/retrieval",
+          "copilot/db",
+          "copilot/scripts",
+          "copilot/configs",
+          "copilot/requirements-tools.txt",
+          "copilot/README-tools.md",
+          "copilot/compose.copilot.yml",
+          "serving/model/model.joblib",
+          "serving/model/model_meta.json",
+          "streaming/model/lr_model.json",
+          "gateway/main.py",
+          "gateway/fixtures/manifest.json",
+          "gateway/fixtures/creditcard-prefix-10000.parquet",
+          "ato/datagen.py",
+          "ato/features.py"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- copilot/agent copilot/eval copilot/mcp_server copilot/retrieval copilot/db copilot/scripts copilot/configs copilot/requirements-tools.txt copilot/README-tools.md copilot/compose.copilot.yml serving/model/model.joblib serving/model/model_meta.json streaming/model/lr_model.json gateway/main.py gateway/fixtures/manifest.json gateway/fixtures/creditcard-prefix-10000.parquet ato/datagen.py ato/features.py",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "dcb843676b492f088f7e2dcfff6e0ecc72fef2a6",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "task_environment": {
+        "COPILOT_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+        "FINETUNE_GIT": null,
+        "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+        "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+        "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+        "TEMP": null,
+        "TMP": null,
+        "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+        "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+        "HF_HUB_OFFLINE": "1",
+        "HF_HUB_DISABLE_IMPLICIT_TOKEN": null,
+        "PYTHONPATH": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+        "PYTHONHASHSEED": null,
+        "CUBLAS_WORKSPACE_CONFIG": null,
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      }
+    },
+    "git_status": "?? copilot/results/",
+    "selected_source_dirty": false,
+    "whole_worktree_dirty": true,
+    "source_hashes": {
+      "sha256": {
+        "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+        "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+        "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+        "copilot/agent/llm.py": "a3e6572df725ab8ebb5d8bde36524acfd18fb19ba3500b2ef33f61cdc6db7949",
+        "copilot/agent/redaction.py": "1bec14785f05624b8c5435ed6fb0270675fee7bbaf8527ab03c3b23d7480dcfe",
+        "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+        "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+        "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+        "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+        "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+        "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+        "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+        "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+        "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+        "copilot/eval/export_cassette.py": "1f962c69b5416c0fa0220dd28bf95a6ed7ad1da9177fceda8b97d99d5325f757",
+        "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+        "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+        "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+        "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+        "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+        "copilot/eval/recording.py": "db1f11e8985288c7fb26be66e607c9d600dd57b517843b963b3e08ce52c38aa1",
+        "copilot/eval/replay.py": "9c70ec91ab6ee2b3ec4bbf54969812f3a6c9b034f99578b6f6d75f20702998c2",
+        "copilot/eval/run.py": "5169154f3e151447017878f8a57deced883389458f1f6b017710c466a91498bf",
+        "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+        "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+        "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+        "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+        "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+        "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+        "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+        "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+        "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+        "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+        "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+        "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+        "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+        "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+        "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+        "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+        "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+        "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+        "copilot/db/reader.py": "29b439c1d5f38b0bee515ef22920e0bcac8f568df8c3fe15c481632ed7e0c902",
+        "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+        "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+        "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+        "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+        "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+        "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+        "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+        "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+        "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+        "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+        "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+        "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+        "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+        "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+        "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+        "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+        "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+        "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+        "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+        "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+        "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+        "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+        "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+        "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+        "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+        "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+        "copilot/README-tools.md": "eccb7f0094a8fe998d32bbcabfae5cfd33dbda2b5152844cc544b639ec9c5655",
+        "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+        "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+        "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+        "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+        "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+        "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+        "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+        "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+        "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+      },
+      "missing_paths": []
+    },
+    "runner_source": {
+      "path": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/scripts/provenance.py",
+      "sha256": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a"
+    },
+    "config_sha256": "70aa7db65b7b93d616a0a469dff9da9f578d26503728882d73f03fe95650fed4",
+    "packages": {
+      "mcp": "2.3.0",
+      "mcp-types": "2.3.0",
+      "psycopg": "3.3.6",
+      "pgvector": "0.5.1",
+      "sentence-transformers": "6.2.0",
+      "transformers": "5.22.1",
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "pandas": "3.1.0",
+      "joblib": "1.6.0",
+      "pyarrow": "26.0.0",
+      "langgraph": "1.2.19",
+      "jsonschema": "4.26.0",
+      "httpx": "0.28.1",
+      "httpx2": "2.16.0",
+      "uvicorn": "0.54.0"
+    },
+    "environment": "WSL2 CPU-only retrieval with actual Docker Desktop PG17vector",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+    "cuda": null,
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "python_executable": "/opt/codex-resume/all-modules-v2/m1a/agent-venv/bin/python",
+    "python_import_paths": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "/opt/codex-resume/all-modules-v2/m1a/agent-venv/lib/python3.12/site-packages",
+      "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages"
+    ],
+    "command": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/retrieval/evaluate.py",
+      "--config",
+      "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/tools/runtime/runs/retrieval-dcb8436-01/configs/benchmark.json"
+    ],
+    "timestamp": "2026-11-02T08:11:36.302353+00:00",
+    "wall_seconds": 57.113013851005235,
+    "recorded_at": "2026-11-02T08:12:28.395922+00:00",
+    "device": {
+      "runner": "cpu orchestration",
+      "configured_model_device": "cpu",
+      "observed_cpu": "x86_64",
+      "observed_gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+      "cuda": "not queried by this runner"
+    },
+    "interpretation": "provenance of this artifact; raw observations are evidence, not an acceptance claim"
+  }
+}

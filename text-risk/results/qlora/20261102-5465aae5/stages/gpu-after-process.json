@@ -1,0 +1,9 @@
+{
+  "pid": 300031,
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=name,uuid,driver_version,memory.total,memory.used",
+    "--format=csv"
+  ],
+  "started_at": "2026-11-02T13:10:45.199357+00:00"
+}

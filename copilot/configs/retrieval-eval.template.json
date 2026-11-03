@@ -1,0 +1,14 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/retrieval-eval/run-01",
+  "seed": 42,
+  "random_seed": 20261102,
+  "protocol": "copilot/results/retrieval-protocol/run-01/protocol.json",
+  "protocol_sha256": "SET_AFTER_PROTOCOL_IS_FROZEN",
+  "embedding_reference": "copilot/configs/bge-reference.json",
+  "embedding_snapshot": "SET_FROM_VERIFIED_DOWNLOAD_RECEIPT",
+  "device": "cpu",
+  "embedding_batch_size": 16,
+  "indexer_dsn_env": "COPILOT_INDEXER_DSN"
+}

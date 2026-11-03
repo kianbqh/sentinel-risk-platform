@@ -1,0 +1,16 @@
+{
+  "pid": 287733,
+  "argv": [
+    "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+    "-u",
+    "text-risk/finetune/run.py",
+    "evaluate",
+    "--config",
+    "text-risk/finetune/configs/qwen15_nf4.json",
+    "--smoke-run",
+    "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+    "--run-dir",
+    "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only"
+  ],
+  "started_at": "2026-11-02T11:21:38.859256+00:00"
+}

@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-11-02T12:02:14.331032+00:00",
+  "accepted": true,
+  "stage": "prompt-only",
+  "summary_sha256": "3e990294a16671344c40871caa225f5546d11d4cb5a3394b5b7c66e8c01b45c4",
+  "mirror_files_verified": 14,
+  "prediction_rows": 1035,
+  "timed_rows": 3105,
+  "sets": {
+    "full1035": {
+      "n": 1035,
+      "tp": 84,
+      "tn": 903,
+      "fp": 1,
+      "fn": 47,
+      "accuracy": 0.9536231884057971,
+      "precision": 0.9882352941176471,
+      "recall": 0.6412213740458015,
+      "f1": 0.7777777777777778,
+      "schema_failures": 0,
+      "json_failures": 1035,
+      "valid_rate": 0.0,
+      "valid_only_metrics": null
+    },
+    "paired400": {
+      "n": 400,
+      "tp": 34,
+      "tn": 348,
+      "fp": 1,
+      "fn": 17,
+      "accuracy": 0.955,
+      "precision": 0.9714285714285714,
+      "recall": 0.6666666666666666,
+      "f1": 0.7906976744186046,
+      "schema_failures": 0,
+      "json_failures": 400,
+      "valid_rate": 0.0,
+      "valid_only_metrics": null
+    }
+  },
+  "benchmark": {
+    "warmup_messages": 3,
+    "repeats": 3,
+    "concurrency": 1,
+    "batch_size": 1,
+    "n_samples": 3105,
+    "p50_ms": 563.2090370054357,
+    "p95_ms": 636.5780579973942,
+    "quantile_method": "linear interpolation",
+    "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+    "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+    "quality_repeat": 0
+  },
+  "failures_all_repeats": {
+    "invalid_json": 3105
+  },
+  "repeat_disagreements": 0,
+  "truncations": 0,
+  "scope": "Recomputed primary metrics, strict parser/fallback flags, ordered IDs/labels, all timed samples and hashes. No fence normalization, new inference or claim of independently replaying fallback text classification."
+}

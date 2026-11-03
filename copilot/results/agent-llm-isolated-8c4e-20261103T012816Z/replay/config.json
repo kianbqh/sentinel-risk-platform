@@ -1,0 +1,10 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 local Qwen with Docker Desktop PostgreSQL/gateway and authenticated native MCP",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "expected_git_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/replay",
+  "cassette_manifest": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/cassette/manifest.json",
+  "cassette_manifest_sha256": "8504fffed1f1631b8723e108b5c761e3b56fd4542e06f9dfff053baa390d77bf"
+}

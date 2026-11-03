@@ -1,0 +1,132 @@
+"""Independent offline reconciliation, only after the whole original block closes.
+
+Bootstrap uses the protocol's Python RNG indices and NumPy-indexed raw label
+vectors, independently of the production contribution-accumulation algorithm.
+No fitted model is imported or inference replayed.
+"""
+import argparse
+from array import array
+from datetime import datetime, timezone
+from fractions import Fraction
+import hashlib
+import json
+import math
+from pathlib import Path
+import random
+import statistics
+import sys
+
+BASE = Path(__file__).resolve().parent
+REPO = BASE.parents[2] / 'platforms/sentinel-risk-platform'
+SHA = '5465aae5af963879f6cfcb83230e962ca0cf9ee0'
+
+def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
+def read(path): return json.loads(path.read_text(encoding='utf-8'))
+def lines(path): return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines()]
+def close(a, b):
+    assert math.isclose(a, b, rel_tol=1e-13, abs_tol=2e-15), (a, b)
+
+def main():
+    cli = argparse.ArgumentParser()
+    cli.add_argument('--comparison', required=True, type=Path)
+    cli.add_argument('--completion', required=True, type=Path)
+    cli.add_argument('--output', required=True, type=Path)
+    args = cli.parse_args()
+    assert args.output.resolve().is_relative_to(BASE.resolve()) and not args.output.exists()
+    complete, report = read(args.completion), read(args.comparison/'summary.json')
+    assert complete['status'] == 'completed' and complete['expected_git_sha'] == SHA
+    assert report['status'] == 'compared' and report['provenance']['git_sha'] == SHA
+    assert report['served_default'] == 'tfidf_lr'
+    completion = {row['path']: row for row in complete['files']}
+    source_files = ['summary.json', 'comparison-predictions.jsonl', 'tfidf-latency.jsonl', 'tfidf-warmup.jsonl']
+    for name in source_files:
+        path = args.comparison/name
+        record = completion['comparison/'+name]
+        assert digest(path) == record['sha256'] and path.stat().st_size == record['bytes']
+    assert digest(args.comparison/'comparison-predictions.jsonl') == report['predictions_sha256']
+    config = read(REPO/'text-risk/finetune/configs/qwen15_nf4.json')['evaluation']
+    fixed = read(REPO/'text-risk/finetune/protocol/sms_split.json')['identifiers']
+    rows = lines(args.comparison/'comparison-predictions.jsonl')
+    assert [r['id'] for r in rows] == fixed['full1035_ids']
+    assert [r['y'] for r in rows] == fixed['full1035_labels']
+    by_id = {r['id']: r for r in rows}
+    timing = lines(args.comparison/'tfidf-latency.jsonl')
+    assert len(timing) == report['tfidf_benchmark']['n_samples'] == 3105
+    assert len(lines(args.comparison/'tfidf-warmup.jsonl')) == 3
+    for index, row in enumerate(timing):
+        repeat, position = divmod(index, 1035)
+        assert row['repeat'] == repeat and row['id'] == fixed['full1035_ids'][position]
+        assert math.isfinite(row['latency_ms']) and row['latency_ms'] > 0
+        assert math.isfinite(row['probability']) and 0 <= row['probability'] <= 1
+        if repeat == 0:
+            assert int(row['probability'] >= config['tfidf_threshold']) == rows[position]['systems']['tfidf_lr']
+    assert digest(args.comparison/'tfidf-latency.jsonl') == report['tfidf_benchmark']['raw_sha256']
+    # Heavy numerical work occurs only after all completion/hash gates above.
+    import numpy as np
+    latencies = np.array([r['latency_ms'] for r in timing], dtype=np.float64)
+    for key, q in [('p50_ms', .5), ('p95_ms', .95)]: close(float(np.quantile(latencies, q)), report['tfidf_benchmark'][key])
+    records = {}
+    for set_name in ('paired400', 'full1035'):
+        selected = [by_id[i] for i in fixed[set_name+'_ids']]
+        truth = np.array([r['y'] for r in selected], dtype=np.uint8)
+        n = len(truth); trials = config['bootstrap_resamples']
+        rng = random.Random(config['bootstrap_seed'])
+        raw_indices = array('H', (rng.randrange(n) for _ in range(trials*n)))
+        indices = np.frombuffer(raw_indices, dtype=np.uint16).reshape(trials, n)
+        sampled_truth = truth[indices]
+        candidates, sample_scores, scores = {}, {}, {}
+        for name, expected in report['sets'][set_name]['scores'].items():
+            values = [r['systems'][name] for r in selected]
+            assert all(type(v) is int and v in (0, 1) for v in values)
+            pred = np.array(values, dtype=np.uint8); candidates[name] = pred
+            tp = int(np.count_nonzero((truth == 1) & (pred == 1)))
+            fp = int(np.count_nonzero((truth == 0) & (pred == 1)))
+            fn = int(np.count_nonzero((truth == 1) & (pred == 0)))
+            tn = n-tp-fp-fn
+            score = dict(n=n, tp=tp, fp=fp, fn=fn, tn=tn, accuracy=(tp+tn)/n,
+                         precision=tp/(tp+fp) if tp+fp else 0., recall=tp/(tp+fn) if tp+fn else 0.,
+                         f1=2*tp/(2*tp+fp+fn) if 2*tp+fp+fn else 0.)
+            assert all(score[k] == expected[k] for k in score)
+            scores[name] = score
+            sampled = pred[indices]
+            st = np.count_nonzero((sampled_truth == 1) & (sampled == 1), axis=1)
+            sf = np.count_nonzero((sampled_truth == 0) & (sampled == 1), axis=1)
+            sn = np.count_nonzero((sampled_truth == 1) & (sampled == 0), axis=1)
+            denominator = 2*st+sf+sn
+            sample_scores[name] = np.divide(2*st, denominator, out=np.zeros(trials), where=denominator!=0)
+        def verify_pair(candidate, reference, uncertainty, mcnemar):
+            assert uncertainty['resamples'] == trials and uncertainty['seed'] == config['bootstrap_seed']
+            assert uncertainty['confidence_level'] == config['confidence_level']
+            tail = (1-config['confidence_level'])/2
+            for key, values in [('candidate_f1_ci', sample_scores[candidate]), ('reference_f1_ci', sample_scores[reference]),
+                                ('paired_f1_difference_ci', sample_scores[candidate]-sample_scores[reference])]:
+                measured = np.quantile(values, [tail, 1-tail])
+                for actual, expected in zip(measured, uncertainty[key]): close(float(actual), expected)
+            close(scores[candidate]['f1']-scores[reference]['f1'], uncertainty['f1_difference_candidate_minus_reference'])
+            ref_ok, cand_ok = candidates[reference] == truth, candidates[candidate] == truth
+            b = int(np.count_nonzero(ref_ok & ~cand_ok)); c = int(np.count_nonzero(~ref_ok & cand_ok))
+            discordant = b+c
+            p = min(1., float(Fraction(2*sum(math.comb(discordant, k) for k in range(min(b,c)+1)), 2**discordant))) if discordant else 1.
+            assert (b,c,discordant) == (mcnemar['reference_correct_candidate_wrong'], mcnemar['reference_wrong_candidate_correct'], mcnemar['discordant'])
+            close(p, mcnemar['p_value_two_sided_exact'])
+        for name, expected in report['sets'][set_name]['scores'].items():
+            verify_pair(name, 'tfidf_lr', expected['sampling_uncertainty'], expected['mcnemar_vs_tfidf'])
+            if name.startswith('qlora_seed_'):
+                matched = expected['vs_matched_prompt_only']
+                verify_pair(name, 'prompt_only_nf4', matched['sampling_uncertainty'], matched['mcnemar'])
+        variation = report['sets'][set_name]['qlora_training_seed_variation']
+        assert variation['n_seeds'] == 3 and variation['seeds'] == [42,43,44] and variation['std_ddof'] == 0
+        for metric in ('f1','accuracy','precision','recall'):
+            values = [scores['qlora_seed_'+str(seed)][metric] for seed in (42,43,44)]
+            assert values == variation[metric]['raw']
+            close(statistics.mean(values), variation[metric]['mean']); close(statistics.pstdev(values), variation[metric]['std'])
+        records[set_name] = dict(systems=len(scores), bootstrap_resamples=trials, scores=scores, seed_variation=variation)
+    assert 'torch' not in sys.modules and 'transformers' not in sys.modules
+    result = dict(accepted=True, checked_at_utc=datetime.now(timezone.utc).isoformat(),
+                  completion_sha256=digest(args.completion), comparison_sha256=digest(args.comparison/'summary.json'),
+                  audit_source_sha256=digest(Path(__file__)), numpy_version=np.__version__, sets=records,
+                  scope='Independent raw-vector confusion/F1, exact paired bootstrap intervals, McNemar, seed statistics and TF-IDF timing reconciliation. No new inference or posthoc fence normalization.')
+    with args.output.open('x', encoding='utf-8') as stream: json.dump(result, stream, indent=2); stream.write('\n')
+    print(json.dumps(dict(accepted=True, output=str(args.output), systems={k:v['systems'] for k,v in records.items()})))
+
+if __name__ == '__main__': main()

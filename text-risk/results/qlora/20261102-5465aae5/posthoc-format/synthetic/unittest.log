@@ -1,0 +1,18 @@
+test_exact_single_outer_fence (test_posthoc_format_diagnostic.FenceAndParserTests) ... ok
+test_preserves_json_body_unicode_line_separator (test_posthoc_format_diagnostic.FenceAndParserTests) ... ok
+test_refuses_prose_partial_wrong_delimiters_and_recursive_repair (test_posthoc_format_diagnostic.FenceAndParserTests) ... ok
+test_unchanged_strict_schema_and_duplicate_key_contract (test_posthoc_format_diagnostic.FenceAndParserTests) ... ok
+test_all_complete_status_gates_precede_prediction_reads (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_create_only_and_no_output_after_invalid_inputs (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_descriptive_report_uniform_rule_fallback_and_input_preservation (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_frozen_pair_order_labels_and_unique_ids (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_refuses_artifact_hash_tamper (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_refuses_comparison_summary_reference_tamper (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_refuses_order_label_repeat_fallback_and_primary_changes (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_refuses_provenance_and_run_mixing (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+test_zero_valid_rows_are_null_and_fallback_retained (test_posthoc_format_diagnostic.SyntheticBundleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.912s
+
+OK

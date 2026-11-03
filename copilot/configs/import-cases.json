@@ -1,0 +1,9 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/case-import/run-01",
+  "admin_dsn_env": "COPILOT_ADMIN_DSN",
+  "sources": [
+    {"path": "results/integration/alerts-wire.jsonl", "sha256": "6dd6c4595aae806c6167b40449d20c037e1428ca705a3f32f8d00f6dab63b377"}
+  ]
+}

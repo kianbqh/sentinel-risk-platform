@@ -1,0 +1,67 @@
+name: sentinel-copilot
+services:
+  postgres:
+    image: ${COPILOT_PGVECTOR_IMAGE:-pgvector/pgvector:0.8.7-pg17}
+    environment:
+      POSTGRES_DB: sentinel_copilot
+      POSTGRES_USER: copilot_admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets: [postgres_password]
+    ports: ["127.0.0.1:${COPILOT_PG_PORT:-15449}:5432"]
+    volumes: ["copilot_pg17_vector_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U copilot_admin -d sentinel_copilot"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: "no"
+  backend:
+    image: ${COPILOT_BACKEND_IMAGE:-sentinel-risk-console-api:local}
+    build: {context: ../console/backend}
+    environment:
+      DATABASE_URL: ${COPILOT_BACKEND_DSN:?set DSN for postgres copilot_admin/sentinel_copilot in this stack}
+      JWT_SECRET: ${COPILOT_JWT_SECRET:?set a separate analyst JWT secret}
+      BCRYPT_COST: '12'
+      PORT: '18041'
+      CORS_ORIGIN: http://localhost:13049
+    ports: ["127.0.0.1:${COPILOT_BACKEND_PORT:-18074}:18041"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    restart: "no"
+  gateway:
+    image: ${COPILOT_GATEWAY_IMAGE:-sentinel-risk-gateway:local}
+    build: {context: .., dockerfile: gateway/Dockerfile}
+    environment:
+      DATABASE_URL: ${COPILOT_GATEWAY_DSN:?set readonly DSN for this SAME postgres/sentinel_copilot database}
+      CLASSIFIER_MODE: tfidf
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    ports: ["127.0.0.1:${COPILOT_GATEWAY_PORT:-18079}:18040"]
+    depends_on:
+      postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18040/readyz',timeout=3)"]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+    restart: "no"
+  console:
+    image: ${COPILOT_CONSOLE_IMAGE:-sentinel-risk-console:local}
+    build: {context: ../console/frontend}
+    environment:
+      LISTEN_PORT: '13049'
+      BACKEND_URL: http://backend:18041
+    ports: ["127.0.0.1:${COPILOT_CONSOLE_PORT:-13049}:13049"]
+    depends_on: [backend]
+    healthcheck:
+      test: [CMD, wget, -q, --spider, http://127.0.0.1:13049/]
+      interval: 5s
+      timeout: 4s
+      retries: 30
+    restart: "no"
+secrets:
+  postgres_password:
+    file: ${COPILOT_SECRETS_DIR:?set a G-backed credentials directory}/postgres-password
+volumes:
+  copilot_pg17_vector_data:
+    name: sentinel_copilot_pg17_vector_v1

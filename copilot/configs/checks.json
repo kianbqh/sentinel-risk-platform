@@ -1,0 +1,8 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/tools-checks/run-01",
+  "real_http": true,
+  "real_database": true,
+  "timeout_seconds": 180
+}

@@ -1,0 +1,14 @@
+{
+  "host": "127.0.0.1",
+  "port": 18070,
+  "resource": "http://127.0.0.1:18070/mcp",
+  "issuer": "http://127.0.0.1:18071",
+  "token_registry_env": "COPILOT_TOKEN_REGISTRY",
+  "reader_dsn_env": "COPILOT_READER_DSN",
+  "gateway_origin": "http://127.0.0.1:18079",
+  "coefficient_export": "streaming/model/lr_model.json",
+  "coefficient_export_sha256": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+  "joblib_model": "serving/model/model.joblib",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "embedding_revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+}

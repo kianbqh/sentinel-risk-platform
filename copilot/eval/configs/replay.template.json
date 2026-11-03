@@ -1,0 +1,1 @@
+{"repo_root": ".", "environment": "GitHub-hosted runner", "output_dir": "copilot/results/agent-replay/ci-run-id", "cassette_manifest": "copilot/results/agent-cassette/qwen15-v1/manifest.json", "cassette_manifest_sha256": "FILL_FROM_ACTUAL_CASSETTE_EXPORT"}

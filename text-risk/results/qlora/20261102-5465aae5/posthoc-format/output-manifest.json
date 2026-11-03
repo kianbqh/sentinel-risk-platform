@@ -1,0 +1,16 @@
+{
+  "status": "posthoc_diagnostic_complete",
+  "synthetic": false,
+  "files": [
+    {
+      "path": "diagnostic-predictions.jsonl",
+      "bytes": 2108322,
+      "sha256": "2aaa45c0fbc14986ac29ec977674646086dd29fb10dbce336e58c00e788451d2"
+    },
+    {
+      "path": "diagnostic-summary.json",
+      "bytes": 39026,
+      "sha256": "72da1a8b4de49759444be416aa14bf3862056eacf597d1ab1dfc5ab91acb61c8"
+    }
+  ]
+}

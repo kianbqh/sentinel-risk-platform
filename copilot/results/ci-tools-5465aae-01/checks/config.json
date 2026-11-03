@@ -1,0 +1,9 @@
+{
+  "repo_root": "/home/runner/work/sentinel-risk-platform/sentinel-risk-platform",
+  "environment": "GitHub-hosted runner",
+  "output_dir": "/home/runner/work/_temp/copilot-tools-results/checks",
+  "real_http": true,
+  "real_database": true,
+  "timeout_seconds": 300,
+  "require_clean_source": true
+}

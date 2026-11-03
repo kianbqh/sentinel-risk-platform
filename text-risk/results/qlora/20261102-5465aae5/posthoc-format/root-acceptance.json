@@ -1,0 +1,80 @@
+{
+  "accepted": true,
+  "utc": "2026-11-02T13:20:21.690850+00:00",
+  "scope": "separate descriptive normalization; every original row, normalized value, fallback and full/paired confusion verified",
+  "source_sha256": "1eb17bfc66742ac99bc67c81ebdf93332474bc6f1e653e125632b8127e41a96a",
+  "systems": {
+    "prompt_only_nf4": {
+      "full1035": {
+        "n": 1035,
+        "tp": 114,
+        "fp": 427,
+        "fn": 17,
+        "tn": 477,
+        "f1": 0.3392857142857143
+      },
+      "paired400": {
+        "n": 400,
+        "tp": 42,
+        "fp": 170,
+        "fn": 9,
+        "tn": 179,
+        "f1": 0.3193916349809886
+      }
+    },
+    "qlora_seed_42": {
+      "full1035": {
+        "n": 1035,
+        "tp": 127,
+        "fp": 1,
+        "fn": 4,
+        "tn": 903,
+        "f1": 0.9806949806949807
+      },
+      "paired400": {
+        "n": 400,
+        "tp": 48,
+        "fp": 0,
+        "fn": 3,
+        "tn": 349,
+        "f1": 0.9696969696969697
+      }
+    },
+    "qlora_seed_43": {
+      "full1035": {
+        "n": 1035,
+        "tp": 128,
+        "fp": 4,
+        "fn": 3,
+        "tn": 900,
+        "f1": 0.973384030418251
+      },
+      "paired400": {
+        "n": 400,
+        "tp": 49,
+        "fp": 1,
+        "fn": 2,
+        "tn": 348,
+        "f1": 0.9702970297029703
+      }
+    },
+    "qlora_seed_44": {
+      "full1035": {
+        "n": 1035,
+        "tp": 127,
+        "fp": 1,
+        "fn": 4,
+        "tn": 903,
+        "f1": 0.9806949806949807
+      },
+      "paired400": {
+        "n": 400,
+        "tp": 49,
+        "fp": 0,
+        "fn": 2,
+        "tn": 349,
+        "f1": 0.98
+      }
+    }
+  }
+}

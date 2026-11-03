@@ -1,0 +1,94 @@
+{
+  "model": "BAAI/bge-small-en-v1.5",
+  "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+  "license": "mit",
+  "gated": false,
+  "private": false,
+  "source": "https://huggingface.co/api/models/BAAI/bge-small-en-v1.5?blobs=true",
+  "files": [
+    {
+      "name": ".gitattributes",
+      "bytes": 1519,
+      "lfs_sha256": null,
+      "git_blob_sha1": "a6344aac8c09253b3b630fb776ae94478aa0275b"
+    },
+    {
+      "name": "1_Pooling/config.json",
+      "bytes": 190,
+      "lfs_sha256": null,
+      "git_blob_sha1": "1da070f0993788c8851a652170ff013aa54dd519"
+    },
+    {
+      "name": "README.md",
+      "bytes": 94783,
+      "lfs_sha256": null,
+      "git_blob_sha1": "8b8567d75ffa619486d9590cb0eb76d66ad46c49"
+    },
+    {
+      "name": "config.json",
+      "bytes": 743,
+      "lfs_sha256": null,
+      "git_blob_sha1": "3992bf890728a92476c700e6e657fd696eb94160"
+    },
+    {
+      "name": "config_sentence_transformers.json",
+      "bytes": 124,
+      "lfs_sha256": null,
+      "git_blob_sha1": "dcb0c0d97d09b930d13600b1a773ddb27e441aab"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 133466304,
+      "lfs_sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+      "git_blob_sha1": "a4fef68c99b10468206a9bc1d54d0112d87c5557"
+    },
+    {
+      "name": "modules.json",
+      "bytes": 349,
+      "lfs_sha256": null,
+      "git_blob_sha1": "952a9b81c0bfd99800fabf352f69c7ccd46c5e43"
+    },
+    {
+      "name": "onnx/model.onnx",
+      "bytes": 133093490,
+      "lfs_sha256": "828e1496d7fabb79cfa4dcd84fa38625c0d3d21da474a00f08db0f559940cf35",
+      "git_blob_sha1": "33c23a71d9651ddba17f6a52eecf93658fc90973"
+    },
+    {
+      "name": "pytorch_model.bin",
+      "bytes": 133508397,
+      "lfs_sha256": "84868a67d847f7f37d1df745b73a4c20b5bc0a797c87a23b265f8a0131728b88",
+      "git_blob_sha1": "b6e2a796fcfd4513c609fc618fe91786e89521a7"
+    },
+    {
+      "name": "sentence_bert_config.json",
+      "bytes": 52,
+      "lfs_sha256": null,
+      "git_blob_sha1": "ea85692bff64b0d1917833c31ddbca8ab10f5455"
+    },
+    {
+      "name": "special_tokens_map.json",
+      "bytes": 125,
+      "lfs_sha256": null,
+      "git_blob_sha1": "a8b3208c2884c4efb86e49300fdd3dc877220cdf"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 711396,
+      "lfs_sha256": null,
+      "git_blob_sha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 366,
+      "lfs_sha256": null,
+      "git_blob_sha1": "37fca74771bc76a8e01178ce3a6055a0995f8093"
+    },
+    {
+      "name": "vocab.txt",
+      "bytes": 231508,
+      "lfs_sha256": null,
+      "git_blob_sha1": "fb140275c155a9c7c5a3b3e0e77a9e839594a938"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "gpu-before",
+  "argv": [
+    "nvidia-smi",
+    "--query-gpu=name,uuid,driver_version,memory.total,memory.used",
+    "--format=csv"
+  ],
+  "started_at": "2026-11-02T08:39:25.032679+00:00",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+  "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "launcher_pid": 270225,
+  "finished_at": "2026-11-02T08:39:25.084987+00:00",
+  "wall_seconds": 0.052199127996573225,
+  "returncode": 0,
+  "status": "passed",
+  "error": null,
+  "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/gpu-before.log"
+}

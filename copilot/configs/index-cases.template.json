@@ -1,0 +1,11 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/case-index/run-01",
+  "seed": 42,
+  "embedding_reference": "copilot/configs/bge-reference.json",
+  "embedding_snapshot": "SET_FROM_VERIFIED_DOWNLOAD_RECEIPT",
+  "device": "cpu",
+  "embedding_batch_size": 16,
+  "indexer_dsn_env": "COPILOT_INDEXER_DSN"
+}

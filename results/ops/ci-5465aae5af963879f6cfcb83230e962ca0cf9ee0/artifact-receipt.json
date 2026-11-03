@@ -1,0 +1,39 @@
+{
+  "source": "GitHub Actions artifact; raw member bytes preserved",
+  "run_id": 41413483282,
+  "run_url": "https://github.com/kianbqh/sentinel-risk-platform/actions/runs/41413483282",
+  "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "artifact_id": 13126378681,
+  "artifact_zip_sha256": "436e8a32c92a473db4a690423b75e3dd9953c6dc3a5b903dc6e26f082e1ce4e9",
+  "files": [
+    {
+      "path": "kind-lifecycle.events.jsonl",
+      "bytes": 1440124,
+      "sha256": "66dc7f3f224f077ecd4b058971bc880943c9240410b09c9dfe236cdb58fcb2c7"
+    },
+    {
+      "path": "kind-lifecycle.json",
+      "bytes": 4515790,
+      "sha256": "e49ab724b95070178c9a17e54248016962f7272bf5bfbfaf46f74a0fa25de0d2"
+    }
+  ],
+  "independent_acceptance": {
+    "scope": "Independent raw request and startup probe reconciliation at this CI checkpoint; not final module completion",
+    "requests": 2812,
+    "failed": 0,
+    "overlap": 2519,
+    "rollout_seconds": 17.613161151000043,
+    "rollback_seconds": 17.085826274999988,
+    "recovery_seconds": 6.817903363000028,
+    "initial_smoke": {
+      "service_status": {
+        "gateway": 200,
+        "backend": 200,
+        "frontend": 200
+      },
+      "attempts": 1,
+      "duration_seconds": 0.3845544810000092,
+      "scope": "initial startup gate before load Pod creation; not measured load"
+    }
+  }
+}

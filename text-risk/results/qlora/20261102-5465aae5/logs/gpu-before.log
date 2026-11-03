@@ -1,0 +1,2 @@
+name, uuid, driver_version, memory.total [MiB], memory.used [MiB]
+NVIDIA GeForce RTX 3080, GPU-b562b569-0a27-0511-7682-f3629b0785dc, 621.01, 12288 MiB, 2434 MiB

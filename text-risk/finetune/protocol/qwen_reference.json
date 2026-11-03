@@ -1,0 +1,80 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "license": "apache-2.0",
+  "gated": false,
+  "private": false,
+  "source": "https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct?blobs=true",
+  "files": [
+    {
+      "name": ".gitattributes",
+      "bytes": 1519,
+      "lfs_sha256": null,
+      "git_blob_sha1": "a6344aac8c09253b3b630fb776ae94478aa0275b"
+    },
+    {
+      "name": "LICENSE",
+      "bytes": 11343,
+      "lfs_sha256": null,
+      "git_blob_sha1": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+    },
+    {
+      "name": "README.md",
+      "bytes": 4917,
+      "lfs_sha256": null,
+      "git_blob_sha1": "b3327a17e2ffa52e0fd941a2810b18a9fd0e7d94"
+    },
+    {
+      "name": "config.json",
+      "bytes": 660,
+      "lfs_sha256": null,
+      "git_blob_sha1": "f81ead14ab072d65a07817f83a3ee0e5a1890d10"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 242,
+      "lfs_sha256": null,
+      "git_blob_sha1": "dfc11073787daf1b0f9c0f1499487ab5f4c93738"
+    },
+    {
+      "name": "merges.txt",
+      "bytes": 1671839,
+      "lfs_sha256": null,
+      "git_blob_sha1": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 3087467144,
+      "lfs_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+      "git_blob_sha1": "9127f71e7314df0064f469223749e5f237e06463"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 7031645,
+      "lfs_sha256": null,
+      "git_blob_sha1": "443909a61d429dff23010e5bddd28ff530edda00"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 7305,
+      "lfs_sha256": null,
+      "git_blob_sha1": "07bfe0640cb5a0037f9322287fbfc682806cf672"
+    },
+    {
+      "name": "vocab.json",
+      "bytes": 2776833,
+      "lfs_sha256": null,
+      "git_blob_sha1": "4783fe10ac3adce15ac8f358ef5462739852c569"
+    }
+  ],
+  "download_files": [
+    "LICENSE",
+    "config.json",
+    "generation_config.json",
+    "model.safetensors",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "merges.txt",
+    "vocab.json"
+  ]
+}

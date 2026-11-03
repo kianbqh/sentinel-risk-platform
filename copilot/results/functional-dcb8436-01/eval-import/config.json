@@ -1,0 +1,12 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 with Docker Desktop services",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/functional-dcb8436-01/eval-import",
+  "admin_dsn_env": "COPILOT_ADMIN_DSN",
+  "protocol": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/eval/fixtures/source-protocol-v2.json",
+  "protocol_sha256": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+  "case_id_min": 1000001,
+  "case_id_max": 1000120
+}

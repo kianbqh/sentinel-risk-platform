@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-02T11:58:28.6906013Z",
+  "kind": "posthoc format diagnostic; primary protocol unchanged",
+  "trigger": "Closed prompt-only result had1035/1035 Markdown-fenced JSON responses,0 strict-valid,0 truncation; primary fallback F1 already observed",
+  "execution": "Only after original3adapter evaluations and frozen comparison finish",
+  "systems": [
+    "prompt_only_nf4",
+    "qlora_seed_42",
+    "qlora_seed_43",
+    "qlora_seed_44"
+  ],
+  "rows": "First-repeat1035 IDs and frozen paired400 subset, identical across all systems",
+  "normalization": "Strip surrounding whitespace. Remove at most one complete outer fence whose opening line is exactly ```json or ``` and closing line exactly ```. No leading/trailing prose, nested fence repair, partial JSON extraction, key/label coercion or model rerun.",
+  "parser": "Use unchanged finetune.modeling.parse_binary_json after optional outer fence removal",
+  "parser_source_sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86",
+  "fallback": "If still invalid, retain the same original rules fallback prediction. Preserve every originalraw/output/failure and primarysummary byte.",
+  "report": "Separate descriptive full1035/paired400 F1/confusion/valid-only/counts and3seed variation; no new latency or formal posthoc p-value claim",
+  "interpretation": "Distinguish strict endpoint format compliance from classification quality. Do not attribute fallback-only primary score to native semantic classification. Do not replace primary metrics or select models/configuration from diagnostic outcome."
+}

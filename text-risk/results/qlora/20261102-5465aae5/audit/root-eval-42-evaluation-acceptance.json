@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-11-02T12:19:19.790380+00:00",
+  "accepted": true,
+  "stage": "eval-42",
+  "summary_sha256": "48a939c61c296fb21dcec485d0dd82a3932791802187b6af06867404f331e233",
+  "mirror_files_verified": 14,
+  "prediction_rows": 1035,
+  "timed_rows": 3105,
+  "sets": {
+    "full1035": {
+      "n": 1035,
+      "tp": 127,
+      "tn": 903,
+      "fp": 1,
+      "fn": 4,
+      "accuracy": 0.9951690821256038,
+      "precision": 0.9921875,
+      "recall": 0.9694656488549618,
+      "f1": 0.9806949806949807,
+      "schema_failures": 1,
+      "json_failures": 0,
+      "valid_rate": 0.9990338164251208,
+      "valid_only_metrics": {
+        "n": 1034,
+        "tp": 127,
+        "tn": 903,
+        "fp": 1,
+        "fn": 3,
+        "accuracy": 0.9961315280464217,
+        "precision": 0.9921875,
+        "recall": 0.9769230769230769,
+        "f1": 0.9844961240310077
+      }
+    },
+    "paired400": {
+      "n": 400,
+      "tp": 48,
+      "tn": 349,
+      "fp": 0,
+      "fn": 3,
+      "accuracy": 0.9925,
+      "precision": 1.0,
+      "recall": 0.9411764705882353,
+      "f1": 0.9696969696969697,
+      "schema_failures": 1,
+      "json_failures": 0,
+      "valid_rate": 0.9975,
+      "valid_only_metrics": {
+        "n": 399,
+        "tp": 48,
+        "tn": 349,
+        "fp": 0,
+        "fn": 2,
+        "accuracy": 0.9949874686716792,
+        "precision": 1.0,
+        "recall": 0.96,
+        "f1": 0.9795918367346939
+      }
+    }
+  },
+  "benchmark": {
+    "warmup_messages": 3,
+    "repeats": 3,
+    "concurrency": 1,
+    "batch_size": 1,
+    "n_samples": 3105,
+    "p50_ms": 486.2238490022719,
+    "p95_ms": 642.255195407779,
+    "quantile_method": "linear interpolation",
+    "timer": "synchronized client wall: prompt tokenize/truncate, host-to-device, local generate, decode, strict JSON/schema parse, optional rules fallback; excludes model load and warmups",
+    "ordering": "repeat-major; frozen full1035 order each repeat; no cross-request KV/prompt cache",
+    "quality_repeat": 0
+  },
+  "failures_all_repeats": {
+    "schema": 3
+  },
+  "repeat_disagreements": 0,
+  "truncations": 0,
+  "scope": "Recomputed primary metrics, strict parser/fallback flags, ordered IDs/labels, all timed samples and hashes. No fence normalization, new inference or claim of independently replaying fallback text classification."
+}

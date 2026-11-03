@@ -1,0 +1,69 @@
+"""Run one explicitly requested stage with exact byte logs and immutable journals."""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import os
+import pathlib
+import re
+import subprocess
+import sys
+import time
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--group', required=True, type=pathlib.Path)
+parser.add_argument('--stage', required=True)
+parser.add_argument('command', nargs=argparse.REMAINDER)
+args = parser.parse_args()
+command = args.command[1:] if args.command and args.command[0] == '--' else args.command
+if not re.fullmatch(r'[a-zA-Z0-9_-]+', args.stage) or not command:
+    raise ValueError('invalid explicit stage/command')
+group = args.group.resolve()
+runtime = pathlib.Path('/opt/codex-resume/all-modules-v2/m1a/runs').resolve()
+if group.parent != runtime or not group.name.startswith('continuation-'):
+    raise ValueError('stage group must be a unique owned continuation group')
+stages = group / 'stages'
+stages.mkdir(exist_ok=True)
+log_path = group / 'logs' / f'{args.stage}.log'
+started = dt.datetime.now(dt.timezone.utc)
+start = {'stage': args.stage, 'argv': command, 'started_at': started.isoformat(),
+         'expected_git_sha': os.environ.get('M1A_EXPECTED_SHA'),
+         'accepted_smoke_run': os.environ.get('M1A_SMOKE_RUN'),
+         'working_directory': str(pathlib.Path.cwd()), 'launcher_pid': os.getpid()}
+with (stages / f'{args.stage}-start.json').open('x') as stream:
+    json.dump(start, stream, indent=2); stream.write('\n')
+t0 = time.perf_counter()
+process = None
+error = None
+returncode = None
+try:
+    with log_path.open('xb') as log:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        with (stages / f'{args.stage}-process.json').open('x') as stream:
+            json.dump({'pid': process.pid, 'argv': command, 'started_at': started.isoformat()}, stream, indent=2)
+            stream.write('\n')
+        while block := process.stdout.read1(65536):
+            log.write(block); log.flush()
+            sys.stdout.buffer.write(block); sys.stdout.buffer.flush()
+        returncode = process.wait()
+except BaseException as caught:
+    error = repr(caught)
+    if process is not None and process.poll() is None:
+        # A normal child failure already exits by itself. Only an interrupted
+        # launcher terminates the exact child it created; no broad process kill.
+        process.terminate()
+        try:
+            returncode = process.wait(timeout=30)
+        except subprocess.TimeoutExpired:
+            error += '; child still running after terminate, inspect recorded PID'
+    raise
+finally:
+    end = {**start, 'finished_at': dt.datetime.now(dt.timezone.utc).isoformat(),
+           'wall_seconds': time.perf_counter()-t0, 'returncode': returncode,
+           'status': 'passed' if returncode == 0 and error is None else 'failed', 'error': error,
+           'log': str(log_path)}
+    with (stages / f'{args.stage}-end.json').open('x') as stream:
+        json.dump(end, stream, indent=2); stream.write('\n')
+if returncode:
+    raise SystemExit(returncode)

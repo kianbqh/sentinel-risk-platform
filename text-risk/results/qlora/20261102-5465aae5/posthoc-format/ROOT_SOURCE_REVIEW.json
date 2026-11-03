@@ -1,0 +1,15 @@
+{
+  "reviewed_at_utc": "2026-11-02T12:31:13.4470746Z",
+  "accepted_source": true,
+  "actual_diagnostic_executed": false,
+  "tool_sha256": "b64385818c3cff7c3824df675a81b1bc44371bc6be9a56c963a4049794514004",
+  "manifest_sha256": "cda39fd122514debed6a570003bf35d94e8c46ecbde914b21da3b635d27d2d17",
+  "checked": [
+    "Exact one-outer-fence policy with unchanged production parser",
+    "All four systems and both frozen subsets; first repeat quality",
+    "Closed comparison and completion marker with byte-hash references",
+    "Original metrics and repeat identity reconciled before diagnostic",
+    "Separate descriptive outputs; no normalized timing or p-values"
+  ],
+  "scope": "Root source review only; run after complete original evaluation block"
+}

@@ -1,0 +1,10 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 with Docker Desktop services",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/functional-dcb8436-01/checks",
+  "real_http": true,
+  "real_database": true,
+  "timeout_seconds": 300
+}

@@ -1,0 +1,60 @@
+{
+  "Target": "copilot/results/ci-tools-5465aae-01/environment/pip-inspect.json",
+  "Class": "secret",
+  "Secrets": [
+    {
+      "RuleID": "jwt-token",
+      "Category": "JWT",
+      "Severity": "MEDIUM",
+      "Title": "JWT token",
+      "StartLine": 1496,
+      "EndLine": 1496,
+      "Code": {
+        "Lines": [
+          {
+            "Number": 1494,
+            "Content": "        ],",
+            "IsCause": false,
+            "Annotation": "",
+            "Truncated": false,
+            "Highlighted": "        ],",
+            "FirstCause": false,
+            "LastCause": false
+          },
+          {
+            "Number": 1495,
+            "Content": "        \"summary\": \"JSON Web Token implementation in Python\",",
+            "IsCause": false,
+            "Annotation": "",
+            "Truncated": false,
+            "Highlighted": "        \"summary\": \"JSON Web Token implementation in Python\",",
+            "FirstCause": false,
+            "LastCause": false
+          },
+          {
+            "Number": 1496,
+            "Content": "\\n    >>> print(encoded)\\n    ***********************************************************************************************************    >>> jwt.decode(e",
+            "IsCause": true,
+            "Annotation": "",
+            "Truncated": false,
+            "Highlighted": "\\n    >>> print(encoded)\\n    ***********************************************************************************************************    >>> jwt.decode(e",
+            "FirstCause": true,
+            "LastCause": true
+          },
+          {
+            "Number": 1497,
+            "Content": "        \"description_content_type\": \"text/x-rst\",",
+            "IsCause": false,
+            "Annotation": "",
+            "Truncated": false,
+            "Highlighted": "        \"description_content_type\": \"text/x-rst\",",
+            "FirstCause": false,
+            "LastCause": false
+          }
+        ]
+      },
+      "Match": "\\n    >>> print(encoded)\\n    ***********************************************************************************************************    >>> jwt.decode(e",
+      "Offset": 281365
+    }
+  ]
+}

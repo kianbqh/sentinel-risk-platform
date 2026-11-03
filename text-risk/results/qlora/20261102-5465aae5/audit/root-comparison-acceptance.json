@@ -1,0 +1,269 @@
+{
+  "accepted": true,
+  "checked_at_utc": "2026-11-02T13:17:04.651431+00:00",
+  "completion_sha256": "f486d519c85b3e9b40af3703770fc6a311fbf249f4b9cc6085a36e843668323c",
+  "comparison_sha256": "34c26cc49bd11ae520a1031fe48361602d36ec56ec8b8186cfad77c5baca5e9f",
+  "audit_source_sha256": "6aa4b34c45bfbeb42f8ef04d0b96e6f358bbd0a1863c09f59fc5d51ebbe18f6a",
+  "numpy_version": "1.26.4",
+  "sets": {
+    "paired400": {
+      "systems": 9,
+      "bootstrap_resamples": 10000,
+      "scores": {
+        "tfidf_lr": {
+          "n": 400,
+          "tp": 46,
+          "fp": 1,
+          "fn": 5,
+          "tn": 348,
+          "accuracy": 0.985,
+          "precision": 0.9787234042553191,
+          "recall": 0.9019607843137255,
+          "f1": 0.9387755102040817
+        },
+        "historical_llm_qwen2.5-0.5b-q4": {
+          "n": 400,
+          "tp": 30,
+          "fp": 100,
+          "fn": 21,
+          "tn": 249,
+          "accuracy": 0.6975,
+          "precision": 0.23076923076923078,
+          "recall": 0.5882352941176471,
+          "f1": 0.3314917127071823
+        },
+        "historical_hybrid_qwen2.5-0.5b-q4": {
+          "n": 400,
+          "tp": 43,
+          "fp": 11,
+          "fn": 8,
+          "tn": 338,
+          "accuracy": 0.9525,
+          "precision": 0.7962962962962963,
+          "recall": 0.8431372549019608,
+          "f1": 0.819047619047619
+        },
+        "historical_llm_qwen2.5-1.5b-q4": {
+          "n": 400,
+          "tp": 42,
+          "fp": 68,
+          "fn": 9,
+          "tn": 281,
+          "accuracy": 0.8075,
+          "precision": 0.38181818181818183,
+          "recall": 0.8235294117647058,
+          "f1": 0.5217391304347826
+        },
+        "historical_hybrid_qwen2.5-1.5b-q4": {
+          "n": 400,
+          "tp": 45,
+          "fp": 10,
+          "fn": 6,
+          "tn": 339,
+          "accuracy": 0.96,
+          "precision": 0.8181818181818182,
+          "recall": 0.8823529411764706,
+          "f1": 0.8490566037735849
+        },
+        "prompt_only_nf4": {
+          "n": 400,
+          "tp": 34,
+          "fp": 1,
+          "fn": 17,
+          "tn": 348,
+          "accuracy": 0.955,
+          "precision": 0.9714285714285714,
+          "recall": 0.6666666666666666,
+          "f1": 0.7906976744186046
+        },
+        "qlora_seed_42": {
+          "n": 400,
+          "tp": 48,
+          "fp": 0,
+          "fn": 3,
+          "tn": 349,
+          "accuracy": 0.9925,
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697
+        },
+        "qlora_seed_43": {
+          "n": 400,
+          "tp": 49,
+          "fp": 1,
+          "fn": 2,
+          "tn": 348,
+          "accuracy": 0.9925,
+          "precision": 0.98,
+          "recall": 0.9607843137254902,
+          "f1": 0.9702970297029703
+        },
+        "qlora_seed_44": {
+          "n": 400,
+          "tp": 49,
+          "fp": 0,
+          "fn": 2,
+          "tn": 349,
+          "accuracy": 0.995,
+          "precision": 1.0,
+          "recall": 0.9607843137254902,
+          "f1": 0.98
+        }
+      },
+      "seed_variation": {
+        "n_seeds": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "std_ddof": 0,
+        "scope": "between-training-seed variation, not a confidence interval",
+        "f1": {
+          "mean": 0.9733313331333133,
+          "std": 0.004721818599991157,
+          "raw": [
+            0.9696969696969697,
+            0.9702970297029703,
+            0.98
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9933333333333334,
+          "std": 0.001178511301977554,
+          "raw": [
+            0.9925,
+            0.9925,
+            0.995
+          ]
+        },
+        "precision": {
+          "mean": 0.9933333333333333,
+          "std": 0.009428090415820642,
+          "raw": [
+            1.0,
+            0.98,
+            1.0
+          ]
+        },
+        "recall": {
+          "mean": 0.954248366013072,
+          "std": 0.009243225897863385,
+          "raw": [
+            0.9411764705882353,
+            0.9607843137254902,
+            0.9607843137254902
+          ]
+        }
+      }
+    },
+    "full1035": {
+      "systems": 5,
+      "bootstrap_resamples": 10000,
+      "scores": {
+        "tfidf_lr": {
+          "n": 1035,
+          "tp": 124,
+          "fp": 4,
+          "fn": 7,
+          "tn": 900,
+          "accuracy": 0.9893719806763285,
+          "precision": 0.96875,
+          "recall": 0.9465648854961832,
+          "f1": 0.9575289575289575
+        },
+        "prompt_only_nf4": {
+          "n": 1035,
+          "tp": 84,
+          "fp": 1,
+          "fn": 47,
+          "tn": 903,
+          "accuracy": 0.9536231884057971,
+          "precision": 0.9882352941176471,
+          "recall": 0.6412213740458015,
+          "f1": 0.7777777777777778
+        },
+        "qlora_seed_42": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807
+        },
+        "qlora_seed_43": {
+          "n": 1035,
+          "tp": 128,
+          "fp": 4,
+          "fn": 3,
+          "tn": 900,
+          "accuracy": 0.9932367149758454,
+          "precision": 0.9696969696969697,
+          "recall": 0.9770992366412213,
+          "f1": 0.973384030418251
+        },
+        "qlora_seed_44": {
+          "n": 1035,
+          "tp": 127,
+          "fp": 1,
+          "fn": 4,
+          "tn": 903,
+          "accuracy": 0.9951690821256038,
+          "precision": 0.9921875,
+          "recall": 0.9694656488549618,
+          "f1": 0.9806949806949807
+        }
+      },
+      "seed_variation": {
+        "n_seeds": 3,
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "std_ddof": 0,
+        "scope": "between-training-seed variation, not a confidence interval",
+        "f1": {
+          "mean": 0.9782579972694041,
+          "std": 0.0034464150117288666,
+          "raw": [
+            0.9806949806949807,
+            0.973384030418251,
+            0.9806949806949807
+          ]
+        },
+        "accuracy": {
+          "mean": 0.994524959742351,
+          "std": 0.0009109266102241989,
+          "raw": [
+            0.9951690821256038,
+            0.9932367149758454,
+            0.9951690821256038
+          ]
+        },
+        "precision": {
+          "mean": 0.9846906565656566,
+          "std": 0.010602137659836164,
+          "raw": [
+            0.9921875,
+            0.9696969696969697,
+            0.9921875
+          ]
+        },
+        "recall": {
+          "mean": 0.9720101781170483,
+          "std": 0.0035985077922979576,
+          "raw": [
+            0.9694656488549618,
+            0.9770992366412213,
+            0.9694656488549618
+          ]
+        }
+      }
+    }
+  },
+  "scope": "Independent raw-vector confusion/F1, exact paired bootstrap intervals, McNemar, seed statistics and TF-IDF timing reconciliation. No new inference or posthoc fence normalization."
+}

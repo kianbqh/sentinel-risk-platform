@@ -1,0 +1,291 @@
+{
+  "provenance": {
+    "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+    "git": {
+      "backend": "linux_explicit_task_git",
+      "configured_executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "version": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--version"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --version",
+        "returncode": 0,
+        "stdout": "git version 2.43.0",
+        "stderr": ""
+      },
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "read_only_flags": {
+        "argv": "--no-optional-locks",
+        "GIT_OPTIONAL_LOCKS": "0"
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+        "stderr": ""
+      },
+      "git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "selected_source_scope": [
+        "text-risk/finetune",
+        "text-risk/riskclf",
+        "text-risk/data/SMSSpamCollection",
+        "text-risk/models/tfidf_lr.joblib"
+      ],
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "text-risk/finetune",
+          "text-risk/riskclf",
+          "text-risk/data/SMSSpamCollection",
+          "text-risk/models/tfidf_lr.joblib"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- text-risk/finetune text-risk/riskclf text-risk/data/SMSSpamCollection text-risk/models/tfidf_lr.joblib",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "selected_source_dirty": false,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+        "stderr": ""
+      },
+      "whole_worktree_dirty": true
+    },
+    "selected_source_dirty": false,
+    "selected_source_scope": [
+      "text-risk/finetune",
+      "text-risk/riskclf",
+      "text-risk/data/SMSSpamCollection",
+      "text-risk/models/tfidf_lr.joblib"
+    ],
+    "selected_source_status": "",
+    "whole_worktree_dirty": true,
+    "whole_worktree_status": "?? copilot/results/\n?? results/ops/ci-5465aae5af963879f6cfcb83230e962ca0cf9ee0/",
+    "config_sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc",
+    "protocol_sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590",
+    "source_files": [
+      {
+        "path": "text-risk/finetune/.gitignore",
+        "bytes": 84,
+        "sha256": "1e680140274933ccc29330d2cf5c1ba1ccac90a8b1776f1b1207913411baf8e8"
+      },
+      {
+        "path": "text-risk/finetune/README.md",
+        "bytes": 11434,
+        "sha256": "278529456b3769f5a67259c3699d44c9fd445ab062f5a48fe254b4006750fb1f"
+      },
+      {
+        "path": "text-risk/finetune/__init__.py",
+        "bytes": 66,
+        "sha256": "1f5ae35e1b72aaebb70a91d0e81db1c800896efbf2dc003fd37ed8df0ab40f09"
+      },
+      {
+        "path": "text-risk/finetune/artifacts.py",
+        "bytes": 14083,
+        "sha256": "942f0bb3d052893b745e408313a38b548e837c210a1af2bee43e36d4ed886f33"
+      },
+      {
+        "path": "text-risk/finetune/comparison.py",
+        "bytes": 12737,
+        "sha256": "10258994e0ca012830735905ee368b1c304c155bf62215fd196e686924a1abb3"
+      },
+      {
+        "path": "text-risk/finetune/configs/qwen15_nf4.json",
+        "bytes": 2098,
+        "sha256": "590ffed087e289dd88e35639768eee2aa8aeb71d14dc9e4b294c3c755675b1bc"
+      },
+      {
+        "path": "text-risk/finetune/experiment.py",
+        "bytes": 17791,
+        "sha256": "e2e5bde48e885183e69a9892797b2ad0861f5d1eab291d72c8af6f8b6f6d1957"
+      },
+      {
+        "path": "text-risk/finetune/metrics.py",
+        "bytes": 4425,
+        "sha256": "b283432605b1d6bcd0cd8a2cddd8253b737c83e7296fb31cdc940f702be21433"
+      },
+      {
+        "path": "text-risk/finetune/modeling.py",
+        "bytes": 9123,
+        "sha256": "f427eb7341e509f4690651e8311c3f43ee32760c9a9d1709a55614a83b736b86"
+      },
+      {
+        "path": "text-risk/finetune/protocol.py",
+        "bytes": 5658,
+        "sha256": "0750c0d4bc598105d32d689bf198b366b86462ca35cb8dc6ca11cb2540c9976b"
+      },
+      {
+        "path": "text-risk/finetune/protocol/qwen_reference.json",
+        "bytes": 2204,
+        "sha256": "fb681dd83e0c093ea9ccae63806e40f8215ac94ad610d469cd7f4450b787ff32"
+      },
+      {
+        "path": "text-risk/finetune/protocol/sms_split.json",
+        "bytes": 124068,
+        "sha256": "585e835928c17720b84b263bf7a7e091a660c07cbe186fba02ef79ee7fa4c590"
+      },
+      {
+        "path": "text-risk/finetune/requirements-lock.txt",
+        "bytes": 2101,
+        "sha256": "a2fd012c5826d37323cbd68b0fd95233929588850062275186be47bdbe019061"
+      },
+      {
+        "path": "text-risk/finetune/requirements.candidate.txt",
+        "bytes": 410,
+        "sha256": "b4d53a83b54c606014e8c55525e166188ed6fe5326606cc7598751244e28402e"
+      },
+      {
+        "path": "text-risk/finetune/run.py",
+        "bytes": 3397,
+        "sha256": "c66cef98a8c36873cf922796a5b86d7bf346ef8675c5871ef69549e63555765c"
+      },
+      {
+        "path": "text-risk/finetune/tests/test_protocol.py",
+        "bytes": 14512,
+        "sha256": "d53527363aa7afb766e3101269421d748feb3fe9310159bbe55e4061f526ebd4"
+      },
+      {
+        "path": "text-risk/riskclf/__init__.py",
+        "bytes": 100,
+        "sha256": "2568240213eec379262ba78a5b686d5195810662d5751e84cac5d33c9ce77879"
+      },
+      {
+        "path": "text-risk/riskclf/baseline.py",
+        "bytes": 1089,
+        "sha256": "a66aa410ee95b7a105957f7a00a3b2af8d4c28cca9b3de611e9be0ca9eaeebec"
+      },
+      {
+        "path": "text-risk/riskclf/cache.py",
+        "bytes": 1213,
+        "sha256": "2cf78a50c57b9d0b143c74cccb079b510601c41a4a9fd76b6925cb3e96dfe5a6"
+      },
+      {
+        "path": "text-risk/riskclf/data.py",
+        "bytes": 1594,
+        "sha256": "9a17229ff86add5b9b37002294f25ccd33f0069ca69dd9d45a30c831f0b94a7e"
+      },
+      {
+        "path": "text-risk/riskclf/llm.py",
+        "bytes": 5689,
+        "sha256": "96ba9437ee991cecec15e4a6004bacd39eb5b060c963bf4a5b6227e8ab9e09ec"
+      },
+      {
+        "path": "text-risk/riskclf/rules.py",
+        "bytes": 1470,
+        "sha256": "9b604539eb958fba4a64e612e0f499eeed043ea155567843c1eb95b61afcdc66"
+      },
+      {
+        "path": "text-risk/riskclf/schema.py",
+        "bytes": 1217,
+        "sha256": "fe6349bab073e8ddbf8f6d8752380e6da9a2347144ad1b77e40833f1d4850fef"
+      },
+      {
+        "path": "text-risk/riskclf/service.py",
+        "bytes": 4628,
+        "sha256": "8ccd0e32b56c8e67379945966df8eefe329c88a166ae8255420bd784483e4b59"
+      }
+    ],
+    "versions": {
+      "torch": "2.15.0",
+      "transformers": "5.22.1",
+      "peft": "0.21.2",
+      "bitsandbytes": "0.50.2",
+      "accelerate": "1.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "pydantic": "2.14.2",
+      "safetensors": "0.8.0",
+      "huggingface-hub": "1.33.0"
+    },
+    "environment": "WSL2",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "exact_command": "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python text-risk/finetune/run.py compare --config text-risk/finetune/configs/qwen15_nf4.json --run-dir /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/comparison --prompt-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42 --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43 --seed-run /opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44",
+    "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+    "nvidia_smi": {
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,driver_version,memory.total,compute_cap",
+        "--format=csv,noheader"
+      ],
+      "command": "nvidia-smi --query-gpu=name,driver_version,memory.total,compute_cap --format=csv,noheader",
+      "returncode": 0,
+      "stdout": "NVIDIA GeForce RTX 3080, 621.01, 12288 MiB, 8.6",
+      "stderr": ""
+    },
+    "configured_model": {
+      "id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "license": "Apache-2.0",
+      "local_path": "/opt/codex-resume/all-modules-v2/m1a/weights/qwen25-15b-instruct",
+      "compute_dtype": "bfloat16",
+      "quant_type": "nf4",
+      "double_quant": true,
+      "attn_implementation": "sdpa"
+    },
+    "timestamp_utc": "2026-11-02T13:10:10.721688+00:00",
+    "process_timezone": "PST",
+    "pid": 299908,
+    "task_environment": {
+      "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+      "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+      "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+      "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+      "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+      "HF_HUB_OFFLINE": "1",
+      "PYTHONHASHSEED": "42",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "FINETUNE_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git"
+    },
+    "timestamp_America_Los_Angeles": "2026-11-02T05:10:10.721822-08:00"
+  },
+  "wall_time_seconds": 34.37519816000713,
+  "finished_at": "2026-11-02T13:10:45.095963+00:00",
+  "status": "success",
+  "error": null
+}

@@ -1,0 +1,13 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 with Docker Desktop services",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/functional-dcb8436-01/human-review",
+  "source_case_id": 1000001,
+  "admin_dsn_env": "COPILOT_ADMIN_DSN",
+  "writer_dsn_env": "COPILOT_WRITER_DSN",
+  "token_file_env": "COPILOT_TOKEN_FILE",
+  "mcp_endpoint": "http://127.0.0.1:18070/mcp",
+  "console_graphql": "http://127.0.0.1:13049/graphql"
+}

@@ -183,3 +183,126 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: {name: kind-helm, path: 'results/ops/ci-*'}
+
+  qlora-protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fixed splits, paired statistics and immutable run ownership
+        env:
+          PYTHONPATH: text-risk
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -m unittest discover -s text-risk/finetune/tests -v
+
+  copilot-tools:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg17
+        env:
+          POSTGRES_DB: sentinel_copilot_ci
+          POSTGRES_USER: copilot_ci_admin
+          POSTGRES_PASSWORD: ephemeral-ci-only-password
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -h 127.0.0.1 -U copilot_ci_admin -d sentinel_copilot_ci"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    env:
+      COPILOT_ADMIN_DSN: postgresql://copilot_ci_admin:ephemeral-ci-only-password@127.0.0.1:5432/sentinel_copilot_ci?sslmode=disable
+      PYTHONDONTWRITEBYTECODE: '1'
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: copilot/configs/requirements-tools-ci.txt
+      - name: Install exact CPU test dependencies
+        run: |
+          python -m pip install -r copilot/configs/requirements-tools-ci.txt
+          python -m pip check
+      - name: Prepare isolated roles and source-backed tool boundary
+        run: |
+          python -m copilot.scripts.prepare_ci \
+            --repo "$GITHUB_WORKSPACE" \
+            --private-dir "$RUNNER_TEMP/copilot-tools-private" \
+            --env-output "$GITHUB_ENV" \
+            --output-dir "$RUNNER_TEMP/copilot-tools-results"
+      - name: Actual HTTP auth/schema/no-write and PG role restrictions
+        run: python -m copilot.scripts.run_checks --config "$COPILOT_CI_CONFIG_DIR/checks.json"
+      - name: Exact frozen LR export and joblib probability parity
+        run: python -m copilot.scripts.verify_model --config "$COPILOT_CI_CONFIG_DIR/model-parity.json"
+      - name: Save installed CPU environment
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/copilot-tools-results/environment"
+          python -m pip freeze --all > "$RUNNER_TEMP/copilot-tools-results/environment/requirements.txt"
+          python -m pip inspect > "$RUNNER_TEMP/copilot-tools-results/environment/pip-inspect.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: copilot-tools-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/copilot-tools-results
+          if-no-files-found: error
+
+  copilot-agent-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install local-agent CPU test dependencies
+        run: pip install -r copilot/requirements-agent.candidate.txt
+      - name: LangGraph boundaries, memory, redaction and exact replay
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -m unittest discover -s copilot/tests/agent -v
+
+  copilot-agent-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      LANGSMITH_TRACING: 'false'
+      LANGCHAIN_TRACING_V2: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install recorded-agent CPU dependencies
+        run: pip install -r copilot/requirements-agent.candidate.txt
+      - name: Replay all accepted actual-model events exactly
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path, PurePosixPath
+
+          tracked = Path('copilot/eval/configs/replay.live120-fixipv4-8c4e.json')
+          config = json.loads(tracked.read_text())
+          expected = config['cassette_manifest_sha256']
+          manifest = PurePosixPath(config['cassette_manifest'])
+          if not re.fullmatch(r'[0-9a-f]{64}', expected):
+              raise ValueError('Tracked replay config must contain the accepted literal manifest SHA256')
+          if manifest.is_absolute() or '..' in manifest.parts or '\\' in str(manifest):
+              raise ValueError('Cassette manifest must be a contained repository-relative POSIX path')
+          suffix = f"{os.environ['GITHUB_RUN_ID']}-{os.environ['GITHUB_RUN_ATTEMPT']}"
+          config['output_dir'] = str(Path(os.environ['RUNNER_TEMP']) / f'copilot-agent-replay-{suffix}')
+          Path(os.environ['RUNNER_TEMP'], 'copilot-replay.json').write_text(json.dumps(config, indent=2) + '\n')
+          PY
+          python -m copilot.eval.replay --config "$RUNNER_TEMP/copilot-replay.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: copilot-agent-replay-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/copilot-agent-replay-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: error

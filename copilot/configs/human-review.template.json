@@ -1,0 +1,11 @@
+{
+  "repo_root": ".",
+  "environment": "WSL2",
+  "output_dir": "copilot/results/human-review/run-01",
+  "source_case_id": 1000001,
+  "admin_dsn_env": "COPILOT_ADMIN_DSN",
+  "writer_dsn_env": "COPILOT_WRITER_DSN",
+  "token_file_env": "COPILOT_TOKEN_FILE",
+  "mcp_endpoint": "http://127.0.0.1:18070/mcp",
+  "console_graphql": "http://127.0.0.1:13049/graphql"
+}

@@ -1,0 +1,541 @@
+{
+  "kind": "operator_closed_group_verification",
+  "timestamp_utc": "2026-11-02T13:13:52.911241+00:00",
+  "source_group": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6",
+  "status": "all_stages_passed_and_small_manifest_verified",
+  "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+  "finished_at": "2026-11-02T13:10:45.280901+00:00",
+  "verified_small_files": 108,
+  "verified_small_bytes": 6936978,
+  "stages": {
+    "train-44": {
+      "stage": "train-44",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "train",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--seed",
+        "44",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-44"
+      ],
+      "started_at": "2026-11-02T10:35:42.187364+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 282653,
+      "finished_at": "2026-11-02T11:21:38.707782+00:00",
+      "wall_seconds": 2756.643643232994,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/train-44.log"
+    },
+    "eval-42": {
+      "stage": "eval-42",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "evaluate",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--adapter-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-42",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42"
+      ],
+      "started_at": "2026-11-02T11:52:02.127001+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 291146,
+      "finished_at": "2026-11-02T12:18:23.533123+00:00",
+      "wall_seconds": 1581.476565938996,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/eval-42.log"
+    },
+    "pip-check": {
+      "stage": "pip-check",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "started_at": "2026-11-02T08:39:24.304449+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 270205,
+      "finished_at": "2026-11-02T08:39:24.986506+00:00",
+      "wall_seconds": 0.6819668849930167,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/pip-check.log"
+    },
+    "train-42": {
+      "stage": "train-42",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "train",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--seed",
+        "42",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-42"
+      ],
+      "started_at": "2026-11-02T08:39:25.118363+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 270228,
+      "finished_at": "2026-11-02T09:23:55.232500+00:00",
+      "wall_seconds": 2670.228128220988,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/train-42.log"
+    },
+    "train-43": {
+      "stage": "train-43",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "train",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--seed",
+        "43",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-43"
+      ],
+      "started_at": "2026-11-02T09:23:55.436443+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 275012,
+      "finished_at": "2026-11-02T10:35:41.954485+00:00",
+      "wall_seconds": 4306.738047966006,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/train-43.log"
+    },
+    "eval-43": {
+      "stage": "eval-43",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "evaluate",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--adapter-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-43",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43"
+      ],
+      "started_at": "2026-11-02T12:18:23.579702+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 294097,
+      "finished_at": "2026-11-02T12:44:00.840908+00:00",
+      "wall_seconds": 1537.331765105002,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/eval-43.log"
+    },
+    "eval-44": {
+      "stage": "eval-44",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "evaluate",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--adapter-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/train-44",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44"
+      ],
+      "started_at": "2026-11-02T12:44:00.878146+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 296972,
+      "finished_at": "2026-11-02T13:10:05.922398+00:00",
+      "wall_seconds": 1565.1120022579998,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/eval-44.log"
+    },
+    "prompt-only": {
+      "stage": "prompt-only",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "evaluate",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--smoke-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only"
+      ],
+      "started_at": "2026-11-02T11:21:38.859256+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 287732,
+      "finished_at": "2026-11-02T11:52:02.087970+00:00",
+      "wall_seconds": 1823.3122300579998,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/prompt-only.log"
+    },
+    "gpu-after": {
+      "stage": "gpu-after",
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,driver_version,memory.total,memory.used",
+        "--format=csv"
+      ],
+      "started_at": "2026-11-02T13:10:45.199357+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 300030,
+      "finished_at": "2026-11-02T13:10:45.246978+00:00",
+      "wall_seconds": 0.04752738600654993,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/gpu-after.log"
+    },
+    "comparison": {
+      "stage": "comparison",
+      "argv": [
+        "/opt/codex-resume/all-modules-v2/m1a/train-venv/bin/python",
+        "-u",
+        "text-risk/finetune/run.py",
+        "compare",
+        "--config",
+        "text-risk/finetune/configs/qwen15_nf4.json",
+        "--run-dir",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/comparison",
+        "--prompt-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/prompt-only",
+        "--seed-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-42",
+        "--seed-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-43",
+        "--seed-run",
+        "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/eval-44"
+      ],
+      "started_at": "2026-11-02T13:10:05.980786+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 299907,
+      "finished_at": "2026-11-02T13:10:45.166316+00:00",
+      "wall_seconds": 39.186656329999096,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/comparison.log"
+    },
+    "gpu-before": {
+      "stage": "gpu-before",
+      "argv": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,driver_version,memory.total,memory.used",
+        "--format=csv"
+      ],
+      "started_at": "2026-11-02T08:39:25.032679+00:00",
+      "expected_git_sha": "5465aae5af963879f6cfcb83230e962ca0cf9ee0",
+      "accepted_smoke_run": "/opt/codex-resume/all-modules-v2/m1a/runs/smoke-20261102T083453Z-8399bc4b/smoke",
+      "working_directory": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "launcher_pid": 270225,
+      "finished_at": "2026-11-02T08:39:25.084987+00:00",
+      "wall_seconds": 0.052199127996573225,
+      "returncode": 0,
+      "status": "passed",
+      "error": null,
+      "log": "/opt/codex-resume/all-modules-v2/m1a/runs/continuation-20261102T083924Z-d41d86d6/logs/gpu-before.log"
+    }
+  },
+  "owned_process_presence": {
+    "train-43": {
+      "pid": 275016,
+      "proc_present": false
+    },
+    "gpu-before": {
+      "pid": 270226,
+      "proc_present": false
+    },
+    "pip-check": {
+      "pid": 270206,
+      "proc_present": false
+    },
+    "gpu-after": {
+      "pid": 300031,
+      "proc_present": false
+    },
+    "eval-44": {
+      "pid": 296973,
+      "proc_present": false
+    },
+    "train-44": {
+      "pid": 282654,
+      "proc_present": false
+    },
+    "eval-42": {
+      "pid": 291147,
+      "proc_present": false
+    },
+    "train-42": {
+      "pid": 270229,
+      "proc_present": false
+    },
+    "prompt-only": {
+      "pid": 287733,
+      "proc_present": false
+    },
+    "comparison": {
+      "pid": 299908,
+      "proc_present": false
+    },
+    "eval-43": {
+      "pid": 294098,
+      "proc_present": false
+    }
+  },
+  "copied_files": [
+    {
+      "path": "CONTINUATION_COMPLETE.json",
+      "bytes": 17639,
+      "sha256": "f486d519c85b3e9b40af3703770fc6a311fbf249f4b9cc6085a36e843668323c"
+    },
+    {
+      "path": "launcher.json",
+      "bytes": 1850,
+      "sha256": "38d4ae2efc8abf6021063c6e9ac81dba17ffa22c5e1e3e64c5016422edd7f149"
+    },
+    {
+      "path": "run-group.txt",
+      "bytes": 81,
+      "sha256": "5f84db89f9d7a76cdefaed94547cd7a273987f376ec27f7e18db661bc28c82ec"
+    },
+    {
+      "path": "stages/comparison-end.json",
+      "bytes": 1405,
+      "sha256": "7f31a5c364fff1bfb3d6c8afc6c273005eba081050d5dffd739b0c701161b944"
+    },
+    {
+      "path": "stages/comparison-process.json",
+      "bytes": 856,
+      "sha256": "d221d46d63d5b18b714a4f8cd93332b360d4cecd936d6a16202be3ff901e2e21"
+    },
+    {
+      "path": "stages/comparison-start.json",
+      "bytes": 1143,
+      "sha256": "56fcd382c88af00ad33be9248f096ef3530bcb31f7ed75c2e9b9677beb8efddd"
+    },
+    {
+      "path": "stages/eval-42-end.json",
+      "bytes": 1158,
+      "sha256": "c377878478998b903f0d408ed9c99e2f47fbdfb83ed74b602764e927437aefd6"
+    },
+    {
+      "path": "stages/eval-42-process.json",
+      "bytes": 616,
+      "sha256": "47fcadf506c1811535345efce9f1ae779a9d08d064ce7f2e9e99953bd69545f7"
+    },
+    {
+      "path": "stages/eval-42-start.json",
+      "bytes": 900,
+      "sha256": "ed22cebb00cbcd0d6966e7711a607db5e265616208b9e7b14cde3a206305b394"
+    },
+    {
+      "path": "stages/eval-43-end.json",
+      "bytes": 1158,
+      "sha256": "2858135a557f3854a9b511a22d1fa9a5112b4d038358a30e943049207ab71e93"
+    },
+    {
+      "path": "stages/eval-43-process.json",
+      "bytes": 616,
+      "sha256": "21d32b5d90378df58affb64f21a600713d4265a2a63252f48f22da2fa865a9ca"
+    },
+    {
+      "path": "stages/eval-43-start.json",
+      "bytes": 900,
+      "sha256": "fd041e02e4fbdb3a9f19b5a5a36eaf67e075493ed8ea3f0079c2959510d5aef9"
+    },
+    {
+      "path": "stages/eval-44-end.json",
+      "bytes": 1159,
+      "sha256": "1fdd460bc1851c93fff5383aea7d9e17469610a6ae328f02a1c7599b3e787b77"
+    },
+    {
+      "path": "stages/eval-44-process.json",
+      "bytes": 616,
+      "sha256": "f8b2608fc01fc700dbe4ab372ff9216d155ce82e1368695f28929f7397c0a553"
+    },
+    {
+      "path": "stages/eval-44-start.json",
+      "bytes": 900,
+      "sha256": "421ba8b76f9ea45b7cf0c16db5de68c44a84e94d7e3027279dd730758ad43e28"
+    },
+    {
+      "path": "stages/gpu-after-end.json",
+      "bytes": 743,
+      "sha256": "701084ef2f1f9cf89bfe7f09fdb0aebe6f95b3cfcac2bdca571c982d6ded6c0c"
+    },
+    {
+      "path": "stages/gpu-after-process.json",
+      "bytes": 195,
+      "sha256": "917fb7bd6dce0f0e8145a6b9ef8e000994fd7eca9aa0b65ec3987f8010e78a8f"
+    },
+    {
+      "path": "stages/gpu-after-start.json",
+      "bytes": 481,
+      "sha256": "4e969214f9431f83ff344f2e1cc50852bea187d0abe3d4e5abfe1348d0dccb87"
+    },
+    {
+      "path": "stages/gpu-before-end.json",
+      "bytes": 746,
+      "sha256": "bb5d220da1e8d4578f451d96dac06d4f30e2d2eabe5ee1bc15e615d4ed683b02"
+    },
+    {
+      "path": "stages/gpu-before-process.json",
+      "bytes": 195,
+      "sha256": "7b78f8082272c0acb3c96aa8488267667a6d5b73758b42d6a3b8772fbd993cb5"
+    },
+    {
+      "path": "stages/gpu-before-start.json",
+      "bytes": 482,
+      "sha256": "7f182cdf58a36265f05e23f27482211ddd059be28549563dfa23b0ab1f9c14eb"
+    },
+    {
+      "path": "stages/pip-check-end.json",
+      "bytes": 735,
+      "sha256": "290113458a178bdb0bb0e79db8cc229d25b8d2395307b0abf1d29f2e29cf4c74"
+    },
+    {
+      "path": "stages/pip-check-process.json",
+      "bytes": 188,
+      "sha256": "db53241fa8ce10829d393c60a4151bc03a508e9f0829f9ddbf877e6d130a841b"
+    },
+    {
+      "path": "stages/pip-check-start.json",
+      "bytes": 474,
+      "sha256": "6f7220090e714f363a9119842ba297b2960697cca46ea74424fc3034259add98"
+    },
+    {
+      "path": "stages/prompt-only-end.json",
+      "bytes": 1053,
+      "sha256": "37af41ed729c4c3a4cfea1910de2eb59a6100ceacc73e27f861d2baceea190cc"
+    },
+    {
+      "path": "stages/prompt-only-process.json",
+      "bytes": 502,
+      "sha256": "478c6492c9237c0a8ed6e25ff8adc1476906a6c487a0b95e2eb3aa3a535430d6"
+    },
+    {
+      "path": "stages/prompt-only-start.json",
+      "bytes": 790,
+      "sha256": "ed47dafdfc78ffc14527dc7b286617a0529a6f7cf48e46a6cecd22a717adf32d"
+    },
+    {
+      "path": "stages/train-42-end.json",
+      "bytes": 1064,
+      "sha256": "f41f7c6dd301ae72af9ae208c913aeb6dab0889be43b993382d8404f7c768265"
+    },
+    {
+      "path": "stages/train-42-process.json",
+      "bytes": 520,
+      "sha256": "1cf35558ba58692ee9ed6832078464a3f0b3bbb11459829947bd9684d20bd99f"
+    },
+    {
+      "path": "stages/train-42-start.json",
+      "bytes": 805,
+      "sha256": "7d6ed9da4cd80fadd2c80b1023683cc3706156f8b56cfc5624be9cdfe2d938a2"
+    },
+    {
+      "path": "stages/train-43-end.json",
+      "bytes": 1064,
+      "sha256": "7be31dc2e302861d4472c019471871d389530a9d30022d14491ad550b9154abf"
+    },
+    {
+      "path": "stages/train-43-process.json",
+      "bytes": 520,
+      "sha256": "38acd0d5416512c3b288b53a6c99a56b3140a092981e9e7a77a3f7bae950ead3"
+    },
+    {
+      "path": "stages/train-43-start.json",
+      "bytes": 805,
+      "sha256": "5802a698af30641922124773988dc364c749405ee2463940500086bee1c481f4"
+    },
+    {
+      "path": "stages/train-44-end.json",
+      "bytes": 1064,
+      "sha256": "6d729202e84d1b28f4e40384e0b6ce4948eb871ef0e30dfe03bcbc1285b3761b"
+    },
+    {
+      "path": "stages/train-44-process.json",
+      "bytes": 520,
+      "sha256": "ca27c2dc532cae41e87ceab4145146e53277428a7a02b36960c9c8b1fcc86616"
+    },
+    {
+      "path": "stages/train-44-start.json",
+      "bytes": 805,
+      "sha256": "4676aaf0513b447476f8a5f5494adcdbb2ca38997c500537b4a36e612442bf1c"
+    },
+    {
+      "path": "logs/gpu-before.log",
+      "bytes": 161,
+      "sha256": "827a769f85aae42caf113126197a2356aa5cf456739d050adf1ead3de96f66e9"
+    },
+    {
+      "path": "logs/pip-check.log",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "logs/gpu-after.log",
+      "bytes": 161,
+      "sha256": "441e0403cc73b70401e0d54abdc91a5f01b2342e3e5a375e621930ea1b8541af"
+    }
+  ],
+  "scope": "small immutable evidence only; model/adapters/checkpoints retained in native run, not copied or rehashed",
+  "process_policy": "read-only verification; no process termination or global state changes"
+}

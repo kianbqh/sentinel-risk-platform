@@ -1,0 +1,1 @@
+{"scope": "readiness probe before actual smoke", "torch_file": "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages/torch/__init__.py", "torch_version": "2.15.0+cu132", "cuda_build": "13.2", "cuda_available": true, "gpu_name": "NVIDIA GeForce RTX 3080", "compute_capability": [8, 6], "bf16_supported": true}
