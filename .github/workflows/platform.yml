@@ -264,3 +264,45 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: python -m unittest discover -s copilot/tests/agent -v
+
+  copilot-agent-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      LANGSMITH_TRACING: 'false'
+      LANGCHAIN_TRACING_V2: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install recorded-agent CPU dependencies
+        run: pip install -r copilot/requirements-agent.candidate.txt
+      - name: Replay all accepted actual-model events exactly
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path, PurePosixPath
+
+          tracked = Path('copilot/eval/configs/replay.live120-fixipv4-8c4e.json')
+          config = json.loads(tracked.read_text())
+          expected = config['cassette_manifest_sha256']
+          manifest = PurePosixPath(config['cassette_manifest'])
+          if not re.fullmatch(r'[0-9a-f]{64}', expected):
+              raise ValueError('Tracked replay config must contain the accepted literal manifest SHA256')
+          if manifest.is_absolute() or '..' in manifest.parts or '\\' in str(manifest):
+              raise ValueError('Cassette manifest must be a contained repository-relative POSIX path')
+          suffix = f"{os.environ['GITHUB_RUN_ID']}-{os.environ['GITHUB_RUN_ATTEMPT']}"
+          config['output_dir'] = str(Path(os.environ['RUNNER_TEMP']) / f'copilot-agent-replay-{suffix}')
+          Path(os.environ['RUNNER_TEMP'], 'copilot-replay.json').write_text(json.dumps(config, indent=2) + '\n')
+          PY
+          python -m copilot.eval.replay --config "$RUNNER_TEMP/copilot-replay.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: copilot-agent-replay-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/copilot-agent-replay-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: error

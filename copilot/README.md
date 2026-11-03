@@ -57,11 +57,18 @@ fixed random. The [controlled draft and human-review check](results/functional-d
 used the same database as the console and preserved the draft after analyst
 labeling and resolution.
 
-[49 CPU agent checks](results/recording-unit-20261102/tests.log) passed with
-synthetic model boundaries. The 120-case actual-MCP protocol is frozen, but
-real-Qwen quality, latency, the live draft API and actual-model cassette replay
-remain pending. Recorded-response CI replay is prepared and does not load an
-LLM on the GitHub-hosted runner.
+The [first real-Qwen pass](results/agent-llm-live120-f836-20261103T010430Z/FAILED_RUN.md)
+completed 119 of 120 cases and exposed an IPv4 punctuation redaction bug. Its
+raw records, zero tool accuracy and separate privacy diagnostic remain visible.
+The fix passes [59 CPU checks](results/ipv4-regression-20261103/receipt.json).
+The [corrected run](results/agent-llm-isolated-8c4e-20261103T012816Z/real-eval/result.json)
+completed all 120 cases on an independent database: tool exact/set accuracy
+stayed 0/120, raw lexical faithfulness was 84/120 and 76 cases handed back.
+Actual end-to-end p50/p95 was 0.781160813/1.891345849 seconds. The
+[clone API check](results/agent-llm-isolated-8c4e-20261103T012816Z/publication/api-check.json)
+and [exact local replay](results/agent-llm-isolated-8c4e-20261103T012816Z/replay/result.json)
+passed. The [delivery report](../results/M1A_DELIVERY_REPORT.md) separates raw
+model quality from guarded final drafts and CPU replay.
 
 ## Limitations
 

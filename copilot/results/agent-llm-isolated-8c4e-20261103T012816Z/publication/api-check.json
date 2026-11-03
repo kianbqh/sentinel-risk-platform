@@ -1,0 +1,67 @@
+{
+  "kind": "sanitized-actual-authenticated-clone-api-check",
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "case_id": 1000122,
+  "source_case_id": 1000001,
+  "outside_fixed_ids": true,
+  "probes": [
+    {
+      "test": "missing",
+      "status": 401
+    },
+    {
+      "test": "wrong",
+      "status": 401
+    },
+    {
+      "test": "invalid-body",
+      "status": 400
+    },
+    {
+      "test": "authenticated-real-draft",
+      "status": 201
+    }
+  ],
+  "applied": false,
+  "draft": {
+    "schema_version": "1.0",
+    "case_id": 1000122,
+    "risk_level": "unknown",
+    "confidence": 0.0,
+    "summary": "The available evidence could not support a reliable automated draft. A human analyst should review the case.",
+    "key_evidence": [],
+    "recommended_next_step": "human_review",
+    "abstain": true,
+    "handoff_reason": "unfaithful_output"
+  },
+  "receipt": {
+    "actor": "copilot",
+    "run_id": "api-7b88e38192064d2ba9b6d79ff644237c",
+    "case_id": 1000122,
+    "event_id": 364
+  },
+  "human_fields_and_labels_unchanged": true,
+  "draft_only": true,
+  "fixed_case_state_unchanged": true,
+  "before_counts": {
+    "events": 0,
+    "memory": 0,
+    "turns": 0
+  },
+  "after_counts": {
+    "events": 1,
+    "memory": 1,
+    "turns": 1
+  },
+  "matching_event_turn_memory_content_independently_audited": true,
+  "source_receipts": {
+    "fixed_invariance_sha256": "9811579fdadc38464a5298866fd7b4c34d5977756b6cb995d696ce36e91e5bf1",
+    "http_sha256": "d9eff76ff1ef6de437e2e578369c3e238c3879b1002364ff43572cc19c3ebc60",
+    "before_sha256": "7d77f6b3d75cdfc754a43c9c25b7c91b983fa141936d66afd0759f42c1df5100",
+    "after_sha256": "44373bb3c10a09698a723c8c63517096d1987f126a2e77a50d0143cb4d6978fc"
+  }
+}

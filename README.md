@@ -71,6 +71,8 @@ The small LLM hybrids did not improve F1 over TF-IDF on these paired SMS message
 
 The separate QLoRA experiment improved the SMS point estimates. Its three-seed spread above is a population standard deviation; paired test-message intervals include or touch zero for the gains over TF-IDF. TF-IDF remains the default, with measured p50 latency of 0.901 ms versus 472–486 ms for the adapters. The [module report](text-risk/README.md) keeps strict-format failures, rules fallback and a separate posthoc format check visible.
 
+The [local drafts and SMS adaptation report](results/M1A_DELIVERY_REPORT.md) retains the first 119/120-case model failure and the corrected 120-case run. Storage, the clone API and exact local replay completed, but tool accuracy was 0/120, raw lexical faithfulness was 84/120 and 76 cases handed back to an analyst.
+
 The batch and paired SMS evaluations are retained source measurements; the [quality manifest](results/model-quality/manifest.json) records their original paths and SHA-256 hashes. The graph module was trained again after integration on the RTX 3080: both feature sets, three seeds, up to 300 epochs with patience 40, and 26 individual fit records. Its trainer timer was 531.0 seconds; model fit-plus-score times and resource snapshots accompany the results.
 
 ## Integration and console measurements

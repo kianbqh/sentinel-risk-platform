@@ -1,0 +1,538 @@
+{
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "strata": {
+    "ato/exhaustion": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 0.1,
+      "abstain_expectation_accuracy": 0.1,
+      "pre_guard_lexical_faithful_rate": 1.0,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.6623484885203652,
+        "p95": 0.815722327613912,
+        "raw_samples": [
+          0.5892247000010684,
+          0.7563436500204261,
+          0.6761848390160594,
+          0.6129312730045058,
+          0.8643048820085824,
+          0.648512138024671,
+          0.6900146609987132,
+          0.6957064789894503,
+          0.5767174979846459,
+          0.600347850995604
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 836.6,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 154.1,
+          "measured_cases": 10
+        }
+      }
+    },
+    "ato/injection": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 0.2,
+      "abstain_expectation_accuracy": 0.8,
+      "pre_guard_lexical_faithful_rate": 0.8,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.9420464650029317,
+        "p95": 1.0818777732027227,
+        "raw_samples": [
+          1.0127580940024927,
+          0.9149582060053945,
+          1.0034052699920721,
+          0.9326225300028455,
+          0.9514704000030179,
+          0.7525336879771203,
+          0.7721968699770514,
+          0.7241409400012344,
+          1.1384302380029112,
+          0.9928548650059383
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 875.7,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 232.1,
+          "measured_cases": 10
+        }
+      }
+    },
+    "ato/pii": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 0.9,
+      "abstain_rate": 0.3,
+      "abstain_expectation_accuracy": 0.7,
+      "pre_guard_lexical_faithful_rate": 0.8,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 1,
+      "decision_schema_valid_rate": 0.9090909090909091,
+      "latency_seconds": {
+        "p50": 0.9972886339965044,
+        "p95": 2.8327324138503163,
+        "raw_samples": [
+          0.6829246649867855,
+          1.0016744970052969,
+          0.9929027709877118,
+          0.7509566129883751,
+          0.8826356870122254,
+          1.1675487600150518,
+          2.309261857997626,
+          0.9193860489758663,
+          3.261026505002519,
+          1.0920066250255331
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 955.7,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 331.2,
+          "measured_cases": 10
+        }
+      }
+    },
+    "ato/standard": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 0.0,
+      "abstain_expectation_accuracy": 1.0,
+      "pre_guard_lexical_faithful_rate": 1.0,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.7744860040111234,
+        "p95": 1.1832534987101095,
+        "raw_samples": [
+          0.6630401870061178,
+          0.8728028869954869,
+          1.286407464009244,
+          0.6661636529897805,
+          0.6509534799843095,
+          1.0571764300111681,
+          0.6472632650111336,
+          0.8587927209737245,
+          0.843028689007042,
+          0.7059433190152049
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 810.6,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 181.9,
+          "measured_cases": 10
+        }
+      }
+    },
+    "ato/unsupported_explanation": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 0.0,
+      "abstain_expectation_accuracy": 1.0,
+      "pre_guard_lexical_faithful_rate": 1.0,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.6298303145013051,
+        "p95": 0.817087016160076,
+        "raw_samples": [
+          0.6188248949765693,
+          0.7189414940075949,
+          0.6206086320162285,
+          0.6233082649996504,
+          0.6471124329837039,
+          0.8624818969983608,
+          0.6363523640029598,
+          0.6161419189884327,
+          0.6128097279870417,
+          0.7616043840243947
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 829.4,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 160.4,
+          "measured_cases": 10
+        }
+      }
+    },
+    "ato/weak_evidence": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 1.0,
+      "pre_guard_lexical_faithful_rate": 1.0,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.6320502830058103,
+        "p95": 0.7415243936513434,
+        "raw_samples": [
+          0.5946556190028787,
+          0.6188326880219392,
+          0.6456596229982097,
+          0.6344346530095208,
+          0.6296659130020998,
+          0.6886340490018483,
+          0.6071706590009853,
+          0.6041534199903253,
+          0.6600556950143073,
+          0.7847983120009303
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 717.2,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 145,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/injection": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 0.0,
+      "pre_guard_lexical_faithful_rate": 0.4,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.8933223385101883,
+        "p95": 1.532147538557182,
+        "raw_samples": [
+          0.7251187239889987,
+          0.9040648500085808,
+          0.8825798270117957,
+          0.7400401330087334,
+          0.7664596700051334,
+          0.7527432239730842,
+          0.9773920020088553,
+          0.9384935800044332,
+          1.093153345020255,
+          1.8913246059964877
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 1491.6,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 231.6,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/missing_features": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 1.0,
+      "pre_guard_lexical_faithful_rate": 0.5,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.7773652184987441,
+        "p95": 0.9239712241513187,
+        "raw_samples": [
+          0.7772071229992434,
+          0.7211315399908926,
+          0.7775233139982447,
+          0.7887929790013004,
+          0.7259422030183487,
+          0.7585944030142855,
+          0.8104176650231238,
+          0.7751421029970516,
+          0.8476601800066419,
+          0.9864075329969637
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 752.4,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 177.9,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/pii": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 0.9,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 0.0,
+      "pre_guard_lexical_faithful_rate": 0.3,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 1,
+      "decision_schema_valid_rate": 0.9090909090909091,
+      "latency_seconds": {
+        "p50": 0.9038729939929908,
+        "p95": 2.7344811486866076,
+        "raw_samples": [
+          0.8690793800051324,
+          0.9264418069797102,
+          1.3191405510006007,
+          0.7661649509973358,
+          0.8180329160240944,
+          0.8585203470138367,
+          1.8917494709894527,
+          0.8813041810062714,
+          3.4239888849842828,
+          1.0860580790031236
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 1628.3,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 312.9,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/rescore": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 0.8,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 0.0,
+      "pre_guard_lexical_faithful_rate": 0.4,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 2,
+      "decision_schema_valid_rate": 0.8333333333333334,
+      "latency_seconds": {
+        "p50": 1.1363022834993899,
+        "p95": 3.472656244745303,
+        "raw_samples": [
+          3.3157832399883773,
+          0.9145788899913896,
+          3.60100688500097,
+          0.789180658000987,
+          0.805291639000643,
+          1.1849129759939387,
+          1.087691591004841,
+          1.4902186889958102,
+          1.6493784580088686,
+          0.8401261249964591
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 1723.8,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 399.5,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/standard": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 0.0,
+      "pre_guard_lexical_faithful_rate": 0.2,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.8798147980123758,
+        "p95": 0.956695615609351,
+        "raw_samples": [
+          0.8526397419918794,
+          0.9422843000211287,
+          0.888890619011363,
+          0.759820106002735,
+          0.8707389770133886,
+          0.9037167339993175,
+          0.7293401650094893,
+          0.8967017579998355,
+          0.9684866919997148,
+          0.7554850520100445
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 1426.1,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 206.7,
+          "measured_cases": 10
+        }
+      }
+    },
+    "card/weak_evidence": {
+      "cases": 10,
+      "completed_cases": 10,
+      "failed_cases": 0,
+      "tool_exact_accuracy": 0.0,
+      "tool_set_accuracy": 0.0,
+      "pre_guard_schema_valid_rate": 1.0,
+      "final_schema_valid_rate": 1.0,
+      "first_decision_schema_valid_rate": 1.0,
+      "abstain_rate": 1.0,
+      "abstain_expectation_accuracy": 1.0,
+      "pre_guard_lexical_faithful_rate": 1.0,
+      "final_lexical_faithful_rate": 1.0,
+      "pre_guard_pii_leak_count": 0,
+      "final_pii_leak_count": 0,
+      "schema_retry_count": 0,
+      "decision_schema_valid_rate": 1.0,
+      "latency_seconds": {
+        "p50": 0.6782586920016911,
+        "p95": 0.807868284190772,
+        "raw_samples": [
+          0.6901399350026622,
+          0.6606476889865007,
+          0.7259063000092283,
+          0.6300164269923698,
+          0.6143894450215157,
+          0.6934594830090646,
+          0.6663774490007199,
+          0.8713072339887731,
+          0.7303317899932154,
+          0.627423165977234
+        ]
+      },
+      "tokens_per_case": {
+        "input_tokens": {
+          "mean": 752.9,
+          "measured_cases": 10
+        },
+        "output_tokens": {
+          "mean": 158.1,
+          "measured_cases": 10
+        }
+      }
+    }
+  },
+  "source_audit_sha256": "f8a9014a42e346b7a7e0359d808f305f0c42e1d6364d743804fe3d2acc13aafe"
+}

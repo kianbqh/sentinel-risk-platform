@@ -1,0 +1,44 @@
+{
+  "repo_root": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+  "environment": "WSL2 local Qwen with Docker Desktop PostgreSQL/gateway and authenticated native MCP",
+  "require_clean_source": true,
+  "git_binary": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+  "expected_git_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+  "run_id": "isolated-8c4e-20261103T012816Z",
+  "output_dir": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/real-eval",
+  "runtime_protocol": "copilot/results/runtime-v2-5465aae-01/runtime-protocol/runtime_protocol.json",
+  "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb",
+  "mcp_endpoint": "http://127.0.0.1:18070/mcp",
+  "mcp_token_file": "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/agent/isolated-runtime-20261103-fixipv4/credentials/token",
+  "writer_dsn_env": "COPILOT_WRITER_DSN",
+  "warmups": 2,
+  "repeats": 1,
+  "concurrency": 1,
+  "artifacts": {
+    "gguf": {
+      "path": "/opt/codex-resume/llm-risk-classifier/weights/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+    },
+    "llama_server": {
+      "path": "/opt/codex-resume/llm-risk-classifier/llama/llama-b12024/llama-server",
+      "sha256": "f2f78cac3e345426ad8a08847fde415cbecee74f8d4f7063e57d17be5023005f"
+    }
+  },
+  "llm": {
+    "endpoint": "http://127.0.0.1:18069/v1",
+    "model": "sentinel-copilot-qwen15",
+    "max_tokens": 700,
+    "seed": 42,
+    "timeout_seconds": 45,
+    "schema_constrained": true
+  },
+  "agent": {
+    "total_tool_budget": 5,
+    "max_model_calls": 7,
+    "schema_retries": 1,
+    "confidence_threshold": 0.65,
+    "case_timeout_seconds": 180,
+    "max_prompt_chars": 38000,
+    "memory_turns": 4
+  }
+}

@@ -1,0 +1,1153 @@
+{
+  "schema_version": "1.0",
+  "mode": "recorded-actual-local-llm-http-mcp-pg",
+  "source_result_sha256": "8401f7b364c8a9dc318c98abb14994ebe09c4f7a8500bc87af3942dedd36ca41",
+  "source_git_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+  "source_config_sha256": "eada8ae5e0bed30cb9fd77c1fe3e1b06a63d16e79c38b95c09ac21811c280d08",
+  "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb",
+  "artifacts": {
+    "gguf": {
+      "path": "/opt/codex-resume/llm-risk-classifier/weights/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+      "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e"
+    },
+    "llama_server": {
+      "path": "/opt/codex-resume/llm-risk-classifier/llama/llama-b12024/llama-server",
+      "sha256": "f2f78cac3e345426ad8a08847fde415cbecee74f8d4f7063e57d17be5023005f"
+    }
+  },
+  "agent_config": {
+    "total_tool_budget": 5,
+    "max_model_calls": 7,
+    "schema_retries": 1,
+    "confidence_threshold": 0.65,
+    "case_timeout_seconds": 180,
+    "max_prompt_chars": 38000,
+    "memory_turns": 4
+  },
+  "cases": [
+    {
+      "case_id": 1000001,
+      "file": "case-1000001.json.gz",
+      "sha256": "cdb9450b775cc17c11b5ffd53b4152923395b38727c31a0aafbbeacaedb3bb8d",
+      "source_case_sha256": "9c5cf67c3176b0b38df4c4a32c2905c425bb74d38bed699b63af939697df1c32"
+    },
+    {
+      "case_id": 1000002,
+      "file": "case-1000002.json.gz",
+      "sha256": "e633c4724eb67e89d56a765ce073c67fd618b8fa7600051f776d3af08aa22554",
+      "source_case_sha256": "dc9713b4035e157a2eee73380bade578e06478ae7df7bd2bd0ab2fac0eb5bd06"
+    },
+    {
+      "case_id": 1000003,
+      "file": "case-1000003.json.gz",
+      "sha256": "28825ad992b5409923dc20cded3eb6c8a891eb84410e9063a3c89334c023c9ed",
+      "source_case_sha256": "461b6c294c4ed34cfd009960a9c0d4f0e90608ee57d621b41f461e7c704a0071"
+    },
+    {
+      "case_id": 1000004,
+      "file": "case-1000004.json.gz",
+      "sha256": "572c18645d5b4305655d99c803d7a16e8a8e8e2fd8e6d627b65e7e7813520cb7",
+      "source_case_sha256": "cce23a18eea0dd5fcabb2bde46d0f3ec4b77a0117c48f5fbbe7599540e6a8cac"
+    },
+    {
+      "case_id": 1000005,
+      "file": "case-1000005.json.gz",
+      "sha256": "4f812ae13ac954d818da84445646d0e45788382da112fc11eed23610c9eadf45",
+      "source_case_sha256": "37ad401fe8187b7d8b2ef9d4cef21a75b0f8556b2eeb6d6384912d3cbe400f52"
+    },
+    {
+      "case_id": 1000006,
+      "file": "case-1000006.json.gz",
+      "sha256": "d809100c47229872c707eb1a6d06822ed0f4ac63e1c635e2e9e98e6f26e2080e",
+      "source_case_sha256": "1f850742f98bd262a289fab20635fc77b2c6b97d70615334fb0cab123eb31540"
+    },
+    {
+      "case_id": 1000007,
+      "file": "case-1000007.json.gz",
+      "sha256": "38cc5ac0a4f473de50c40a4e3470e01ca97dd9f06fdd3d9d11eb0b4270162e51",
+      "source_case_sha256": "fc9054db82517a080e976cec23f6246eb0c02ecdce9871cf9965b3e8836fe6d4"
+    },
+    {
+      "case_id": 1000008,
+      "file": "case-1000008.json.gz",
+      "sha256": "5ce3dea92192be7d0df09840d5c0343e9b08d7caf97b4a4ffb6a522a409b062d",
+      "source_case_sha256": "4e48bf09303daba7fd54357f0dcb3c36c09965d981d7b17abd242381c0ff311c"
+    },
+    {
+      "case_id": 1000009,
+      "file": "case-1000009.json.gz",
+      "sha256": "80a31d536245a0e462b279b9e76e1ee8a903d9c7bda4bd7d5155c460ca8070df",
+      "source_case_sha256": "4f8bb2614e46ad1bf47a1744437f31d969d4804cc236f0c0ba4dbb3363a31814"
+    },
+    {
+      "case_id": 1000010,
+      "file": "case-1000010.json.gz",
+      "sha256": "f0110a1fa4e7b1863008230742d5662735121c295adc5d13b61efe2bfcaaf601",
+      "source_case_sha256": "251d70869603a18d83524d3144196d8858cd5ab3716a41026af98f74b017ec04"
+    },
+    {
+      "case_id": 1000011,
+      "file": "case-1000011.json.gz",
+      "sha256": "43e8809286a60d09343291bb5328c8960f4be9c5c79662acac402018cb1dac30",
+      "source_case_sha256": "b59eb541997ff97a434062efe2f3914b3f084f93b24c6f72126a2221130fb2f0"
+    },
+    {
+      "case_id": 1000012,
+      "file": "case-1000012.json.gz",
+      "sha256": "0efc3b85cba03cf07363dee11b52fe46f1800e63906b18dd0ba2799cb3c99c7e",
+      "source_case_sha256": "049e5aa732963cbbdebb969b2178f9b320be3aa2254be08ab6427a98a288a67b"
+    },
+    {
+      "case_id": 1000013,
+      "file": "case-1000013.json.gz",
+      "sha256": "0ae492850264cccd8df1cb22ca03dae03f4d31e3ca590ac4167dae80a14ed289",
+      "source_case_sha256": "9a1eac07150f1a929e0994c179861bb2a51cdaca9cd75bb8c9168893e99c8d5b"
+    },
+    {
+      "case_id": 1000014,
+      "file": "case-1000014.json.gz",
+      "sha256": "010b3abfef50733b11a684e4f39ea8b309d3c36767a98a62bf8095adac2c8357",
+      "source_case_sha256": "5f1cb49fb4ff89b128178000c8a4f41f31bec5f42f8cd174750ad63a38140664"
+    },
+    {
+      "case_id": 1000015,
+      "file": "case-1000015.json.gz",
+      "sha256": "eec6424270a511437e05fa084858984283374e2f8aa067c25fe8e948e931d250",
+      "source_case_sha256": "2813c0f318d105bf02187a9584c99d6f463dabe6151da4209efacd7af165a5b5"
+    },
+    {
+      "case_id": 1000016,
+      "file": "case-1000016.json.gz",
+      "sha256": "5776277d165712bc3ae3865ae89eb99775f44a749c568adfc773bc9f3a4c21d2",
+      "source_case_sha256": "e8c5df06d0b2e0923a54c147392b0112088675b3ffc328542206097285b35d9e"
+    },
+    {
+      "case_id": 1000017,
+      "file": "case-1000017.json.gz",
+      "sha256": "9b376193e12e2dc49052c57b00bf5a88ff6dcb1eab9907f2b6aef4f28c40e0a6",
+      "source_case_sha256": "e8554265c49f23b80170c0b57a47c67ee388854430201ed56eaa066c64361b1a"
+    },
+    {
+      "case_id": 1000018,
+      "file": "case-1000018.json.gz",
+      "sha256": "e5d6f2ccc181a2544c57cec6c53170caae8e7981511579fbd17bcc9da43619c7",
+      "source_case_sha256": "09d22ede0f2d8b2ffca4d46a68eb433cb033be2bbe4416fea036b1e7b3866539"
+    },
+    {
+      "case_id": 1000019,
+      "file": "case-1000019.json.gz",
+      "sha256": "4a9de5daca1ee0e3c3009b974a110e3925db56dd4243e1d102615e6fadf07a9c",
+      "source_case_sha256": "05171600864e44b5d7fb061d5c509de76dfcb298ca419ce608faf3e4d1e3f0cd"
+    },
+    {
+      "case_id": 1000020,
+      "file": "case-1000020.json.gz",
+      "sha256": "0e3bd47f9a8966ac2e8d51cea71a6957da2a00f1e4f3ccd5d3d93e7877b18ac6",
+      "source_case_sha256": "fc6fe785202f64272cc32d4fbbd1b5cb83ca56a556e98e3005dff2088aaee730"
+    },
+    {
+      "case_id": 1000021,
+      "file": "case-1000021.json.gz",
+      "sha256": "3bbea73161dfd9857ba824e2db21002de1dee5efba20ead7e8931b4f4d735da8",
+      "source_case_sha256": "9215b832b459a4cf4465847a39dbb8c08820b005f216ca76f85184a7699ca7eb"
+    },
+    {
+      "case_id": 1000022,
+      "file": "case-1000022.json.gz",
+      "sha256": "f185ec20fbc199768d2bc284cb4c79beb2b0bdabbbd4586ae065dba91efbf076",
+      "source_case_sha256": "b3beb9730a29095f8e6357de22677d8ab417c9edbda9970cdf13e447fcffe1cc"
+    },
+    {
+      "case_id": 1000023,
+      "file": "case-1000023.json.gz",
+      "sha256": "bf73f46a93bf3840b3018600a7a5efeb12e71ef61262215395207ab5ae778a2b",
+      "source_case_sha256": "108de87bc089bf5a7f2277c268b8634c93d12d93e3e747e1678b3972aabd028b"
+    },
+    {
+      "case_id": 1000024,
+      "file": "case-1000024.json.gz",
+      "sha256": "c71eba1d3dfc769ce24560c7f938fbbf5fd42b0d60700d828f9d12d0b7cfafdf",
+      "source_case_sha256": "238f053dbb5afb88a3a5cc83e04f68b5a101d7500a33efe4ab4b2f700dabe1ad"
+    },
+    {
+      "case_id": 1000025,
+      "file": "case-1000025.json.gz",
+      "sha256": "398f54df0efed598a37d8c65c7bdde6a3b916d978d42adb0752e6b49f48df6db",
+      "source_case_sha256": "6c88f998d5c8beb8cbecc5bf344d1111777efe4edadbb50f333924caca1053e5"
+    },
+    {
+      "case_id": 1000026,
+      "file": "case-1000026.json.gz",
+      "sha256": "a46faa3381c39cba7c8349f9d874904f34ce7a7d3f31c44841bb5e721768cc4e",
+      "source_case_sha256": "ac6ad2cb47039c166cba2c4ce42c6b4c37a67986aba89286c306473018042b9f"
+    },
+    {
+      "case_id": 1000027,
+      "file": "case-1000027.json.gz",
+      "sha256": "0098b469051ae32c5682ad4c3efa0e505733645aad868fc4a855fa03e3ad04a8",
+      "source_case_sha256": "aa89f09ba91065745e9101f6032a9ab3e21c0363f726072ae1f3d42ca7cda5e4"
+    },
+    {
+      "case_id": 1000028,
+      "file": "case-1000028.json.gz",
+      "sha256": "a4f04c29f7f0537327b32ef3e9bb49610b6b981510e5adc49984ce70dd7f89ef",
+      "source_case_sha256": "cb9c1e4615ee88e7b90e4587972939603bfa8c9288eafa0e7efd8bd56f515ff9"
+    },
+    {
+      "case_id": 1000029,
+      "file": "case-1000029.json.gz",
+      "sha256": "2a37503389d3d648ca07611a1585146231ebec096bb8312fe13945241aea434f",
+      "source_case_sha256": "d1a424b4ce9aa2d5df09fb5af49c75bd660a539cd6e3c43f3d2e569c0ddc892a"
+    },
+    {
+      "case_id": 1000030,
+      "file": "case-1000030.json.gz",
+      "sha256": "f719a50962319ce1e505fe57bba740206df3253bd58167b9037aa65fef5473ee",
+      "source_case_sha256": "637b95275446399cbda1c7078b84d8bf718a925561e6e89054da2a8103113277"
+    },
+    {
+      "case_id": 1000031,
+      "file": "case-1000031.json.gz",
+      "sha256": "57ba277b25f8fdf5b0d2a3821094a76765e6be62166383e436a13fb4c8c2d26c",
+      "source_case_sha256": "94be63809f4cd01c47f38e0d0f438716c2ad83c00f818b888ac40c96adab7136"
+    },
+    {
+      "case_id": 1000032,
+      "file": "case-1000032.json.gz",
+      "sha256": "d885fc0e4f144dbf1901d8c6c546169a5bd974bb854dd47718b4ce75fbdbccc1",
+      "source_case_sha256": "c1c307637df4f0ad7fcbe274ac58740978df760bf8ae6eabd549858f1980cc48"
+    },
+    {
+      "case_id": 1000033,
+      "file": "case-1000033.json.gz",
+      "sha256": "9e9c23d0b9242e5213d67e32b9776bec3bb1b19ec1a6875cddaef321587d1719",
+      "source_case_sha256": "60fe2c3a317cf53a9947fb5230ff3ea3478ce1df71c742355c40cb60854f46aa"
+    },
+    {
+      "case_id": 1000034,
+      "file": "case-1000034.json.gz",
+      "sha256": "10f2b432d20e98e3c7cd46e69f74589840c1b0d84d9fa5857cf18001d276604f",
+      "source_case_sha256": "406684edcd6438902d09257ddb8cdb8b87aa7555cbcae37d009cccc46e20e3ee"
+    },
+    {
+      "case_id": 1000035,
+      "file": "case-1000035.json.gz",
+      "sha256": "9e883d7efec0d4fde1209e28c175833e5d9e06eb24c9a63f7d45b8b654b122b1",
+      "source_case_sha256": "73b8f698266f2b510a020d4cc76b8f9a91e92ea8f84f43c95fb82c6f2a6de8a8"
+    },
+    {
+      "case_id": 1000036,
+      "file": "case-1000036.json.gz",
+      "sha256": "d23b4a8e2384590a2a6a81e418c463cb99f01165604a333046d06e0ceaa5265c",
+      "source_case_sha256": "c32353f8daa530d9f6da97dbbc8c81d190007748c2b79863377272714290a6cb"
+    },
+    {
+      "case_id": 1000037,
+      "file": "case-1000037.json.gz",
+      "sha256": "82606770b4988fa1b2bd8523d4471293a6d18ae64c702e0f45cd43221fd84c59",
+      "source_case_sha256": "5c54e2b7b0106a9f61dbe7bc510e7d47971f301d031342b7e4007c6551ae4643"
+    },
+    {
+      "case_id": 1000038,
+      "file": "case-1000038.json.gz",
+      "sha256": "762c0fba089b7b6f733d7530ccbf60a5fa52da7b21f5f3fc816890eda99707b3",
+      "source_case_sha256": "16563cf7913b69e2c0b4540c6b9a6de0c55c017ce27270a9c5721cfc327932e7"
+    },
+    {
+      "case_id": 1000039,
+      "file": "case-1000039.json.gz",
+      "sha256": "3b80419dc42fd4a6297d8f39daf0d962e3b7b286342c30e487419773e5bb49a9",
+      "source_case_sha256": "ca9e46504cd00a2855cdcd078e57d98080386a03e57fddf1d696736ef8f58cae"
+    },
+    {
+      "case_id": 1000040,
+      "file": "case-1000040.json.gz",
+      "sha256": "424773e3bb213340360d28baffd99e059ee8d6c6640b51cabb23c9169792426e",
+      "source_case_sha256": "941726abd52e64a882185d6483ac43a892a3593f47557363516a762b930bc445"
+    },
+    {
+      "case_id": 1000041,
+      "file": "case-1000041.json.gz",
+      "sha256": "66d8f3e65e9b8f3d1419fd367259e7cec5c52c5aac397b9aca52c7c127dfbe1c",
+      "source_case_sha256": "5be08d28c9c3731f27105ac059f064dca71bb71e87293a17f68d40fc68c43757"
+    },
+    {
+      "case_id": 1000042,
+      "file": "case-1000042.json.gz",
+      "sha256": "ce6a87454dab7e32ac56ceb57d1d8976a510bc6ad794b82116e86c64031f5fef",
+      "source_case_sha256": "19e497761fb6b5922cd5e637adaa4ceec5a8a60748079ec529a4954cbf28203a"
+    },
+    {
+      "case_id": 1000043,
+      "file": "case-1000043.json.gz",
+      "sha256": "5f911c01ec9cbca49c913e3684c67c4411254acc9add0254bec1783c7a64561b",
+      "source_case_sha256": "0b62fb5bca69a38256e9b64c0a88dd58c8bcbf405824dcc3085e81a649612b28"
+    },
+    {
+      "case_id": 1000044,
+      "file": "case-1000044.json.gz",
+      "sha256": "74d925534d95029588ae351158c87c467a65173f7158628ad99945ec38930b19",
+      "source_case_sha256": "e4add1c73471fddd39c5209b6f4e7346e107ffb2922774bd7353aebbd3a02b7e"
+    },
+    {
+      "case_id": 1000045,
+      "file": "case-1000045.json.gz",
+      "sha256": "4546e274668cb444f04d3ba803ba5dffdafffab59308c81a4be31ad685b55a4d",
+      "source_case_sha256": "a2c802e1f9c0bd13109f643e5c8f4a6e8a89e14737274d377338bd07ed80bd5d"
+    },
+    {
+      "case_id": 1000046,
+      "file": "case-1000046.json.gz",
+      "sha256": "e782de9e2139e699819e69d421adc7c5da4d36ae15c69d3954c1aa6db8a22d08",
+      "source_case_sha256": "eba4fa11a42f95062d8b203c8d391b2f5fc6e5ed2cecefe730bde6243fd665a2"
+    },
+    {
+      "case_id": 1000047,
+      "file": "case-1000047.json.gz",
+      "sha256": "8cbdced9cfb31b858340c5c50c1a5154801fe232f95094ca6b9a8df8ee12ca58",
+      "source_case_sha256": "ce0860c30f72300290bf78ffbe344def5e0ac8a0deaef1958246739c4016d05e"
+    },
+    {
+      "case_id": 1000048,
+      "file": "case-1000048.json.gz",
+      "sha256": "86a4585ee902ddc5419c158867c2781080be7e8801c6f32ec48f6ad80b3f12da",
+      "source_case_sha256": "9fe1f34212d7abb420e09a0b97c07e50b5583dc4fd1e405a8e08e02b7f031203"
+    },
+    {
+      "case_id": 1000049,
+      "file": "case-1000049.json.gz",
+      "sha256": "72f936e3440769e5d2e78c43c232dc445c432ffcfaad1bcdabd70759850778de",
+      "source_case_sha256": "42fc7bc0a5a67cd920d50179717edfe7bf4720269055dd3cb63770292d447842"
+    },
+    {
+      "case_id": 1000050,
+      "file": "case-1000050.json.gz",
+      "sha256": "1d8e3cb5674362b9a11cd1b1ce6ca6a4ebca57c04aeaf3df1b4efa38dd142c03",
+      "source_case_sha256": "95264a3befc977adaae4a26c15d42e07a4863bbc9034232b4463ec15aab06b97"
+    },
+    {
+      "case_id": 1000051,
+      "file": "case-1000051.json.gz",
+      "sha256": "f147c1ec1a63d3dd8f149e7f547b277e8a44507a9f7ed09ee5fa3ac4c99d2efd",
+      "source_case_sha256": "676e3a24360cc7df2668540cf3e40ce269c7bfef10411afeb388e5d952d23322"
+    },
+    {
+      "case_id": 1000052,
+      "file": "case-1000052.json.gz",
+      "sha256": "a1f9c37cf1ade47eec874dc2cbbb57d69dfb6003ac557e0af29372f141d4a9c3",
+      "source_case_sha256": "5ad6fa36be842ef9105c8f9236dadb2e29ee2ec5b77826323e2c15b0521e7fd3"
+    },
+    {
+      "case_id": 1000053,
+      "file": "case-1000053.json.gz",
+      "sha256": "aae873861179af0d2ffe4d6c60f60c6d1bba22f25382b70d7706eb1b7f02af76",
+      "source_case_sha256": "7bda93fc7c8237962a9e4d35d7bd611871405080bc8b1a4ac7e5da459fa60a16"
+    },
+    {
+      "case_id": 1000054,
+      "file": "case-1000054.json.gz",
+      "sha256": "9ef695b17fd17d58a5853dbad16530523f45ab66770365c3ea4a1d3c67eac60d",
+      "source_case_sha256": "62a08abe0f7a30d7ed2e034ad700389555cea192a96dd085a81716f8420bd6bb"
+    },
+    {
+      "case_id": 1000055,
+      "file": "case-1000055.json.gz",
+      "sha256": "9411f0986fb2f046bf13d1dea243d780cfc2802827cbb4edbb9d956da3be23ea",
+      "source_case_sha256": "c57c6282bba385f6bf90419c9749cfd909fcac8c7620903bf73ad909f6b5eead"
+    },
+    {
+      "case_id": 1000056,
+      "file": "case-1000056.json.gz",
+      "sha256": "06c4be49fcf20e1d5f595c52d714b7e4ed71c2f84cd91b76890f8fd2050d428f",
+      "source_case_sha256": "0756540b620f6a8999c9f49b2762f32dc6d2b75916285e67a80e293916009919"
+    },
+    {
+      "case_id": 1000057,
+      "file": "case-1000057.json.gz",
+      "sha256": "69c680fa34693d5df212f2d90b17d726c65f386e198e0b013b6fe228420c22c3",
+      "source_case_sha256": "5054805f0fcb5ac02f3cc409eda85ba2d63a8ea5a5670ca33734353ae4b92085"
+    },
+    {
+      "case_id": 1000058,
+      "file": "case-1000058.json.gz",
+      "sha256": "5b02bc031205f37e42636eec969f5bd4ae869f91fc9f8eb9433e7e4a74efa969",
+      "source_case_sha256": "26514ba38d5d09b51dc0326a32fcefda3fbdbc90106f21e599d9cec53d7773ed"
+    },
+    {
+      "case_id": 1000059,
+      "file": "case-1000059.json.gz",
+      "sha256": "ca298e22df4cb75853d87d21708e2af3bab5e8693cddb8dec611121a24a52546",
+      "source_case_sha256": "937ceaabcb20940468e8801b0c5d2116552db22386c6b2c1bd2eac252382aad2"
+    },
+    {
+      "case_id": 1000060,
+      "file": "case-1000060.json.gz",
+      "sha256": "f88dc2ba28b4e775d07872c74252e7d724d9ea9d000aa6f64599b9228ea20e21",
+      "source_case_sha256": "4943863e7c6b1d53bda0c36950d228cfc2cc6b378b4b26b18a8494fb3313d3f4"
+    },
+    {
+      "case_id": 1000061,
+      "file": "case-1000061.json.gz",
+      "sha256": "2b532f52c30286c584dfb4e0abdeecd000705c75f475f75ad1cb09360727d671",
+      "source_case_sha256": "da95b2175052c3a75c910e021c8d21de0501398107fc53e0104e99bd22fe64b3"
+    },
+    {
+      "case_id": 1000062,
+      "file": "case-1000062.json.gz",
+      "sha256": "d555dcc02f2580f19ae1b8d4cebfabb55609ea5a942cd43532234e05349819db",
+      "source_case_sha256": "348c2f2e898379425aa33bcfd1f2a2ee56bd0d6720219dc41b62c1dc903ea3a2"
+    },
+    {
+      "case_id": 1000063,
+      "file": "case-1000063.json.gz",
+      "sha256": "72cf2e15aa20120e4670081dc03cdb4cd5d4aa0ce11170b08ceaaa7aad187ca7",
+      "source_case_sha256": "e16e66b202767fa774c184002f02e0dd765b1f9dbd30411840dbb7bef47140ec"
+    },
+    {
+      "case_id": 1000064,
+      "file": "case-1000064.json.gz",
+      "sha256": "0cba39554678e545a64ce3a657c2c75ef894f0ef1e84796e3df7d75735fdecb8",
+      "source_case_sha256": "bc2f09e0e9b05dde22f5b8bb4ffef961ff2b9017ab709ae1a187b99a27517111"
+    },
+    {
+      "case_id": 1000065,
+      "file": "case-1000065.json.gz",
+      "sha256": "711983f43c9adcefa5b738e9bdf8d7eefd9c1e71bc1c17356aa76f1b79fb997e",
+      "source_case_sha256": "b258edc2599123a70a3f661fd29dc7fb2ece38b259bd207bc662e2292142bc24"
+    },
+    {
+      "case_id": 1000066,
+      "file": "case-1000066.json.gz",
+      "sha256": "24ab5d808a2c231b98cb99531d134eebf66e6a2a022ecb885df22716c8787ded",
+      "source_case_sha256": "6360b790978c85d02c18a81ba8dbf247e07cbb49d82a62ec4500ff7b11d00e35"
+    },
+    {
+      "case_id": 1000067,
+      "file": "case-1000067.json.gz",
+      "sha256": "a6e03747824bbb3c84f08ec58478db00a93875046a75e903788ceb17e70c9b22",
+      "source_case_sha256": "2ed00f3e8819393b32cc41dfe580eea66b0d75cc6ef5bc68141ac683cd75e833"
+    },
+    {
+      "case_id": 1000068,
+      "file": "case-1000068.json.gz",
+      "sha256": "4ddf518a46ee3080a4b0d9e813974f60c2c82e3e0bfbdf0f7958ae12a247e1c2",
+      "source_case_sha256": "01e05523e9acae23edcada1accfff491f2fc0bd786fc9ef47964f92c3320a32a"
+    },
+    {
+      "case_id": 1000069,
+      "file": "case-1000069.json.gz",
+      "sha256": "08073b4a230813d09769cfccf3f7fee3876bdc5ab249ac310810385a46922203",
+      "source_case_sha256": "bf584b12fa864a4187f554e1c56aa42989fba8e37fa40229b42e280d73e95ac1"
+    },
+    {
+      "case_id": 1000070,
+      "file": "case-1000070.json.gz",
+      "sha256": "e8461fafadfd15fb2823fed1740d501fe7012463a964c1c42209236beedc0a45",
+      "source_case_sha256": "07303e63ee5aa60a32c15a65a143d914e00768343d78c0f79a8f5450f8934a46"
+    },
+    {
+      "case_id": 1000071,
+      "file": "case-1000071.json.gz",
+      "sha256": "c6b4d7b6521afd4c7c3d5e38735915dc69621c526e31fe91d78e75ccc62fe3c9",
+      "source_case_sha256": "a581020de0f8502c62dd509d25394eed15aeeb0492f00229aff32965a09b48f9"
+    },
+    {
+      "case_id": 1000072,
+      "file": "case-1000072.json.gz",
+      "sha256": "e65f77495fdc5fc7bdb4ac661c0246652c3becec6b0f6a9c08adba5fc1184321",
+      "source_case_sha256": "98d2c3074a599124249d20e4543c8bb7533d2654a3dbc59404d64a1f77164c01"
+    },
+    {
+      "case_id": 1000073,
+      "file": "case-1000073.json.gz",
+      "sha256": "5831fc4a98e58a0d6f8a5b414f2a13e47e384690f415d6a7073d710de2980ad4",
+      "source_case_sha256": "43219fd62fb450f36182af916bb03f85c3fa5ee7040724b461b0e750974ff6ea"
+    },
+    {
+      "case_id": 1000074,
+      "file": "case-1000074.json.gz",
+      "sha256": "afe9e390ddad6bdb04c044e8470b15358158f85a2e071177ff54222a3eeb85ea",
+      "source_case_sha256": "5256a1f33dab905713964ba1fa2ee0f6271a4fac40cd66663eb372119f69830f"
+    },
+    {
+      "case_id": 1000075,
+      "file": "case-1000075.json.gz",
+      "sha256": "a0b2450e0dbb0049c5887e0f348827b5243d8cd23aa58461346f7a1b4a5d4f3c",
+      "source_case_sha256": "8c572dee7c35906b50d326158a30513865550c092a0f41b3bdd4c7775eda6dea"
+    },
+    {
+      "case_id": 1000076,
+      "file": "case-1000076.json.gz",
+      "sha256": "bb340f677f5f76c89d07e8d5c9460bc70b3cffe9409873fd5869c0a44d884bcb",
+      "source_case_sha256": "00e60b87bf67b9db960aae67de8766077bff9bc57467405760f708d2da255a03"
+    },
+    {
+      "case_id": 1000077,
+      "file": "case-1000077.json.gz",
+      "sha256": "16c34955ff2dbf10df279f01e2e3e51c4a6ebaefa355025959fa6a747bdcc98c",
+      "source_case_sha256": "fd3ec501543b67419fb2963ca6393f01c44d570762e0104dbf20f85195f6233a"
+    },
+    {
+      "case_id": 1000078,
+      "file": "case-1000078.json.gz",
+      "sha256": "f8f0a74837332bc9cff530305ea598893cefb2ab3275aad9866d09514f95a719",
+      "source_case_sha256": "95586c3544549d854208e4958f0e90e82fcf65584599b0c5ca7f1cd40d707f90"
+    },
+    {
+      "case_id": 1000079,
+      "file": "case-1000079.json.gz",
+      "sha256": "ba313461906431c042f53d82458d8cb10ab26a7fa8f9b89059311a4a36ae0411",
+      "source_case_sha256": "e1d164099eb2e8be262dc7acaad785f8f036fa1a0a24c5953db302b4c3acb0cd"
+    },
+    {
+      "case_id": 1000080,
+      "file": "case-1000080.json.gz",
+      "sha256": "a4fe0b0ef6d51244cdf1dfd86a8db126ced5e358d3f9c453d58adff9587bb615",
+      "source_case_sha256": "fb2058f8537d6826f3ee0800197ad1c7ed04d69ae0f333d44558361cbb45a294"
+    },
+    {
+      "case_id": 1000081,
+      "file": "case-1000081.json.gz",
+      "sha256": "f67f55ed2b06ade5fe4f2a19a3ef12ad8f664a4f19be7b6562a8ef9b5018d90d",
+      "source_case_sha256": "b3a2964c23ccd0d50b001ad12c789f258231977f331c4eee4b919abaaeb110bb"
+    },
+    {
+      "case_id": 1000082,
+      "file": "case-1000082.json.gz",
+      "sha256": "7a1ae5d680ee205cfbd396ee2c067f40366f2518f3c1077250dfd71e330626cf",
+      "source_case_sha256": "b6cd8b73d1bb9802a5dbb752142c6eb255e5e2fc563056d5355ce71bfd6a762b"
+    },
+    {
+      "case_id": 1000083,
+      "file": "case-1000083.json.gz",
+      "sha256": "2cea9c8d44b1cd60f773c0772eb19374ebfc12febf540b26269d853284c3d015",
+      "source_case_sha256": "1bad692817507d66210ab0f4aae06b8ce6d033a0ffe7ca8c0a3881b7654ab9ce"
+    },
+    {
+      "case_id": 1000084,
+      "file": "case-1000084.json.gz",
+      "sha256": "1ddefbf295b25e15d1e8bfc8909ffc4eb1025e1b4c711a06d962a9dbeb104224",
+      "source_case_sha256": "f262dfd7c29d651e5a6b9ea8a446c2226ec1669ba548fb5c1c4e94cb58801e7d"
+    },
+    {
+      "case_id": 1000085,
+      "file": "case-1000085.json.gz",
+      "sha256": "af82a7f6b77b85078673977b216b17cfc3465b5f494e24c4b7820c7b6a025a52",
+      "source_case_sha256": "5850d45ad4fd2e2d8d6bfe575ac52c7e7aa0b3c16b15f01c7a6719d503172b11"
+    },
+    {
+      "case_id": 1000086,
+      "file": "case-1000086.json.gz",
+      "sha256": "d0c38ffdbf3c38d4e23880d1dae90605e70437986a65949678ceeb18469fd843",
+      "source_case_sha256": "7dfe01c43a98c17377962f355cf54df4321b35d8c5b52d3f6d5ee5053acd6d7c"
+    },
+    {
+      "case_id": 1000087,
+      "file": "case-1000087.json.gz",
+      "sha256": "2a40bc6bdcc512e7d0b4697b2a7aafb738c40b29518122a0dffd4af224149c63",
+      "source_case_sha256": "10fcea02fbccd04b1d03d72f7c629e6fd13bb12eca0975205cc9a95e8a8b47c8"
+    },
+    {
+      "case_id": 1000088,
+      "file": "case-1000088.json.gz",
+      "sha256": "08183724e2a6823ecaf0d5f1272bcdd9d69a73cfaa1430cb4a3541cebea71ee7",
+      "source_case_sha256": "7f245e173ccbaf4ea3eb76f4d2b4db951a76c72eb183d873e792a4c8bc655790"
+    },
+    {
+      "case_id": 1000089,
+      "file": "case-1000089.json.gz",
+      "sha256": "c6ad2e593c688439b7c7ea5a7017732148f385c2d1b5002841030fec1eb99ffe",
+      "source_case_sha256": "5693cd9f858253ce1f365a1aa4a0d160a1b334adfee85e8d928da9078faacf36"
+    },
+    {
+      "case_id": 1000090,
+      "file": "case-1000090.json.gz",
+      "sha256": "9bd5a46da0f9e5d149cac0033312c339ee9bd76d95c5266ad02a02aa11d13d07",
+      "source_case_sha256": "454b5f92b33c7ccf443e1cd8b3ef436b0cf7d5213974429944b1457d1f9be1ac"
+    },
+    {
+      "case_id": 1000091,
+      "file": "case-1000091.json.gz",
+      "sha256": "3fc3a8378e5050f3d7fc8a196cc3cb97f826240dfc3472af86528b76df96fead",
+      "source_case_sha256": "4c510b760190997cd421f07bb8a0a30d93199699dd4be7a8b5a4e753d9f84670"
+    },
+    {
+      "case_id": 1000092,
+      "file": "case-1000092.json.gz",
+      "sha256": "4f8f9010fe89ebccc31bed69319eda9d8a22bfeba127f41c13bcc441e4326ef8",
+      "source_case_sha256": "26c926526381c1b4ed4702e60f163ee92af9b0ee2080410d069b97af9d518683"
+    },
+    {
+      "case_id": 1000093,
+      "file": "case-1000093.json.gz",
+      "sha256": "ac4e2cf710c8de44b1a45a155695fea263d75d5c8706b4116c0151d27356471b",
+      "source_case_sha256": "3366ab2375b612027b8af849d28e48c2e6006887ad1e82c99cc8098031b02b76"
+    },
+    {
+      "case_id": 1000094,
+      "file": "case-1000094.json.gz",
+      "sha256": "174574bb336bac940b2f56ba4d85e3e9d993f5bd78f67d8854e7356e867f255e",
+      "source_case_sha256": "36cba38166358389d8727de6fc87d518cabbd522f949f662d09007365c47236b"
+    },
+    {
+      "case_id": 1000095,
+      "file": "case-1000095.json.gz",
+      "sha256": "c4fcde558fa63716cac3284fe33b7365eb01b73b8d9a42deff80093a0bb6d2bf",
+      "source_case_sha256": "1f4c70195d131592080d80b5d3e72b7de28a9edc2233453bcb18d3619ba38647"
+    },
+    {
+      "case_id": 1000096,
+      "file": "case-1000096.json.gz",
+      "sha256": "b3baeae315eaeb37bb2f38496bf1adbe426ec27e620be9a83b4fa0337f9fd8bc",
+      "source_case_sha256": "34370bd8aad1517e49b3515f9fd9e8164171a28d8c6011fcaa0291cc9d8b38ec"
+    },
+    {
+      "case_id": 1000097,
+      "file": "case-1000097.json.gz",
+      "sha256": "d2caebe757fdf4e92e1e8ff171053a8d357f8237a03dbf068159593ffb5691b0",
+      "source_case_sha256": "2ac8cf6901452bca10e7f3f0c31d46cfd6105c44d7fbd5cc558e4759d98bbb82"
+    },
+    {
+      "case_id": 1000098,
+      "file": "case-1000098.json.gz",
+      "sha256": "3bdc7ec1b0721c8fe500633b5d3c83632f0f32eff17925e2aa04a970223c487c",
+      "source_case_sha256": "ab8a26f95dc21be0c38aa726fa083ddc13ab1c6d840394920c6c7032ecc3dfc4"
+    },
+    {
+      "case_id": 1000099,
+      "file": "case-1000099.json.gz",
+      "sha256": "8bc4d17b644543c460f933dd87dfb743d9bfa8609f3850b23ecbf377a62341e3",
+      "source_case_sha256": "dbab5e68613bd77a5af11c8053475538cef28fc84cbf40c3d19d4a8ac915e3cd"
+    },
+    {
+      "case_id": 1000100,
+      "file": "case-1000100.json.gz",
+      "sha256": "30527b305dd9cb1cc5d13b2e0df437d69fe06d05b7095676808cdee6ef13a9dd",
+      "source_case_sha256": "515b09cb7167f14d0d2e7d8baca443939e37b58c957ec2ea79f1ae8e89494016"
+    },
+    {
+      "case_id": 1000101,
+      "file": "case-1000101.json.gz",
+      "sha256": "4923036c6f439d6b0bdfb4c7b3560659d09a13fd4cd79710eb129b1b03953097",
+      "source_case_sha256": "cb11399c4d8ad45d4dd88b67f679a17726ba6e6f20aeda07fc2536b4d66b54a0"
+    },
+    {
+      "case_id": 1000102,
+      "file": "case-1000102.json.gz",
+      "sha256": "3ef622428ffb8b09c1b76f6cb73e4bfcce668a3efe2c9e0c3a0c6bb620ff1efd",
+      "source_case_sha256": "cf55834a6bae101fe45017a5731c06bda330ad27c296010303ed4f3235d8d713"
+    },
+    {
+      "case_id": 1000103,
+      "file": "case-1000103.json.gz",
+      "sha256": "dfec8886c39022f9bc151de92673445eb3daf3ac8e5eec64c931b05d58ccf7e3",
+      "source_case_sha256": "f9f8318779838d2896c016705c366b45faba6a04cd842ae2eaa6cbfa31686e3b"
+    },
+    {
+      "case_id": 1000104,
+      "file": "case-1000104.json.gz",
+      "sha256": "0e8f4162533b68c7547e5e319d3675a3efa61d4451020be8812dbde724562b5f",
+      "source_case_sha256": "2d372687de6a1b875bb0136c726cd620007696b87949628a596820450a3852e2"
+    },
+    {
+      "case_id": 1000105,
+      "file": "case-1000105.json.gz",
+      "sha256": "cbdb4e6fda102decc1558b8f480f666045e55c1487ca9136bfbdbb3fa08a0071",
+      "source_case_sha256": "d8a513263f415e6de21d981e5b98aa4de4836bbf057e80e0e958b42b6fcc6a30"
+    },
+    {
+      "case_id": 1000106,
+      "file": "case-1000106.json.gz",
+      "sha256": "3a691903567626a1bf539a8709a7faed6b3dfc1b0340ceefbf0d74ff88ada1fa",
+      "source_case_sha256": "89ab4f3cafef60e97830afc81005619c67a049d58e79ec8d2de95c8d5927e4e7"
+    },
+    {
+      "case_id": 1000107,
+      "file": "case-1000107.json.gz",
+      "sha256": "4a4d77f86a9fc8f46d945855ab271b914040567246d342ceafac8c41c558074e",
+      "source_case_sha256": "ccc720de4b4f74d907a9a3c5071522e7fea59f661544676f398dae3ac812df92"
+    },
+    {
+      "case_id": 1000108,
+      "file": "case-1000108.json.gz",
+      "sha256": "c5c3dd783e3c54cb3655a084358c9f95676e28befe71bc3f13fd31ecd9f0aaaa",
+      "source_case_sha256": "0348607e92ae9904cb144a0835782cf66cfc8998c2d176782000fb429e4cb5d2"
+    },
+    {
+      "case_id": 1000109,
+      "file": "case-1000109.json.gz",
+      "sha256": "cf6640e66165a0cd9aeaa8db395e6ddea69a353e6f0184e283cefbbb2c7e52bd",
+      "source_case_sha256": "aa6d7ea3dd07b798e07401073bd6d46d1259c7b4ce7e4a5b80fb407624a96bd5"
+    },
+    {
+      "case_id": 1000110,
+      "file": "case-1000110.json.gz",
+      "sha256": "edffab6fd2adb6c2667c0354bd05a6564d79390a4f61fed47589acc263bfb320",
+      "source_case_sha256": "85858fa36dbfdb4e2ce5734defedc60af24a0e935441eb2ab8d24ed509fb9656"
+    },
+    {
+      "case_id": 1000111,
+      "file": "case-1000111.json.gz",
+      "sha256": "56c24a26cc5306bef1e9c66aaedd641612454062769372bbdc2429e7b31e1303",
+      "source_case_sha256": "9ae586e63879ef293c0cc99459a6f8b005552bcdaeaa0c9420dad1740409d753"
+    },
+    {
+      "case_id": 1000112,
+      "file": "case-1000112.json.gz",
+      "sha256": "35e3d26d1030ae0ec431726c26059d7e105f7acc6187ca27827621392fe89f0d",
+      "source_case_sha256": "1f658d15b9dcbe1393368d7c3f9e10191399aa0582a22930f7ab2634a49c0ba3"
+    },
+    {
+      "case_id": 1000113,
+      "file": "case-1000113.json.gz",
+      "sha256": "7d1670845b19be547bcb0c1d5c9b011bb3228df43f75966c27dd9dbacc81bab5",
+      "source_case_sha256": "4c83fde18c76fabf5c735a2ec4cc6cf90c909f7afef40da125ce34a113b72f66"
+    },
+    {
+      "case_id": 1000114,
+      "file": "case-1000114.json.gz",
+      "sha256": "246ac9d93c19c8354fbe966ce3a2364d6b3b888ed4a4cb5e10f874566a5febf1",
+      "source_case_sha256": "45f591a922ffb4bd6ab86cfcead2c00c805f6c9e9989118dc056cf13150badd8"
+    },
+    {
+      "case_id": 1000115,
+      "file": "case-1000115.json.gz",
+      "sha256": "a500b71577f501e60e907d6e7e10b851e17e3ec01d17cd2e2d549c31f9632510",
+      "source_case_sha256": "7de56ad8a9c7df420db8c26a853b0aee01a4c3295a7413cdb4e399012e80efbd"
+    },
+    {
+      "case_id": 1000116,
+      "file": "case-1000116.json.gz",
+      "sha256": "77b8e2f2c8febd426342358e42e06bd800dfd5cbe362f57fce6ed7904c354fcf",
+      "source_case_sha256": "e723c5ea662a9cbefdbdb4067ce59aaf9edd4f6a4378a509683a9e861b030e3e"
+    },
+    {
+      "case_id": 1000117,
+      "file": "case-1000117.json.gz",
+      "sha256": "6cbe1609fbc208721dc146898f427a53334810bd11c6e2a5a0ecdfcf8027d0b3",
+      "source_case_sha256": "0badc5b673814d885ac64e3e726339cc28c218d8305660111166976397b38cb3"
+    },
+    {
+      "case_id": 1000118,
+      "file": "case-1000118.json.gz",
+      "sha256": "d88dd483d324c97e40b0bad9ec84ba25c165b7daa78774b7c68f87c76c73dffe",
+      "source_case_sha256": "13f62f556b8b2a1101ab3484309cb253f12fceedf81e4ad4935537223c8ce7f1"
+    },
+    {
+      "case_id": 1000119,
+      "file": "case-1000119.json.gz",
+      "sha256": "056010945ee9abbdd453aa1214089de66bf84c0f7693fd7b94594544744c3e60",
+      "source_case_sha256": "e9567eb8e712c83a107721872a519efadd78eb07aa0308b4cb82742e7db9eb83"
+    },
+    {
+      "case_id": 1000120,
+      "file": "case-1000120.json.gz",
+      "sha256": "07ea353cc0bec2ab151a99588270e3bd810f653f33dd8852f3728bad15a3f984",
+      "source_case_sha256": "aecb49af6616a91b3fedb56791e396480082c25eecf75690476a56ce13a8572c"
+    }
+  ],
+  "event_counts": {
+    "actual_model_responses": 124,
+    "recorded_model_errors": 0,
+    "actual_mcp_responses": 120,
+    "recorded_mcp_transport_errors": 0,
+    "model_invoked_cases": 120,
+    "mcp_only_handoff_cases": 0
+  },
+  "observed_regression_floors": {
+    "tool_exact_accuracy": 0.0,
+    "tool_set_accuracy": 0.0,
+    "pre_guard_schema_valid_rate": 1.0,
+    "final_schema_valid_rate": 1.0,
+    "first_decision_schema_valid_rate": 0.9666666666666667,
+    "pre_guard_lexical_faithful_rate": 0.7,
+    "final_lexical_faithful_rate": 1.0
+  },
+  "pii_ceiling": 0,
+  "scope": "Actual model/MCP responses and recorded adapter errors replayed in order in CI. Errors are not responses. MCP-only handoffs did not invoke the LLM. CI does not run the real model; replay wall times are not model latencies.",
+  "run_context": {
+    "git_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "git": {
+      "git_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+      "executable": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+      "executable_sha256": "b8c0fb947064541d99b694cd61cfe58e062f82fa1777a58f32a4ef53faebb971",
+      "repository_argument": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "selected_source_scope": [
+        "copilot/agent",
+        "copilot/eval",
+        "copilot/mcp_server",
+        "copilot/retrieval",
+        "copilot/db",
+        "copilot/scripts",
+        "copilot/configs",
+        "copilot/requirements-tools.txt",
+        "copilot/README-tools.md",
+        "copilot/compose.copilot.yml",
+        "serving/model/model.joblib",
+        "serving/model/model_meta.json",
+        "streaming/model/lr_model.json",
+        "gateway/main.py",
+        "gateway/fixtures/manifest.json",
+        "gateway/fixtures/creditcard-prefix-10000.parquet",
+        "ato/datagen.py",
+        "ato/features.py"
+      ],
+      "source_hashes": {
+        "sha256": {
+          "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+          "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+          "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+          "copilot/agent/llm.py": "65c9db0a32a5624cf570f83bda78cee6ab1d4bea9aba632cc0d69cf9830eb63e",
+          "copilot/agent/redaction.py": "e65502f4faec23f5f82cada9651cd681dfdc2485ac6401577ea1b135b4e6a403",
+          "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+          "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+          "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+          "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+          "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+          "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+          "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+          "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+          "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+          "copilot/eval/export_cassette.py": "af1d5305ffa9bb2e67d3b406da6c9f64501db0ab15a115c7964202d4d5a363ac",
+          "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+          "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+          "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+          "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+          "copilot/eval/model_events.py": "19fcf39e610e78bdb773abbda6cd8a7b703d00bac744ae7fa6eb1c8eec3572ff",
+          "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+          "copilot/eval/recording.py": "c288d382dfea9aa8dbe9c3465b6075693332478634ad7a4a3428f671bffb6a7c",
+          "copilot/eval/replay.py": "f842aa82ffc6ab584e70cde562ffe16223fc98f806a50084c58a5918957df52f",
+          "copilot/eval/run.py": "51e969379d306f643630857d40f3ce652196e083c20261ce90912270c44deb52",
+          "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+          "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+          "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+          "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+          "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+          "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+          "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+          "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+          "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+          "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+          "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+          "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+          "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+          "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+          "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+          "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+          "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+          "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+          "copilot/db/reader.py": "98c1df62c91f31f81b7705866dbb24e775aa22c81f5d7acb863fee986d2a3b69",
+          "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+          "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+          "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+          "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+          "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+          "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+          "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+          "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+          "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+          "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+          "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+          "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+          "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+          "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+          "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+          "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+          "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+          "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+          "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+          "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+          "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+          "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+          "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+          "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+          "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+          "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+          "copilot/README-tools.md": "d64b677293a471a1359f0f703ab97fcbf36271965ef523b4fb9959b34dd350a1",
+          "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+          "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+          "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+          "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+          "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+          "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+          "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+          "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+          "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+        },
+        "missing_paths": []
+      },
+      "selected_source_dirty": false,
+      "selected_source_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal",
+          "--",
+          "copilot/agent",
+          "copilot/eval",
+          "copilot/mcp_server",
+          "copilot/retrieval",
+          "copilot/db",
+          "copilot/scripts",
+          "copilot/configs",
+          "copilot/requirements-tools.txt",
+          "copilot/README-tools.md",
+          "copilot/compose.copilot.yml",
+          "serving/model/model.joblib",
+          "serving/model/model_meta.json",
+          "streaming/model/lr_model.json",
+          "gateway/main.py",
+          "gateway/fixtures/manifest.json",
+          "gateway/fixtures/creditcard-prefix-10000.parquet",
+          "ato/datagen.py",
+          "ato/features.py"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal -- copilot/agent copilot/eval copilot/mcp_server copilot/retrieval copilot/db copilot/scripts copilot/configs copilot/requirements-tools.txt copilot/README-tools.md copilot/compose.copilot.yml serving/model/model.joblib serving/model/model_meta.json streaming/model/lr_model.json gateway/main.py gateway/fixtures/manifest.json gateway/fixtures/creditcard-prefix-10000.parquet ato/datagen.py ato/features.py",
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "whole_worktree_dirty": true,
+      "whole_worktree_status": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=normal"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform status --porcelain=v1 --untracked-files=normal",
+        "returncode": 0,
+        "stdout": "?? copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_before": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "head_after": {
+        "argv": [
+          "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+          "--no-optional-locks",
+          "-c",
+          "safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "-C",
+          "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+          "rev-parse",
+          "HEAD"
+        ],
+        "command": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git --no-optional-locks -c safe.directory=/mnt/g/ResumeProject/platforms/sentinel-risk-platform -C /mnt/g/ResumeProject/platforms/sentinel-risk-platform rev-parse HEAD",
+        "returncode": 0,
+        "stdout": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+        "stderr": "",
+        "timeout_seconds": 600,
+        "environment_overrides": {
+          "GIT_OPTIONAL_LOCKS": "0",
+          "GIT_TERMINAL_PROMPT": "0",
+          "LC_ALL": "C"
+        }
+      },
+      "task_environment": {
+        "COPILOT_GIT": "/opt/codex-resume/all-modules-v2/m1a/tools/git-native/usr/bin/git",
+        "FINETUNE_GIT": null,
+        "HF_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/huggingface",
+        "PIP_CACHE_DIR": "/opt/codex-resume/all-modules-v2/m1a/cache/pip",
+        "TMPDIR": "/opt/codex-resume/all-modules-v2/m1a/tmp",
+        "TEMP": null,
+        "TMP": null,
+        "XDG_CACHE_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/xdg",
+        "TORCH_HOME": "/opt/codex-resume/all-modules-v2/m1a/cache/torch",
+        "HF_HUB_OFFLINE": "1",
+        "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
+        "PYTHONPATH": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+        "PYTHONHASHSEED": "42",
+        "CUBLAS_WORKSPACE_CONFIG": null,
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2"
+      }
+    },
+    "git_status": "?? copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/",
+    "selected_source_dirty": false,
+    "whole_worktree_dirty": true,
+    "source_hashes": {
+      "sha256": {
+        "copilot/agent/__init__.py": "f136ff1b510fa447417e0e0f8744a036691ad379e5fc99b28667c0619b09b32f",
+        "copilot/agent/api.py": "c17ce2a70af28651b6d832d4f54d22d5a4cba230df0a187f53227bdd4f00d0b1",
+        "copilot/agent/configs/api.template.json": "909d9c16b1f6ae3d8db54b0141b3bfdc256b49978934086e87ed93618758f2e1",
+        "copilot/agent/llm.py": "65c9db0a32a5624cf570f83bda78cee6ab1d4bea9aba632cc0d69cf9830eb63e",
+        "copilot/agent/redaction.py": "e65502f4faec23f5f82cada9651cd681dfdc2485ac6401577ea1b135b4e6a403",
+        "copilot/agent/schemas.py": "d1a9fc8daee659275b31eb9eb78391003913f6dc1dd1e427398e6223d4627fd8",
+        "copilot/agent/workflow.py": "4d8bb9ae2b24f797c73d75d8c4b22bfb3154975ba25f3b173ab76bcc92e20607",
+        "copilot/eval/__init__.py": "77732cc9a8c76a803ecc61248f20824773ba21c7021dc8dc05fd6cd53707f8d4",
+        "copilot/eval/build_protocol.py": "48030c543786f66b0a18c1b05548bbf37d4159052791e0a30e360a6c8f0f6d3d",
+        "copilot/eval/configs/export-cassette.template.json": "fdc7dc62b543bdc3f2218d7e53c410478a7f287f293963ca615ad43137b109e2",
+        "copilot/eval/configs/freeze-runtime.template.json": "a070a4de18f137eb20031624aa4ca863e3bbf678dcd86502faab68cb3ab1697d",
+        "copilot/eval/configs/real-eval.template.json": "3055c0870c3cc6235d82b6ed95f4e9ae2e3f495c7f080710269112118db0f130",
+        "copilot/eval/configs/replay.template.json": "b981ef22d05cc9c7c00c4165a6fb19b97c61522b0e9298d13854e6b147703b8c",
+        "copilot/eval/configs/source-protocol.json": "292312d10e051997bb70914b71530fef21df256e60c96faf44807e4218d0483e",
+        "copilot/eval/export_cassette.py": "af1d5305ffa9bb2e67d3b406da6c9f64501db0ab15a115c7964202d4d5a363ac",
+        "copilot/eval/faithfulness.py": "9e0dbe2f1816dc534dc6670630b44a77e877abe565555f7ccb02e5fe6fd460c5",
+        "copilot/eval/fixtures/source-protocol-v2.json": "755b31aeea2526530c34acfe4c7d359f64b03c5ea57af6844ab3c73a777e446b",
+        "copilot/eval/freeze_runtime.py": "e60739eb96d7aea953237947086cb6de462632616f242ed81fea91459c21189c",
+        "copilot/eval/metrics.py": "7924981bb9ab3c3630bd64c10cd241c55f2d0081e09c580e62adbc0b73dd1aa1",
+        "copilot/eval/model_events.py": "19fcf39e610e78bdb773abbda6cd8a7b703d00bac744ae7fa6eb1c8eec3572ff",
+        "copilot/eval/protocol.py": "0d006d3ada1fabb9531f09a197a2eb10d4bf878d5b179395066c5dd978a04ebd",
+        "copilot/eval/recording.py": "c288d382dfea9aa8dbe9c3465b6075693332478634ad7a4a3428f671bffb6a7c",
+        "copilot/eval/replay.py": "f842aa82ffc6ab584e70cde562ffe16223fc98f806a50084c58a5918957df52f",
+        "copilot/eval/run.py": "51e969379d306f643630857d40f3ce652196e083c20261ce90912270c44deb52",
+        "copilot/mcp_server/__init__.py": "4a320c4492c5284bc5d8e6f7560cb4c031f5e84a77181674679d4f7bdfba6d44",
+        "copilot/mcp_server/client.py": "cb922413b9b160231000190133bae71c8dc8dda060ae8de84fc3525be2cf4afc",
+        "copilot/mcp_server/contracts.py": "1e791f77a9ff9182c479d34bd6e8d5b844adf43695c197d638fc78bcbdb8c2e9",
+        "copilot/mcp_server/explanation.py": "2bf913ee533c09f0e85d4b164b0410efc4a1810c69402c7f97a26bc4a61c92e0",
+        "copilot/mcp_server/gateway.py": "774f02c652bfee1cec93c09f588ea72a70b640f669a92a0d7f9b7f64d3cba2c8",
+        "copilot/mcp_server/server.py": "53b39a001cee6b1ad7c6bb4e63f6ee95e5950d6077ec8b1c3b0d314861759c0f",
+        "copilot/mcp_server/service.py": "1f7dade2bbda85f4fc7ba74875ea9889ef424e3672adcd29346f53362cccbc07",
+        "copilot/mcp_server/token_registry.py": "b0707cbd17b9c03fe0e812538bd854960b3d89128af2e6d38435d292dc3ac9b0",
+        "copilot/retrieval/__init__.py": "417cdf13a47294f25d778b9619290d499b65bb56ff39ad5ad4fabdb561d3bfeb",
+        "copilot/retrieval/build_protocol.py": "94be619f71793edb6d4cfdb5961fb1c43b91ec078336d285037756b1424356ab",
+        "copilot/retrieval/embedding.py": "8d09ceefd46eb103846f377a56ae52aa3594bbb6845b40353d52344adc327231",
+        "copilot/retrieval/evaluate.py": "a6200f12e038498442b669fadce953e9a7455152a1ca492c50efa219a255d681",
+        "copilot/retrieval/evidence.py": "66acf75e0064a6dbd3ee819496290360a94a84325da4694ddc92c248ff3f2bd0",
+        "copilot/retrieval/index_cases.py": "608750ea72f8adf078458148e2ea8064157eff54129a7a9534720e3c4ff0a382",
+        "copilot/db/__init__.py": "c43239338c71d831b2808a8a7c599485ada77eb47234c7b17ea9b2e6b21677fa",
+        "copilot/db/migrate.py": "6fbfaa692bb7a2d3110e6e7c77f27dae5aeb537f615b94f3f982947a5951d604",
+        "copilot/db/migrations/001_copilot.sql": "20dcc605cfbb670c8a7c1ec8c219173b589dc0a5db55cffb7abc55cecfc58e82",
+        "copilot/db/persistence.py": "08155e195d8b01a8780836b2aaaf426cf818d25913337cb9278059a6cbdab803",
+        "copilot/db/reader.py": "98c1df62c91f31f81b7705866dbb24e775aa22c81f5d7acb863fee986d2a3b69",
+        "copilot/db/vectors.py": "5d1a1b4989fd8c9c80f60f86add90bfb2c6fedf8b38ce6a9dc72b4cdce301a16",
+        "copilot/scripts/__init__.py": "41daa86ed18e57866d512eb4456d012a2c8557cf667542bb6ac9af5dcc2dadc3",
+        "copilot/scripts/create_credentials.py": "48b8dc01e88882881f26553d5ba826809fc9131e1415e4376de8b2658f85543f",
+        "copilot/scripts/download_embedding.py": "67fa056b8b01eeff695b908131e8ecfbaa28a97628985a5f1d04a8752a8ab5ac",
+        "copilot/scripts/import_cases.py": "37be0099df2e280a027eb218396f34c36834f4c63c4a5f8a401aa441c9738b49",
+        "copilot/scripts/import_eval_cases.py": "53f7b6db38e00e61d23468933010cfbcb2d05326cd4b00e8aac4472c1987afa0",
+        "copilot/scripts/prepare_ci.py": "fd14f11059bb095000abab46b1fdf7023f1e6409e49c32889da9901e814ee6d1",
+        "copilot/scripts/provenance.py": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a",
+        "copilot/scripts/provision_roles.py": "a6b4e4c3138800c9fd154b6e265cf7c3c8051f17a3194d491865a95f1f325200",
+        "copilot/scripts/run_checks.py": "edfff87b3008f3312d5e98eba0c5f1a09162ccb466300ba94c07b8a84cfda636",
+        "copilot/scripts/verify_human_review.py": "5f3813b928c963454cae33eee307255cdf2e4f7da54e0a6b9d64cf7563769625",
+        "copilot/scripts/verify_model.py": "a577834b83a06537db119c55630527d2c7299aa3ffe0215bc3ce1bf775cd607e",
+        "copilot/scripts/write_stack_env.py": "532ecd33e873ca088e191d4beb5ba43ee0db7be92d7959a5182e5e57877b6ecf",
+        "copilot/configs/agent-runtime-lock.txt": "6a91e398870af63100f012903f34c2d52031becf36e0660998051cd254c4388e",
+        "copilot/configs/bge-reference.json": "c75286119e9a1fc75d7d42e92610f7febe12969370bbb25322c1657dcc9a789b",
+        "copilot/configs/checks.json": "c6318ef5e0c31f280d0f17d320f31f0cf97cbfef30bc0fe0907440bef18d3739",
+        "copilot/configs/human-review.template.json": "58c88ef3bdd7fa4f9fff4f2105b33551308508ce5bc5d671858800bc39891975",
+        "copilot/configs/import-cases.json": "d98f460b3621df4843c61684f72840d69ea073023445215817bc2a3e60dd6b97",
+        "copilot/configs/import-eval-cases.template.json": "495538635796ba050bc16d6f53a1faa698a1a65c6d7c962d550a7bd69ec03493",
+        "copilot/configs/index-cases.template.json": "4305d2f25419dfede7376039759e82dc41c678c2aac49f78949a820078684de9",
+        "copilot/configs/model-parity.json": "5fa526dace5696bca6de6614e78b25880839d29af19d0dc350b16bd45ad296ba",
+        "copilot/configs/requirements-tools-ci.txt": "cb0e14a8ce781a5aedcab6436af9359fdf9e625c2ed42ad8363a83a205d2182e",
+        "copilot/configs/retrieval-eval.template.json": "a754a1b9c2231ddc7a82a5427d73b2164028e472de31fb3ac5d37061264ef3f7",
+        "copilot/configs/retrieval-protocol.json": "9bb4792997efa6f8bc5f9da30fd5afe89c69b15ae8ccd8ab025cb58dca95867f",
+        "copilot/configs/tools.json": "d4f1f429ce63265f1de863b8edc9c0c003d60a6ffed414bff16a5ee7cdf90556",
+        "copilot/requirements-tools.txt": "562c8d8bb49d077dd23d5981a963f60669a73145194666828c2a857874444efb",
+        "copilot/README-tools.md": "d64b677293a471a1359f0f703ab97fcbf36271965ef523b4fb9959b34dd350a1",
+        "copilot/compose.copilot.yml": "ce3f0e98fa8890fc1e537289299ad0fd420df5223b7ac6962a02b8e409767ac0",
+        "serving/model/model.joblib": "18e11ae45ff0ec4883851d10c3e0655ebed4c5c15c7b2ecf6b209de6a7f03570",
+        "serving/model/model_meta.json": "b9151d87e5582796205181efdce0d6267b17e59b4b429232c264cd300c6d3ec7",
+        "streaming/model/lr_model.json": "12c063adddb9d2e2a0ecd1e9190a45281411f9b83cc7de279d48c54be06cd4a1",
+        "gateway/main.py": "f81ae11e7844da4d303de74f7bae04b60bd324ff2987d06a6f3afd04d4f408be",
+        "gateway/fixtures/manifest.json": "2004d7a1f63defaf1d847e9f5ebe38e2f8ecb29bc1bf86401b8b13d87a3fe72c",
+        "gateway/fixtures/creditcard-prefix-10000.parquet": "c46bc85b699befb736ae287fd3a7adfeb70aa6863c5251c9d4a3862c5754d0f4",
+        "ato/datagen.py": "2d890996808c07fdf62ead2a7b9b30b3d6d61c389d7d2b9cb7a09feafb4afc74",
+        "ato/features.py": "baa2b71b9bc8eb4ad57893d63704665ef69ee0bcda1432bd398f36430579ac56"
+      },
+      "missing_paths": []
+    },
+    "runner_source": {
+      "path": "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/scripts/provenance.py",
+      "sha256": "679914897af82c37f335aba4ab54a87bd729032dfa4e28820cb77ea02c3bd64a"
+    },
+    "config_sha256": "5eb0524484e30bf78e1df7b1b45b16e4e42ca0e638679794a7afb3a7cd0f2438",
+    "packages": {
+      "mcp": "2.3.0",
+      "mcp-types": "2.3.0",
+      "psycopg": "3.3.6",
+      "pgvector": "0.5.1",
+      "sentence-transformers": "6.2.0",
+      "transformers": "5.22.1",
+      "torch": "2.15.0",
+      "numpy": "2.5.4",
+      "scikit-learn": "1.9.1",
+      "pandas": "3.1.0",
+      "joblib": "1.6.0",
+      "pyarrow": "26.0.0",
+      "langgraph": "1.2.19",
+      "jsonschema": "4.26.0",
+      "httpx": "0.28.1",
+      "httpx2": "2.16.0",
+      "uvicorn": "0.54.0"
+    },
+    "environment": "WSL2 local Qwen with Docker Desktop PostgreSQL/gateway and authenticated native MCP",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+    "cuda": null,
+    "python": "3.12.3 (main, Jul 15 2026, 23:46:41) [GCC 13.3.0]",
+    "python_executable": "/opt/codex-resume/all-modules-v2/m1a/agent-venv/bin/python",
+    "python_import_paths": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "/opt/codex-resume/all-modules-v2/m1a/agent-venv/lib/python3.12/site-packages",
+      "/opt/codex-resume/portfolio-ml/venv/lib/python3.12/site-packages"
+    ],
+    "command": [
+      "/mnt/g/ResumeProject/platforms/sentinel-risk-platform/copilot/eval/export_cassette.py",
+      "--config",
+      "/mnt/g/ResumeProject/.runtime/all-modules-v2/m1a/agent/isolated-runtime-20261103-fixipv4/runs/isolated-8c4e-20261103T012816Z/export.json"
+    ],
+    "timestamp": "2026-11-03T01:33:25.946997+00:00",
+    "wall_seconds": 108.66742955902009,
+    "recorded_at": "2026-11-03T01:33:39.098491+00:00",
+    "device": {
+      "runner": "cpu orchestration",
+      "configured_model_device": "not specified by this runner",
+      "observed_cpu": "x86_64",
+      "observed_gpu_driver": "NVIDIA GeForce RTX 3080, 621.01",
+      "cuda": "not queried by this runner"
+    },
+    "interpretation": "provenance of this artifact; raw observations are evidence, not an acceptance claim"
+  }
+}

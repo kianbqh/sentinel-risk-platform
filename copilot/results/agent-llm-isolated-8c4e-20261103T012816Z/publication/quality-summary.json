@@ -1,0 +1,58 @@
+{
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "metrics": {
+    "cases": 120,
+    "completed_cases": 120,
+    "failed_cases": 0,
+    "tool_exact_accuracy": 0.0,
+    "tool_set_accuracy": 0.0,
+    "pre_guard_schema_valid_rate": 1.0,
+    "final_schema_valid_rate": 1.0,
+    "first_decision_schema_valid_rate": 0.9666666666666667,
+    "abstain_rate": 0.6333333333333333,
+    "abstain_expectation_accuracy": 0.55,
+    "pre_guard_lexical_faithful_rate": 0.7,
+    "final_lexical_faithful_rate": 1.0,
+    "pre_guard_pii_leak_count": 0,
+    "final_pii_leak_count": 0,
+    "schema_retry_count": 4,
+    "decision_schema_valid_rate": 0.967741935483871,
+    "tokens_per_case": {
+      "input_tokens": {
+        "mean": 1066.6916666666666,
+        "measured_cases": 120
+      },
+      "output_tokens": {
+        "mean": 224.28333333333333,
+        "measured_cases": 120
+      }
+    }
+  },
+  "latency_seconds": {
+    "p95": 1.891345849246136,
+    "sample_count": 120,
+    "p50": 0.7811608129995875
+  },
+  "event_counts": {
+    "actual_model_responses": 124,
+    "recorded_model_errors": 0,
+    "actual_mcp_responses": 120,
+    "recorded_mcp_transport_errors": 0,
+    "model_invoked_cases": 120,
+    "mcp_only_handoff_cases": 0
+  },
+  "handoff_reasons": {
+    "unfaithful_output": 54,
+    "low_confidence": 12,
+    "insufficient_evidence": 10,
+    "none": 44
+  },
+  "raw_model_quality_and_guarded_delivery_are_separate": true,
+  "interpretation": "Actual local-model run only. CPU replay is deterministic recorded input, not model quality or latency. Lexical faithfulness checks token membership, not semantic reasoning. Negative quality is retained and does not authorize rerunning fixed cases.",
+  "source_result_sha256": "8401f7b364c8a9dc318c98abb14994ebe09c4f7a8500bc87af3942dedd36ca41",
+  "source_audit_sha256": "f8a9014a42e346b7a7e0359d808f305f0c42e1d6364d743804fe3d2acc13aafe"
+}

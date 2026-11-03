@@ -1,0 +1,74 @@
+{
+  "kind": "sanitized-isolation-storage-cleanup",
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "independent_database": "sentinel_copilot_fixipv4_20261103_01",
+  "original_database": "sentinel_copilot",
+  "original_database_invariance": {
+    "status": "passed",
+    "original_database_unchanged": true,
+    "original127_files_unchanged": true,
+    "phase": "before-pg-stop",
+    "same_failed_pass_snapshot": true
+  },
+  "original_before_snapshot_sha256": "c978ae0de6c7966a6220eb779cb8d91c23292552e87ed55fa86b84bd46c15a0a",
+  "original_failed_snapshot_file_sha256": "cce94997478a08a55f3a92be95a93b8fd367e926a855418428b51fd38f63068b",
+  "all_120_persisted_and_protected_fields_unchanged": true,
+  "matching_event_turn_memory_content_independently_audited": true,
+  "cleanup_status": "passed",
+  "owned_process_stops": [
+    {
+      "name": "api",
+      "owned_pid": 422520,
+      "exit_code": -15,
+      "stopped": true
+    },
+    {
+      "name": "llama",
+      "owned_pid": 422135,
+      "exit_code": 0,
+      "stopped": true
+    },
+    {
+      "name": "mcp",
+      "owned_pid": 422131,
+      "exit_code": -15,
+      "stopped": true
+    }
+  ],
+  "final_containers": {
+    "postgres": {
+      "id": "900f1c2242984d14f8b0aabba5eb7c4de7f15959444ac53d3339b7c8a400b725",
+      "running": false
+    },
+    "gateway": {
+      "id": "b17ab789bcf0c1b8d121a23768aca8b4ada547573a500bd3687dbd5884b2758a",
+      "running": false
+    },
+    "backend": {
+      "id": "74099baf9e13927bcc78c532a0266916b3115385b80dbb38a09369a945736082",
+      "running": false
+    },
+    "console": {
+      "id": "5b320d250ce9c4cfaa0933727da51e714898aa9eea2dd36300fad03fcb125148",
+      "running": false
+    }
+  },
+  "volume_deleted": false,
+  "preserved_volume_exists": true,
+  "portable_service_identity_and_health_unchanged": true,
+  "portable_service_healthy": true,
+  "all_owned_process_identities_absent": true,
+  "reserved_ports_all_free": true,
+  "gpu_compute_processes_empty": true,
+  "shared_active_lock_absent": true,
+  "no_database_restart_or_case_retry": true,
+  "source_receipts": {
+    "cleanup_sha256": "0d54468cebb32bf777d257504943eb8a813b687015cae20a75b4e3d7591bf8d0",
+    "release_sha256": "6ee2073a25c051a0d023c2e38db31af687401441f9bab7df9f74e0f4b4e2b1bb"
+  },
+  "evidence_scope": "Independent snapshot/file reconciliation. Full original DB after-prepare/after-full/before-stop equality is enforced by the frozen observe_original/verify_original implementation and actual passing receipts; those receipts do not contain fresh full after-phase snapshots. Prior Git staged/working blob checks are the retained root checkpoint proof; no Git operation is rerun here."
+}

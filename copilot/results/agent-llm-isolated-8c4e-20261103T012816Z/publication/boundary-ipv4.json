@@ -1,0 +1,55 @@
+{
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "diagnostic": {
+    "scanner": "independent-punctuated-ipv4-v1",
+    "pattern": "(?<![\\w.])(?:\\d{1,3}\\.){3}\\d{1,3}(?!\\w|\\.\\d)",
+    "scope": "Actual request messages, completed model content and returned drafts only; no endpoint/provenance/props/protocol/ground truth. Warmups separate.",
+    "primary_metrics_changed": false,
+    "denominators": {
+      "measured/request_messages": {
+        "payloads": 124,
+        "string_fields": 496,
+        "characters": 409187,
+        "cases": 120
+      },
+      "measured/actual_model_content": {
+        "payloads": 124,
+        "string_fields": 124,
+        "characters": 82965,
+        "cases": 120
+      },
+      "measured/returned_draft": {
+        "payloads": 120,
+        "string_fields": 688,
+        "characters": 25818,
+        "cases": 120
+      },
+      "warmup/request_messages": {
+        "payloads": 3,
+        "string_fields": 12,
+        "characters": 11123,
+        "cases": 2
+      },
+      "warmup/actual_model_content": {
+        "payloads": 3,
+        "string_fields": 3,
+        "characters": 2062,
+        "cases": 2
+      },
+      "warmup/returned_draft": {
+        "payloads": 2,
+        "string_fields": 10,
+        "characters": 294,
+        "cases": 2
+      }
+    },
+    "hits_by_stage": {},
+    "hits": [],
+    "semantics": "Valid IPv4Address candidate, allowing terminal punctuation dot and refusing a further dotted numeric component. Character spans are zero-based half-open in the actual recorded string. Narrow posthoc diagnostic, not proof that every PII class is absent; raw-output hits would remain quality observations."
+  },
+  "source_audit_sha256": "f8a9014a42e346b7a7e0359d808f305f0c42e1d6364d743804fe3d2acc13aafe"
+}

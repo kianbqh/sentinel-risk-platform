@@ -7,11 +7,18 @@ validated draft event with actor `copilot` through a restricted writer role.
 
 The [tool HTTP/database checks and retrieval benchmark](README-tools.md#checks-and-results)
 have run. The [first real-Qwen pass](results/agent-llm-live120-f836-20261103T010430Z/FAILED_RUN.md)
-completed 119 of 120 cases and exposed an IPv4 redaction bug at sentence-ending
-punctuation. Its raw records and negative quality results are retained. The
-fix passes [59 CPU checks](results/ipv4-regression-20261103/receipt.json), including
-the recorded failure as a regression fixture. A complete run of the corrected
-version, the live draft API check and cassette export/replay are pending.
+completed 119 of 120 cases and exposed an IPv4 punctuation redaction bug; its
+raw records and negative quality remain unchanged. The fix passes
+[59 CPU checks](results/ipv4-regression-20261103/receipt.json), including the
+recorded failure fixture. The
+[corrected run](results/agent-llm-isolated-8c4e-20261103T012816Z/real-eval/result.json)
+completed all 120 fixed cases on an independent database. Tool exact/set
+accuracy remained 0/120, raw lexical faithfulness was 84/120 and 76/120 cases
+abstained. Actual end-to-end p50/p95 was 0.781160813/1.891345849 seconds.
+The [clone API](results/agent-llm-isolated-8c4e-20261103T012816Z/publication/api-check.json)
+and [120-case local replay](results/agent-llm-isolated-8c4e-20261103T012816Z/replay/result.json)
+passed; the [report](../results/M1A_DELIVERY_REPORT.md) keeps guarded final
+delivery separate from raw model quality.
 
 ## Setup
 
@@ -143,10 +150,16 @@ actual model/MCP responses, recorded adapter exceptions and MCP-only handoffs.
 An exception is recorded at its request boundary without invented response,
 content or usage. Case or storage failures block whole-cassette export.
 Replay checks exact prompt, schema, tool, draft and memory records; a mismatch
-remains a failure even if the graph safely hands off. CI replay is prepared,
-with floors copied from the future observed baseline. No actual-model cassette
-has been generated yet. Replay timing is not model latency; synthetic fault
-fixtures under `tests/agent/` remain separate.
+remains a failure even if the graph safely hands off. The [accepted corrected-source cassette](results/agent-llm-isolated-8c4e-20261103T012816Z/cassette/manifest.json)
+contains all 120 fixed cases, 124 actual model responses and 120 actual MCP
+responses, with no recorded adapter errors. The
+[local replay](results/agent-llm-isolated-8c4e-20261103T012816Z/replay/result.json)
+completed all 120 with exact input consumption. The
+[tracked CI config](eval/configs/replay.live120-fixipv4-8c4e.json) pins the
+literal manifest SHA-256 and observed quality floors, including zero tool
+accuracy. The [workflow](../.github/workflows/platform.yml) adds CPU replay
+without a model, database or secret. Replay timing is not model latency;
+synthetic fault fixtures under `tests/agent/` remain separate.
 
 ## Checks
 
@@ -163,15 +176,27 @@ redacted memory, authentication handling, preserved failures and exact
 response/error recording. The [source integration record](results/recording-unit-20261102/source-integration.json)
 identifies the seven accepted recording files.
 
+After the IPv4 right-boundary fix, the
+[integrated WSL CPU suite](results/ipv4-regression-20261103/receipt.json)
+passed 59 tests, including ten new IPv4 regressions, with zero failures or
+errors in 2.545 seconds. This expanded suite uses no external model, database
+or GPU. The [closed-run audit](results/agent-llm-isolated-8c4e-20261103T012816Z/publication/acceptance.json)
+passed 6,082 checks. Its independent IPv4 scan found no hits in 124 actual
+requests, 124 raw model contents or 120 returned drafts; separate warmups
+also had no hits.
+
 Real tool HTTP, PostgreSQL role/transaction invariants and same-database human
 review have [separate measured evidence](README-tools.md#checks-and-results).
 The [runtime-v2 freeze](results/runtime-v2-5465aae-01/runtime-protocol/result.json)
 contains 120 balanced cases read through actual MCP, with protocol SHA-256
 `21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb`.
 Its [state check](results/runtime-v2-5465aae-01/state-check/result.json)
-confirmed no labels, memory or turns on those cases at the freeze. This is
-pre-model evidence. Actual Qwen quality/latency, the live draft API and
-whole-run cassette replay still require the corrected-version evaluation.
+confirmed no labels, memory or turns on those cases at the freeze. This is pre-model evidence. The retained
+[first failed pass](results/agent-llm-live120-f836-20261103T010430Z/FAILED_RUN.md)
+and the completed
+[corrected run](results/agent-llm-isolated-8c4e-20261103T012816Z/real-eval/result.json)
+keep separate source versions and outcomes in the
+[delivery report](../results/M1A_DELIVERY_REPORT.md).
 
 ## Limitations
 

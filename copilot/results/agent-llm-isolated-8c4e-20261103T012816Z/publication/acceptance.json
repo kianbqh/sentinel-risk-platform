@@ -1,0 +1,41 @@
+{
+  "kind": "sanitized-independent-closed-run-acceptance",
+  "identity": {
+    "run_id": "isolated-8c4e-20261103T012816Z",
+    "source_sha": "8c4e2f78ea6b898e24a1839a9ad2557538828d6c",
+    "runtime_protocol_sha256": "21f8eef123d17b0a812bdb313c1f644bc4cc65086b83c17c253becd347c89afb"
+  },
+  "functional_closure_accepted": true,
+  "total_checks": 6082,
+  "passed_checks": 6082,
+  "failed_checks": 0,
+  "error_checks": 0,
+  "contract_failures": [],
+  "audit_timestamp": "2026-11-02T17:36:26.544435-08:00",
+  "original_audit_sha256": "f8a9014a42e346b7a7e0359d808f305f0c42e1d6364d743804fe3d2acc13aafe",
+  "auditor_sha256": "9f7e7ff63560f79337c5a0ef553f18f99590a02cbef91d16148efb4fbd12feb0",
+  "method": "Closed original file reconciliation, native stdlib and pure schema/lexical/PII definitions; no WSL/process/network/model/database execution.",
+  "gpu_participation_verified": true,
+  "exact_owned_llama_gpu_pid": 422135,
+  "directly_logged_offload_pairs": [],
+  "offload_evidence_limit": "Full layer count is not inferred from -ngl99. GPU participation uses pinned model/server, actual props and the exact owned GPU-compute PID.",
+  "scope_limits": [
+    "No independent live request, Git operation or graph rerun performed.",
+    "Original Go ledger is asserted by state-check source and successful command receipt; snapshots omit ledger.",
+    "Original DB after-full and before-stop equality is enforced by frozen isolation code and successful actual phase receipts; no independent post-query or full after-phase snapshot is claimed.",
+    "Successful exact replay is evidenced by frozen replay code plus attributed zero-exit result, not per-case consumption receipts."
+  ],
+  "original_254_file_review": {
+    "file_count": 254,
+    "total_bytes": 10679475,
+    "includes_decompressed_cassettes": true,
+    "secret_review_status": "passed",
+    "matching_file_count": 0,
+    "credential_values_or_digests_emitted": false
+  },
+  "source_receipts": {
+    "secret_review_sha256": "819d6a7aeedc7a53ace7a282913784691b06e2cd217dde3dc987d6986bc6da49",
+    "owner_review_sha256": "963e3f74fc189b4c0d61ce3c4ee71f195620e624c14b61fb758063719a4ace8c",
+    "original_public_manifest_sha256": "6045df381c9870e79d9cdd4e354e80e2edd3ae475178893b3623b8c1e6cac590"
+  }
+}

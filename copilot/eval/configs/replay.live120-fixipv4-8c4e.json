@@ -1,0 +1,7 @@
+{
+  "repo_root": ".",
+  "environment": "GitHub-hosted Linux runner; deterministic recorded corrected-source actual-model event replay",
+  "output_dir": ".runtime/copilot-agent-replay/live120-fixipv4-8c4e",
+  "cassette_manifest": "copilot/results/agent-llm-isolated-8c4e-20261103T012816Z/cassette/manifest.json",
+  "cassette_manifest_sha256": "8504fffed1f1631b8723e108b5c761e3b56fd4542e06f9dfff053baa390d77bf"
+}

@@ -232,6 +232,8 @@ gold label. BGE ran on CPU and queried PostgreSQL 17.11 with pgvector 0.8.7.
 retain every result. The separate [live-case index](results/retrieval-dcb8436-01/case-index/result.json)
 indexed 92 eligible cases and skipped 30 incomplete or unsupported cases;
 these counts describe the demo database; the balanced gallery is separate.
+The [delivery report](../results/M1A_DELIVERY_REPORT.md) collects these checks
+with the retained first model failure and corrected-version evaluation.
 Every runner records its source/config identity, packages, environment,
 exact invocation and wall time in a fresh result directory.
 
